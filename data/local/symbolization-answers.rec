@@ -1,0 +1,7 @@
+# Symbolization answer keys (local additions).
+# Format: see data/README.md. Fields:
+#   answer-key:              answer key, referred to from symbolization-problems.rec
+#   english:                 the English sentence
+#   node:                    a node of the answer's symbolization tree, 'code:English', in pre-order
+#   errors:                  error count
+#   seconds:                 time worked, in seconds

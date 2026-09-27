@@ -1,0 +1,187 @@
+# Derivation tips (an outline).
+# Format: see data/README.md. Fields:
+#   text:                    text of the next entry (several text fields are concatenated)
+#   entry:                   creates an entry (collapsed) with the preceding text; the value is its title
+#   expanded-entry:          like entry, but initially expanded
+#   end:                     ends the current level of the outline
+
+text: The following general strategies are derived from those suggested in the text on page 69.  Some commentary has also been added.  These strategies are often, but not invariably, helpful.  They are given in the order in which they should be applied, i.e. first consider whether Strategy 1 is applicable, then whether Strategy 2 is applicable, and so forth.  Note that as a result of applying one of the latter strategies, an earlier strategy, previously inapplicable, may become applicable.
+expanded-entry:
+  text: Most derivations begin with a show line containing the conclusion of the argument.
+  entry: 1
+  end:
+
+  text: If the conditions for boxing and canceling occur, do it.
+  entry: 2
+    text: If the WFF in the last uncanceled show line occurs unboxed, below the show line, box and cancel by Direct Derivation (DD).  Don't forget to cite the line number.
+    expanded-entry: A
+    end:
+
+    text: If the WFF in the last uncanceled show line is a conditional, and its consequent occurs unboxed, below the show line, box and cancel by Conditional Derivation (CD).  Don't forget to cite the line number.
+    expanded-entry: B
+    end:
+
+    text: If a WFF and the negation of that WFF occur on separate unboxed lines, below the last uncanceled show line, box and cancel by Indirect Derivation (ID).  Don't forget to cite both line numbers.
+    expanded-entry: C
+    end:
+
+  end:
+
+  text: If a WFF that is needed for boxing and canceling occurs in an antecedent line above the last uncanceled show line, use Repetition (R) to bring it below the show line.
+  entry: 3
+  end:
+
+  text: To derive a conditional, use conditional derivation.
+  entry: 4
+    text: If the last uncanceled show line is a conditional, follow it immediately by a line in which you assume the antecedent of the conditional (unless the antecedent of the conditional already occurs in earlier, unboxed line).  The assumption line would be justified, "ASS CD".
+    expanded-entry: A
+    end:
+
+    text: If you have already obtained the antecedent, enter a show line in which you attempt to show the consequent (unless the consequent already occurs in an antecedent line).
+    expanded-entry: B
+    end:
+
+  end:
+
+  text: To derive a conjunction, derive first both conjuncts, and then use Adjunction (ADJ).
+  entry: 5
+    text: If the last uncanceled show line is a conjunction, enter a show line in which you attempt to show the first conjunct (unless the first conjunct already occurs in an antecedent line).
+    expanded-entry: A
+    end:
+
+    text: If you have already obtained the first conjunct, attempt to show the second conjunct (unless it already occurs in an antecedent line).
+    expanded-entry: B
+    end:
+
+    text: When you have obtained the two conjuncts in separate lines, apply the rule of Adjunction (ADJ) to the two lines in order to derive the conjunction.
+    expanded-entry: C
+    end:
+
+    text: You can then box and cancel the original show line by Direct Derivation (DD).
+    expanded-entry: D
+    end:
+
+  end:
+
+  text: To derive a biconditional, derive first the two corresponding conditionals, and then use Conditional-Biconditional (CB).
+  entry: 6
+    text: If the last uncanceled show line is a biconditional, enter a show line in which you attempt to show the first (left to right) of the corresponding conditionals (unless the first of the corresponding conditionals already occurs in an antecedent line).
+    expanded-entry: A
+    end:
+
+    text: If you have obtained the first conditional, attempt to show the second conditional (unless it already occurs in an antecedent line).
+    expanded-entry: B
+    end:
+
+    text: When you have obtained the two conditionals in separate lines, apply the rule of Conditional-Biconditional (CB) to the two lines in order to derive the biconditional.
+    expanded-entry: C
+    end:
+
+    text: You can then box and cancel the original show line by Direct Derivation (DD).
+    expanded-entry: D
+    end:
+
+  end:
+
+  text: To derive a disjunction, derive first the corresponding conditional, and then use Conditional Disjunction (CDJ).
+  entry: 7
+    text: If the last uncanceled show line has the form \l(P | Q)\l, enter a show line in which you attempt to show the corresponding conditional: \l(~P -> Q)\l (unless it already occurs in an antecedent line).  Conditionals are relatively easy to show by using Strategic Hint 3 (above).
+    expanded-entry: A
+    end:
+
+    text: If you have obtained the conditional, apply the rule Conditional Disjunction (CDJ), which has the form: \l(~P -> Q) .: (P | Q)\l.  You will thereby derive the original disjunction in the show line.
+    expanded-entry: B
+    end:
+
+    text: If CDJ is not an available rule, you can either use T45, BC, and MP, or, if T45 is not available, you can mimic the argument given in the text (p. 76) for the second half of T45.
+    expanded-entry: C
+    end:
+
+    text: You can then box and cancel the original show line by Direct Derivation (DD).
+    expanded-entry: D
+    end:
+
+  end:
+
+  text: Enter the Premises.
+  entry: 8
+  end:
+
+  text: To derive anything else, use indirect derivation unless another procedure is immediately obvious.
+  entry: 9
+    text: If the last uncanceled show line is a negation or a sentence letter (or, in Chapter III, an existential or universal generalization), follow it immediately by a line in which you assume the negation of the show line (unless the negation of the show line already occurs in an antecedent line).  The assumption line would be justified, "ASS ID".
+    expanded-entry: A
+    end:
+
+    text: It is generally valuable to enter some assumption line immediately following a show line because it gives you more lines to work with.
+    expanded-entry: B
+    end:
+
+  end:
+
+  text: Whenever a sentence follows from antecedent lines by MP, MT, S, MTP, or BC, enter that sentence as a line.
+  entry: 10
+    text: Whenever a conditional that has not yet been used occurs in an antecedent line, apply Modus Ponens (MP) or Modus Tollens (MT) if possible.
+    expanded-entry: A
+    end:
+
+    text: Whenever a disjunction that has not yet been used occurs in an antecedent line, apply Modus Tollendo Ponens (MTP) if possible.
+    expanded-entry: B
+    end:
+
+    text: Whenever a conjunction occurs in an antecedent line, apply Simplification (S) to obtain any conjunct not already available.
+    expanded-entry: C
+    end:
+
+    text: Whenever a biconditional occurs in an antecedent line, apply Biconditional-Conditional (BC) to obtain any conditional not already available.
+    expanded-entry: D
+    end:
+
+    text: You may generate some unnecessary lines in this way, but it gives you more to work with.
+    expanded-entry: E
+    end:
+
+  end:
+
+  text: If a conditional occurs in an antecedent line, and has not yet been used, it is often helpful to attempt to show its antecedent (or, alternatively, the negation of its consequent).
+  entry: 11
+    text: If successful, this would allow you to apply MP (or, MT).
+    expanded-entry: A
+    end:
+
+  end:
+
+  text: If a disjunction occurs in an antecedent line, and has not yet been used, it is often helpful to attempt to show the negation of one of its disjuncts).
+  entry: 12
+    text: If successful, this would allow you to apply MTP.
+    expanded-entry: A
+    end:
+
+  end:
+
+  text: When using indirect derivation, determine whether any of the antecedent lines is the negation of a conditional (conjunction, disjunction, or biconditional); if so, attempt to derive that conditional (conjunction, disjunction, or biconditional).
+  entry: 13
+    text: Conditionals are usually easiest to derive, but if an antecedent line is the negation of a conjunction, disjunction, or biconditional, it is often useful to attempt to derive that conjunction, disjunction, or biconditional.
+    expanded-entry: A
+    end:
+
+    text: "\"When using indirect derivation\" simply means that at some earlier stage, an uncompleted indirect derivation was begun.  If so, there will be an (unboxed) antecedent line justified by \"ASS ID\"."
+    expanded-entry: B
+    end:
+
+  end:
+
+  text: Whenever Double Negation (DN) would help provide the conditions for 2, 3, 10-13, apply it.
+  entry: 14
+  end:
+
+  text: When using indirect derivation, and none of the above Strategic Hints is applicable, it is sometimes useful to begin attempting to derive the individual sentence letters (or their negations) that appear in antecedent lines.
+  entry: 15
+    text: Entering "Show P", allows one to assume "~P"; entering "Show ~Q", allows one to assume "Q".  Eventually, the buildup of these lines may allow you to apply Strategic Hints 8 - 11.  If you are successful in boxing and cancelling such lines as "Show P" and "Show ~Q", you will have to repeat the use of Hints 6 and 7 to complete the derivation.
+    expanded-entry: A
+    end:
+
+  end:
+
+end:
+

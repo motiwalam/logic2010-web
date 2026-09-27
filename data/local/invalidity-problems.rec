@@ -1,0 +1,13 @@
+# Invalidity problems (local additions).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   argument:                the argument to show invalid
+#   universe-size:           size of the universe
+#   interpretation:          interpretations, separated by '.'
+#   workspace:               free-form workspace text (encoded)

@@ -1,0 +1,94 @@
+# Messages.
+# Format: see data/README.md. Fields:
+#   sort:                    sort key (editorial, not used by the program)
+#   id:                      message id, used by the program
+#   error:                   title of an error message (shown in red)
+#   error-revised:           revised error title (not used by the program)
+#   info:                    title of an information message (shown in gold)
+#   info-revised:            revised info title (not used by the program)
+#   text:                    message text; \n is a line break, \l toggles symbol translation, <param> is replaced
+#   description:             when the message appears (for the programmer)
+#   programmer-note:         comment to the programmer
+#   buttons:                 buttons: 'Label:action.Label:action;default-index'
+
+# Instructions for the creation of this file.  Copy the Excel material and paste into this file.  [The following resizing is unnecessary.]  Pull the borders of the table to make them appropriately wide.  Save as Text.
+# `s terminates the sort field, used to resort messages according to various criteria.
+# `n terminates the message name or message ID
+# `d terminates the description of the source for the error (explanation by the programmer)
+# `p terminates a comment to the programmer.
+# `e terminates the error message (displayed in red by the program)
+# `E terminates a revised version of the error message
+# `i terminates the information message (displayed in gold by the program)
+# `I terminates a revised version of the information message
+# `x terminates the explanation (explanation for the user)
+# Only one of `e or `i should appear for any message
+# Blanks at the start and end of strings are trimmed
+# \n forces a carriage return within the text.
+# \l toggles conversion of Maggie-talk.  Default is OFF.
+# Sort#  `s     Name or ID  `n     Present_Message  P_M_Term     New_Message  N_M_Term     Comment to Programmer  `p     Explanation  `x     Description  `d
+sort: 01
+id: SymNot001
+text: The English expression should be a stylistic variant of:\n<indent 5><right statement>\nwhose logical form is\n<indent 5><right type>.\n\n
+buttons: Enter Text:text.Enter Symbol:symb.Up:up.OK:ok
+description: hint message
+
+# 02  `s     SymNot002  `n     Can not write to work directory.\nMake sure the disk is not locked.  `x
+# 03  `s     SymNot003  `n     A problem must have a non empty name  `x     the user did not enter anything into the problem naming dialog  `d
+# 04  `s     SymNot004  `n     You cannot use the name <problem name>  `x     the problem name is already in use  `d
+sort: 05
+id: SymNot005
+text: You cannot view the answers to this problem.
+description: the user can only edit user problems
+
+sort: 06
+id: SymNot006
+text: The answer currently in the workspace is incomplete.\n\nTo be added to the Answer list, every branch of the answer\nmust terminate in an Atomic expression.
+description: only complete answers can be added to the answer list
+
+sort: 07
+id: SymNot007
+text: You create an Answer by working the problem and then clicking Add in\nthe Answer Manager. You can use the Direct entry button to quickly\ncreate an answer, which will appear in the workspace (with empty text\nboxes), from which you can use Answer/Add to add it to the list of\nanswers. You can add as many Answers as you wish, either right from\nthe workspace or starting out from the Direct entry facility.\n\nTo be added to the Answer list, every branch of the workspace answer\nmust terminate in an Atomic expression.\n\nIf you wish to edit one of the Answers in the list, perhaps to fill\nin or change what is in the text boxes, click on the Answer to select\nit, and click Enter to put it into the workspace. Edit it in the\nworkspace. When you are finished editing it, reopen the Answer\nManager, select the Answer and click Replace to replace the original\nanswer with the edited answer. You can also use Delete to remove any\nAnswer in the list.\n\nBe sure to fill in the text boxes of your favorite answer(s) if you\nwish the Hint facility to be able to offer fully explanatory hints.\nIf you wish to suppress Hints for certain Instructor Problems, use\nonly the 800 versions of those problem in your Assignments.\n\nOnly Problems with at least one Answer can be Uploaded.
+description: Answer Manager help message
+
+sort: 08
+id: SymNot008
+text: Use this dialog to create a Scheme of Abbreviation.\n\nSchemes of Abbreviation are presented using Placeholders, {1}, {2},\n{3}, ... instead of variables or other symbolic terms. The\nplaceholders are entered by using the keyboard combinations Alt+1,\nAlt+2, Alt+3, ... Enter the Predicate or Term Letter on the left\nfollowed by the appropriate number of distinct placeholders (with or\nwithout parentheses as required by the syntax). On the right, enter\nthe corresponding English (plus placeholders) expression.  The Tab\nkey moves you back and forth between columns.
+description: Create Scheme help message
+
+sort: 09
+id: SymNot009
+text: Only Problems with at least one Answer can be Uploaded.
+description: upload failure message
+
+sort: 10
+id: SymNot010
+text: Could not parse <source>.
+description: could not parse atomic formula
+
+sort: 11
+id: SymNot011
+text: Bad expression type; expected <type>.
+description: Term where Formula expected or vice versa
+
+sort: 12
+id: SymNot012
+text: You cannot edit this problem. Please make a copy\nby right-clicking on the "Save" button.
+description: Tried to edit a core or example problem
+
+sort: 13
+id: SymErr001
+text: In the immediately preceding box, you have the expression\n<indent 5><wrong statement>\nwhich you have identified as \n<indent 5><wrong type>.  \n\nThe English expression should be a stylistic variant of:\n<indent 5><right statement>\nwhose correct logical form is\n<indent 5><right type>.\n\n
+buttons: Replace Text:text.Replace Symbol:symb.Up:up.OK:ok
+description: symbol error
+
+sort: 14
+id: SymErr002
+text: In the immediately preceding box, you have the expression\n<indent 5><wrong statement>\nwhich you have identified as \n<indent 5><wrong type>.  \n\nThe English expression should be a stylistic variant of:\n<indent 5><right statement>\nThe variable of generalization, <bound var>, creates a clash of variables.\nPlease choose a new variable.\n\n
+buttons: Replace Text:text.New Variable:symb.Up:up.OK:ok
+description: binding error
+
+sort: 15
+id: SymErr003
+text: In the immediately preceding box, you have the expression\n<indent 5><wrong statement>\nwhich you have identified as \n<indent 5><wrong type>.  \n\nDue to a binding error, there can be no correct answer.\nFix all antecedent binding errors and check again.\n\n
+buttons: Up:up.OK:ok
+description: symbol error and binding error

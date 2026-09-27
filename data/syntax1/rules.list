@@ -1,0 +1,496 @@
+# Rules (notation 1). One per line: NAME, blanks, then the definition.
+# '## text' lines are headings shown in the program's lists.
+
+##                          CHAPTER I
+##                   SENTENTIAL LOGIC
+## Repetition
+R          P.:P
+## Double Negation
+DNE        ~~P.:P
+DNI        P.:~~P
+##  
+DN         DNE.DNI
+## Modus Ponens
+MP         P.P->Q.:Q
+## Modus Tollens
+MT         ~Q.P->Q.:~P
+##  
+##                          CHAPTER II
+## Simplification
+SL         P&Q.:P
+SR         P&Q.:Q
+##  
+S          SL.SR
+## Adjunction
+Adj        P.Q.:P&Q
+## Addition
+AddR       P.:P|Q
+AddL       P.:Q|P
+##  
+Add        AddL.AddR
+## Modus Tollendo Ponens
+MTPR       ~Q.P|Q.:P
+MTPL       ~P.P|Q.:Q
+##  
+MTP        MTPR.MTPL
+## Biconditional-Conditional
+BCL        P<->Q.:P->Q
+BCR        P<->Q.:Q->P
+##  
+BC         BCL.BCR
+## Conditional-Biconditional
+CB         P->Q.Q->P.:P<->Q
+##                      DERIVED RULES
+## Material Conditional
+## T2
+MC1        Q.:P->Q
+## T18
+MC2        ~P.:P->Q
+## 
+MC         MC1.MC2
+## Separation of Cases
+# To enable SC1, prove T33 (Ex95 T33).
+## T33
+SC1        P->Q.~P->Q.:Q
+# To enable SC2, prove T49 (Ex107 T49).
+## T49
+SC2        P|Q.P->R.Q->R.:R
+## Deriv 2.049a
+SC2a       P|Q|S.P->R.Q->R.S->R.:R
+##  Deriv 2.049b
+SC2b       P|Q|S|T.P->R.Q->R.S->R.T->R.:R
+# To enable SC3, prove T50 (Ex107a T50).
+## T50
+SC3        P->R.Q->R.:P|Q->R
+##  
+SC         SC1.SC2.SC2a.SC2b.SC3
+## Conditional Disjunction
+# To enable CDJ1 & CDJ3, prove T45 (Ex104 T45).
+## T45
+CDJ1       ~P->Q.:P|Q
+CDJ3       P|Q.:~P->Q
+# To enable CDJ2 & CDJ4, prove T46 (Ex105 T46).
+## T46
+CDJ2       ~P|Q.:P->Q
+CDJ4       P->Q.:~P|Q
+##  
+CDJ        CDJ1.CDJ2.CDJ3.CDJ4
+## Transposition 
+# To enable TRANS1 & TRANS2, prove T111 (Ex127o T111).
+## T111
+TRANS1     (P->Q).:(~Q->~P)
+TRANS2     (~Q->~P).:(P->Q)
+##  
+TRANS      TRANS1.TRANS2
+## Conjunction Biconditional
+# To enable CJB1, prove T84 (Ex123 T84).
+## T84
+CJB1       P&Q.:P<->Q
+# To enable CJB2, prove T85 (Ex124 T85).
+## T85
+CJB2       ~P&~Q.:P<->Q
+## T83
+CJB3       P<->Q.:(P&Q)|(~P&~Q)
+CJB4       (P&Q)|(~P&~Q).:P<->Q
+##  
+CJB        CJB1.CJB2.CJB3.CJB4
+## Biconditional Expansion
+## T81
+BEX1       P<->Q.:(P->Q)&(Q->P)
+BEX2       (P->Q)&(Q->P).:P<->Q
+## Deriv 2.081a
+BEX3       P<->Q.:(~P|Q)&(~Q|P)
+BEX4       (~P|Q)&(~Q|P).:P<->Q
+## T83
+BEX5       P<->Q.:(P&Q)|(~P&~Q)
+BEX6       (P&Q)|(~P&~Q).:P<->Q
+##  
+BEX        BEX1.BEX2.BEX3.BEX4.BEX5.BEX6
+## Negation of a Conditional
+# To enable NC1 & NC2, prove T40 (Ex101 T40).
+## T40
+NC1        ~(P->Q).:P&~Q
+# To enable NC2, prove T42 (Ex101b T42).
+# This is an alternative to T40. 
+NC2        P&~Q.:~(P->Q)
+##  
+NC         NC1.NC2
+## Negation of a Biconditional
+# To enable NB1 & NB2, prove T90 (Ex126 T90).
+## T90
+NB1        ~(P<->Q).:P<->~Q
+NB2        P<->~Q.:~(P<->Q)
+##  
+NB         NB1.NB2
+## DeMorgan Laws
+# To enable DM1 & DM3, prove T65 (Ex119 T65).
+## T65
+DM1        ~(P&Q).:~P|~Q
+DM3        ~P|~Q.:~(P&Q)
+# To enable DM2 & DM4, prove T66 (Ex120 T66).
+## T66
+DM2        ~(P|Q).:~P&~Q
+# To enable DM4, prove T67 (Ex121 T67).
+# This is an alternative to T66.
+DM4        ~P&~Q.:~(P|Q)
+# To enable DM5 & DM6, prove T63 (Ex117 T63).
+## T63
+DM5        P&Q.:~(~P|~Q)
+DM6        ~(~P|~Q).:P&Q
+# To enable DM7 & DM8, prove T64 (Ex118 T64).
+## T64
+DM7        P|Q.:~(~P&~Q)
+DM8        ~(~P&~Q).:P|Q
+##  
+DM         DM1.DM2.DM3.DM4.DM5.DM6.DM7.DM8
+## Negation of a Conjunct
+# To enable NCJ1 & NCJ2, prove T43 & T44  (Ex2.043 T43 & Ex2.044 T44).
+## T43
+NCJ1       ~P.:~(P&Q)
+## T44
+NCJ2       ~Q.:~(P&Q)
+##  
+NCJ        NCJ1.NCJ2
+## Distribution Laws
+# To enable DIST1 & DIST2, prove T61 (Deriv 2.061 T61).
+## T61
+DIST1      P&(Q|R).:(P&Q)|(P&R)
+DIST2      (P&Q)|(P&R).:P&(Q|R)
+# To enable DIST5 & DIST6, prove Deriv 2.061a.
+##  Deriv 2.061a
+DIST5      (Q|R)&P.:(Q&P)|(R&P)
+DIST6      (Q&P)|(R&P).:(Q|R)&P
+# To enable DIST3 & DIST4, prove T62 (Deriv 2.062 T62).
+## T62
+DIST3      P|(Q&R).:(P|Q)&(P|R)
+DIST4      (P|Q)&(P|R).:P|(Q&R)
+# To enable DIST7 & DIST8, prove Deriv 2.062a.
+## Deriv 2.062a
+DIST7      (Q&R)|P.:(Q|P)&(R|P)
+DIST8      (Q|P)&(R|P).:(Q&R)|P
+## T116
+DIST9      (P&Q)|(R&S).:(P|R)&(P|S)&(Q|R)&(Q|S)
+DIST10     (P|R)&(P|S)&(Q|R)&(Q|S).:(P&Q)|(R&S)
+## T117
+DIST11     (P|Q)&(R|S).:(P&R)|(P&S)|(Q&R)|(Q&S)
+DIST12     (P&R)|(P&S)|(Q&R)|(Q&S).:(P|Q)&(R|S)
+##  
+DIST       DIST1.DIST2.DIST3.DIST4.DIST5.DIST6.DIST7.DIST8.DIST9.DIST10.DIST11.DIST12
+## Commutativity Laws
+# To enable COM1, prove T24 (Ex89 T24).
+## T24
+COM1       P&Q.:Q&P
+# To enable COM2, prove T53 (Ex109 T53).
+## T53
+COM2       P|Q.:Q|P
+# To enable COM3, prove T92 (Ex126b T92).
+## T92
+COM3       P<->Q.:Q<->P
+##  
+COM        COM1.COM2.COM3
+## Associativity Laws
+# To enable ASSOC1 & ASSOC2, prove T25 (Ex90 T25).
+## T25
+ASSOC1     P&(Q&R).:(P&Q)&R
+ASSOC2     (P&Q)&R.:P&(Q&R)
+# To enable ASSOC3 & ASSOC4, prove T54 (Ex110 T54).
+## T54
+ASSOC3     P|(Q|R).:(P|Q)|R
+ASSOC4     (P|Q)|R.:P|(Q|R)
+# To enable ASSOC5 & ASSOC6, prove T94 (Ex126d T94).
+## T94
+ASSOC5     P<->(Q<->R).:(P<->Q)<->R
+ASSOC6     (P<->Q)<->R.:P<->(Q<->R)
+##  
+ASSOC      ASSOC1.ASSOC2.ASSOC3.ASSOC4.ASSOC5.ASSOC6
+## Exportation/Importation Laws
+# To enable EXP1 & EXP2, prove T27 (Ex91 T27).
+## T27
+EXP1       (P&Q->R).:(P->(Q->R))
+EXP2       (P->(Q->R)).:(P&Q->R)
+##  
+EXP        EXP1.EXP2
+## Biconditional Tollens
+## T76 & T77
+BT1        (P<->Q).~P.:~Q
+BT2        (P<->Q).~Q.:~P
+##  
+BT         BT1.BT2
+## Biconditional Ponens
+## T74 & T75
+BP1        (P<->Q).P.:Q
+BP2        (P<->Q).Q.:P
+##  
+BP         BP1.BP2.BT1.BT2
+## Sentential Simplification Laws
+## T70
+SSimp1     Q.:(P&Q<->P)
+SSimp2     Q.:(Q&P<->P)
+## T71
+SSimp3     ~Q.:(P|Q<->P)
+SSimp4     ~Q.:(Q|P<->P)
+## T2
+SSimp5     P.:((P->Q)<->Q)
+## T18
+SSimp6     ~Q.:((P->Q)<->~P)
+## T84
+SSimp7     P.:((P<->Q)<->Q)
+SSimp8     Q.:((P<->Q)<->P)
+## T85
+SSimp9     ~P.:((P<->Q)<->~Q)
+SSimp10    ~Q.:((P<->Q)<->~P)
+## T72
+SSimp11    P->Q.:(P&Q<->P)
+SSimp12    P->Q.:(Q&P<->P)
+## T73
+SSimp13    P->Q.:(P|Q<->Q)
+SSimp14    P->Q.:(Q|P<->Q)
+## T81
+SSimp15    P->Q.:((P<->Q)<->(Q->P))
+SSimp16    Q->P.:((P<->Q)<->(P->Q))
+## T41
+SSimp17    P&P.:P
+SSimp18    P.:P&P
+## T47
+SSimp19    P|P.:P
+SSimp20    P.:P|P
+## T119
+SSimp21    P&(Q|~Q).:P
+SSimp22    P.:P&(Q|~Q)
+## T120
+SSimp23    P|(Q&~Q).:P
+SSimp24    P.:P|(Q&~Q)
+## T123
+SSimp25    P|(P&Q).:P
+SSimp26    P.:P|(P&Q)
+## T124
+SSimp27    P&(P|Q).:P
+SSimp28    P.:P&(P|Q)
+## 
+SSimp      SSimp1.SSimp2.SSimp3.SSimp4.SSimp5.SSimp6.SSimp7.SSimp8.SSimp9.SSimp10.SSimp11.SSimp12.SSimp13.SSimp14.SSimp15.SSimp16.SSimp17.SSimp18.SSimp19.SSimp20.SSimp21.SSimp22.SSimp23.SSimp24.SSimp25.SSimp26.SSimp27.SSimp28
+##  
+##                          CHAPTER III
+##            MONADIC PREDICATE LOGIC
+## Universal Instantiation
+UI         forall x Fx .: FA
+## Existential Instantiation
+EI         exists x Fx .: Fa
+## Existential Generalization
+EG         FA .: exists x Fx
+##                      DERIVED RULES
+## Quantifier Negation Laws
+# To enable QN1 & QN2, prove T203 (Ex163c T203).
+## T203
+QN1        ~forall x Fx .: exists x ~Fx
+QN2        exists x ~Fx .: ~forall x Fx
+## T204
+# To enable QN3 & QN4, prove T204 (Ex163d T204).
+QN3        ~exists x Fx .: forall x ~Fx
+QN4        forall x ~Fx .: ~exists x Fx
+# To enable QN5 & QN6, prove T205 (Ex163e T205).
+## T205
+QN5        forall x Fx.:~exists x ~Fx
+QN6        ~exists x ~Fx.:forall x Fx
+# To enable QN7 & QN8, prove T206 (Ex164 T206).
+## T206
+QN7        exists x Fx.:~forall x ~Fx
+QN8        ~forall x ~Fx.:exists x Fx
+##  
+QN         QN1.QN2.QN3.QN4.QN5.QN6.QN7.QN8
+## Alphabetic Variance
+# To enable AV1, prove T231 (Ex169r T231).
+## T231
+AV1        forall x Fx .: forall y Fy
+# To enable AV2, prove T232 (Ex169s T232).
+## T232
+AV2        exists x Fx .: exists y Fy
+## T405
+AV3        G%xFx .: G%yFy
+##  
+AV         AV1.AV2.AV3
+## Quantifier Distribution Laws
+# To enable QDISTUA1 & QDISTUA2, prove T208 (Ex164d T208).
+## T208
+QDISTUA1   forall x (Fx&Gx).:forall x Fx&forall x Gx
+QDISTUA2   forall x Fx&forall x Gx.:forall x (Fx&Gx)
+##  
+QDISTUA1a  forall x (Fx&Gx&Hx).:forall x Fx&forall x Gx&forall x Hx
+QDISTUA2a  forall x Fx&forall x Gx&forall x Hx.:forall x (Fx&Gx&Hx)
+##  
+QDISTUA1b  forall x (Fx&Gx&Hx&Jx).:forall x Fx&forall x Gx&forall x Hx&forall x Jx
+QDISTUA2b  forall x Fx&forall x Gx&forall x Hx&forall x Jx.:forall x (Fx&Gx&Hx&Jx)
+# To enable QDISTEO1 & QDISTEO2, prove T207 (Ex164c T207).
+## T207
+QDISTEO1   exists x (Fx|Gx).:exists x Fx|exists x Gx
+QDISTEO2   exists x Fx|exists x Gx.:exists x (Fx|Gx)
+##  
+QDISTEO1a  exists x (Fx|Gx|Hx).:exists x Fx|exists x Gx|exists x Hx
+QDISTEO2a  exists x Fx|exists x Gx|exists x Hx.: exists x (Fx|Gx|Hx)
+##  
+QDISTEO1b  exists x (Fx|Gx|Hx|Jx).:exists x Fx|exists x Gx|exists x Hx|exists x Jx
+QDISTEO2b  exists x Fx|exists x Gx|exists x Hx|exists x Jx.: exists x (Fx|Gx|Hx|Jx)
+## The following quantifier distribution laws
+## hold in only one direction.
+# To enable QDISTUC, prove T201 (Ex163a T201).
+## T201
+QDISTUC    forall x (Fx->Gx).:(forall x Fx->forall x Gx)
+# To enable QDISTUEC, prove T202 (Ex163b T202).
+## T202
+QDISTUEC   forall x (Fx->Gx).:(exists x Fx->exists x Gx)
+# To enable QDISTUB, prove T213 (Ex169 T213).
+## T213
+QDISTUB    forall x (Fx<->Gx).:(forall x Fx<->forall x Gx)
+# To enable QDISTUEB, prove T214 (Ex169a T214).
+## T214
+QDISTUEB   forall x (Fx<->Gx).:(exists x Fx<->exists x Gx)
+# To enable QDISTEA, prove T209 (Ex165 T209).
+## T209
+QDISTEA    exists x (Fx&Gx).:exists x Fx&exists x Gx
+##  
+QDIST      QDISTUA1.QDISTUA2.QDISTUA1a.QDISTUA2a.QDISTUA1b.QDISTUA2b.QDISTEO1.QDISTEO2.QDISTEO1a.QDISTEO2a.QDISTEO1b.QDISTEO2b.QDISTUC.QDISTUEC.QDISTUB.QDISTUEB.QDISTEA
+## Confinement Laws
+## T215
+CONFUA1    forall x (P&Fx).:P&forall x Fx
+CONFUA2    P&forall x Fx.:forall x (P&Fx)
+##  
+CONFUA3    forall x (Fx&P).:forall x Fx&P
+CONFUA4    forall x Fx&P.:forall x (Fx&P)
+## T216
+CONFEA1    exists x (P&Fx).:P&exists x Fx
+CONFEA2    P&exists x Fx.:exists x (P&Fx)
+##  
+CONFEA3    exists x (Fx&P).:exists x Fx&P
+CONFEA4    exists x Fx&P.:exists x (Fx&P)
+## T217
+CONFUO1    forall x (P|Fx).:P|forall x Fx
+CONFUO2    P|forall x Fx.:forall x (P|Fx)
+##  
+CONFUO3    forall x (Fx|P).:forall x Fx|P
+CONFUO4    forall x Fx|P.:forall x (Fx|P)
+## T218
+CONFEO1    exists x (P|Fx).:P|exists x Fx
+CONFEO2    P|exists x Fx.:exists x (P|Fx)
+##  
+CONFEO3    exists x (Fx|P).:exists x Fx|P
+CONFEO4    exists x Fx|P.:exists x (Fx|P)
+## T219
+CONFUCC1   forall x (P->Fx).:(P->forall x Fx)
+CONFUCC2   (P->forall x Fx).:forall x (P->Fx)
+## T220
+CONFECC1   exists x (P->Fx).:(P->exists x Fx)
+CONFECC2   (P->exists x Fx).:exists x (P->Fx)
+## T221
+CONFUCA1   forall x (Fx->P).:(exists x Fx->P)
+CONFUCA2   (exists x Fx->P).:forall x (Fx->P)
+## T222
+CONFECA1   exists x (Fx->P).:(forall x Fx->P)
+CONFECA2   (forall x Fx->P).:exists x (Fx->P)
+## Deriv 3.224a
+CONFUB1    forall x (Fx<->P).:(forall x Fx&P)|(~exists x Fx&~P)
+CONFUB2    (forall x Fx&P)|(~exists x Fx&~P).:forall x (Fx<->P)
+##  
+CONFUB3    forall x (P<->Fx).:(P&forall x Fx)|(~P&~exists x Fx)
+CONFUB4    (P&forall x Fx)|(~P&~exists x Fx).:forall x (P<->Fx)
+## Deriv 3.224b
+CONFEB1    exists x (Fx<->P).:(exists x Fx&P)|(~forall x Fx&~P)
+CONFEB2    (exists x Fx&P)|(~forall x Fx&~P).:exists x (Fx<->P)
+##  
+CONFEB3    exists x (P<->Fx).:(P&exists x Fx)|(~P&~forall x Fx)
+CONFEB4    (P&exists x Fx)|(~P&~forall x Fx).:exists x (P<->Fx)
+##  
+CONF       CONFUA1.CONFUA2.CONFUA3.CONFUA4.CONFEA1.CONFEA2.CONFEA3.CONFEA4.CONFUO1.CONFUO2.CONFUO3.CONFUO4.CONFEO1.CONFEO2.CONFEO3.CONFEO4.CONFUCC1.CONFUCC2.CONFECC1.CONFECC2.CONFUCA1.CONFUCA2.CONFECA1.CONFECA2.CONFUB1.CONFUB2.CONFUB3.CONFUB4.CONFEB1.CONFEB2.CONFEB3.CONFEB4
+## Vacuous Quantification Laws
+## T227
+VAC1       forall x P.:P
+VAC2       P.:forall x P
+## T228
+VAC3       exists x P.:P
+VAC4       P.:exists x P
+##  
+VAC        VAC1.VAC2.VAC3.VAC4
+## Quantifier Comutativity Laws
+## T251
+QCOM1      forall x forall y F(xy).:forall y forall x F(xy)
+## T252
+QCOM2      exists x exists y F(xy).:exists y exists x F(xy)
+##  
+QCOM       QCOM1.QCOM2.RT251.RT252
+##  
+##                          CHAPTER V
+##                            IDENTITY
+SId        .: A=A
+LL1        A=B. FA .: FB
+##                      DERIVED RULES
+## Other forms of Leibniz' Law
+LL2        A=B. FB .: FA
+LL3        ~FA. FB .: ~A=B
+LL4        FA. ~FB .: ~A=B
+## T304
+LL5        A=B .: FA<->FB
+## 
+LL         LL1.LL2.LL3.LL4.LL5
+## Symmetry of Identity
+## T302
+Sm1        A=B .: B=A
+## T312
+Sm2        ~A=B .: ~B=A
+## 
+Sm         Sm1.Sm2
+## Euclid's Law
+## T305
+EL         A=B .: C(A)=C(B)
+## Quantifier Elimination Laws
+## Deriv 5.050-5.065
+QElim1E    forall z z=A  .: exists x Fx<->FA
+QElim1Ea   forall z z=A. exists x Fx  .: FA
+QElim1U    forall z z=A  .: forall x Fx<->FA
+QElim1Ua   forall z z=A. forall x Fx  .: FA
+##  
+QElim2E    forall z (z=A|z=B)  .: exists x Fx<->FA|FB
+QElim2Ea   forall z (z=A|z=B). exists x Fx  .: FA|FB
+QElim2U    forall z (z=A|z=B)  .: forall x Fx<->FA&FB
+QElim2Ua   forall z (z=A|z=B). forall x Fx  .: FA&FB
+##  
+QElim3E    forall z (z=A|z=B|z=C)  .: exists x Fx<->FA|FB|FC
+QElim3Ea   forall z (z=A|z=B|z=C). exists x Fx  .: FA|FB|FC
+QElim3U    forall z (z=A|z=B|z=C)  .: forall x Fx<->FA&FB&FC
+QElim3Ua   forall z (z=A|z=B|z=C). forall x Fx  .: FA&FB&FC
+##  
+QElim4E    forall z (z=A|z=B|z=C|z=D)  .: exists x Fx<->FA|FB|FC|FD
+QElim4Ea   forall z (z=A|z=B|z=C|z=D). exists x Fx  .: FA|FB|FC|FD
+QElim4U    forall z (z=A|z=B|z=C|z=D)  .: forall x Fx<->FA&FB&FC&FD
+QElim4Ua   forall z (z=A|z=B|z=C|z=D). forall x Fx  .: FA&FB&FC&FD
+##  
+QElim1ER   forall z (Fz<->z=A)  .: exists x (Fx&Gx)<->GA
+QElim1ERa  forall z (Fz<->z=A). exists x (Fx&Gx)  .: GA
+QElim1UR   forall z (Fz<->z=A)  .: forall x (Fx->Gx)<->GA
+QElim1URa  forall z (Fz<->z=A). forall x (Fx->Gx)  .: GA
+##  
+QElim2ER   forall z (Fz<->z=A|z=B)  .: exists x (Fx&Gx)<->GA|GB
+QElim2ERa  forall z (Fz<->z=A|z=B). exists x (Fx&Gx)  .: GA|GB
+QElim2UR   forall z (Fz<->z=A|z=B)  .: forall x (Fx->Gx)<->GA&GB
+QElim2URa  forall z (Fz<->z=A|z=B). forall x (Fx->Gx)  .: GA&GB
+##  
+QElim3ER   forall z (Fz<->z=A|z=B|z=C)  .: exists x (Fx&Gx)<->GA|GB|GC
+QElim3ERa  forall z (Fz<->z=A|z=B|z=C). exists x (Fx&Gx)  .: GA|GB|GC
+QElim3UR   forall z (Fz<->z=A|z=B|z=C)  .: forall x (Fx->Gx)<->GA&GB&GC
+QElim3URa  forall z (Fz<->z=A|z=B|z=C). forall x (Fx->Gx)  .: GA&GB&GC
+##  
+QElim4ER   forall z (Fz<->z=A|z=B|z=C|z=D)  .: exists x (Fx&Gx)<->GA|GB|GC|GD
+QElim4ERa  forall z (Fz<->z=A|z=B|z=C|z=D). exists x (Fx&Gx)  .: GA|GB|GC|GD
+QElim4UR   forall z (Fz<->z=A|z=B|z=C|z=D)  .: forall x (Fx->Gx)<->GA&GB&GC&GD
+QElim4URa  forall z (Fz<->z=A|z=B|z=C|z=D). forall x (Fx->Gx)  .: GA&GB&GC&GD
+##  
+QElim      QElim1U.QElim1E.QElim1UR.QElim1ER.QElim2U.QElim2E.QElim2UR.QElim2ER.QElim3U.QElim3E.QElim3UR.QElim3ER.QElim4U.QElim4E.QElim4UR.QElim4ER.QElim1Ua.QElim1Ea.QElim1URa.QElim1ERa.QElim2Ua.QElim2Ea.QElim2URa.QElim2ERa.QElim3Ua.QElim3Ea.QElim3URa.QElim3ERa.QElim4Ua.QElim4Ea.QElim4URa.QElim4ERa
+##  
+##                          CHAPTER VI
+##                DEFINITE DESCRIPTIONS
+PrD        exists y forall x (Fx<->x=y) .: F%xFx
+ImD        ~exists y forall z (Fz<->z=y) .: %zFz=%x~x=x
+##                      DERIVED RULES
+## Special Proper Descriptions
+## T406
+SPRD1      exists y forall x (Fx<->x=y) .: forall x (Fx<->x=%xFx)
+SPRD2      ~%xFx=%x~x=x .: forall x (Fx<->x=%xFx)
+## 
+SPRD       SPRD1.SPRD2

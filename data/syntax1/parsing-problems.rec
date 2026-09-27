@@ -1,0 +1,411 @@
+# Parsing problems (notation 1).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   formula:                 the formula to parse
+#   notation:                chosen notation: O official, I informal, N not well formed
+#   expansion:               which parse-tree nodes are expanded
+#   main-connective-answer:  answer in main-connective-only mode
+
+# baseparprobs.txt: base homework problems
+
+## 
+##                          CHAPTER I
+##                   SENTENTIAL LOGIC
+## 
+
+problem: Pars 1.001
+formula: Z
+
+problem: Pars 1.002
+formula: P->Q
+
+problem: Pars 1.003
+formula: (~S->PQ)
+
+problem: Pars 1.004
+formula: (~P->(Q->P))
+
+problem: Pars 1.005
+formula: (P->(Q~R))
+
+problem: Pars 1.006
+formula: (P->Q->R)
+
+problem: Pars 1.007
+formula: ((~(~P->Q)->Q)->R)
+
+problem: Pars 1.008
+formula: (~P->(Q->~R)->S)
+
+problem: Pars 1.009
+formula: (~(~P)->Q)
+
+problem: Pars 1.010
+formula: ~(~(~P->Q))
+
+problem: Pars 1.011
+formula: ~~(~(P->~Q))
+
+problem: Pars 1.012
+formula: ((P->Q)->~G)
+
+problem: Pars 1.013
+formula: (~((P->Q)->R)->(P->~Q))
+
+problem: Pars 1.014
+formula: ((P->Q)->R)
+
+problem: Pars 1.015
+formula: (P)
+
+problem: Pars 1.016
+formula: ((P->Q))
+
+problem: Pars 1.017
+formula: ((~P->Q)->~(R->S))
+
+problem: Pars 1.018
+formula: ((R->W)->T)->P)
+
+problem: Pars 1.019
+formula: (P->~Z)->~(T->~A)
+
+problem: Pars 1.020
+formula: ~~R->~~~(~~(~R->~S)->U)
+
+## 
+##                          CHAPTER II
+## 
+
+problem: Pars 2.001
+formula: ~(~P->(Q|R))
+
+problem: Pars 2.002
+formula: P&(Q<->R)
+
+problem: Pars 2.003
+formula: P&Q<->R
+
+problem: Pars 2.004
+formula: (P&Q)|R
+
+problem: Pars 2.005
+formula: P&Q|R
+
+problem: Pars 2.006
+formula: ((P|Q)+~S)
+
+problem: Pars 2.007
+formula: (P|(Q->R)&~P)
+
+problem: Pars 2.008
+formula: P&Q&R->S
+
+problem: Pars 2.009
+formula: ((P<->Q)<->((P&Q)|(~P&~Q)))
+
+problem: Pars 2.010
+formula: ~((P|Q->R)->((P->R)&(Q->R)))
+
+problem: Pars 2.011
+formula: ((P&~Q)->(R|(S<->T)&(P->Q)))
+
+problem: Pars 2.012
+formula: (P|((Q->~R)<->~(P&~S)))
+
+problem: Pars 2.013
+formula: (P->~S)|(Q<->(R&~S))|(P&Q&~R)
+
+problem: Pars 2.014
+formula: ~(~(~~P|Q)|R)->(P<->(Q<->R))
+
+problem: Pars 2.015
+formula: ~(~(P&Q->~R)->(S<->R)&S))
+
+problem: Pars 2.016
+formula: (P&Q->P|Q)<->P|(Q&R)
+
+problem: Pars 2.017
+formula: Q|R->(P&R->(Q<->R|P))
+
+problem: Pars 2.018
+formula: (P&Q)|(~P&~Q)->((P<->Q)<->(Q<->P))
+
+problem: Pars 2.019
+formula: (P->Q|R)|(Q|R->P)<->(Q|R<->P)
+
+problem: Pars 2.020
+formula: ~(P|(Q&R)->((P|Q)&(P|R)<->P&Q))
+
+## 
+##                          CHAPTER III
+##           MONADIC PREDICATE LOGIC
+## 
+
+problem: Pars 3.001
+formula: exists x Fx
+
+problem: Pars 3.002
+formula: exists x ~(Fx)
+
+problem: Pars 3.003
+formula: exists x F~x
+
+problem: Pars 3.004
+formula: ~exists x ~Fx
+
+problem: Pars 3.005
+formula: FA->GB
+
+problem: Pars 3.006
+formula: exists x Fx->Gx
+
+problem: Pars 3.007
+formula: exists x (Fx->Gx)
+
+problem: Pars 3.008
+formula: exists x ~Dx
+
+problem: Pars 3.009
+formula: ((forall x (Fx->Gx)&FB)->GB)
+
+problem: Pars 3.010
+formula: ((exists x ~Fx)->(~forall x Fx))
+
+problem: Pars 3.011
+formula: exists x (E->Fx)
+
+problem: Pars 3.012
+formula: @A(FA->~GA)
+
+problem: Pars 3.013
+formula: ~(~forall x ~Fx|Gy)
+
+problem: Pars 3.014
+formula: exists x (P<->Q&R)
+
+problem: Pars 3.015
+formula: (FA->~GK)
+
+problem: Pars 3.016
+formula: (Fxy->Gyx)
+
+problem: Pars 3.017
+formula: forall a (Hx<->Gy)
+
+problem: Pars 3.018
+formula: !forall x (Hx<->Gx)
+
+problem: Pars 3.019
+formula: exists x forall y exists z (~Fx&Gy->~Fz)
+
+problem: Pars 3.020
+formula: forall y ~!~x(Hx&Gy)
+
+problem: Pars 3.021
+formula: forall y (Hy->exists x Hx)
+
+problem: Pars 3.022
+formula: ~exists x ~exists y ~(~forall x ~forall y ->exists z ~Fz)
+
+problem: Pars 3.023
+formula: forall x (forall x (Hx->~exists y ~Gy)|Fx)
+
+problem: Pars 3.024
+formula: (exists x)~Fx
+
+problem: Pars 3.025
+formula: ~forall x ~exists y (Fx&~Gy)
+
+problem: Pars 3.026
+formula: ~forall x ~exists y Fx&~Gy
+
+problem: Pars 3.027
+formula: forall x (FGx->Gy)
+
+problem: Pars 3.028
+formula: exists x Fx&exists x Gx->exists x (Fx&Gx)
+
+problem: Pars 3.029
+formula: ~exists x ~Fx&((FA->exists y ~Hy)<->exists z (~Fz->Hz))
+
+problem: Pars 3.030
+formula: exists x (P->forall x ~Qx)
+
+## 
+##                          CHAPTER IV
+##                    PREDICATE LOGIC
+## 
+
+problem: Pars 4.031
+formula: Bx
+
+problem: Pars 4.032
+formula: A(xB)
+
+problem: Pars 4.033
+formula: H(A(xB))
+
+problem: Pars 4.034
+formula: FA(xB)
+
+problem: Pars 4.035
+formula: F(A(B(x)))
+
+problem: Pars 4.036
+formula: F(A(B(x))x)
+
+problem: Pars 4.037
+formula: A(A(A(A)A)AA)
+
+problem: Pars 4.038
+formula: (forall x F(xA)->GA(B(x))
+
+problem: Pars 4.039
+formula: A(Fx)
+
+problem: Pars 4.040
+formula: L(A(x)B(y))
+
+problem: Pars 4.041
+formula: @B(FB->GB)
+
+problem: Pars 4.042
+formula: A(x)B(yz)
+
+problem: Pars 4.043
+formula: F(A(x)B(yz))
+
+problem: Pars 4.044
+formula: A(A(x)B(yz))
+
+problem: Pars 4.045
+formula: A(A(A)x)
+
+problem: Pars 4.046
+formula: G(C(y)D(x)A(A))
+
+problem: Pars 4.047
+formula: exists x exists y forall x F(xy)
+
+problem: Pars 4.048
+formula: forall x (F->B(x))
+
+problem: Pars 4.049
+formula: (F(Ay)|B(Ax))
+
+problem: Pars 4.050
+formula: forall x (A(x)->B(x))
+
+problem: Pars 4.051
+formula: forall x (FA(x)->GB(x))
+
+problem: Pars 4.052
+formula: (exists x (forall y (F(yA)->G(xB))->HA(B(AxB)))<->Fz)
+
+problem: Pars 4.053
+formula: Bx
+
+problem: Pars 4.054
+formula: B(x)
+
+problem: Pars 4.055
+formula: B(x)->F(x)
+
+problem: Pars 4.056
+formula: Gx&H(Ax)
+
+problem: Pars 4.057
+formula: Gx&HA(x)
+
+problem: Pars 4.058
+formula: G(x)&HA(x)
+
+problem: Pars 4.059
+formula: A(x)&HA(x)
+
+problem: Pars 4.060
+formula: G(xyB(xy))
+
+problem: Pars 4.061
+formula: B(xyB(xy))
+
+problem: Pars 4.062
+formula: B(xyF(xy))
+
+problem: Pars 4.063
+formula: exists x (B(x)&Fx)
+
+problem: Pars 4.064
+formula: forall x Fx|G
+
+problem: Pars 4.065
+formula: H(A(xy)(B(xz)))
+
+problem: Pars 4.066
+formula: H(A(B(xy)((x))B)
+
+problem: Pars 4.067
+formula: H(A(B(xy)((x)))
+
+problem: Pars 4.068
+formula: forall x C(D(x)y)
+
+problem: Pars 4.069
+formula: forall x F(D(x)y)
+
+problem: Pars 4.070
+formula: forall x F->P
+
+problem: Pars 4.071
+formula: forall x Fx->P
+
+problem: Pars 4.072
+formula: forall x (F->Px)
+
+## 
+##                          CHAPTER VI
+##                    DEFINITE DESCRIPTIONS
+## 
+
+problem: Pars 6.001a
+formula: %xP
+
+problem: Pars 6.001b
+formula: %xFx
+
+problem: Pars 6.001c
+formula: %xFy
+
+problem: Pars 6.001d
+formula: %x(x=y)
+
+problem: Pars 6.001e
+formula: %x(Fx&Gx)
+
+problem: Pars 6.001f
+formula: %xA(x)
+
+problem: Pars 6.001g
+formula: A(%xFx)
+
+problem: Pars 6.001h
+formula: F%xGx
+
+problem: Pars 6.001i
+formula: F(%xGxy)
+
+problem: Pars 6.001j
+formula: A(%xA(x)=x)
+
+problem: Pars 6.001k
+formula: %xx=%xx=x
+
+problem: Pars 6.001l
+formula: F(A%xF(xA))

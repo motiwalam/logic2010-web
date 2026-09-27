@@ -1,0 +1,258 @@
+# Truth-table problems (notation 1).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   statement:               the argument or formula
+#   row:                     work on one table row
+#   answer:                  answer to the question: 0 yes, 1 no
+#   counterexample-row:      index of the row marked as counterexample
+#   setup:                   setup-stage work
+
+# basetruprobs.txt: base homework problems
+
+## 
+##                          CHAPTER II
+## 
+
+problem: TruTb 2.000
+statement: (P->Q)|(Q->P)
+errors: 0
+
+problem: TruTb 2.001 Ex47
+statement: (P->Q)|(Q->R)
+errors: 0
+
+problem: TruTb 2.002 Ex48
+statement: (P&Q->R)->(P->R)
+errors: 0
+
+problem: TruTb 2.003 Ex49
+statement: (P->Q)&(Q->P)->(P<->Q)
+errors: 0
+
+problem: TruTb 2.004 Ex50
+statement: (P&Q)|(~P&Q)->(P<->Q)
+errors: 0
+
+problem: TruTb 2.005 Ex51
+statement: (P&Q->R)->(Q->R)
+errors: 0
+
+problem: TruTb 2.006 Ex52
+statement: (P->R)->(P|Q->R)
+errors: 0
+
+problem: TruTb 2.007 Ex53a
+statement: P&(Q|R)<->(P&Q)|(P&R)
+errors: 0
+
+problem: TruTb 2.008 Ex53b
+statement: ~(P|Q)<->(~P&~Q)
+errors: 0
+
+problem: TruTb 2.009 Ex53c
+statement: (P->Q)<->(P|Q<->Q)
+errors: 0
+
+problem: TruTb 2.010 Ex53d
+statement: (P->(Q<->R))<->((P->Q)<->(P->R))
+errors: 0
+
+problem: TruTb 2.011 Ex53e
+statement: (P<->(Q<->R))<->((P<->Q)<->R)
+errors: 0
+
+problem: TruTb 2.012 Ex54a
+statement: (P&Q->R&S)->(P->R)&(Q->S)
+errors: 0
+
+problem: TruTb 2.013 Ex54b
+statement: (P<->R)->(P<->Q)&(Q<->R)
+errors: 0
+note: The red error indicators within the trees have been disabled from this problem forward.
+
+problem: TruTb 2.014
+statement: ~((~P|~Q)<->(P&Q))
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.015
+statement: (~Q->~P)|(P<->(P&Q))
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.016 Ex62
+statement: (P->Q)&R .  ~R|P  .: Q
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.017 Ex63
+statement: ~P<->Q .  R->P|Q  .:  P|~R
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.018 Ex64
+statement: P->~R .  Q|P->R|Q .  ~Q  .:  ~P
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.019 Ex65
+statement: ~S|P|Q .  ~Q->~R .  P->R&S  .:  Q
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.020 Ex66
+statement: ~(P<->Q) .  R->P|~Q  .:  P|~R
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.021 Ex67
+statement: ~P->Q|R .  R->(Q->~P) .  Q->R  .:  ~P<->Q
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.022 Ex68
+statement: P->Q .  ~P->R .  ~Q->~R  .:  P
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.023 Ex69
+statement: P->Q .  ~P->R .  ~Q->~R  .:  R
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.024 Ex70
+statement: (P|Q)&~(P&Q) .  P&~Q->R .  ~P&Q->R  .:  R
+errors: 0
+note: Error indicators within the trees are disabled.
+
+problem: TruTb 2.025 Ex71
+statement: (R<->P&Q)&P .  ~S->(Q<->P&~R)  .:  S
+errors: 0
+note: All red error indicators, both in the trees and in the table, have been disabled from this problem forward.
+
+problem: TruTb 2.026 Ex72
+statement: ((P<->Q)->R)&~R  .:  ~(P->Q)
+errors: 0
+note: All red error indicators are disabled.
+
+problem: TruTb 2.027
+statement: (P->Q)<->(Q->P)   .:  ~((P&~Q)|(Q&~P))
+errors: 0
+note: All red error indicators are disabled.
+
+problem: TruTb 2.028
+statement: ~(P<->Q)->(P|Q)  .:   (Q|~P)->(Q<->P)
+errors: 0
+note: " All error messages, both text and red error indicators, have been disabled from this problem forward."
+
+problem: TruTb 2.029
+statement: ~((P->Q)<->(Q->P))  .:   (P|Q)&(Q|P)
+errors: 0
+note: All error messages are disabled for this problem.
+
+problem: TruTb 2.030
+statement: (~P|~Q)->(P<->Q)  .:  (Q&P)|(P<->~Q)
+errors: 0
+note: All error messages are disabled for this problem.
+
+## 
+## The following problems are in Blue Book mode.
+## They may be used to practice for a Blue Book exam.
+## 
+
+problem: TruTb 2.701
+statement: " ~(P&~Q).  P  .:  P->(~Q->~P)"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 2.702
+statement: " ~((P<->Q)|(P&~Q))  .:  ~Q&P"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 2.703
+statement: " ~((P<->Q)|~(Q->P))  .:  ~Q&P"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 2.704
+statement: " ~((~P->Q)->(P<->Q))  .:  (P|Q)&~Q"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 2.705
+statement: "  .:  (P<->Q)->~(P&Q)"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+## 
+## The following problems are in Computer Exam mode.
+## They may be used to practice for a Computer exam.
+## 
+
+problem: TruTb 2.801
+statement: " ~(P&~Q).  P  .:  P->(~Q->~P)"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 2.802
+statement: " ~((P<->Q)|(P&~Q))  .:  ~Q&P"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 2.803
+statement: " ~((P<->Q)|~(Q->P))  .:  ~Q&P"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 2.804
+statement: " ~((~P->Q)->(P<->Q))  .:  (P|Q)&~Q"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 2.805
+statement: "  .:  (P<->Q)->~(P&Q)"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+## 
+##                          CHAPTER III
+##           MONADIC PREDICATE LOGIC
+## 
+## 
+## The following problems are in Blue Book mode.
+## They may be used to practice for a Blue Book exam.
+## 
+
+problem: TruTb 3.701
+statement: " ~(P|Q)|Q  .:  (Q->P)->(P<->Q)"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 3.702
+statement: " (Q->P)<->~(Q&P)  .:  (~Q|P)<->(Q|P)"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 3.703
+statement: " ~(R->T)  .:  ~Q|T->R&~Q"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+problem: TruTb 3.704
+statement: " (P->R)->~Q|~R  .:  P->~Q|(~R<->P)"
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  Setup is *not* provided.  All error messages are disabled.
+
+## 
+## The following problems are in Computer Exam mode.
+## They may be used to practice for a Computer exam.
+## 
+
+problem: TruTb 3.801
+statement: " ~(P|Q)|Q  .:  (Q->P)->(P<->Q)"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 3.802
+statement: " (Q->P)<->~(Q&P)  .:  (~Q|P)<->(Q|P)"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 3.803
+statement: " ~(R->T)  .:  ~Q|T->R&~Q"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.
+
+problem: TruTb 3.804
+statement: " (P->R)->~Q|~R  .:  P->~Q|(~R<->P)"
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  Setup is provided.  All error messages are disabled.

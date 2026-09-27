@@ -1,0 +1,4556 @@
+# Symbolization answer keys (notation 2).
+# Format: see data/README.md. Fields:
+#   answer-key:              answer key, referred to from symbolization-problems.rec
+#   english:                 the English sentence
+#   node:                    a node of the answer's symbolization tree, 'code:English', in pre-order
+#   errors:                  error count
+#   seconds:                 time worked, in seconds
+
+# basesymkey.txt: base homework answers; syntax 2
+answer-key: 1.001
+node: ~:The Bruins fail to win
+node: *W{}0:the Bruins win
+
+answer-key: 1.002
+node: ~:Ina will not fail to be chosen as campaign manager
+node: ~:Ina will fail to be chosen as campaign manager
+node: *P{}0:Ina will be chosen as campaign manager
+
+answer-key: 1.003
+node: ->:Given that the Bruins win, they go to the Rose Bowl
+node: * W{}0:the Bruins win
+node: *R{}0:the Bruins go to the Rose Bowl
+
+answer-key: 1.004
+node: ->:The Bruins go to the Rose Bowl provided that the Trojans don't win
+node: ~:the Trojans don't win
+node: *T:the Trojans win
+node: *U:the Bruins go to the Rose Bowl
+
+answer-key: 1.005
+node: ->:Rudolf will lose the Ukrainian vote only if the interview is canceled
+node: *U:Rudolf will lose the Ukrainian vote
+node: *T:the interview is canceled
+
+answer-key: 1.006
+node: ->:Terry will only if Kit can't
+node: *T:Terry will
+node: ~:Kit can't
+node: *X:Kit can
+
+answer-key: 1.007
+node: ->:Rudolf will lose the Ukrainian vote only provided that Ina is chosen as campaign manager
+node: *U:Rudolf will lose the Ukrainian vote
+node: *P:Ina is chosen as campaign manager
+
+answer-key: 1.008
+node: ->:Only if Rudolf doesn't lose the Ukrainian vote will he be elected
+node: *P:Rudolf will be elected
+node: ~:Rudolf doesn't lose the Ukrainian vote
+node: *Q:Rudolf loses the Ukrainian vote
+
+answer-key: 1.009
+node: ->:Only if it is not the case that the interview is cancelled will Rudolf not lose the Ukrainian vote
+node: ~:Rudolf will not lose the Ukrainian vote
+node: *U:Rudolf will lose the Ukrainian vote
+node: ~:it is not the case that the interview is canceled
+node: *T:the interview is cancelled
+
+answer-key: 1.010
+node: ->:Only if Kit can't will Terry
+node: *T:Terry will
+node: ~:Kit can't
+node: *X:Kit can
+
+answer-key: 1.011
+node: ->:If Alfred will pass if he concentrates, then logic is enjoyable
+node: ->:Alfred will pass if he concentrates
+node: *Q:Alfred concentrates
+node: *P:Alfred will pass
+node: *R:logic is enjoyable
+
+answer-key: 1.012
+node: ->:If Ina is chosen as campaign manager, then Rudolf will be elected if he doesn't lose the Ukrainian vote
+node: *R:Ina is chosen as campaign manager
+node: ->:Rudolf will be elected if he doesn't lose the Ukrainian vote
+node: ~:Rudolf doesn't lose the Ukrainian vote
+node: *Q:Rudolf loses the Ukrainian vote
+node: *P:Rudolf will be elected
+
+answer-key: 1.013
+node: ->:Richard won't, if Terry will assuming that Kit can't
+node: ->:Terry will assuming that Kit can't
+node: ~:Kit can't
+node: *X:Kit can
+node: *T:Terry will
+node: ~:Richard won't
+node: *R:Richard will
+
+answer-key: 1.014
+node: ->:Only if Alfred concentrates will he pass, provided that the lectures are exciting.
+node: *X:the lectures are exciting
+node: ->:only if Alfred concentrates will Alfred pass
+node: *P:Alfred will pass
+node: *T:Alfred concentrates
+
+answer-key: 1.015
+node: ->:Only on the condition that the test is too long will Alfred fail, provided that the instructor is not perverse.
+node: ~:the instructor is not perverse
+node: *P{}0:the instructor is perverse
+node: ->:only on the condition that the test is too long will Alfred fail
+node: *R{}0:Alfred will fail
+node: *T{}0:the test is too long
+
+answer-key: 1.016
+node: ->:If Saul passes only if Noa doesn't study, then she graduates only if he doesn't.
+node: ->:Saul passes only if Noa doesn't study
+node: *P{}0:Saul passes
+node: ~:Noa doesn't study
+node: *V{}0:Noa studies
+node: ->:Noa graduates only if Saul doesn't
+node: *U{}0:Noa graduates
+node: ~:Saul doesn't graduate
+node: *R{}0:Saul graduates
+
+answer-key: 1.017
+node: ->:Provided that Saul passes only if he studies, he graduates only if he studies.
+node: ->:Saul passes only if he studies
+node: *P{}0:Saul passes
+node: *S{}0:Saul studies
+node: ->:Saul graduates only if Saul studies
+node: *R{}0:Saul graduates
+node: *S{}0:Saul studies
+
+answer-key: 1.018
+node: ->:If Alfred will pass only on the condition that he concentrates, then logic is enjoyable provided that the lectures are exciting.
+node: ->:Alfred will pass only on the condition that he concentrates
+node: *P{}0:Alfred will pass
+node: *Q{}0:Alfred concentrates
+node: ->:logic is enjoyable provided that the lectures are exciting
+node: *X{}0:the lectures are exciting
+node: *R{}0:logic is enjoyable
+
+answer-key: 1.019
+node: ->:If, on condition that the interview is cancelled Rudolf will lose the Ukrainian vote, then if Ina is not chosen as campaign manager Rudolf will not be elected.
+node: ->:on condition that the interview is cancelled Rudolf will lose the Ukrainian vote
+node: *T{}0:the interview is cancelled
+node: *Q{}0:Rudolf will lose the Ukrainian vote
+node: ->:if Ina is not chosen as campaign manager Rudolf will not be elected
+node: ~:Ina is not chosen as campaign manager
+node: *R{}0:Ina is chosen as campaign manager
+node: ~:Rudolf will not be elected
+node: *P{}0:Rudolf will be elected
+
+answer-key: 1.020
+node: ->:Alfred will pass on the condition that if he will pass only if he concentrates then he will pass.
+node: ->:if Alfred will pass only if he concentrates then he will pass
+node: ->:Alfred will pass only if he concentrates
+node: *P{}0:Alfred will pass
+node: *Q{}0:Alfred concentrates
+node: *P{}0:Alfred will pass
+node: *P{}0:Alfred will pass
+
+answer-key: 1.021
+node: ~:It is not the case that if the interview is cancelled Rudolf will not be elected.
+node: ->:if the interview is cancelled Rudolf will not be elected
+node: *T{}0:the interview is cancelled
+node: ~:Rudolf will not be elected
+node: *P{}0:Rudolf will be elected
+
+answer-key: 1.022
+node: ~:It is not the case that if Saul graduates if Noa studies, Noa studies.
+node: ->:if Saul graduates if Noa studies, Noa studies
+node: ->:Saul graduates if Noa studies
+node: *V{}0:Noa studies
+node: *R{}0:Saul graduates
+node: *V{}0:Noa studies
+
+answer-key: 1.023
+node: ~:It's not the case that if Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting.
+node: ->:if Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting
+node: ->:Alfred passes only if the lectures are exciting
+node: *P{}0:Alfred passes
+node: *X{}0:the lectures are exciting
+node: ->:Alfred passes if the lectures are exciting
+node: *X{}0:the lectures are exciting
+node: *P{}0:Alfred passes
+
+answer-key: 1.024
+node: ~:It is not the case that if Alfred will secure employment provided that logic is enjoyable, then the lectures are exciting only if he concentrates.
+node: ->:if Alfred will secure employment provided that logic is enjoyable, then the lectures are exciting only if he concentrates
+node: ->:Alfred will secure employment provided that logic is enjoyable
+node: *R{}0:logic is enjoyable
+node: *S{}0:Alfred will secure employment
+node: ->:the lectures are exciting only if Alfred concentrates
+node: *X{}0:the lectures are exciting
+node: *Q{}0:Alfred concentrates
+
+answer-key: 1.025
+node: ->:If Rudolf will not be elected if he does not lose the Ukrainian vote, then only if Ina is chosen as campaign manager will Rudolf be elected.
+node: ->:Rudolf will not be elected if he does not lose the Ukrainian vote
+node: ~:Rudolf does not lose the Ukrainian vote
+node: *Q{}0:Rudolf does lose the Ukrainian vote
+node: ~:Rudolf will not be elected
+node: *P{}0:Rudolf will be elected
+node: ->:only if Ina is chosen as campaign manager will Rudolf be elected
+node: *P{}0:Rudolf will be elected
+node: *R{}0:Ina is chosen as campaign manager
+
+answer-key: 1.026
+node: ->:Given that it is not the case that if Richard won't Terry will, Kit won't.
+node: ~:it is not the case that if Richard won't Terry will
+node: ->:if Richard won't Terry will
+node: ~:Richard won't
+node: *R{}0:Richard will
+node: *T{}0:Terry will
+node: ~:Kit won't
+node: *X{}0:Kit will
+
+answer-key: 1.027
+node: ->:Only if if only if Noa studies does she pass Noa graduates does Saul graduate.
+node: *R{}0:Saul graduates
+node: ->:if only if Noa studies does she pass Noa graduates
+node: ->:only if Noa studies does she pass
+node: *T{}0:Noa passes
+node: *V{}0:Noa studies
+node: *U{}0:Noa graduates
+
+answer-key: 1.028a
+node: ->:Alfred will pass only if he concentrates provided that the text is not readable [Ambiguous].
+node: ~:the text is not readable
+node: *T{}0:the text is readable
+node: ->:Alfred will pass only if he concentrates
+node: *P{}0:Alfred will pass
+node: *Q{}0:Alfred concentrates
+
+answer-key: 1.028b
+node: ->:Alfred will pass only if he concentrates provided that the text is not readable [Ambiguous].
+node: *P{}0:Alfred will pass
+node: ->:Alfred concentrates provided that the text is not readable
+node: ~:the text is not readable
+node: *T{}0:the text is readable
+node: *Q{}0:Alfred concentrates
+
+answer-key: 1.029a
+node: ~:It is not the case that Alfred concentrates if the lectures are not exciting [Ambiguous].
+node: ->:Alfred concentrates if the lectures are not exciting
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: *Q{}0:Alfred concentrates
+
+answer-key: 1.029b
+node: ->:It is not the case that Alfred concentrates if the lectures are not exciting [Ambiguous].
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ~:it is not the case that Alfred concentrates
+node: *Q{}0:Alfred concentrates
+
+answer-key: 1.030a
+node: ->:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+node: ->:Alfred fails to concentrate provided that the lectures are not exciting
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ~:Alfred fails to concentrate
+node: *Q{}0:Alfred concentrates
+node: ~:it is not the case that Alfred will secure employment
+node: *S{}0:Alfred will secure employment
+
+answer-key: 1.030b
+node: ->:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ~:it is not the case that Alfred will secure employment if he fails to concentrate
+node: ->:Alfred will secure employment if he fails to concentrate
+node: ~:Alfred fails to concentrate
+node: *Q{}0:Alfred concentrates
+node: *S{}0:Alfred will secure employment
+
+answer-key: 1.030c
+node: ->:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ->:it is not the case that Alfred will secure employment if he fails to concentrate
+node: ~:Alfred fails to concentrate
+node: *Q{}0:Alfred concentrates
+node: ~:it is not the case that Alfred will secure employment
+node: *S{}0:Alfred will secure employment
+
+answer-key: 1.030d
+node: ~:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+node: ->:Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ->:Alfred will secure employment if he fails to concentrate
+node: ~:Alfred fails to concentrate
+node: *Q{}0:Alfred concentrates
+node: *S{}0:Alfred will secure employment
+
+answer-key: 1.030e
+node: ~:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+node: ->:Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting
+node: ->:Alfred fails to concentrate provided that the lectures are not exciting
+node: ~:the lectures are not exciting
+node: *X{}0:the lectures are exciting
+node: ~:Alfred fails to concentrate
+node: *Q{}0:Alfred concentrates
+node: *S{}0:Alfred will secure employment
+
+answer-key: 1801
+english: Quincy doesn't quaff quinine, assuming that Valery fails to vaporize vegetables.
+node: ->:Quincy doesn't quaff quinine, assuming that Valery fails to vaporize vegetables.
+node: "~:    "
+node: "*V{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+
+answer-key: 1802
+english: Only if Skyler savors scones does William not wangle watermelons, if Valery vaporizes vegetables.
+node: ->:Only if Skyler savors scones does William not wangle watermelons,\n if Valery vaporizes vegetables.
+node: "*V{}0:    "
+node: "->:    "
+node: "~:    "
+node: "*W{}0:    "
+node: "*S{}0:    "
+
+answer-key: 1803
+english: Valery will not vaporize vegetables if Una refrains from uprooting urchins, but only on the condition that Patsy prepares pizza.
+node: ->:Valery will not vaporize vegetables if Una refrains from uprooting urchins, but only on the condition that Patsy prepares pizza.
+node: "->:    "
+node: "~:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*V{}0:    "
+node: "*P{}0:    "
+
+answer-key: 1804
+english: If Skyler savors scones if Quincy quaffs quinine, then given that William doesn't wangle watermelons, Skyler savors scones only if Quincy quaffs quinine.
+node: ->:If Skyler savors scones if Quincy quaffs quinine, then given that William doesn't wangle watermelons, Skyler savors scones only if Quincy quaffs quinine.
+node: "->:    "
+node: "*Q{}0:    "
+node: "*S{}0:    "
+node: "->:    "
+node: "~:    "
+node: "*W{}0:    "
+node: "->:    "
+node: "*S{}0:    "
+node: "*Q{}0:    "
+
+answer-key: 2.031
+node: &:Ruth is tired, but she'll pass.
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+
+answer-key: 2.032
+node: |:Either Ruth studies or she doesn't pass.
+node: *S{}0:Ruth studies
+node: ~:Ruth doesn't pass
+node: *P{}0:Ruth will pass
+
+answer-key: 2.033
+node: ~:Alfred does not study logic.
+node: *S{}0:Alfred studies logic
+
+answer-key: 2.034
+node: &:Although she's tired, Ruth will pass anyway.
+node: *P{}0:Ruth will pass
+node: *T{}0:Ruth is tired
+
+answer-key: 2.034b
+node: &:Although she's tired, Ruth will pass anyway.
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+
+answer-key: 2.035
+node: <->:Ruth will pass if, but only if, she studies.
+node: *P{}0:Ruth will pass
+node: *S{}0:Ruth studies
+
+answer-key: 2.035a
+node: &:Ruth will pass if, but only if, she studies.
+node: ->:Ruth will pass if she studies
+node: *S{}0:Ruth studies
+node: *P{}0:Ruth will pass
+node: ->:Ruth will pass only if she studies
+node: *P{}0:Ruth will pass
+node: *S{}0:Ruth studies
+
+answer-key: 2.036
+node: &:Ruth is tired; nevertheless she'll pass.
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass pass
+
+answer-key: 2.037
+node: <->:Ruth will pass just in case she studies.
+node: *P{}0:Ruth will pass
+node: *S{}0:Ruth studies
+
+answer-key: 2.038
+node: ->:Ruth studies only if she's not tired.
+node: *S{}0:Ruth studies
+node: ~:Ruth is not tired
+node: *T{}0:Ruth is tired
+
+answer-key: 2.039
+node: |:Either Alfred or Alonzo orders champagne.
+node: *R{}0:Alfred orders champagne
+node: *Z{}0:Alonzo orders champagne
+
+answer-key: 2.040
+node: &:Both Alfred and Alonzo order champagne.
+node: *R{}0:Alfred orders champagne
+node: *Z{}0:Alonzo orders champagne
+
+answer-key: 2.041
+node: &:Alfred is a lover of logic who organizes his time.
+node: *R{}0:Alfred is a lover of logic
+node: *T{}0:Alfred organizes his time
+
+answer-key: 2.042
+node: |:Ruth is either a logician who enjoys chocolate or a mathematician who craves peanut butter.
+node: &:Ruth is a logician who enjoys chocolate
+node: *P{}0:Ruth is a logician
+node: *Q{}0:Ruth enjoys chocolate
+node: &:Ruth is a mathematician who craves peanut butter
+node: *R{}0:Ruth is a mathematician
+node: *S{}0:Ruth craves peanut butter
+
+answer-key: 2.043
+node: &:If Alfred orders champagne, then so does Alonzo; and if Kurt orders champagne, then so does Alfred.
+node: ->:If Alfred orders champagne, then so does Alonzo
+node: *R{}0:Alfred orders champagne
+node: *Z{}0:Alonzo orders champagne
+node: ->:if Kurt orders champagne, then so does Alfred
+node: *T{}0:Kurt orders champagne
+node: *R{}0:Alfred orders champaign
+
+answer-key: 2.044
+node: |:Ruth won't pass unless she studies hard.
+node: ~:Ruth won't pass
+node: *P{}0:Ruth will pass
+node: *S{}0:Ruth studies hard
+
+answer-key: 2.045
+node: |:Mary will arrive at 10:30 a.m. unless the plane is late.
+node: *R{}0:Mary will arrive at 10:30 a.m.
+node: *T{}0:the plane is late
+
+answer-key: 2.046
+node: ~:Neither Alfred nor Alonzo orders champagne.
+node: |:either Alfred or Alonzo orders champagne
+node: *R{}0:Alfred orders champagne
+node: *Z{}0:Alonzo orders champagne
+
+answer-key: 2.047
+node: ~:Alfred neither does well in the course nor loses track of the argument.
+node: |:Alfred either does well in the course or loses track of the argument
+node: *W{}0:Alfred does well in the course
+node: *T{}0:Alfred loses track of the argument
+
+answer-key: 2.048
+node: <->:Ruth will pass if, but only if, she either studies hard or isn't tired.
+node: *P{}0:Ruth will pass
+node: |:Ruth either studies hard or isn't tired
+node: *S{}0:Ruth studies hard
+node: ~:Ruth isn't tired
+node: *T{}0:Ruth is tired
+
+answer-key: 2.048b
+node: &:Ruth will pass if, but only if, she either studies hard or isn't tired.
+node: ->:Ruth will pass if she either studies hard or isn't tired
+node: |:Ruth either studies hard or isn't tired
+node: *S{}0:Ruth studies hard
+node: ~:Ruth isn't tired
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+node: ->:Ruth will pass only if she either studies hard or isn't tired
+node: *P{}0:Ruth will pass
+node: |:Ruth either studies hard or isn't tired
+node: *S{}0:Ruth studies hard
+node: ~:Ruth isn't tired
+node: *T{}0:Ruth is tired
+
+answer-key: 2.049
+node: ->:If Ruth studies hard, then she'll pass provided that she isn't tired.
+node: *S{}0:Ruth studies hard
+node: ->:Ruth will pass provided that she isn't tired
+node: ~:Ruth isn't tired
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+
+answer-key: 2.050
+node: |:Either Ruth studies hard and will pass or she doesn't (and won't).
+node: &:Ruth studies hard and will pass
+node: *S{}0:Ruth studies hard
+node: *P{}0:Ruth will pass
+node: &:Ruth doesn't study hard (and won't pass)
+node: ~:Ruth doesn't study hard
+node: *S{}0:Ruth studies hard
+node: ~:Ruth won't pass
+node: *P{}0:Ruth will pass
+
+answer-key: 2.051
+node: &:Either Alfred or Kurt, but not both Alonzo and Kurt, orders champagne.
+node: |:Either Alfred or Kurt orders champagne.
+node: *R{}0:Alfred orders champagne
+node: *T{}0:Kurt orders champagne
+node: ~:not both Alonzo and Kurt order champagne
+node: &:both Alonzo and Kurt order champagne
+node: *Z{}0:Alonzo orders champagne
+node: *T{}0:Kurt orders champagne
+
+answer-key: 2.052
+node: &:Both Alfred and Alonzo, but not Kurt, order champagne.
+node: &:Both Alfred and Alonzo order champagne
+node: *R{}0:Alfred orders champagne
+node: *Z{}0:Alonzo orders champagne
+node: ~:Kurt does not order champagne
+node: *T{}0:Kurt orders champagne
+
+answer-key: 2.053
+node: ->:If UCLA and USC don't both win their first games, then USC and Cal both do win their first games.
+node: ~: UCLA and USC don't both win their first games
+node: &:UCLA and USC both win their first games
+node: *U{}0:UCLA wins its first game
+node: *S{}0:USC wins its first game
+node: &:USC and Cal both do win their first games
+node: *S{}0:USC wins its first games
+node: *Y{}0:Cal wins its first games
+
+answer-key: 2.054
+node: &:Ruth studies hard unless she's tired, in which case she doesn't.
+node: |:Ruth studies hard unless she's tired
+node: *S{}0:Ruth studies hard
+node: *T{}0:Ruth is tired
+node: ->:in the case that Ruth is tired, she doesn't study hard
+node: *T{}0:Ruth is tired
+node: ~:Ruth doesn't study hard
+node: *S{}0:Ruth studies hard
+
+answer-key: 2.055
+node: |:Unless logic is difficult, Alfred will pass if he concentrates.
+node: ->:Alfred will pass if he concentrates
+node: *Q{}0:Alfred concentrates
+node: *P{}0:Alfred will pass
+node: *R{}0:logic is difficult
+
+answer-key: 2.056
+node: ->:If UCLA wins its first game, then USC and Cal won't both win their first games.
+node: *U{}0:UCLA wins its first game
+node: ~:USC and Cal won't both win their first games
+node: &: USC and Cal both win their first games
+node: *S{}0:USC wins its first game
+node: *Y{}0:Cal wins its first game
+
+answer-key: 2.057
+node: ->:Assuming that either logic is difficult or the text is not readable, Alfred will pass only if he concentrates.
+node: |:either logic is difficult or the text is not readable
+node: *R{}0:logic is difficult
+node: ~:the text is not readable
+node: *T{}0:the text is readable
+node: ->:Alfred will pass only if he concentrates
+node: *P{}0:Alfred will pass
+node: *Q{}0:Alfred concentrates
+
+answer-key: 2.058
+node: ->:If neither Richard nor Tony will pass, Yiannis won't either.
+node: ~:neither Richard nor Tony will pass
+node: |:either Richard or Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: ~:Yiannis won't pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.059
+node: ->:If USC doesn't win its first game, then both Cal and UCLA won't win their first games.
+node: ~:USC doesn't win its first game
+node: *S{}0:USC does win its first game
+node: &:both Cal and UCLA won't win their first games
+node: ~:Cal won't win its first game
+node: *Y{}0:Cal does win its first game
+node: ~:UCLA won't win its first game
+node: *U{}0:UCLA does win its first game
+
+answer-key: 2.060
+node: ->:If either Tony or Yiannis will pass, then so will Richard unless he is tired.
+node: |:either Tony or Yiannis will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+node: |:Richard will pass unless he is tired
+node: *R{}0:Richard will pass
+node: *U{}0:Richard is tired
+
+answer-key: 2.061
+node: |:Either Cal wins its first game and UCLA does not win its first game or if UCLA wins its first game then USC does not win its first game.
+node: &:Cal wins its first game and UCLA does not win its first game
+node: *Y{}0:Cal wins its first game
+node: ~:UCLA does not win its first game
+node: *U{}0:UCLA does win its first game
+node: ->:if UCLA wins its first game then USC does not win its first game
+node: *U{}0:UCLA wins its first game
+node: ~:USC does not win its first game
+node: *S{}0:USC does win its first game
+
+answer-key: 2.062
+node: &:Yiannis and Tony will definitely pass; Richard however, will fail if he doesn't study (and, for that matter, will fail even if he does).
+node: &:Yiannis and Tony will definitely pass
+node: *Y{}0:Yiannis will definitely pass
+node: *T{}0:Tony will definitely pass
+node: &:Richard will fail if he doesn't study (and, for that matter, will fail even if he does)
+node: ->:Richard will fail if he doesn't study
+node: ~:Richard doesn't study
+node: *V{}0:Richard does study
+node: *X{}0:Richard will fail
+node: ->:Richard will fail even if he does study
+node: *V{}0:Richard does study
+node: *X{}0:Richard will fail
+
+answer-key: 2.063
+node: ->:If Ruth will pass so long as she isn't tired, then she'll surely pass if she studies hard.
+node: ->:Ruth will pass so long as she isn't tired
+node: ~:Ruth isn't tired
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+node: ->:Ruth will surely pass if she studies hard
+node: *S{}0:Ruth studies hard
+node: *P{}0:Ruth will surely pass
+
+answer-key: 2.064
+node: &:USC wins its first game provided that UCLA does not win its first game, but USC wins its first game only if Cal wins its first game.
+node: ->:USC wins its first game provided that UCLA does not win its first game
+node: ~:UCLA does not win its first game
+node: *U{}0:UCLA does win its first game
+node: *S{}0:USC wins its first game
+node: ->:USC wins its first game only if Cal wins its first game
+node: *S{}0:USC wins its first game
+node: *Y{}0:Cal wins its first game
+
+answer-key: 2.065
+node: |:Either it is not the case that Richard pays attention and does not lose track of the argument, or it is not the case that he does not take notes or fails to do well in the course.
+node: ~:it is not the case that Richard pays attention and does not lose track of the argument
+node: &:Richard pays attention and does not lose track of the argument
+node: *P{}0:Richard pays attention
+node: ~:Richard does not lose track of the argument
+node: *S{}0:Richard does lose track of the argument
+node: ~:it is not the case that Richard does not take notes or fails to do well in the course
+node: |:Richard does not take notes or fails to do well in the course
+node: ~:Richard does not take notes
+node: *T{}0:Richard takes notes
+node: ~:Richard fails to do well in the course
+node: *W{}0:Richard does well in the course
+
+answer-key: 2.066
+node: ->:Given that Cal wins its first game, USC does not win its first game provided that UCLA wins its first game.
+node: *Y{}0:Cal wins its first game
+node: ->:USC does not win its first game provided that UCLA wins its first game
+node: *U{}0:UCLA wins its first game
+node: ~:USC does not win its first game
+node: *S{}0:USC does win its first game
+
+answer-key: 2.067
+node: ->:If Rudolf's prayers are answered if he believes in God, then God exists.
+node: ->:Rudolf's prayers are answered if he believes in God
+node: *V{}0:Rudolf believes in God
+node: *P{}0:Rudolf's prayers are answered
+node: *X{}0:God exists
+
+answer-key: 2.068
+node: |:Rudolf does not believe in God unless this is the best of all possible worlds.
+node: ~:Rudolf does not believe in God
+node: *V{}0:Rudolf does believe in God
+node: *W{}0:this is the best of all possible worlds
+
+answer-key: 2.069
+node: ~:This is not the best of all possible worlds.
+node: *W{}0:this is the best of all possible worlds
+
+answer-key: 2.070
+node: ->:If God does not exist, then everything is permitted.
+node: ~:God does not exist
+node: *X{}0:God does exist
+node: *T{}0:everything is permitted
+
+answer-key: 2.071
+node: |:Neither UCLA nor USC will win its first game unless both are willing to work harder.
+node: ~:Neither UCLA nor USC will win its first game
+node: |:either UCLA or USC will win its first game
+node: *U{}0:UCLA will win its first game
+node: *S{}0:USC will win its first game
+node: &:both UCLA and USC are willing to work harder
+node: *W{}0:UCLA is willing to work harder
+node: *R{}0:both USC are willing to work harder
+
+answer-key: 2.072
+node: ~:They (Richard, Tony, and Yiannis) won't all pass.
+node: &:They (Richard, Tony, and Yiannis) will all pass
+node: &:Richard and Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.073
+node: &:Richard won't pass, but at least one of the other two (Tony and Yiannis) will.
+node: ~:Richard won't pass
+node: *R{}0:Richard will pass
+node: |:at least one of Tony and Yiannis will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.076
+node: |:Unless either neither Sy nor Nye neigh or Bob and Babs both bray, none of them will beat Whirlaway.
+node: |:either neither Sy nor Nye neigh or Bob and Babs both bray
+node: ~:neither Sy nor Nye neigh
+node: |:either Sy or Nye neigh
+node: *P{}0:Sy neighs
+node: *Q{}0:Nye neighs
+node: &:Bob and Babs both bray
+node: *R{}0:Bob brays
+node: *S{}0:Babs brays
+node: &:none of Sy, Nye, Bob, or Babs will beat Whirlaway
+node: &:none of Sy, Nye, or Bob will beat Whirlaway
+node: &:neither of Sy or Nye will beat Whirlaway
+node: ~:Sy will not beat Whirlaway
+node: *T{}0:Sy will beat Whirlaway
+node: ~:Nye will not beat Whirlaway
+node: *U{}0:Nye will beat Whirlaway
+node: ~:Bob will not beat Whirlaway
+node: *V{}0:Bob will beat Whirlaway
+node: ~:Babs will not beat Whirlaway
+node: *W{}0:Babs will beat Whirlaway
+
+answer-key: 2.076b
+node: |:Unless either neither Sy nor Nye neigh or Bob and Babs both bray, none of them will beat Whirlaway.
+node: |:either neither Sy nor Nye neigh or Bob and Babs both bray
+node: ~:neither Sy nor Nye neigh
+node: |:either Sy or Nye neigh
+node: *P{}0:Sy neighs
+node: *Q{}0:Nye neighs
+node: &:Bob and Babs both bray
+node: *R{}0:Bob brays
+node: *S{}0:Babs brays
+node: &:none of Sy, Nye, Bob, or Babs will beat Whirlaway
+node: &:none of Sy, Nye, or Bob will beat Whirlaway
+node: ~:neither Sy, nor Nye will beat Whirlaway
+node: |:either Sy, or Nye will beat Whirlaway
+node: *T{}0:Sy will beat Whirlaway
+node: *U{}0:Nye will beat Whirlaway
+node: ~:Bob will not beat Whirlaway
+node: *V{}0:Bob will beat Whirlaway
+node: ~:Babs will not beat Whirlaway
+node: *W{}0:Babs will beat Whirlaway
+
+answer-key: 2.077
+node: &:Sherlock Holmes will neither play his violin nor ask Watson for the needle; nevertheless, neither he nor Watson will fail to be baffled by Moriarty.
+node: ~:Sherlock Holmes will neither play his violin nor ask Watson for the needle
+node: |:Sherlock Holmes will either play his violin or ask Watson for the needle
+node: *P{}0:Sherlock Holmes will play his violin
+node: *Q{}0:Sherlock Holmes will ask Watson for the needle
+node: ~:neither Sherlock Holmes nor Watson will fail to be baffled by Moriarty
+node: |:either Sherlock Holmes or Watson will fail to be baffled by Moriarty
+node: ~:Sherlock Holmes will fail to be baffled by Moriarty
+node: *R{}0:Sherlock Holmes will be baffled by Moriarty
+node: ~:Watson will fail to be baffled by Moriarty
+node: *S{}0:Watson will be baffled by Moriarty
+
+answer-key: 2.078
+node: &:Although Richard will be disappointed unless the critics approve, the concert will be worthwhile if and only if the music is played well.
+node: <->:the concert will be worthwhile if and only if the music is played well
+node: *T{}0:the concert will be worthwhile
+node: *W{}0:the music is played well
+node: |:Richard will be disappointed unless the critics approve
+node: *P{}0:Richard will be disappointed
+node: *R{}0:the critics approve
+
+answer-key: 2.078b
+english: Although Richard will be disappointed unless the critics approve, the concert will be worthwhile if and only if the music is played well.
+node: &:Although Richard will be disappointed unless the critics approve, the concert will be worthwhile if and only if the music is played well.
+node: |:Richard will be disappointed unless the critics approve
+node: *P{}0:Richard will be disappointed
+node: *R{}0:the critics approve
+node: <->:the concert will be worthwhile if and only if the music is played well
+node: *T{}0:the concert will be worthwhile
+node: *W{}0:the music is played well
+
+answer-key: 2.079
+node: &:Neither Donald nor Richard is eager, but each is willing if the other is.
+node: ~:neither Donald nor Richard is eager
+node: |:either Donald or Richard is eager
+node: *R{}0:Donald is eager
+node: *S{}0:Richard is eager
+node: &:Donald and Richard are each willing if the other is
+node: ->:Donald is willing if Richard is
+node: *X{}0:Richard is willing
+node: *W{}0:Donald is willing
+node: ->:Richard is willing if Donald is
+node: *W{}0:Donald is willing
+node: *X{}0:Richard is willing
+
+answer-key: 2.079b
+node: &:Neither Donald nor Richard is eager, but each is willing if the other is.
+node: ~:neither Donald nor Richard is eager
+node: |:either Donald or Richard is eager
+node: *R{}0:Donald is eager
+node: *S{}0:Richard is eager
+node: &:Richard and Donald are each willing if the other is
+node: ->:Richard is willing if Donald is
+node: *W{}0:Donald is willing
+node: *X{}0:Richard is willing
+node: ->:Donald is willing if Richard is
+node: *X{}0:Richard is willing
+node: *W{}0:Donald is willing
+
+answer-key: 2.079c
+node: &:Neither Donald nor Richard is eager, but each is willing if the other is.
+node: ~:neither Donald nor Richard is eager
+node: |:either Donald or Richard is eager
+node: *R{}0:Donald is eager
+node: *S{}0:Richard is eager
+node: <->:Donald and Richard are each willing if the other is
+node: *W{}0:Donald is willing
+node: *X{}0:Richard is willing
+
+answer-key: 2.080
+node: ->:C.C. will pass unless the test is both too long and too hard, provided that the instructor is neither biased nor perverse.
+node: ~:the instructor is neither biased nor perverse
+node: |:the instructor is either biased or perverse
+node: *U{}0:the instructor is biased
+node: *V{}0:the instructor is perverse
+node: |:C.C. will pass unless the test is both too long and too hard
+node: *P{}0:C.C. will pass
+node: &:the test is both too long and too hard
+node: *T{}0:the test is too long
+node: *R{}0:the test is too hard
+
+answer-key: 2.081
+node: ->:If C.C. studies logic, then he does not do well in the course only if he does not take notes and pay attention.
+node: *X{}0:C.C. studies logic
+node: ->:C.C. does not do well in the course only if he does not take notes and pay attention
+node: ~:C.C. does not do well in the course
+node: *W{}0:C.C. does do well in the course
+node: ~:C.C. does not take notes and pay attention
+node: &:C.C. does take notes and pay attention
+node: *T{}0:C.C. does take notes
+node: *P{}0:C.C. pays attention
+
+answer-key: 2.082
+node: ->:Donald is a lover of logic only if he does not organize his time.
+node: *V{}0:Donald is a lover of logic
+node: ~:Donald does not organize his time
+node: *R{}0:Donald does organize his time
+
+answer-key: 2.083
+node: ->:Donald enjoys whiskey at night provided that he both enjoys Mozart in the morning and organizes his time.
+node: &:Donald both enjoys Mozart in the morning and organizes his time
+node: *Z{}0:Donald enjoys Mozart in the morning
+node: *R{}0:Donald organizes his time
+node: *W{}0:Donald enjoys whiskey at night
+
+answer-key: 2.084
+node: ->:If Donald is a lover of logic who organizes his time, then he enjoys Mozart in the morning or whiskey at night, but not both.
+node: &:Donald is a lover of logic who organizes his time
+node: *V{}0:Donald is a lover of logic
+node: *R{}0:Donald organizes his time
+node: &:Donald enjoys Mozart in the morning or whiskey at night, but not both
+node: |:Donald enjoys Mozart in the morning or whiskey at night
+node: *Z{}0:Donald enjoys Mozart in the morning
+node: *W{}0:Donald enjoys whiskey at night
+node: ~:Donald does not enjoy both Mozart in the morning whiskey at night
+node: &:Donald does enjoy both Mozart in the morning whiskey at night
+node: *Z{}0:Donald does enjoy Mozart in the morning
+node: *W{}0:Donald does enjoy whiskey at night
+
+answer-key: 2.085
+node: ->:If Donald enjoys whiskey at night, then either he enjoys Mozart in the morning and organizes his time, or he does not enyoy Mozart in the morning and does not organize his time, or else he is not a lover of logic.
+node: *W{}0:Donald enjoys whiskey at night
+node: |:either Donald enjoys Mozart in the morning and organizes his time, or he does not enjoy Mozart in the morning and does not organize his time, or else he is not a lover of logic
+node: |:either Donald enjoys Mozart in the morning and organizes his time, or he does not enjoy Mozart in the morning and does not organize his time
+node: &:Donald enjoys Mozart in the morning and organizes his time
+node: *Z{}0:Donald enjoys Mozart in the morning
+node: *R{}0:Donald organizes his time
+node: &:Donald does not enjoy Mozart in the morning and does not organize his time
+node: ~:Donald does not enjoy Mozart in the morning
+node: *Z{}0:Donald does enjoy Mozart in the morning
+node: ~:Donald does not organize his time
+node: *R{}0:Donald does organize his time
+node: ~:Donald is not a lover of logic
+node: *V{}0:Donald is a lover of logic
+
+answer-key: 2.086
+node: &:Assuming that the professor is a Communist, he will sign the loyalty oath; but if he is an idealist, he will neither sign the loyalty oath nor speak to those who do.
+node: ->:assuming that the professor is a Communist, he will sign the loyalty oath
+node: *P{}0:the professor is a Communist
+node: *S{}0:the professor will sign the loyalty oath
+node: ->:if the professor is an idealist, he will neither sign the loyalty oath nor speak to those who do
+node: *T{}0:the professor is an idealist
+node: ~:the professor will neither sign the loyalty oath nor speak to those who do
+node: |:the professor will either sign the loyalty oath or speak to those who do
+node: *S{}0:the professor will sign the loyalty oath
+node: *Y{}0:the professor will speak to those who do sign the loyalty oath
+
+answer-key: 2.087
+node: <->:Errors will decrease in the subject's perfornamce just in case neither motivation is absent nor learning has not occurred.
+node: *R{}0:errors will decrease in the subject's perfornamce
+node: ~:neither motivation is absent nor learning has not occurred
+node: |:either motivation is absent or learning has not occurred
+node: *T{}0:motivation is absent
+node: ~:learning has not occurred
+node: *U{}0:learning has occurred
+
+answer-key: 2.088
+node: ->:If Bertie and Hans are playing dice together, it is the first throw of the game, and Bertie is throwing the dice, then he wins the game on the first throw if and only if he throws 7 or 11.
+node: &:Bertie and Hans are playing dice together, it is the first throw of the game, and Bertie is throwing the dice
+node: &:Bertie and Hans are playing dice together, and it is the first throw of the game
+node: *R{}0:Bertie and Hans are playing dice together
+node: *S{}0:it is the first throw of the game
+node: *T{}0:Bertie is throwing the dice
+node: <->:Bertie wins the game on the first throw if and only if he throws 7 or 11
+node: *U{}0:Bertie wins the game on the first throw
+node: |:Bertie throws 7 or 11
+node: *V{}0:Bertie throws 7
+node: *W{}0:Bertie throws 11
+
+answer-key: 2.089
+node: ->:If the world is a progressively realized community of interpretation, then either quadruplicity drinks procrastination or, provided that the Nothing negates, boredom will ensue seldom more often than frequently.
+node: *W{}0:the world is a progressively realized community of interpretation
+node: |:either quadruplicity drinks procrastination or, provided that the Nothing negates, boredom will ensue seldom more often than frequently
+node: *Q{}0:quadruplicity drinks procrastination
+node: ->:provided that the Nothing negates, boredom will ensue seldom more often than frequently
+node: *X{}0:the Nothing negates
+node: *R{}0:boredom will ensue seldom more often than frequently
+
+answer-key: 2.090
+node: <->:Errors will occur in the subject's performance if and only if motivation is absent or learning has not taken place. [Ambiguous]
+node: *R{}0:Errors will occur in the subject's performance
+node: |:motivation is absent or learning has not taken place
+node: *T{}0:motivation is absent
+node: ~:learning has not taken place
+node: *U{}0:learning has taken place
+
+answer-key: 2.091
+node: ->:If either a war or a depression occurs then neither science nor music and literature will flourish unless the government supports research and provides patronage for artists. [Ambiguous]
+node: |:either a war or a depression occurs
+node: *W{}0:a war occurs
+node: *R{}0:a depression occurs
+node: |:neither science nor music and literature will flourish unless the government supports research and provides patronage for artists
+node: ~:neither science nor music and literature will flourish
+node: |:either science or music and literature will flourish
+node: *S{}0:science will flourish
+node: &:music and literature will flourish
+node: *U{}0:music will flourish
+node: *T{}0:literature will flourish
+node: &:the government supports research and provides patronage for artists
+node: *V{}0:the government supports research
+node: *P{}0:the government provides patronage for artists
+
+answer-key: 2.091b
+node: |:If either a war or a depression occurs then neither science nor music and literature will flourish unless the government supports research and provides patronage for artists. [Ambiguous]
+node: ->:If either a war or a depression occurs then neither science nor music and literature will flourish
+node: |:either a war or a depression occurs
+node: *W{}0:a war occurs
+node: *R{}0:a depression occurs
+node: ~:neither science nor music and literature will flourish
+node: |:either science or music and literature will flourish
+node: *S{}0:science will flourish
+node: &:music and literature will flourish
+node: *U{}0:music will flourish
+node: *T{}0:literature will flourish
+node: &:the government supports research and provides patronage for artists
+node: *V{}0:the government supports research
+node: *P{}0:the government provides patronage for artists
+
+answer-key: 2.092
+node: &:Neither Bertie nor Hans will listen except when the other is speaking.
+node: |:Bertie will not listen except when Hans is speaking
+node: ~:Bertie will not listen
+node: *P{}0:Bertie will listen
+node: *S{}0:Hans is speaking
+node: |:Hans will not listen except when Bertie is speaking
+node: ~:Hans will not listen
+node: *Q{}0:Hans will listen
+node: *R{}0:Bertie is speaking
+
+answer-key: 2.092b
+node: &:Neither Bertie nor Hans will listen except when the other is speaking.
+node: ->:Bertie will not listen except when Hans is speaking
+node: *P{}0:Bertie listens
+node: *S{}0:Hans is speaking
+node: ->:Hans will not listen except when Bertie is speaking
+node: *Q{}0:Hans listens
+node: *R{}0:Bertie is speaking
+
+answer-key: 2.093
+node: ~:No more than one of then (Richard, Tony, and Yiannis, of course) will pass.
+node: |:more than one of then (Richard, Tony, and Yiannis, of course) will pass
+node: |:Richard and Tony will pass or Richard and Yiannis will pass
+node: &:Richard and Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: &:Richard and Yiannis will pass
+node: *R{}0:Richard will pass
+node: *Y{}0:Yiannis will pass
+node: &:Tony and Yiannis will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.093b
+node: &:No more than one of then (Richard, Tony, and Yiannis, of course) will pass.
+node: &:Richard and Tony won't both pass, and Richard and Yiannis won't both pass
+node: ~:Richard and Tony won't both pass
+node: &:Richard and Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: ~:Richard and Yiannis won't both pass
+node: &:Richard and Yiannis will both pass
+node: *R{}0:Richard will pass
+node: *Y{}0:Yiannis will pass
+node: ~:Tony and Yiannis won't both pass
+node: &:Tony and Yiannis will both pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.093c
+node: &:No more than one of then (Richard, Tony, and Yiannis, of course) will pass.
+node: ->:if Richard passes, Tony and Yiannis won't
+node: *R{}0:Richard passes
+node: &:Tony and Yiannis won't pass
+node: ~:Tony won't pass
+node: *T{}0:Tony will pass
+node: ~:Yiannis won't pass
+node: *Y{}0:Yiannis will pass
+node: ->:if Tony passes, Yiannis won't
+node: *T{}0:Tony passes
+node: ~:Yiannis won't pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: 2.094
+node: |:Exactly two of then (among Richard, Tony, and Yiannis) will pass.
+node: &:Richard and Tony will pass, but Yiannis won't
+node: &:Richard and Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: ~:Yiannis won't pass
+node: *Y{}0:Yiannis will pass
+node: |:only Tony or only Richard will fail to pass
+node: &:Richard and Yiannis will pass, but Tony won't
+node: &:Richard and Yiannis will pass
+node: *R{}0:Richard will pass
+node: *Y{}0:Yiannis will pass
+node: ~:Tony won't pass
+node: *T{}0:Tony will pass
+node: &:Tony and Yiannis will pass, but Richard won't
+node: &:Tony and Yiannis will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+node: ~:Richard won't pass
+node: *R{}0:Richard will pass
+
+answer-key: 2.094b
+node: &:Exactly two of then (among Richard, Tony, and Yiannis) will pass.
+node: <->:(Richard won't pass or (exclusive) Tony won't pass) or (exclusive) Yiannis won't pass
+node: <->:Richard won't pass or (exclusive) Tony won't pass
+node: ~:Richard won't pass
+node: *R{}0:Richard will pass
+node: "~:    "
+node: ~:Tony won't pass
+node: *T{}0:Tony will pass
+node: "~:    "
+node: ~:Yiannis won't pass
+node: *Y{}0:Yiannis will pass
+node: |:Richard, Tony or Yiannis will pass
+node: |:Richard or Tony will pass
+node: *R{}0:Richard will pass
+node: *T{}0:Tony will pass
+node: *Y{}0:Yiannis will pass
+
+answer-key: ANS_2100
+node: &:Paula, who studies hard, will pass.
+node: "*P{}0:    "
+node: "*W{}0:    "
+
+answer-key: ANS_2101
+node: |:Either Ruth studies or she doesn't pass.
+node: "~:    "
+node: "*P{}0:    "
+node: "*W{}0:    "
+
+answer-key: ANS_2103
+node: <->:Paula will pass if, but only if, she either studies hard or isn't tired.
+node: "*P{}0:    "
+node: "|:    "
+node: "*W{}0:    "
+node: "~:    "
+node: "*T{}0:    "
+
+answer-key: ANS_2102
+node: ~:Paula neither studies hard nor passes.
+node: "|:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+
+answer-key: ANS_2104
+node: |:Either Paula studies hard and will pass or she doesn't (and won't).
+node: "&:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+node: "&:    "
+node: "~:    "
+node: "*W{}0:    "
+node: "~:    "
+node: "*P{}0:    "
+
+answer-key: ANS_2105
+node: ->:If Paula will pass unless she's tired, then she'll pass so long as she studies hard.
+node: "|:    "
+node: "*P{}0:    "
+node: "*T{}0:    "
+node: "->:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+
+answer-key: ANS_2106
+node: &:Although she's tired, Paula will pass anyway.
+node: "*T{}0:    "
+node: "*P{}0:    "
+
+answer-key: ANS_2107
+node: ->:Provided that Paula studies hard, she'll pass just in case she isn't tired.
+node: "*W{}0:    "
+node: "<->:    "
+node: "*P{}0:    "
+node: "~:    "
+node: "*T{}0:    "
+
+answer-key: ANS_2108
+node: &:Paula studies hard unless she's tired, in which case (that is, if she's tired) she doesn't.
+node: "|:    "
+node: "*W{}0:    "
+node: "*T{}0:    "
+node: "->:    "
+node: "*T{}0:    "
+node: "~:    "
+node: "*W{}0:    "
+
+answer-key: ANS_2109
+node: ->:If either Quincy or Rachel will pass, then so will Paula unless she is tired.
+node: "|:    "
+node: "*Q{}0:    "
+node: "*R{}0:    "
+node: "|:    "
+node: "*P{}0:    "
+node: "*T{}0:    "
+
+answer-key: ANS_2110
+node: &:Paula and Quincy study hard and will pass.
+node: "&:    "
+node: "*W{}0:    "
+node: "*U{}0:    "
+node: "&:    "
+node: "*P{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2111
+node: |:Unless neither Paula nor Quincy studies hard, both will pass.
+node: "~:    "
+node: "|:    "
+node: "*W{}0:    "
+node: "*U{}0:    "
+node: "&:    "
+node: "*P{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2112
+node: &:Both Paula and Quincy won't pass, but Rachel and Sidney won't fail to pass.
+node: "&:    "
+node: "~:    "
+node: "*P{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "&:    "
+node: "~:    "
+node: "*R{}0:    "
+node: "~:    "
+node: "*S{}0:    "
+
+answer-key: ANS_2113
+node: <->:Paula will pass just in case neither Quincy nor Rachel doesn't study hard.
+node: "*P{}0:    "
+node: "&:    "
+node: "~:    "
+node: "~:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "~:    "
+node: "*V{}0:    "
+
+answer-key: ANS_2114
+node: <->:If and only if Paula is not tired, will she and Rachel pass.
+node: "~:    "
+node: "*T{}0:    "
+node: "&:    "
+node: "*P{}0:    "
+node: "*R{}0:    "
+
+answer-key: ANS_2115
+node: |:Unless she studies hard, Paula will study hard and pass just in case Quincy does the same.
+node: "*W{}0:    "
+node: "<->:    "
+node: "&:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2116
+node: &:Quincy studies hard, but Rachel studies hard and passes.
+node: "*U{}0:    "
+node: "&:    "
+node: "*V{}0:    "
+node: "*R{}0:    "
+
+answer-key: ANS_2117
+node: |:Either Sidney will pass without studying hard, or on the condition that Quincy both studies hard and passes, Sidney will fail to pass.
+node: "&:    "
+node: "*S{}0:    "
+node: "~:    "
+node: "*X{}0:    "
+node: "->:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "*S{}0:    "
+
+answer-key: ANS_2118
+node: |:Quincy, who studies hard, also will pass, unless Sidney will fail to pass only on the condition that he fails to study hard.
+node: "&:    "
+node: "*U{}0:    "
+node: "*Q{}0:    "
+node: "->:    "
+node: "~:    "
+node: "*S{}0:    "
+node: "~:    "
+node: "*X{}0:    "
+
+answer-key: ANS_2118b
+node: &:Quincy, who studies hard, also will pass, unless Sidney will fail to pass only on the condition that he fails to study hard.
+node: "*U{}0:    "
+node: "|:    "
+node: "*Q{}0:    "
+node: "->:    "
+node: "~:    "
+node: "*S{}0:    "
+node: "~:    "
+node: "*X{}0:    "
+
+answer-key: ANS_2119
+node: &:Paula will neither study hard nor pass, but either Rachel or Quincy, but not Sidney, will pass.
+node: "~:    "
+node: "|:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+node: "&:    "
+node: "|:    "
+node: "*R{}0:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "*S{}0:    "
+
+answer-key: ANS_2120
+node: &:Although Paula isn't tired, she neither studies hard nor passes; but Sidney won't study hard and won't pass.
+node: "&:    "
+node: "~:    "
+node: "*T{}0:    "
+node: "~:    "
+node: "|:    "
+node: "*W{}0:    "
+node: "*P{}0:    "
+node: "&:    "
+node: "~:    "
+node: "*X{}0:    "
+node: "~:    "
+node: "*S{}0:    "
+
+answer-key: ANS_2121
+node: |:Unless Rachel, who either failed to study hard or succeeded in passing, does pass, Sidney will neither study hard nor fail to study hard.
+node: "&:    "
+node: "|:    "
+node: "~:    "
+node: "*V{}0:    "
+node: "*R{}0:    "
+node: "*R{}0:    "
+node: "~:    "
+node: "|:    "
+node: "*X{}0:    "
+node: "~:    "
+node: "*X{}0:    "
+
+answer-key: ANS_2121b
+node: &:Unless Rachel, who either failed to study hard or succeeded in passing, does pass, Sidney will neither study hard nor fail to study hard.
+node: "|:    "
+node: "~:    "
+node: "*V{}0:    "
+node: "*R{}0:    "
+node: "|:    "
+node: "*R{}0:    "
+node: "~:    "
+node: "|:    "
+node: "*X{}0:    "
+node: "~:    "
+node: "*X{}0:    "
+
+answer-key: ANS_2122
+node: &:Quincy will either study hard or fail to pass, but not both; however, Rachel studies hard just in case it is not the case that she will pass if and only if it is the case that she will pass.
+node: "&:    "
+node: "|:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "<->:    "
+node: "*V{}0:    "
+node: "<->:    "
+node: "~:    "
+node: "*R{}0:    "
+node: "*R{}0:    "
+
+answer-key: ANS_2122b
+node: &:Quincy will either study hard or fail to pass, but not both; however, Rachel studies hard just in case it is not the case that she will pass if and only if it is the case that she will pass.
+node: "&:    "
+node: "|:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "<->:    "
+node: "*V{}0:    "
+node: "~:    "
+node: "<->:    "
+node: "*R{}0:    "
+node: "*R{}0:    "
+
+answer-key: ANS_2122c
+node: &:Quincy will either study hard or fail to pass, but not both; however, Rachel studies hard just in case it is not the case that she will pass if and only if it is the case that she will pass.
+node: "&:    "
+node: "|:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "~:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "<->:    "
+node: "<->:    "
+node: "*V{}0:    "
+node: "~:    "
+node: "*R{}0:    "
+node: "*R{}0:    "
+
+answer-key: ANS_2123
+node: &:Paula neither studies hard, nor is tired, nor passes, but Quincy does all three.
+node: "~:    "
+node: "|:    "
+node: "|:    "
+node: "*W{}0:    "
+node: "*T{}0:    "
+node: "*P{}0:    "
+node: "&:    "
+node: "&:    "
+node: "*U{}0:    "
+node: "*Y{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2801
+node: ->:The Dormouse doesn't doze, provided that Alice is cross.
+node: "*P{}0:    "
+node: "~:    "
+node: "*V{}0:    "
+
+answer-key: ANS_2802
+node: &:Although Alice is cross, she doesn't frown; but the Hatter frowns if he is cross.
+node: "&:    "
+node: "*P{}0:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "->:    "
+node: "*S{}0:    "
+node: "*T{}0:    "
+
+answer-key: ANS_2803
+node: ->:Assuming neither the Hatter nor Alice is mad, the Dormouse dozes but doesn't frown.
+node: "~:    "
+node: "|:    "
+node: "*U{}0:    "
+node: "*R{}0:    "
+node: "&:    "
+node: "*V{}0:    "
+node: "~:    "
+node: "*W{}0:    "
+
+answer-key: ANS_2804
+node: ->:Provided that Alice but not the Hatter is cross unless mad, the Hatter, but not Alice, is mad unless frowning.
+node: "&:    "
+node: "|:    "
+node: "*P{}0:    "
+node: "*R{}0:    "
+node: "~:    "
+node: "|:    "
+node: "*S{}0:    "
+node: "*U{}0:    "
+node: "&:    "
+node: "|:    "
+node: "*U{}0:    "
+node: "*T{}0:    "
+node: "~:    "
+node: "|:    "
+node: "*R{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2805
+node: &:Archie authorizes action if he doesn't anger authorities, but Carol cavorts with carrots.
+node: "->:    "
+node: "~:    "
+node: "*Q{}0:    "
+node: "*P{}0:    "
+node: "*S{}0:    "
+
+answer-key: ANS_2806
+node: ->:If Archie authorizes action just in case he does anger authorities, \nthen Judi judges jumping unless Carol neither craves calamari \nnor cavorts with carrots.
+node: <->:Archie authorizes action just \nin case he does anger authorities
+node: *P{}0:Archie authorizes \naction
+node: *Q{}0:Archie does \nanger authorities
+node: |:Judi judges jumping unless Carol neither \ncraves calamari nor cavorts with carrots.
+node: *T{}0:Judi judges jumping
+node: ~:Carol neither craves calamari \nnor cavorts with carrots.
+node: |:Carol either craves calamari \nor cavorts with carrots.
+node: *R{}0:Carol craves calamari
+node: *S{}0:Carol cavorts with carrots
+
+answer-key: ANS_2807
+node: &:Carol will not cavort with carrots, if Judi will not juggle \njujubes; but given that Judi will not fail to juggle jujubes, \nArchie will anger authorities if he doesn't authorizes action.
+node: "->:    "
+node: "~:    "
+node: "*U{}0:    "
+node: "~:    "
+node: "*S{}0:    "
+node: "->:    "
+node: "~:    "
+node: "~:    "
+node: "*U{}0:    "
+node: "->:    "
+node: "~:    "
+node: "*P{}0:    "
+node: "*Q{}0:    "
+
+answer-key: ANS_2808
+node: |:Unless either not both Archie and Judi authorize action or Carol \ncontrols calamity, both Archie and Judi will anger authorities.
+node: &:both Archie and Judi \nwill anger authorities.
+node: *Q{}0:Archie will anger \nauthorities
+node: *X{}0:Judi will anger \nauthorities
+node: |:either not both Archie and Judi authorize\n action or Carol controls calamity
+node: ~:not both Archie and \nJudi authorize action
+node: &:both Archie and \nJudi authorize action
+node: *P{}0:Archie authorizes\n action
+node: *W{}0:Judi authorizes \naction
+node: *V{}0:Carol controls \ncalamity
+
+answer-key: 3.001
+node: forall x:Everything is good.
+node: *Fx:<x> is good
+
+answer-key: 3.002
+node: ~:Nothing is good.
+node: exists x:something is good
+node: *Fx:<x> is good
+
+answer-key: 3.003
+node: exists x:Something is good.
+node: *Fx:<x> is good
+
+answer-key: 3.004
+node: exists x:Something is not good.
+node: ~:<x> is not good
+node: *Fx:<x> is good
+
+answer-key: 3.005
+node: forall x:All sweets are good.
+node: ->:if <x> is sweet, then <x> is good
+node: *Hx:<x> is sweet
+node: *Fx:<x> is good
+
+answer-key: 3.006
+node: ~:No sweets are good.
+node: exists x:some sweets are good
+node: &:<x> is sweet and <x> is good
+node: *Hx:<x> is sweet
+node: *Fx:<x> is good
+
+answer-key: 3.007
+node: exists x:Some sweets are good.
+node: &:<x> is sweet and <x> is good
+node: *Hx:<x> is sweet
+node: *Fx:<x> is good
+
+answer-key: 3.008
+node: exists x:Some sweets are not good.
+node: &:<x> is sweet and <x> is not good
+node: *Hx:<x> is sweet
+node: ~:<x> is not good
+node: *Fx:<x> is good
+
+answer-key: 3.009
+node: forall x:Only chocolates are good.
+node: ->:if <x> is good, then <x> is a chocolate
+node: *Fx:<x> is good
+node: *Ix:<x> is chocolate
+
+answer-key: 3.010
+node: forall x:All and only sweets are edible.
+node: <->:<x> is sweet if and only if <x> is edible
+node: *Hx:<x> is sweet
+node: *Gx:<x> is edible
+
+answer-key: 3.011
+node: &:All sweet things and edible things are good.
+node: forall x:all sweet things are good
+node: ->:if <x> is sweet, then <x> is good
+node: *Hx:<x> is sweet
+node: *Fx:<x> is good
+node: forall x:all edible things are good.
+node: ->:if <x> is edible, then <x> is good
+node: *Gx:<x> is edible
+node: *Fx:<x> is good
+
+answer-key: 3011b
+english: All sweet things and edible things are good.
+node: ~:All sweet things and edible things are good.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "|:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "*Fx{}0:    "
+
+answer-key: 3.012
+node: forall x:Among sweets, only chocolates are healthy.
+node: ->:if <x> is sweet, then only if <x> is chocolate is <x> healthy
+node: *Hx:<x> is sweet
+node: ->:only if <x> is chocolate is <x> healthy
+node: *Jx:<x> is healthy
+node: *Ix:<x> is chocolate
+
+answer-key: 3.013
+node: forall x:Chocolates that are good should be enjoyed.
+node: ->:if <x> is chocolate that is good, then <x> should be enjoyed
+node: &:<x> is chocolate that is good
+node: *Ix:X is chocolate
+node: *Fx:<x> is good
+node: *Kx:<x> should be enjoyed
+
+answer-key: 3.014
+node: &:Chocolates, which are good, should be enjoyed.
+node: forall x:chocolates should be enjoyed
+node: ->:if <x> is a chocolate, then <x> should be enjoyed
+node: *Ix:<x> is a chocolate
+node: *Kx:<x> should be enjoyed
+node: forall x:chocolates are good
+node: ->:if <x> is a chocolate, then <x> is good
+node: *Ix:<x> is a chocolate
+node: *Fx:<x> is good
+
+answer-key: 3014b
+english: Chocolates, which are good, should be enjoyed.
+node: ~:Chocolates, which are good, should be enjoyed.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Ix{}0:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Kx{}0:    "
+
+answer-key: 3.015
+node: forall x:A chocolate should be enjoyed.
+node: ->:if <x> is a chocolate, then <x> should be enjoyed
+node: *Ix:<x> is a chocolate
+node: *Kx:<x> should be enjoyed
+
+answer-key: 3.016
+node: exists x:A chocolate poisoned my friend.
+node: &:<x> is a chocolate and <x> poisoned my friend
+node: *Ix:<x> is a chocolate
+node: *Lx:<x> poisoned my friend
+
+answer-key: 3.017
+node: forall x:Nothing other than a chocolate is good.
+node: ->:only if <x> is a chocolate, is <x> good
+node: *Fx:<x> is good
+node: *Ix:<x> is a chocolate
+
+answer-key: 3.018
+node: forall x:Only chocolates are good.
+node: "->:    "
+node: *Fx{}0:<x> is good
+node: *Ix{}0:<x> is a chocolate
+
+answer-key: 3.030
+node: &:Something is round and something is square, but it is not the case that something is a round square.
+node: &:Something is round and something is square
+node: exists x:Something is round
+node: *Fx:<x> is round
+node: exists x:Something is square
+node: *Gx:<x> is square
+node: ~:it is not the case that something is a round square
+node: exists x:something is a round square
+node: &:<x> is a round square
+node: *Fx:<x> is round
+node: *Gx:<x> is square
+
+answer-key: 3.031
+node: ->:If everything is mental, then nothing is physical unless something is both mental and physical.
+node: forall x:everything is mental
+node: *Fx:<x> is mental
+node: |:nothing is physical unless something is both mental and physical
+node: ~:nothing is physical
+node: exists x:something is physical
+node: *Gx:<x> is physical
+node: exists x:something is both mental and physical
+node: &:<x> is both mental and physical
+node: *Fx:<x> is mental
+node: *Gx:<x> is physical
+
+answer-key: 3.032
+node: forall x:None but the brave deserve the fair.
+node: ->:only if <x> is brave, does <x> desrve the fair
+node: *Gx:<x> deserves the fair
+node: *Fx:<x> is brave
+
+answer-key: 3.033
+node: forall x:Kettles boil quickly only if not watched.
+node: ->:if <x> is a kettle, then <x> boils quickly only if not watched
+node: *Fx:<x> is a kettle
+node: ->:<x> boils quickly only if not watched
+node: *Gx:<x> boils quickly
+node: ~:<x> is not watched
+node: *Hx:<x> is watched
+
+answer-key: 3.034
+node: forall x:Kettles boil quickly if not watched.
+node: ->:if <x> is a kettle, then <x> boils quickly if not watched
+node: *Fx:<x> is a kettle
+node: ->:<x> boils quickly if not watched
+node: ~:<x> is not watched
+node: *Hx:<x> is watched
+node: *Gx:<x> boils quickly
+
+answer-key: 3.035
+node: &:Some soldiers love war, but not all who love war are soldiers.
+node: exists x:some soldiers love war
+node: &:<x> is a sodier and <x> loves war
+node: *Fx:<x> is a sodier
+node: *Gx:<x> loves war
+node: ~:not all who love war are soldiers
+node: forall x:all who love war are soldiers
+node: ->:if <x> loves war, then <x> is a soldier
+node: *Gx:<x> loves war
+node: *Fx:<x> is a soldier
+
+answer-key: 3.040
+node: forall x:Among equine mammals, all and only zebras have dark stripes on a white or buffy background.
+node: ->:if <x> is an equine mammals, then if and only if <x> is a zebra does <x> have dark stripes on a white or buffy background
+node: *Fx:<x> is an equine mammal
+node: <->:if and only if <x> is a zebra does <x> have dark stripes on a white or buffy background
+node: *Gx:<x> is a zebra
+node: *Hx:<x> has dark stripes on a white or buffy background
+
+answer-key: 3.041
+node: &:Democrats and Republicans who put loyality above legality are detrimental to democracy.
+node: forall x:Democrats who put loyality above legality are detrimental to democracy
+node: ->:if <x> is a democrat and <x> puts loyalty above legality, then <x> is detrimental to democracy
+node: &:<x> is a democrat and <x> puts loyalty above legality
+node: *Fx:<x> is a democrat
+node: *Hx:<x> puts loyalty above legality
+node: *Jx:<x> is detrimental to democracy
+node: forall x:Republicans who put loyality above legality are detrimental to democracy
+node: ->:if <x> is a republican and <x> puts loyalty above legality, then <x> is detrimental to democracy
+node: &:<x> is a republican and <x> puts loyalty above legality
+node: *Gx:<x> is a republican
+node: *Hx:<x> puts loyalty above legality
+node: *Jx:<x> is detrimental to democracy
+
+answer-key: 3041b
+english: Democrats and Republicans who put loyality above legality are detrimental to democracy.
+node: forall x:Democrats and Republicans who put loyality above legality are detrimental to democracy.
+node: "->:    "
+node: "&:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "*Jx{}0:    "
+seconds: 41
+
+answer-key: 3.042
+node: forall x:Professors are good lecturers if and only if they are both witty and intellectually competent.
+node: ->:if <x> is a professor, then <x> is a good lecturer if and only if <x> is both witty and intellectually competent
+node: *Fx:<x> is a professor
+node: <->:<x> is a good lecturer if and only if <x> is both witty and intellectually competent
+node: *Gx:<x> is a good lecturer
+node: &:<x> is both witty and intellectually competent
+node: *Hx:<x> is witty
+node: *Jx:<x> is intellectually competent
+
+answer-key: 3.043
+node: forall x:If a registered voter has not declared a party and only those who have declared a party can vote in a primary election, then he or she cannot vote in a primary election.
+node: ->:if <x> is a registered voter who has not declared a party and only those who have declared a party can vote in a primary election, then <x> cannot vote in a primary election
+node: &:<x> is a registered voter who has not declared a party and only those who have declared a party can vote in a primary election
+node: &:<x> is a registered voter who has not declared a party
+node: *Fx:<x> is a registered voter
+node: ~:<x> has not declared a party
+node: *Gx:<x> has declared a party
+node: forall y:only those who have declared a party can vote in a primary election
+node: ->:if <y> can vote in a primary election, then <y> has declared a party
+node: *Hy:<y> can vote in a primary election
+node: *Gy:<y> has declared a party
+node: ~:<x> cannot vote in a primary election
+node: *Hx:<x> can vote in a primary election
+
+answer-key: 3.044
+node: ->:If only Republicans support the incumbent and no Democrat supports the candidate, then if anyone is a Democrat, someone supports neither the incumbent nor the candidate.
+node: &:only Republicans support the incumbent and no Democrat supports the candidate
+node: forall x:only Republicans support the incumbent
+node: ->:if <x> supports the incumbent, then <x> is a Republican
+node: *Gx:<x> supports the incumbent
+node: *Fx:<x> is a Republican
+node: ~:no Democrat supports the candidate
+node: exists x:some Democrat supports the candidate
+node: &:<x> is a Democrat and <x> supports the candidate
+node: *Hx:<x> is a Democrat
+node: *Jx:<x> supports the candidate
+node: ->:if anyone is a Democrat, someone supports neither the incumbent nor the candidate
+node: exists x:someone is a Democrat
+node: *Hx:<x> is a Democrat
+node: exists x:someone supports neither the incumbent nor the candidate
+node: ~:supports neither the incumbent nor the candidate
+node: |:<x> supports the incumbent or <x> supports the candidate
+node: *Gx:<x> supports the incumbent
+node: *Jx:<x> supports the candidate
+
+answer-key: 3.045
+node: ->:If those who believe in God have immortal souls, then, given that God exists, they will have eternal bliss.
+node: forall x:those who believe in God have immortal souls
+node: ->:if <x> believes in God, then <x> has an immortal soul
+node: *Fx:F<x> believes in God
+node: *Gx:<x> has an immortal souls
+node: ->:given that God exists, those who believe in God will have eternal bliss.
+node: *P:God exists
+node: forall x:those who believe in God will have eternal bliss
+node: ->:if <x> believes in God, then <x> will have eternal bliss.
+node: *Fx:<x> believes in God
+node: *Hx:<x> will have eternal bliss
+
+answer-key: 3.050
+node: forall x:Only policemen and firemen are both indispensable and underpaid.
+node: ->:<x> is both indispensable and underpaid only if <x> is a policeman or fireman
+node: &:<x> is both indispensable and underpaid
+node: *Hx:<x> is indispensable
+node: *Jx:<x> is underpaid
+node: |:<x> is a policeman or fireman
+node: *Fx:<x> is a policeman
+node: *Gx:X is a fireman
+
+answer-key: 3.051
+node: &:All fruits and vegetables are wholesome and nourishing.
+node: forall x:All fruits are wholesome and nourishing.
+node: ->:if <x> is a fruit, then <x> is wholesome and nourishing.
+node: *Fx{}0:<x> is a fruit
+node: &:<x> is wholesome and nourishing
+node: *Hx{}0:<x> is wholesome
+node: *Jx{}0:<x> is nourishing
+node: forall x:All vegetables are wholesome and nourishing
+node: ->:if <x> is a vegetable, then <x> is wholesome and nourishing
+node: *Gx{}0:<x> is a vegetable
+node: &:<x> is wholesome and nourishing
+node: *Hx{}0:<x> is wholesome
+node: *Jx{}0:<x> is nourishing
+
+answer-key: 3051b
+english: All fruits and vegetables are wholesome and nourishing.
+node: forall x:All fruits and vegetables are wholesome and nourishing.
+node: "->:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Jx{}0:    "
+seconds: 44
+
+answer-key: 3.052
+node: &:Doctors and lawyers who are rich are admired only if they're also honest.
+node: forall x:doctors who are rich are admired only if they're also honest
+node: ->:if <x> is a doctors who is rich, then <x> is admired only if <x> is also honest
+node: &:<x> is a doctor who is rich
+node: *Fx:F<x> is a doctor
+node: *Hx:<x> is rich
+node: ->:<x> is admired only if <x> is also honest
+node: *Jx:<x> is admired
+node: *Kx:<x> is also honest
+node: forall x:lawyers who are rich are admired only if they're also honest
+node: ->:<x> is a lawyer who is rich, then <x> is admired only if <x> is also honest
+node: &:<x> is a lawyer who is rich
+node: *Gx:<x> is a lawyer
+node: *Hx:<x> is rich
+node: ->:<x> is admired only if <x> is also honest
+node: *Jx:<x> is admired
+node: *Kx:<x> is also honest
+
+answer-key: 3052b
+english: Doctors and lawyers who are rich are admired only if they're also honest.
+node: forall x:Doctors and lawyers who are rich are admired only if they're also honest.
+node: "->:    "
+node: "&:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "->:    "
+node: "*Jx{}0:    "
+node: "*Kx{}0:    "
+seconds: 104
+
+answer-key: 3053a
+node: &:Doctors and lawyers, who are rich, are admired only if they're also honest.
+node: &:doctors and lawyers are admired only if they're also honest.
+node: forall x:doctors are admired only if they're also honest.
+node: ->:if <x> is a doctor, then <x> is admired only if <x> is also honest
+node: *Fx:<x> is a doctor
+node: ->:<x> is admired only if <x> is also honest
+node: *Jx:<x> is admired
+node: *Kx:<x> is honest
+node: forall x:lawyers are admired only if they're also honest.
+node: ->:if <x> is lawyer, then <x> is admired only if <x> is also honest.
+node: *Gx:<x> is a lawyer
+node: ->:<x> is admired only if <x> is also honest.
+node: *Jx:<x> is admired
+node: *Kx:<x> is also honest.
+node: &:doctors and lawyers are rich
+node: forall x:doctors are rich
+node: ->:if <x> is a doctor, then <x> is rich
+node: *Fx:<x> is a doctor
+node: *Hx:<x> is rich
+node: forall x:lawyers are rich
+node: ->:if <x> is a lawyer, then <x> is rich
+node: *Gx:<x> is a lawyer
+node: *Hx:<x> is rich
+
+answer-key: 3053b
+english: Doctors and lawyers, who are rich, are admired only if they're also honest.
+node: forall x:Doctors and lawyers, who are rich, are admired only if they're also honest.
+node: "->:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "->:    "
+node: "*Jx{}0:    "
+node: "*Kx{}0:    "
+
+answer-key: 3.097
+node: &:Those who read The Daily Bruin in class are inconsiderate, but none of them are illiterate.
+node: forall x:those who read The Daily Bruin in class are inconsiderate
+node: ->:if <x> reads The Daily Bruin in class, then <x> is inconsiderate
+node: *Fx:<x> reads The Daily Bruin in class
+node: *Gx:<x> is inconsiderate
+node: ~:none of those who read The Daily Bruin in class are illiterate
+node: exists x:at least one of those who read The Daily Bruin in class are illiterate
+node: &:<x> reads The Daily Bruin in class, and <x> is illiterate
+node: *Fx:<x> reads The Daily Bruin in class
+node: *Hx:<x> is illiterate
+
+answer-key: 3.098
+node: ->:If there is no one who does not read The Daily Bruin in class, then only the inconsiderate are literate.
+node: ~:there is no one who does not read The Daily Bruin in class
+node: exists x:there is someone who does not read The Daily Bruin in class
+node: ~:<x> does not read The Daily Bruin in class
+node: *Fx:<x> reads The Daily Bruin in class
+node: forall x:only the inconsiderate are literate
+node: ->:only if <x> is inconsiderate, is she literate
+node: *Hx:<x> is literate
+node: *Gx:<x> is inconsiderate,
+
+answer-key: 3.099
+node: forall x:If any woman studies, then no student passes unless she does.
+node: ->:if <x> is a woman who studies, then no student passes unless she does.
+node: &:<x> is a woman who studies
+node: *Fx:<x> is a woman
+node: *Gx:<x> studies
+node: |:no student passes unless <x> does.
+node: ~:no student passes
+node: exists y:some student passes
+node: &:<y> is a student and <y> passes
+node: *Hy:<y> is a student
+node: *Jy:<y> passes
+node: *Jx:<x> passes
+
+answer-key: 3.201
+node: &:Dogs and dolphins jump if petted.
+node: forall x:dogs jump if petted
+node: ->:if <x> is a dog, <x> jumps if petted
+node: *Ix{}0:<x> is a dog
+node: ->:<x> jumps if petted
+node: *Hx{}0:<x> is petted
+node: *Fx{}0:<x> jumps
+node: forall x:dolphins jump if petted
+node: ->:if <x> is a dolphin, <x> jumps if petted
+node: *Kx{}0:<x> is a dolphin
+node: ->:<x> jumps if petted
+node: *Hx{}0:<x> is petted
+node: *Fx{}0:<x> jumps
+
+answer-key: 3201b
+english: Dogs and dolphins jump if petted.
+node: forall x:Dogs and dolphins jump if petted.
+node: "->:    "
+node: "|:    "
+node: "*Ix{}0:    "
+node: "*Kx{}0:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Fx{}0:    "
+seconds: 38
+
+answer-key: 3.202
+node: ~:Only dogs and dolphins jump if petted.
+node: exists x:something distinct from both dogs and dolphins jumps if petted
+node: "&:    "
+node: &:<x> is distinct from both dogs and dolphins
+node: ~:<x> is not a dog
+node: *Ix{}0:<x> is a dog
+node: ~:<x> is not a dolphin
+node: *Kx{}0:<x> is a dolphin
+node: ->:<x> jumps if petted
+node: *Hx{}0:<x> is petted
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.203
+node: &:Dogs and dolphins jump only if petted.
+node: forall x:dogs jump only if petted
+node: "->:    "
+node: *Ix{}0:<x> is a dog
+node: ->:<x> jumps only if petted
+node: *Fx{}0:<x> jumps
+node: *Hx{}0:<x> is petted
+node: forall x:dolphins jump only if petted
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: ->:<x> jumps only if petted
+node: *Fx{}0:<x> jumps
+node: *Hx{}0:<x> is petted
+
+answer-key: 3203b
+english: Dogs and dolphins jump only if petted.
+node: forall x:Dogs and dolphins jump only if petted.
+node: "->:    "
+node: "|:    "
+node: "*Ix{}0:    "
+node: "*Kx{}0:    "
+node: "->:    "
+node: "*Fx{}0:    "
+node: "*Hx{}0:    "
+seconds: 35
+
+answer-key: 3.204
+node: &:Dogs and dolphins jump only if Spot and Kiwi are petted.
+node: forall x:dogs jump only if Spot and Kiwi are petted
+node: "->:    "
+node: *Ix{}0:<x> is a dog
+node: ->:<x> jumps only if Spot and Kiwi are petted
+node: *Fx{}0:<x> jumps
+node: &:Spot and Kiwi are petted
+node: *Ha{}0:Spot is petted
+node: *Hb{}0:Kiwi is petted
+node: forall x:dolphins jump only if Spot and Kiwi are petted
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: ->:<x> jumps only if Spot and Kiwi are petted
+node: *Fx{}0:<x> jumps
+node: &:Spot and Kiwi are petted
+node: *Ha{}0:Spot is petted
+node: *Hb{}0:Kiwi is petted
+
+answer-key: 3204b
+english: Dogs and dolphins jump only if Spot and Kiwi are petted.
+node: forall x:Dogs and dolphins jump only if Spot and Kiwi are petted.
+node: "->:    "
+node: "|:    "
+node: "*Ix{}0:    "
+node: "*Kx{}0:    "
+node: "->:    "
+node: "*Fx{}0:    "
+node: "&:    "
+node: "*Ha{}0:    "
+node: "*Hb{}0:    "
+
+answer-key: 3.205
+node: ~:No pet neither sings nor jumps.
+node: exists x:some pet neither sings nor jumps
+node: "&:    "
+node: *Nx{}0:<x> is a pet
+node: ~:<x> neither sings nor jumps
+node: |:<x> either sings or jumps
+node: *Gx{}0:<x> sings
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.206
+node: &:Some dogs both sing and jump, but only long-haired dogs are petted.
+node: exists x:some dogs both sing and jump
+node: "&:    "
+node: *Ix{}0:<x> is a dog
+node: &:<x> sings and jumps
+node: *Gx{}0:<x> sings
+node: *Fx{}0:<x> jumps
+node: forall x:only long-haired dogs are petted
+node: "->:    "
+node: *Ix{}0:<x> is a dog
+node: ->:only if <x> is long-haired is <x> petted
+node: *Hx{}0:<x> is petted
+node: *Mx{}0:<x> is long-haired
+
+answer-key: 3.207
+node: forall x:If a pet is yellow, then it sings but doesn't jump.
+node: "->:    "
+node: *Nx{}0:<x> is a pet
+node: ->:<x> is yellow, only if it sings but doesn't jump
+node: *Lx{}0:<x> is yellow
+node: &:<x> sings but doesn't jump
+node: *Gx{}0:<x> sings
+node: ~:<x> doesn't jump
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.207b
+english: If a pet is yellow, then it sings but doesn't jump.
+node: forall x:If a pet is yellow, then it sings but doesn't jump.
+node: ->:if <x> is a pet and <x> is yellow, then <x> sings but <x> doesn't jump
+node: &:<x> is a pet and <x> is yellow
+node: *Nx{}0:<x> is a pet
+node: *Lx{}0:<x> is yellow
+node: &:<x> sings but <x> doesn't jump
+node: *Gx{}0:<x> sings
+node: ~:<x> doesn't jump
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.208
+node: ->:If Feathers sings and all who sing jump, then Feathers will not fail to jump.
+node: &:Feathers sings and all who sing jump
+node: *Gc{}0:Feathers sings
+node: forall x:all who sing jump
+node: "->:    "
+node: *Gx{}0:<x> sings
+node: *Fx{}0:<x> jumps
+node: ~:Feathers will not fail to jump
+node: ~:Feathers will fail to jump
+node: *Fc{}0:Feathers will jump
+
+answer-key: 3.209
+node: ->:Given that all pets jump or sing and no canary jumps, no canary is a pet unless it sings.
+node: &:Given that all pets jump or sing and no canary jumps
+node: forall x:all pets jump or sing
+node: "->:    "
+node: *Nx{}0:<x> is a pet
+node: |:<x> jumps or sings
+node: *Fx{}0:<x> jumps
+node: *Gx{}0:<x> sings
+node: ~:no canary jumps
+node: exists x:some canary jumps
+node: "&:    "
+node: *Jx{}0:<x> is a canary
+node: *Fx{}0:<x> jumps
+node: ~:no canary is a pet unless it sings
+node: exists x:some canary is a pet and doesn't sing
+node: "&:    "
+node: *Jx{}0:<x> is a canary
+node: &:<x> is a pet and doesn't sing
+node: *Nx{}0:<x> is a pet
+node: ~:<x> doesn't sing
+node: *Gx{}0:<x> sings
+
+answer-key: 3.210
+node: forall x:No dolphin sings unless it jumps.
+node: ->:if <x> is a dolphin, <x> doesn't sing unless it jumps
+node: *Kx{}0:<x> is a dolphin
+node: |:<x> doesn't sing unless it jumps
+node: ~:<x> doesn't sing
+node: *Gx{}0:<x> sings
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.211
+node: |:No dolphin sings unless Kiwi jumps.
+node: ~:no dolphin sings
+node: exists x:some dolphin sings
+node: "&:    "
+node: *Kx{}0:<x> is a dolphin
+node: *Gx{}0:<x> sings
+node: *Fb{}0:Kiwi jumps
+
+answer-key: 2ANS_3211
+english: No dolphin sings unless Kiwi jumps.
+node: ~:No dolphin sings unless Kiwi jumps.
+node: exists x:A dolphin sings and Kiwi doesn't jump.
+node: &:<x> is a dolphin and <x> sings and Kiwi doesn't jump.
+node: *Kx{}0:<x> is a dolphin.
+node: &:<x> sings and Kiwi doesn't jump.
+node: *Gx{}0:<x> sings.
+node: ~:Kiwi doesn't jump.
+node: *Fb{}0:Kiwi jumps
+
+answer-key: 3.212
+node: forall x:If a dolphin is petted, it will jump.
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: ->:if <x> is petted, it will jump
+node: *Hx{}0:<x> is petted
+node: *Fx{}0:<x> will jump
+
+answer-key: 3.213
+node: ->:If all dolphins are petted, they will all jump.
+node: forall x:all dolphins are petted
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: *Hx{}0:<x> is petted
+node: forall x:all dolphins will jump
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: *Fx{}0:<x> will jump
+
+answer-key: 3.214
+node: forall x:A dolphin jumps.
+node: "->:    "
+node: *Kx{}0:<x> is a dolphin
+node: *Fx{}0:<x> jumps
+
+answer-key: 3.215
+node: ~:Only a dog is long-haired.
+node: exists x:something other than a dog is long-haired.
+node: "&:    "
+node: ~:<x> is other than a dog
+node: *Ix{}0:<x> is a dog
+node: *Mx{}0:<x> is long-haired
+
+answer-key: 3.216
+node: |:Unless Spot is a canary, he neither sings nor is yellow.
+node: ~:Spot neither sings nor is yellow.
+node: |:Spot either sings or is yellow.
+node: *Ga{}0:Spot sings
+node: *La{}0:Spot is yellow
+node: *Ja{}0:Spot is a canary
+
+answer-key: 3.217
+node: &:Both Spot and Kiwi jump, but only if they are pets are they petted.
+node: &:Both Spot and Kiwi jump
+node: *Fa{}0:Spot jumps
+node: *Fb{}0:Kiwi jumps
+node: ->:only if Spot and Kiwi are pets are they petted
+node: &:Spot and Kiwi are petted
+node: *Ha{}0:Spot is petted
+node: *Hb{}0:Kiwi is petted
+node: &:Spot and Kiwi are pets
+node: *Na{}0:Spot is a pet
+node: *Nb{}0:Kiwi is a pet
+
+answer-key: 3806a
+english: If all elves are mean, no elf won't bite.
+node: ->:If all elves are mean, no elf won't bite.
+node: "forall x:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "~:    "
+node: "~:    "
+node: "*Ix{}0:    "
+
+answer-key: 3806b
+english: If all elves are mean, no elf won't bite.
+node: ->:If all elves are mean, no elf won't bite.
+node: "forall x:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "~:    "
+node: "exists x:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "~:    "
+node: "*Ix{}0:    "
+
+answer-key: 3807a
+english: All elves who are mean will bite.
+node: forall x:All elves who are mean will bite.
+node: "->:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "*Ix{}0:    "
+
+answer-key: 3807b
+english: All elves who are mean will bite.
+node: ~:All elves who are mean will bite.
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "~:    "
+node: "*Ix{}0:    "
+
+answer-key: 3808
+english: Although some mean elves will bite even though not provoked, neither Bruce nor Carrie will bite unless provoked.
+node: &:Although some mean elves will bite even though not provoked, neither Bruce nor Carrie will bite unless provoked.
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "*Ix{}0:    "
+node: "~:    "
+node: "*Jx{}0:    "
+node: "~:    "
+node: "|:    "
+node: "&:    "
+node: "*Ib{}0:    "
+node: "~:    "
+node: "*Jb{}0:    "
+node: "&:    "
+node: "*Ic{}0:    "
+node: "~:    "
+node: "*Jc{}0:    "
+
+answer-key: 3809a
+english: Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked.
+node: ->:Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked.
+node: "&:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "*Ix{}0:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Fx{}0:    "
+node: "*Ix{}0:    "
+node: "&:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "->:    "
+node: "|:    "
+node: "*Jx{}0:    "
+node: "~:    "
+node: "*Jx{}0:    "
+node: "*Ix{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Fx{}0:    "
+node: "->:    "
+node: "*Ix{}0:    "
+node: "*Jx{}0:    "
+
+answer-key: 3809b
+english: Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked.
+node: ->:Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked.
+node: "&:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "*Ix{}0:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Fx{}0:    "
+node: "*Ix{}0:    "
+node: "&:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+node: "*Ix{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "*Fx{}0:    "
+node: "->:    "
+node: "*Ix{}0:    "
+node: "*Jx{}0:    "
+
+answer-key: 3810a
+english: No Republican is in the majority unless only Republicans are in the majority.
+node: |:No Republican is in the majority unless only Republicans are in the majority.
+node: "~:    "
+node: "exists x:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Gx{}0:    "
+node: "*Fx{}0:    "
+
+answer-key: 3810b
+english: No Republican is in the majority unless only Republicans are in the majority.
+node: forall x:No Republican is in the majority unless only Republicans are in the majority.
+node: "|:    "
+node: "~:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*Gy{}0:    "
+node: "*Fy{}0:    "
+
+answer-key: 3803
+english: Only logicians and mathematicians like quantifiers
+node: forall x:Only logicians and mathematicians like quantifiers
+node: "->:    "
+node: "*Fx{}0:    "
+node: "|:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+
+answer-key: 3801
+english: If a cancer survivor wins the Tour de France, then he's a superb athlete or on drugs.
+node: forall x:If a cancer survivor wins the Tour de France, then he's a superb athlete or on drugs.
+node: "->:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "|:    "
+node: "*Hx{}0:    "
+node: "*Ix{}0:    "
+
+answer-key: 3811a
+english: Neither Republicans nor Democrats are honest except when it benefits them
+node: &:Neither Republicans nor Democrats are honest except when it benefits them
+node: "forall x:    "
+node: "->:    "
+node: "*Fx{}0:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Ix{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Gx{}0:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Ix{}0:    "
+
+answer-key: 3811b
+english: Neither Republicans nor Democrats are honest except when it benefits them.
+node: forall x:Neither Republicans nor Democrats are honest except when it benefits them.
+node: "->:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "*Ix{}0:    "
+
+answer-key: 3811c
+english: Neither Republicans nor Democrats are honest except when it benefits them
+node: ~:Neither Republicans nor Democrats are honest except when it benefits them
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "|:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "~:    "
+node: "*Ix{}0:    "
+
+answer-key: 3811d
+english: Neither Republicans nor Democrats are honest except when it benefits them
+node: ~:Neither Republicans nor Democrats are honest except when it benefits them
+node: "|:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Hx{}0:    "
+node: "~:    "
+node: "*Ix{}0:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "~:    "
+node: "*Ix{}0:    "
+
+answer-key: 3804
+english: Among adults, only husbands and wives are excluded from singles clubs
+node: forall x:Among adults, only husbands and wives are excluded from singles clubs
+node: "->:    "
+node: "*Fx{}0:    "
+node: "->:    "
+node: "*Jx{}0:    "
+node: "|:    "
+node: "*Hx{}0:    "
+node: "*Gx{}0:    "
+
+answer-key: 3805a
+english: No smoker is in jeopardy unless she inhales
+node: ~:No smoker is in jeopardy unless she inhales
+node: "exists x:    "
+node: "&:    "
+node: "*Mx{}0:    "
+node: "&:    "
+node: "*Jx{}0:    "
+node: "~:    "
+node: "*Hx{}0:    "
+
+answer-key: 3805b
+english: No smoker is in jeopardy unless he or she inhales
+node: ~:No smoker is in jeopardy unless he or she inhales
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "*Mx{}0:    "
+node: "*Jx{}0:    "
+node: "~:    "
+node: "*Hx{}0:    "
+seconds: 12
+
+answer-key: 3802a
+english: Men and women who enjoy martinis sleep well
+node: &:Men and women who enjoy martinis sleep well
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Mx{}0:    "
+node: "*Jx{}0:    "
+node: "*Kx{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Ox{}0:    "
+node: "*Jx{}0:    "
+node: "*Kx{}0:    "
+
+answer-key: 3802b
+english: Men and women who enjoy martinis sleep well
+node: forall x:Men and women who enjoy martinis sleep well
+node: "->:    "
+node: "&:    "
+node: "|:    "
+node: "*Mx{}0:    "
+node: "*Ox{}0:    "
+node: "*Jx{}0:    "
+node: "*Kx{}0:    "
+
+answer-key: 4.033
+node: forall x:Alfred is a friend of those who have no friends.
+node: "->:    "
+node: ~:<x> has no friends
+node: exists y:<x> has friends
+node: *F(yx){}0:<y> is a friend of <x>
+node: *F(ax){}0:Alfred is a friend of <x>
+
+answer-key: 4.034
+node: &:Every husband and wife has a spouse.
+node: forall x:every husband has a spouse
+node: "->:    "
+node: *Gx{}0:<x> is a husband
+node: exists y:<x> has a spouse
+node: *F(yx){}0:<y> is a spouse of <x>
+node: forall x:every wife has a spouse
+node: "->:    "
+node: *Hx{}0:<x> is a wife
+node: exists y:<x> has a spouse
+node: *F(yx){}0:<y> is a spouse of <x>
+
+answer-key: 4.035
+node: &:No one lacks a father, but not everyone is a father.
+node: ~:no one lacks a father
+node: exists x:someone lacks a father.
+node: "&:    "
+node: *Gx{}0:<x> is a person
+node: ~:<x> lacks a father
+node: exists y:<x> has a father
+node: *F(yx){}0:<y> is a father of <x>
+node: ~:not everyone is a father
+node: forall x:everyone is a father
+node: "->:    "
+node: *Gx{}0:<x> is a person
+node: exists y:<x> is a father
+node: *F(xy){}0:<x> is a father of <y>
+
+answer-key: Symb 4.001 Ex14(1)
+node: forall x:Everyone loves someone.
+node: "->:    "
+node: *Fx{}0:<x> is a person
+node: exists y:<x> loves someone
+node: "&:    "
+node: *Fy{}0:<y> is a person
+node: *G(xy){}0:<x> loves <y>
+
+answer-key: 2ANS_4001
+english: Everyone loves someone.
+node: exists x:Everyone loves someone.
+node: &:<x> is a person whom everyone loves
+node: *Fx{}0:<x> is a person
+node: forall y:everyone loves <x>
+node: "->:    "
+node: *Fy{}0:<y> is a person
+node: *G(yx){}0:<y> loves <x>
+
+answer-key: Symb 4.002 Ex14(2)
+node: exists x:Someone loves someone.
+node: "&:    "
+node: *Fx{}0:<x> is a person
+node: exists y:<x> loves someone
+node: "&:    "
+node: *Fy{}0:<y> is a person
+node: *G(xy){}0:<x> loves <y>
+
+answer-key: 2ANS_4002
+english: Someone loves someone.
+node: exists x:Someone loves someone.
+node: &:<x> is a person whom someone loves
+node: *Fx{}0:<x> is a person
+node: exists y:someone loves <x>
+node: "&:    "
+node: *Fy{}0:<y> is a person
+node: *G(yx){}0:<y> loves <x>
+
+answer-key: Symb 4.003 Ex14(3)
+node: ->:If anything is a person, then someone loves himself.
+node: exists x:something is a person
+node: *Fx{}0:<x> is a person
+node: exists x:someone loves him or her self
+node: "&:    "
+node: *Fx{}0:<x> is a person
+node: *G(xx){}0:<x> loves <x>
+
+answer-key: Symb 4.004 Ex14(4)
+node: exists x:Someone loves everyone.
+node: "&:    "
+node: *Fx{}0:<x> is a person
+node: forall y:<x> loves everyone
+node: "->:    "
+node: *Fy{}0:<y> is a person
+node: *G(xy){}0:<x> loves <y>
+errors: 1
+
+answer-key: 2ANS_4004
+english: Someone loves everyone.
+node: forall x:Someone loves everyone.
+node: ->:if <x> is a person, someone loves him or her
+node: *Fx{}0:<x> is a person
+node: exists y:someone loves <x>
+node: "&:    "
+node: *Fy{}0:<y> is a person
+node: *G(yx){}0:<y> loves <x>
+
+answer-key: 1ANS_4005
+english: Everyone loves everyone.
+node: forall x:Everyone loves everyone.
+node: "->:    "
+node: *Fx{}0:<x> is a person
+node: forall y:<x> loves everyone
+node: "->:    "
+node: *Fy{}0:<y> is a person
+node: *G(xy){}0:<x> loves <y>
+
+answer-key: 2ANS_4005
+english: Everyone loves everyone.
+node: forall x:Everyone loves everyone.
+node: ->:if <x> is a person, then everyone loves <x>
+node: *Fx{}0:<x> is a person
+node: forall y:everyone loves <x>
+node: "->:    "
+node: *Fy{}0:<y> is a person
+node: *G(yx){}0:<y> loves <x>
+
+answer-key: ANS_4006
+english: Every student studies every subject with every teacher.
+node: forall x:Every student studies every subject with every teacher.
+node: ->:if <x> is a student, then <x> studies every subject with every teacher
+node: *Fx{}0:<x> is a student
+node: forall y:<x> studies every subject with every teacher
+node: "->:    "
+node: *Hy{}0:<y> is a subject
+node: forall z:<x> studies <y> with every teacher
+node: "->:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:x studies y with z
+
+answer-key: ANS_4007
+english: Every student studies some subject with some teacher.
+node: forall x:Every student studies some subject with some teacher.
+node: ->:if <x> is a student then <x> studies some subject with some teacher
+node: *Fx{}0:<x> is a student
+node: exists y:<x> studies some subject with some teacher
+node: &:<y> is a subject and <x> studies <y> with some teacher
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with some teacher
+node: "&:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y> with <z>
+
+answer-key: Symb 4.008 Ex15(3)
+node: ~:No student studies every subject with a teacher.
+node: exists x:Some student studies every subject with a teacher.
+node: &:<x> is a student and <x> studies every subject with a teacher.
+node: *Fx{}0:<x> is a student
+node: forall y:<x> studies every subject with a teacher.
+node: ->:if <y> is a subject, <x> studies <y> with a teacher.
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher
+node: &:<z> is a teacher and <x> studies <y> with <z>
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y> with <z>
+
+answer-key: ANS_4008x
+english: No student studies every subject with the same teacher.
+node: ~:No student studies every subject with the same teacher.
+node: exists x:some student studies every subject with the same teacher
+node: "&:    "
+node: *Fx{}0:<x> is a student
+node: exists y:<x> studies every subject with the same teacher
+node: "&:    "
+node: *Gy{}0:<y> is a teacher
+node: forall z:<x> studies every subject with <y>
+node: "->:    "
+node: *Hz{}0:<z> is a subject
+node: *S(xzy){}0:<x> studies <z> with <y>
+errors: 1
+
+answer-key: Symb 4.009 Ex15(4)
+node: forall x:Only students study every subject with a teacher.
+node: ->:if <x> studies every subject with a teacher, then <x> is a student
+node: forall y:<x> studies every subject with a teacher.
+node: ->:if <y> is a subject, then <x> studies <y> with a teacher
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher.
+node: &:<z> is a teacher and <x> studies <y> with <z>
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y>> with <z>
+node: *Fx{}0:<x> is a student
+
+answer-key: 2ANS_4009
+english: Only students study every subject with a teacher.
+node: ~:Only students study every subject with a teacher.
+node: exists x:something other than a student studies every subject with a teacher
+node: "&:    "
+node: ~:<x> is other than a student
+node: *Fx{}0:<x> is a student
+node: forall y:<x> studies every subject with a teacher.
+node: ->:if <y> is a subject, then <x> studies <y> with a teacher
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher.
+node: &:<z> is a teacher and <x> studies <y> with <z>
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y>> with <z>
+
+answer-key: ANS_4010
+english: No subject is such that every student studies it with every teacher.
+node: ~:No subject is such that every student studies it with every teacher.
+node: exists x:some subject is such that every student studies it with every teacher
+node: "&:    "
+node: *Hx{}0:<x> is a subject
+node: forall y:every student studies <x> with every teacher
+node: "->:    "
+node: *Fy{}0:<y> is a student
+node: forall z:studies <x> with every teacher
+node: "->:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(yxz){}0:<y> studies <x> with <z>
+
+answer-key: ANS_4010x
+english: No subject is such that every student studies it with the same teacher.
+node: ~:No subject is such that every student studies it with the same teacher.
+node: exists x:some subject is such that every student studies it with the same teacher
+node: "&:    "
+node: *Hx{}0:<x> is a subject
+node: exists z:every student studies <x> with the same teacher
+node: "&:    "
+node: *Gz{}0:<z> is a teacher
+node: forall y:every student studies <x> with <z>
+node: "->:    "
+node: *Fy{}0:<y> is a student
+node: *S(yxz){}0:<y> studies <x> with <z>
+errors: 1
+
+answer-key: TEMP_4010
+english: No subject is such that every student studies it with every teacher.
+node: ~:No subject is such that every student studies it with every teacher.
+node: "~:    "
+node: "~:    "
+node: "exists x:    "
+node: "&:    "
+node: "*Hx{}0:    "
+node: "forall y:    "
+node: "forall z:    "
+node: "->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*Gz{}0:    "
+node: "*S(yxz){}0:    "
+
+answer-key: ANS_4011
+english: Every teacher has some subject that some student studies with him or her.
+node: forall x:Every teacher has some subject that some student studies with him or her.
+node: ->:if <x> is a teacher, then there is some subject that some student studies with <x>
+node: *Gx{}0:<x> is a teacher
+node: exists y:there is some subject that some student studies with <x>
+node: "&:    "
+node: *Hy{}0:<y> is a subject
+node: exists z:some student studies <y> with <x>
+node: "&:    "
+node: *Fz{}0:<z> is a student
+node: *S(zyx){}0:<z> studies <y> with <x>
+
+answer-key: TEMP_4011
+english: Every teacher has some subject that some student studies with him or her.
+node: ~:Every teacher has some subject that some student studies with him or her.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Gx{}0:    "
+node: "exists y:    "
+node: "exists z:    "
+node: "&:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*Hz{}0:    "
+node: "*S(yzx){}0:    "
+
+answer-key: ANS_4012
+english: Each subject has some student who studies it with some teacher.
+node: forall x:Each subject has some student who studies it with some teacher.
+node: ->:if <x> is a subject, then some student studies <x> with some teacher.
+node: *Hx{}0:<x> is a subject
+node: exists y:some student studies <x> with some teacher.
+node: "&:    "
+node: *Fy{}0:<y> is a student
+node: exists z:<y> studies <x> with some teacher
+node: "&:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(yxz){}0:<y> studies <x> with <z>
+
+answer-key: TEMP_4012
+english: Each subject has some student who studies it with some teacher.
+node: ~:Each subject has some student who studies it with some teacher.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "*Hx{}0:    "
+node: "exists y:    "
+node: "exists z:    "
+node: "&:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*Gz{}0:    "
+node: "*S(yxz){}0:    "
+
+answer-key: 1ANS_4013
+english: None but teachers are such that all students study all subjects with them.
+node: forall x:None but teachers are such that all students study all subjects with them.
+node: ->:if all students study all subjects with <x>, then <x> is a teacher
+node: forall y:all students study all subjects with <x>
+node: "->:    "
+node: *Fy{}0:<y> is a student
+node: forall z:<y> studies all subjects with <x>
+node: "->:    "
+node: *Hz{}0:<z> is a subject
+node: *S(yzx){}0:<y> studies <z> with <x>
+node: *Gx{}0:<x> is a teacher
+
+answer-key: 2ANS_4013
+english: None but teachers are such that all students study all subjects with them.
+node: ~:None but teachers are such that all students study all subjects with them.
+node: exists x:something other than a teacher is such that all students study all subjects with them
+node: "&:    "
+node: ~:<x> is other than a teacher
+node: *Gx{}0:<x> is a teacher
+node: forall y:all students study all subjects with <x>
+node: "->:    "
+node: *Fy{}0:<y> is a student
+node: forall z:<y> studies all subjects with <x>
+node: "->:    "
+node: *Hz{}0:<z> is a subject
+node: *S(yzx){}0:<y> studies <z> with <x>
+
+answer-key: TEMP_4013
+english: None but teachers are such that all students study all subjects with them.
+node: ~:None but teachers are such that all students study all subjects with them.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "forall y:    "
+node: "forall z:    "
+node: "->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*Hz{}0:    "
+node: "*S(yzx){}0:    "
+node: "*Gx{}0:    "
+
+answer-key: ANS_4014
+english: Anyone who studies any subject with any teacher is a student.
+node: forall x:Anyone who studies any subject with any teacher is a student.
+node: ->:if <x> studies any subject with any teacher, then <x> is a student
+node: exists y:<x> studies a subject with a teacher
+node: "&:    "
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher
+node: "&:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y> with <z>
+node: *Fx{}0:<x> is a student
+
+answer-key: TEMP_4014
+english: Anyone who studies any subject with any teacher is a student.
+node: ~:Anyone who studies any subject with any teacher is a student.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "exists y:    "
+node: "exists z:    "
+node: "&:    "
+node: "&:    "
+node: "*Hy{}0:    "
+node: "*Gz{}0:    "
+node: "*S(xyz){}0:    "
+node: "*Fx{}0:    "
+
+answer-key: Symb 4.015 Ex15(10)
+node: exists x:There is a teacher such that every student studies some subject with him or her.
+node: &:<x> is a teacher and every student studies some subject with <x>
+node: *Gx{}0:<x> is a teacher
+node: forall y:every student studies some subject with <x>
+node: ->:if <y> is a student, then <y> studies some subject with <x>
+node: *Fy{}0:<y> is a student
+node: exists z:<y> studies some subject with <x>
+node: &:<z> is a subject and <y> studies <z> with <x>
+node: *Hz{}0:<z> is a subject
+node: *S(yzx){}0:<y> studies <z> with <x>
+
+answer-key: ANS_4016
+english: There is a teacher such that some student studies every subject with him or her.
+node: exists x:There is a teacher such that some student studies every subject with him or her.
+node: &:<x> is a teacher and some student studies every subject with <x>
+node: *Gx{}0:<x> is a teacher
+node: exists y:some student studies every subject with <x>
+node: "&:    "
+node: *Fy{}0:<y> is a student
+node: forall z:<y> studies every subject with <x>
+node: "->:    "
+node: *Hz{}0:<z> is a subject
+node: *S(yzx){}0:<y> studies <z> with <x>
+
+answer-key: TEMP_4016
+english: There is a teacher such that some student studies every subject with him or her.
+node: ~:There is a teacher such that some student studies every subject with him or her.
+node: "~:    "
+node: "exists x:    "
+node: "exists y:    "
+node: "&:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*Fy{}0:    "
+node: "forall z:    "
+node: "->:    "
+node: "*Hz{}0:    "
+node: "*S(yzx){}0:    "
+
+answer-key: ANS_4017
+english: Teachers who study some subject with a teacher are students.
+node: forall x:Teachers who study some subject with a teacher are students.
+node: ->:if <x> is a teacher and <x> studies some subject with a teacher, then <x> is a student
+node: &:<x> is a teacher and <x> studies some subject with a teacher
+node: *Gx{}0:<x> is a teacher
+node: exists y:<x> studies some subject with a teacher
+node: &:<y> is a subject and <x> studies <y> with a teacher
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher
+node: "&:    "
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y> with <z>
+node: *Fx{}0:<x> is a student
+
+answer-key: TEMP_4.017
+english: Teachers who study some subject with a teacher are students.
+node: ~:Teachers who study some subject with a teacher are students.
+node: "~:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "exists y:    "
+node: "exists z:    "
+node: "&:    "
+node: "&:    "
+node: "*Hy{}0:    "
+node: "*Gz{}0:    "
+node: "*S(xyz){}0:    "
+node: "*Fx{}0:    "
+
+answer-key: Symb 4.018 Ex15(13)
+node: forall x:No student who does not study every subject with a teacher is a teacher.
+node: ->:if <x> is a student who does not study every subject with a teacher, then <x> is not a teacher
+node: &:<x> is a student who does not study every subject with a teacher
+node: *Fx{}0:<x> is a student
+node: ~:<x> does not study every subject with a teacher
+node: forall y:<x> studies every subject with a teacher
+node: ->:if <y> is a subject, then <x> studies <y> with a teacher
+node: *Hy{}0:<y> is a subject
+node: exists z:<x> studies <y> with a teacher
+node: &:<z> is a teacher and <x> studies <y> with <z>
+node: *Gz{}0:<z> is a teacher
+node: *S(xyz){}0:<x> studies <y> with <z>
+node: ~:<x> is not a teacher
+node: *Gx{}0:<x> is a teacher
+
+answer-key: Symb 4.019 Ex15(14)
+node: forall x:Any student who studies any subject with himself or herself is a teacher.
+node: ->:if <x> is a student and <x> studies any subject with <x>, then <x> is a teacher
+node: &:<x> is a student and <x> studies any subject with <x>
+node: *Fx{}0:<x> is a student
+node: exists y:<x> studies any subject with <x>
+node: &:<y> is a subject and <x> studies <y> with <x>
+node: *Hy{}0:<y> is a subject
+node: *S(xyx){}0:<x> studies <y> with <x>
+node: *Gx{}0:<x> is a teacher
+
+answer-key: Symb 4.020 Ex15(15)
+node: exists x:Some teacher who studies every subject with himself or herself is a student.
+node: &:<x> is a teacher and <x> studies every subject with <x> and <x> is a student
+node: &:<x> is a teacher and <x> studies every subject with <x>
+node: *Gx{}0:<x> is a teacher
+node: forall y:<x> studies every subject with <x>
+node: ->:if <y> is a subject, then <x> studies <y> with <x>
+node: *Hy{}0:<y> is a subject
+node: *S(xyx){}0:<x> studies <y> with <x>
+node: *Fx{}0:<x> is a student
+
+answer-key: Symb 4.021 Ex15(16)
+node: ~:There is no teacher with whom any student studies all subjects.
+node: exists x:There is a teacher with whom any student studies all subjects.
+node: &:<x> is a teacher and any student studies all subjects with <x>
+node: *Gx{}0:<x> is a teacher
+node: exists y:any student studies all subjects with <x>
+node: &:<y> is a student and <y> studies all subjects with <x>
+node: *Fy{}0:<y> is a student
+node: forall z:<y> studies all subjects with <x>
+node: ->:if <z> is a subject, then <y> studies <z> with <x>
+node: *Hz{}0:<z> is a subject
+node: *S(yzx){}0:<y> studies <z> with <x>
+
+answer-key: Symb 4.022 Ex19
+node: &:Every husband and wife has a spouse.
+node: forall x:every husband has a spouse
+node: "->:    "
+node: *Fx{}0:<x> is a husband
+node: exists y:<x> has a spouse
+node: *H(yx){}0:<y> is a spouse of <x>
+node: forall x:every wife has a spouse
+node: "->:    "
+node: *Gx{}0:<x> is a wife
+node: exists y:<x> has a spouse
+node: *H(yx){}0:<y> is a spouse of <x>
+
+answer-key: 2ANS_4022
+english: Every husband and wife has a spouse.
+node: forall x:Every husband and wife has a spouse.
+node: ->:if <x> is a husband or a wife, then <x> has a spouse
+node: |:<x> is a husband or a wife
+node: *Fx{}0:<x> is a husband
+node: *Gx{}0:<x> is a wife
+node: exists y:<x> has a spouse
+node: *H(yx){}0:<y> is a spouse of <x>
+
+answer-key: Symb 4.023 Ex20
+node: &:No one lacks a father, but not everyone is a father.
+node: ~:no one lacks a father
+node: exists x:someone lacks a father.
+node: "&:    "
+node: *Fx{}0:<x> is a person
+node: ~:<x> lacks a father
+node: exists y:<x> has a father
+node: *G(yx){}0:<y> is a father of <x>
+node: ~:not everyone is a father
+node: forall x:everyone is a father
+node: "->:    "
+node: *Fx{}0:<x> is a person
+node: exists y:<x> is a father
+node: *G(xy){}0:<x> is a father of <y>
+
+answer-key: Symb 4.024 Ex21
+node: forall x:Every number has some number as its successor.
+node: ->:if <x> is a number, then some number is a successor of <x>
+node: *Fx{}0:<x> is a number
+node: exists y:some number is a successor of <x>
+node: &:<y> is a number and <y> is a successor of <x>
+node: *Fy{}0:<y> is a number
+node: *G(yx){}0:<y> is a successor of <x>
+
+answer-key: Symb 4.025 Ex22
+node: exists x:Some number is a successor of every number.
+node: &:<x> is a number and <x> is a successor of every number
+node: *Fx{}0:<x> is a number
+node: forall y:<x> is a successor of every number
+node: ->:if <y> is a number, then <x> is a successor of <y>
+node: *Fy{}0:<y> is a number
+node: *G(xy){}0:<x> is a successor of <y>
+
+answer-key: 1ANS_4026
+english: A teacher has no scruples if he or she assigns a problem that has no solution.
+node: forall x:A teacher has no scruples if he or she assigns a problem that has no solution.
+node: ->:if <x> is a teacher, then <x> has no scruples if <x> assigns a problem that has no solution
+node: *Fx{}0:<x> is a teacher
+node: ->:<x> has no scruples if <x> assigns a problem that has no solution
+node: exists y:<x> assigns a problem that has no solution
+node: &:<y> is a problem that has no solution and <x> assigns <y>
+node: &:<y> is a problem that has no solution
+node: *Jy{}0:<y> is a problem
+node: ~:<y> has no solution
+node: exists z:<y> has a solution
+node: *K(zy){}0:<z> is a solution of <y>
+node: *H(xy){}0:<x> assigns <y>
+node: ~:<x> has no scruples
+node: *Gx{}0:<x> has scruples
+
+answer-key: 2ANS_4026
+english: A teacher has no scruples if he or she assigns a problem that has no solution.
+node: exists x:A teacher has no scruples if he or she assigns a problem that has no solution.
+node: &:<x> is a teacher, and <x> has no scruples if <x> assigns a problem that has no solution
+node: *Fx{}0:<x> is a teacher
+node: ->:<x> has no scruples if <x> assigns a problem that has no solution
+node: exists y:<x> assigns a problem that has no solution
+node: &:<y> is a problem that has no solution and <x> assigns <y>
+node: &:<y> is a problem that has no solution
+node: *Jy{}0:<y> is a problem
+node: ~:<y> has no solution
+node: exists z:<y> has a solution
+node: *K(zy){}0:<z> is a solution of <y>
+node: *H(xy){}0:<x> assigns <y>
+node: ~:<x> has no scruples
+node: *Gx{}0:<x> has scruples
+
+answer-key: Symb 4.027 Ex24
+node: forall x:The net force acting on a particle is equal to the product of its mass and its acceleration.
+node: ->:if <x> is a particle, then the net force acting on <x> is equal to the product of the mass of <x> and the acceleration of <x>
+node: *Fx{}0:<x> is a particle
+node: *G(a(x)b(c(x)d(x))){}0:the net force acting on <x> is equal to the product of the mass of <x> and the acceleration of <x>
+
+answer-key: Symb 4.028 Ex25
+node: forall x:No principle is innate unless everyone who hears it assents to it.
+node: ->:if <x> is a principle, then <x> is not innate unless everyone who hears <x> assents to <x>
+node: *Fx{}0:<x> is a principle
+node: |:<x> is not innate unless everyone who hears <x> assents to <x>
+node: ~:<x> is not innate
+node: *Gx{}0:<x> is innate
+node: forall y:everyone who hears <x> assents to <x>
+node: ->:if <y> is a person and <y> hears <x>, then <y> assents to <x>
+node: &:<y> is a person and <y> hears <x>
+node: *Hy{}0:<y> is a person
+node: *J(yx){}0:<y> hears <x>
+node: *K(yx){}0:<y> assents to <x>
+
+answer-key: 2ANS_4028
+english: No principle is innate unless everyone who hears it assents to it.
+node: ~:No principle is innate unless everyone who hears it assents to it.
+node: exists x:some principle is innate although not everyone who hears it assents to it
+node: "&:    "
+node: *Fx{}0:<x> is a principle
+node: &:<x> is innate although not everyone who hears <x> assents to <x>
+node: *Gx{}0:<x> is innate
+node: ~:not everyone who hears <x> assents to <x>
+node: forall y:everyone who hears <x> assents to <x>
+node: ->:if <y> is a person and <y> hears <x>, then <y> assents to <x>
+node: &:<y> is a person and <y> hears <x>
+node: *Hy{}0:<y> is a person
+node: *J(yx){}0:<y> hears <x>
+node: *K(yx){}0:<y> assents to <x>
+
+answer-key: Symb 4.029 Ex26
+node: *Fa(b(c)){}0:The cube of the square of 2 is even.
+
+answer-key: Symb 4.030 Ex27
+node: forall x:No monk likes every course he takes unless the only courses he takes are theological studies.
+node: ->:if <x> is a monk, then <x> does not like every course <x> takes unless the only courses <x> takes are theological studies
+node: *Fx{}0:<x> is a monk
+node: |:<x> does not like every course <x> takes unless the only courses <x> takes are theological studies
+node: ~:<x> does not like every course <x> takes
+node: forall y:<x> likes every course <x> takes
+node: ->:if <y> is a course and <x> takes <y>, then <x> likes <y>
+node: &:<y> is a course and <x> takes <y>
+node: *Gy{}0:<y> is a course
+node: *J(xy){}0:<x> takes <y>
+node: *K(xy){}0:<x> likes <y>
+node: forall y:the only courses <x> takes are theological studies
+node: ->:if <y> is a course and <x> takes <y>, then <y> is a theological study
+node: &:<y> is a course and <x> takes <y>
+node: *Gy{}0:<y> is a course
+node: *J(xy){}0:<x> takes <y>
+node: *Hy{}0:<y> is a theological study
+
+answer-key: 2ANS_4030
+english: No monk likes every course he takes unless the only courses he takes are theological studies.
+node: ~:No monk likes every course he takes unless the only courses he takes are theological studies.
+node: exists x:some monk likes every course he takes although the courses he takes are not only theological studies
+node: "&:    "
+node: *Fx{}0:<x> is a monk
+node: &:<x> likes every course <x> takes although the courses <x> takes are not only theological studies
+node: forall y:<x> likes every course <x> takes
+node: ->:if <y> is a course and <x> takes <y>, then <x> likes <y>
+node: &:<y> is a course and <x> takes <y>
+node: *Gy{}0:<y> is a course
+node: *J(xy){}0:<x> takes <y>
+node: *K(xy){}0:<x> likes <y>
+node: ~:the courses <x> takes are not only theological studies
+node: forall y:the courses <x> takes are only theological studies
+node: ->:if <y> is a course and <x> takes <y>, then <y> is a theological study
+node: &:<y> is a course and <x> takes <y>
+node: *Gy{}0:<y> is a course
+node: *J(xy){}0:<x> takes <y>
+node: *Hy{}0:<y> is a theological study
+
+answer-key: ANS_4031
+english: A man who loves himself more than he loves anyone else is not loved by anyone other than himself.
+node: forall x:A man who loves himself more than he loves anyone else is not loved by anyone other than himself.
+node: ->:if <x> is a man who loves <x> more than <x> loves anyone else, then <x> is not loved by anyone other than <x>
+node: &:<x> is a man who loves <x> more than <x> loves anyone else
+node: *Fx{}0:<x> is a man
+node: forall y:<x> loves <x> more than <x> loves anyone else
+node: "->:    "
+node: &:<y> is a person and <y> is different from <x>
+node: *Gy{}0:<y> is a person
+node: *J(yx){}0:<y> is different from <x>
+node: *L(xxxy){}0:<x> loves <x> more than <x> loves <y>
+node: ~:<x> is not loved by anyone other than <x>
+node: exists y:<x> is loved by someone other than <x>
+node: &:<y> is a person other than <x> and <y> loves <x> and
+node: &:<y> is a person and <y> is different from <x>
+node: *Gy{}0:<y> is a person
+node: *J(yx){}0:<y> is different from <x>
+node: *H(yx){}0:<y> loves <x>
+
+answer-key: Symb 4.032 Ex29
+node: forall x:If a father has only male children, then he does not have to provide a dowry for any one of them.
+node: ->:If <x> is a father and <x> has only male children, then <x> does not have to provide a dowry for any of his children
+node: &:<x> is a father and <x> has only male children
+node: *Fx{}0:<x> is a father
+node: forall y:<x> has only male children
+node: ->:if <y> is a child of <x>, then <y> is male
+node: *H(yx){}0:<y> is a child of <x>
+node: *Gy{}0:<y> is male
+node: forall y:<x> does not have to provide a dowry for any of his children
+node: ->:if <y> is a child of <x>, then <x> does not have to provide a dowry for <y>
+node: *H(yx){}0:<y> is a child of <x>
+node: ~:<x> does not have to provide a dowry for <y>
+node: *J(xy){}0:<x> has to provide a dowry for <y>
+
+answer-key: ANS_4033x
+english: The spouse of anyone who marries the child of the brother of his or her father marries the child of the brother of the spouse of his or her mother.
+node: forall x:The spouse of anyone who marries the child of the brother of his or her father marries the child of the brother of the spouse of his or her mother.
+node: "->:    "
+node: *F(xb(c(d(x)))){}0:<x> marries the child of the brother of the father of <x>
+node: *F(a(x)b(c(a(e(a(x)))))){}2:the spouse of <x> marries the child of the brother of the spouse of the mother of the spouse of <x>
+
+answer-key: Symb 4.034x Ex31
+node: ->:If x is an integer greater than or equal to zero and every integer is divisible by x, then x is equal to 1.
+node: &:x is an integer greater than or equal to zero and every integer is divisible by x
+node: &:x is an integer greater than or equal to zero
+node: *Fx{}0:x is an integer
+node: |:x is greater than or equal to zero
+node: *G(xa){}0:x is greater than zero
+node: *H(xa){}0:x is equal to zero
+node: forall y:every integer is divisible by x
+node: ->:if <y> is an integer, then <y> is divisible by x
+node: *Fy{}0:<y> is an integer
+node: *I(yx){}0:<y> is divisible by x
+node: *H(xb){}0:x is equal to 1
+
+answer-key: ANS_4035x
+english: The square of the length of the hypotenuse of a right triangle is equal to the sum of the squares of the lengths of the other two sides.
+node: forall x:The square of the length of the hypotenuse of a right triangle is equal \nto the sum of the squares of the lengths of the other two sides.
+node: "->:    "
+node: *Fx{}0:<x> is a right\n triangle
+node: forall y:the square of the length of the hypotenuse of <x> is equal to the \nsum of the squares of the lengths of the other two sides of <x>
+node: "->:    "
+node: *G(yx){}0:<y> is a \nside of <x>
+node: forall z:the square of the length of the hypotenuse of <x> is equal to the \nsum of the squares of the lengths of <y> and the other side of <x>
+node: "->:    "
+node: &:<z> is a side of <x>\n different from <y>
+node: "*G(zx){}0:    "
+node: "*J(yz){}0:    "
+node: *H(a(d(b(x)))c(a(d(y))a(d(z)))){}0:the square of the length of the hypotenuse of <x> is equal\n to the sum of the squares of the lengths of <y> and <z>
+
+answer-key: Symb 4.036a Ex33a
+node: forall x:Someone is hit by a car every day.
+node: ->:if <x> is a day, then someone is hit by a car on <x>
+node: *Hx{}0:<x> is a day
+node: exists y:someone is hit by a car on <x>
+node: &:<y> is a person and <y> is hit by a car on <x>
+node: *Fy{}0:<y> is a person
+node: exists z:<y> is hit by a car on <x>
+node: &:<z> is a car and <y> is hit by <z> on <x>
+node: *Gz{}0:<z> is a car
+node: *J(yzx){}0:<y> is hit by <z> on <x>
+
+answer-key: Symb 4.036b Ex33b
+node: exists x:Someone is hit by a car every day.
+node: &:<x> is a person and <x> is hit by car every day
+node: *Fx{}0:<x> is a person
+node: exists y:<x> is hit by car every day
+node: &:<y> is a car and <x> is hit by <y> every day
+node: *Gy{}0:<y> is a car
+node: forall z:<x> is hit by <y> every day
+node: ->:if <z> is a day, then <x> is hit by <y> on <z>
+node: *Hz{}0:<z> is a day
+node: *J(xyz){}0:<x> is hit by <y> on <z>
+
+answer-key: Symb 4.036c Ex33c
+node: exists x:Someone is hit by a car every day.
+node: &:<x> is a car and someone is hit by <x> every day
+node: *Gx{}0:<x> is a car
+node: forall y:someone is hit by <x> every day
+node: ->:if <y> is a day, someone is hit by <x> on <y>
+node: *Hy{}0:<y> is a day
+node: exists z:someone is hit by <x> on <y>
+node: &:<z> is a person and <z> is hit by <x> on <y>
+node: *Fz{}0:<z> is a person
+node: *J(zxy){}0:<z> is hit by <x> on <y>
+
+answer-key: Symb 4.036d Ex33d
+node: exists x:Someone is hit by a car every day.
+node: &:<x> is a person and <x> is hit by a car every day
+node: *Fx{}0:<x> is a person
+node: forall y:<x> is hit by a car every day
+node: ->:if <y > is a day, then <x> is hit by a car on <y>
+node: *Hy{}0:<y > is a day
+node: exists z:<x> is hit by a car on <y>
+node: &:<z> is a car and <x> is hit by <z> on <y>
+node: *Gz{}0:<z> is a car
+node: *J(xzy){}0:<x> is hit by <z> on <y>
+
+answer-key: Symb 4.037a Ex34(I)
+node: forall x:You can fool some of the people all of the time.
+node: ->:if <x> is a time, then you can fool some of the people at <x>
+node: *Hx{}0:<x> is a time
+node: exists y:you can fool some of the people at <x>
+node: &:<y> is a person and you can fool <y> at <x>
+node: *Gy{}0:<y> is a person
+node: *F(yx){}0:you can fool <y> at <x>
+
+answer-key: Symb 4.037b Ex34(I)
+node: exists x:You can fool some of the people all of the time.
+node: &:if <x> is a person and you can fool <x> all of the time
+node: *Gx{}0:<x> is a person
+node: forall y:you can fool <x> all of the time
+node: ->:if <y> is a time, then you can fool <x> at <y>>
+node: *Hy{}0:<y> is a time
+node: *F(xy){}0:you can fool <x> at <y>>
+
+answer-key: ANS_4038
+english: You cannot fool all of the people all of the time.
+node: ~:You cannot fool all of the people all of the time.
+node: forall x:You can fool all of the people all of the time.
+node: "->:    "
+node: *Gx{}0:<x> is a person
+node: forall y:you can fool <x> all of the time
+node: "->:    "
+node: *Hy{}0:<y> is a time
+node: *F(xy){}0:you can fool <x> at <y>
+
+answer-key: Symb 4.039a Ex35
+english: The product of 3 and the square of 6 plus 3 is even.
+node: *Fd(ae(c(ba))){}0:The product of 3 and the square of 6 plus 3 is even.
+
+answer-key: Symb 4.039b Ex35
+english: The product of 3 and the square of 6 plus 3 is even.
+node: *Fd(ac(e(b)a)){}0:The product of 3 and the square of 6 plus 3 is even.
+
+answer-key: Symb 4.039c Ex35
+english: The product of 3 and the square of 6 plus 3 is even.
+node: *Fc(d(ae(b))a){}0:The product of 3 and the square of 6 plus 3 is even.
+
+answer-key: Symb 5.001 Ex1(1)
+node: exists x:Something differs from everything except itself.
+node: forall y:<x> differs from everything except itself
+node: ->:if <y> is not <x>, then <x> differs from <y>
+node: ~:<y> is not <x>
+node: =:<y> is <x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+node: ~:<x> differs from <y>
+node: =:<x> is <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+errors: 4
+
+answer-key: Symb 5.002 Ex1(2)
+node: forall x:Everything is identical with something.
+node: exists y:<x> is identical with something
+node: =:<x> is identical with <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.003 Ex1(3)
+node: forall x:Everything is distinct from something.
+node: exists y:<x> is distinct from something
+node: ~:<x> is distinct from <y>
+node: =:<x> is <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.004 Ex1(4)
+node: forall x:Everything equal to a thing differs from everything not equal to that thing.
+node: forall y:if <x> is equal to a thing, then <x> differs from everything not equal to that thing
+node: ->:if <x> is equal to <y>, then <x> differs from everything not equal to <y>
+node: =:<x> is equal to <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+node: forall z:<x> differs from everything not equal to <y>
+node: ->:if <z> is not equal to <y>, then <x> differs from <z>
+node: ~:<z> is not equal to <y>
+node: =:<z> is equal to <y>
+node: *z{}1:<z>
+node: *y{}1:<y>
+node: ~:<x> differs from <z>
+node: =:<x> is <z>
+node: *x{}1:<x>
+node: *z{}1:<z>
+
+answer-key: Symb 5.005 Ex1(5)
+node: ~:Nothing differs from everything.
+node: exists x:something differs from everything
+node: forall y:<x> differs from everything
+node: ~:<x> differs from <y>
+node: =:<x> is <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.006 Ex1(6)
+node: forall x:Things equal to the same thing are equal to each other.
+node: forall y:if <x> and something are equal to the same thing, then they are equal to each other
+node: ->:if <x> and <y> are equal to the same thing, then <x> and <y> are equal to each other
+node: exists z:<x> and <y> are equal to the same thing
+node: &:<x> and <y> are equal to <z>
+node: =:<x> is equal to <z>
+node: *x{}1:<x>
+node: *z{}1:<z>
+node: =:<y> is equal to <z>
+node: *y{}1:<y>
+node: *z{}1:<z>
+node: =:<x> and <y> are equal to each other
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: ANS_5006a
+english: Things equal to the same thing are equal to each other.
+node: forall x:Things equal to the same thing are equal to each other.
+node: "forall y:    "
+node: forall z:x and y are equal to the same thing
+node: ->:if x and y are equal to z, then x equals y
+node: &:x and y are equal to z
+node: =:x equals z
+node: *x{}1:x
+node: *z{}1:z
+node: =:y equals z
+node: *y{}1:y
+node: *z{}1:z
+node: =:x equals y
+node: *x{}1:x
+node: *y{}1:y
+
+answer-key: Symb 5.007 Ex1(7)
+node: ~:Nothing differs from itself.
+node: exists x:something differs from itself
+node: ~:<x> differs from itself
+node: =:<x> is identical with itself
+node: *x{}1:<x>
+node: *x{}1:<x>
+
+answer-key: Symb 5.008 Ex2
+node: ~:None but Alfred and his teacher are able to solve the problem.
+node: exists x:someone other than Alfred and his teacher are able to solve the problem
+node: &:<x> differs from Alfred and his teacher, and <x> is able to solve the problem
+node: &:<x> differs from Alfred and his teacher
+node: ~:<x> differs from Alfred
+node: =:<x> is Alfred
+node: *x{}1:<x>
+node: *a{}1:Alfred
+node: ~:<x> differs from Alfred's teacher
+node: =:<x> is Alfred's teacher
+node: *x{}1:<x>
+node: *c(a){}1:Alfred's teacher
+node: *F(xb){}0:<x> is able to solve the problem
+
+answer-key: Symb 5.008 Ex2b
+node: forall x:None but Alfred and his teacher are able to solve the problem.
+node: ->:if <x> is able to solve the problem, then <x> is Alfred or his teacher
+node: *F(xb){}0:<x> is able to solve the problem
+node: |:<x> is Alfred or his teacher
+node: =:<x> is Alfred
+node: *x{}1:<x>
+node: *a{}1:Alfred
+node: =:<x> is Alfred's teacher
+node: *x{}1:<x>
+node: *c(a){}1:Alfred's teacher
+
+answer-key: Symb 5.008 Ex2c
+node: forall x:None but Alfred and his teacher are able to solve the problem.
+node: <->:<x> is able to solve the problem if and only if <x> is Alfred or his teacher
+node: *F(xb){}0:<x> is able to solve the problem
+node: |:<x> is Alfred or his teacher
+node: =:<x> is Alfred
+node: *x{}1:<x>
+node: *a{}1:Alfred
+node: =:<x> is Alfred's teacher
+node: *x{}1:<x>
+node: *c(a){}1:Alfred's teacher
+
+answer-key: Symb 5.009 Ex3
+node: &:Alfred attended the conference and arrived at it before everyone else who attended it except Mary.
+node: "&:    "
+node: "*F(ab){}0:    "
+node: "*F(cb){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*F(xb){}0:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*c{}1:    "
+node: "*G(abx){}0:    "
+
+answer-key: Symb 5.009 Ex3b
+node: &:Alfred attended the conference and arrived at it before everyone else who attended it except Mary.
+node: "&:    "
+node: "*F(ab){}0:    "
+node: "*F(cb){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "*F(xb){}0:    "
+node: "<->:    "
+node: "&:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*c{}1:    "
+node: "*G(abx){}0:    "
+
+answer-key: Symb 5.010 Ex4
+node: &:Alfred is the only member of the class who can read Greek.
+node: "&:    "
+node: "*F(ab){}0:    "
+node: "*G(ac){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "*F(xb){}0:    "
+node: "*G(xc){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+
+answer-key: Symb 5.010 Ex4b
+node: forall x:Alfred is the only member of the class who can read Greek.
+node: "<->:    "
+node: "&:    "
+node: "*F(xb){}0:    "
+node: "*G(xc){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+
+answer-key: Symb 5.010 Ex4c
+node: &:Alfred is the only member of the class who can read Greek.
+node: "&:    "
+node: "~:    "
+node: "exists x:    "
+node: "&:    "
+node: "&:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+node: "*F(xb){}0:    "
+node: "*G(xc){}0:    "
+node: "*F(ab){}0:    "
+node: "*G(ac){}0:    "
+
+answer-key: Symb 5.011 Ex5
+node: &:Greensleeves can jump farther than any other frog in Calaveras County.
+node: "&:    "
+node: "*Ga{}0:    "
+node: "*H(ab){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*H(xb){}0:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+node: "*F(ax){}0:    "
+
+answer-key: Symb 5.012 Ex6
+node: &:Pergolesi was the most promising composer of his time.
+node: "*Ga{}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*H(xa){}0:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*a{}1:    "
+node: "*F(ax){}0:    "
+
+answer-key: Symb 5.013 Ex7
+node: forall x:Anyone whose mother is the wife of a citizen, whose father is married to his or her mother, and whose father has no other children is the child of a citizen.
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "exists y:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "=:    "
+node: "*a(x){}1:    "
+node: "*b(y){}1:    "
+node: "*G(c(x)a(x)){}0:    "
+node: "~:    "
+node: "exists y:    "
+node: "&:    "
+node: "~:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*x{}1:    "
+node: "*H(yc(x)){}0:    "
+node: "exists y:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*d(y){}1:    "
+
+answer-key: Symb 5.014 Ex8
+node: ->:If the sister of Alfred is the wife of the brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of the sister of Alfred.
+node: "=:    "
+node: "*c(a){}1:    "
+node: "*b(d(a)){}1:    "
+node: "=:    "
+node: "*e(a){}1:    "
+node: "*e(c(a)){}1:    "
+
+answer-key: Symb 5.015 Ex9
+node: ->:If a sister of Alfred is the wife of a brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of a sister of Alfred.
+node: "exists x:    "
+node: "&:    "
+node: "*F(xa){}0:    "
+node: "exists y:    "
+node: "&:    "
+node: "*G(ya){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*b(y){}1:    "
+node: "exists x:    "
+node: "&:    "
+node: "*F(xa){}0:    "
+node: "=:    "
+node: "*c(a){}1:    "
+node: "*c(x){}1:    "
+
+answer-key: Symb 5.016 Ex10
+node: forall x:If a sister of Alfred is the wife of a brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of that sister of Alfred.
+node: "->:    "
+node: "&:    "
+node: "*F(xa){}0:    "
+node: "exists y:    "
+node: "&:    "
+node: "*G(ya){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*b(y){}1:    "
+node: "=:    "
+node: "*c(a){}1:    "
+node: "*c(x){}1:    "
+
+answer-key: Symb 5.017 Ex11
+node: &:Brothers and sisters I have none, but that man's father is my father's son.
+node: "&:    "
+node: "~:    "
+node: "exists x:    "
+node: "*F(xa){}0:    "
+node: "~:    "
+node: "exists x:    "
+node: "*G(xa){}0:    "
+node: "=:    "
+node: "*c(b){}1:    "
+node: "*d(c(a)){}1:    "
+
+answer-key: Symb 5.018 Ex12
+node: forall x:The product of distinct positive integers is less than their sum if and only if one of them is equal to its square.
+node: "forall y:    "
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Fy{}0:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*y{}1:    "
+node: "<->:    "
+node: "*G(a(xy)b(xy)){}0:    "
+node: "|:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*c(x){}1:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*c(y){}1:    "
+
+answer-key: Symb 5.020 Ex20
+node: exists y:There is exactly one even prime number.
+node: "forall x:    "
+node: "<->:    "
+node: "&:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Gx{}0:    "
+node: "*Hx{}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*y{}1:    "
+
+answer-key: Symb 5.021 Ex21
+node: exists x:There is exactly one even number, and it is prime.
+node: "&:    "
+node: "forall y:    "
+node: "<->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*Hy{}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*x{}1:    "
+node: "*Gx{}0:    "
+
+answer-key: Symb 5.022 Ex22
+english: No monogamous person has more than one spouse.
+node: ~:No monogamous person has more than one spouse.
+node: exists x:some monogamous person has more than one spouse
+node: "&:    "
+node: *Fx{}0:<x> is a monogamous person
+node: exists y:<x> has more than one spouse
+node: "exists z:    "
+node: "&:    "
+node: &:<y> is a spouse of <x>, and <z> is a spouse of <x>
+node: *G(yx){}0:<y> is a spouse of <x>
+node: *G(zx){}0:<z> is a spouse of <x>
+node: ~:<y> is distinct from <z>
+node: =:<y> = <z>
+node: *y{}1:<y>
+node: *z{}1:<z>
+
+answer-key: Symb 5.023 Ex23
+node: forall x:An opera is enjoyable if and only if it has exactly two acts.
+node: "->:    "
+node: "*Fx{}0:    "
+node: "<->:    "
+node: "*Gx{}0:    "
+node: "exists y:    "
+node: "exists z:    "
+node: "&:    "
+node: "~:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+node: "forall w:    "
+node: "<->:    "
+node: "*H(wx){}0:    "
+node: "|:    "
+node: "=:    "
+node: "*w{}1:    "
+node: "*y{}1:    "
+node: "=:    "
+node: "*w{}1:    "
+node: "*z{}1:    "
+
+answer-key: Symb 5.024 Ex24
+english: At most one student missed at most one problem.
+node: forall x:At most one student missed at most one problem.
+node: "forall y:    "
+node: "->:    "
+node: &:<x> is a student who missed at most one problem, \nand <y> is a student who missed at most one problem
+node: &:<x> is a student who \nmissed at most one problem
+node: *Fx{}0:<x> is a student
+node: forall z:<x> missed at most\n one problem
+node: "forall u:    "
+node: "->:    "
+node: &:<z> is a problem that <x> missed, \nand <u> is a problem that <x> missed
+node: &:<z> is a problem \nthat <x> missed
+node: *Hz{}0:<z> is a \nproblem
+node: *G(xz){}0:<x> miss-\ned <z>
+node: &:<u> is a problem \nthat <x> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(xu){}0:<x> miss-\ned <u>
+node: =:<z>=<u>
+node: *z{}1:<z>
+node: *u{}1:<u>
+node: &:<y> is a student who \nmissed at most one problem
+node: *Fy{}0:<y> is a student
+node: forall z:<y> missed at most\n one problem
+node: "forall u:    "
+node: "->:    "
+node: &:<z> is a problem that <y> missed, \nand <u> is a problem that <y> missed
+node: &:<z> is a problem \nthat <y> missed
+node: *Hz{}0:<z> is a \nproblem
+node: *G(yz){}0:<y> miss-\ned <z>
+node: &:<u> is a problem \nthat <y> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(yu){}0:<y> miss-\ned <u>
+node: =:<z>=<u>
+node: *z{}1:<z>
+node: *u{}1:<u>
+node: =:<x>=<y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.024a
+english: At least one student missed at most one problem.
+node: exists x:At least one student missed at most one problem.
+node: "&:    "
+node: *Fx{}0:<x> is a student
+node: forall y:<x> missed at most one problem
+node: "forall z:    "
+node: "->:    "
+node: &:<y> is a problem that <x> missed and <z> is a problem that <x> missed
+node: &:<y> is a problem that <x> missed
+node: *Hy{}0:<y> is a problem
+node: *G(xy){}0:<x> missed <y>
+node: &:<z> is a problem that <x> missed
+node: *Hz{}0:<z> is a problem
+node: *G(xz){}0:<x> missed <z>
+node: =:<y>=<z>
+node: *y{}1:<y>
+node: *z{}1:<z>
+
+answer-key: Symb 5.024b
+english: At most one student missed at least one problem.
+node: forall x:At most one student missed at least one problem.
+node: "forall y:    "
+node: "->:    "
+node: &:<x> is a student who missed at least one problem, \nand <y> is a student who missed at least one problem
+node: &:<x> is a student who missed\n at least one problem
+node: *Fx{}0:<x> is a \nstudent
+node: exists z:<x> missed at \nleast one problem
+node: "&:    "
+node: *Hz{}0:<z> is a \nproblem
+node: *G(xz){}0:<x> missed <z>
+node: &:<y> is a student who missed\n at least one problem
+node: *Fy{}0:<y> is a \nstudent
+node: exists z:<y> missed at \nleast one problem
+node: "&:    "
+node: *Hz{}0:<z> is a \nproblem
+node: *G(yz){}0:<y> missed <z>
+node: =:<x>=<y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.024c
+english: At least one student missed at least one problem.
+node: exists x:At least one student missed at least one problem.
+node: "&:    "
+node: *Fx{}0:<x> is a student
+node: exists y:<x> missed at least one problem
+node: "&:    "
+node: *Hy{}0:<y> is a problem
+node: *G(xy){}0:<x> missed <y>
+
+answer-key: Symb 5.024d
+english: Exactly one student missed at most one problem.
+node: exists x:Exactly one student missed at most one problem.
+node: "forall y:    "
+node: "<->:    "
+node: &:<y> is a student who \nmissed at most one problem
+node: *Fy{}0:<y> is a student
+node: forall z:<y> missed at most\n one problem
+node: "forall u:    "
+node: "->:    "
+node: &:<z> is a problem that <y> missed, and\n <u> is a problem that <y> missed
+node: &:<z> is a problem\n that <y> missed
+node: *Hz{}0:<z> is a \nproblem
+node: *G(yz){}0:<y> miss-\ned <z>
+node: &:<u> is a problem\n that <y> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(yu){}0:<y> miss-\ned <u>
+node: =:<z>=<u>
+node: *z{}1:<z>
+node: *u{}1:<u>
+node: =:<y>=<x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+
+answer-key: Symb 5.024e
+english: Exactly one student missed at least one problem.
+node: exists x:Exactly one student missed at least one problem.
+node: "forall y:    "
+node: "<->:    "
+node: &:<y> is a student who \nmissed at least one problem
+node: *Fy{}0:<y> is a student
+node: exists z:<y> missed at least\n one problem
+node: "&:    "
+node: *Hz{}0:<z> is a problem
+node: *G(yz){}0:<y> missed <z>
+node: =:<y>=<x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+
+answer-key: Symb 5.024f
+english: Exactly one student missed exactly one problem.
+node: exists x:Exactly one student missed exactly one problem.
+node: "forall y:    "
+node: "<->:    "
+node: &:<y> is a student who \nmissed exactly one problem
+node: *Fy{}0:<y> is a student
+node: exists z:<y> missed exactly one problem
+node: "forall u:    "
+node: "<->:    "
+node: &:<u> is a problem\n that <y> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(yu){}0:<y> missed <u>
+node: =:<u>=<z>
+node: *u{}1:<u>
+node: *z{}1:<z>
+node: =:<y>=<x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+
+answer-key: Symb 5.024g
+english: At most one student missed exactly one problem.
+node: forall x:At most one student missed exactly one problem.
+node: "forall y:    "
+node: "->:    "
+node: &:<x> is a student who missed\n exactly one problem, and\n<y> is a student who missed\n exactly one problem
+node: &:<x> is a student who \nmissed exactly one problem
+node: *Fx{}0:<x> is a student
+node: exists z:<x> missed exactly\n one problem
+node: "forall u:    "
+node: "<->:    "
+node: &:<u> is a problem\n that <x> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(xu){}0:<x> missed <u>
+node: =:<u>=<z>
+node: *u{}1:<u>
+node: *z{}1:<z>
+node: &:<y> is a student who \nmissed exactly one problem
+node: *Fy{}0:<y> is a student
+node: exists z:<y> missed exactly\n one problem
+node: "forall u:    "
+node: "<->:    "
+node: &:<u> is a problem\n that <y> missed
+node: *Hu{}0:<u> is a \nproblem
+node: *G(yu){}0:<y> missed <u>
+node: =:<u>=<z>
+node: *u{}1:<u>
+node: *z{}1:<z>
+node: =:<x>=<y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+
+answer-key: Symb 5.024h
+english: At least one student missed exactly one problem.
+node: exists x:At least one student missed exactly one problem.
+node: "&:    "
+node: *Fx{}0:<x> is a student
+node: exists y:<x> missed exactly one problem
+node: "forall z:    "
+node: "<->:    "
+node: &:<z> is a problem\n that <x> missed
+node: *Hz{}0:<z> is a \nproblem
+node: *G(xz){}0:<x> missed <z>
+node: =:<z>=<y>
+node: *z{}1:<z>
+node: *y{}1:<y>
+
+answer-key: Symb 5.025 Ex25
+node: exists x:At least two soldiers shot at least one demonstrator.
+node: "exists y:    "
+node: "&:    "
+node: "&:    "
+node: "&:    "
+node: "&:    "
+node: "~:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*y{}1:    "
+node: "*Fx{}0:    "
+node: "*Fy{}0:    "
+node: "exists z:    "
+node: "&:    "
+node: "*Hz{}0:    "
+node: "*G(xz){}0:    "
+node: "exists z:    "
+node: "&:    "
+node: "*Hz{}0:    "
+node: "*G(yz){}0:    "
+
+answer-key: Symb 5.026 Ex26(i)
+node: forall x:Classes are identical if and only if they have the same members.
+node: "forall y:    "
+node: "->:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "*Fy{}0:    "
+node: "<->:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*y{}1:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*G(zx){}0:    "
+node: "*G(zy){}0:    "
+
+answer-key: Symb 5.026 Ex26(ii)
+node: forall x:For every class x, if every member of x has a member and no two members of x have any member in common, then there is a class y such that every member of x has exactly one member in common with y.
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*Fx{}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*G(yx){}0:    "
+node: "exists z:    "
+node: "*G(zy){}0:    "
+node: "forall y:    "
+node: "forall z:    "
+node: "->:    "
+node: "&:    "
+node: "&:    "
+node: "*G(yx){}0:    "
+node: "*G(zx){}0:    "
+node: "~:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+node: "~:    "
+node: "exists w:    "
+node: "&:    "
+node: "*G(wy){}0:    "
+node: "*G(wz){}0:    "
+node: "exists y:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "forall z:    "
+node: "->:    "
+node: "*G(zx){}0:    "
+node: "exists w:    "
+node: "forall u:    "
+node: "<->:    "
+node: "&:    "
+node: "*G(uz){}0:    "
+node: "*G(uy){}0:    "
+node: "=:    "
+node: "*u{}1:    "
+node: "*w{}1:    "
+
+answer-key: Symb 5.027 Ex27
+node: &:Some course is taught by exactly one instructor, and some instructor teaches exactly one course.
+node: "exists x:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "exists z:    "
+node: "forall y:    "
+node: "<->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*H(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+node: "exists y:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "exists z:    "
+node: "forall x:    "
+node: "<->:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*H(yx){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*z{}1:    "
+
+answer-key: Symb 5.028 Ex28
+node: &:Exactly one instructor teaches a course, and exactly one course is taught by an instructor.
+node: "exists z:    "
+node: "forall y:    "
+node: "<->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "exists x:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*H(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+node: "exists z:    "
+node: "forall x:    "
+node: "<->:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "exists y:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "*H(yx){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*z{}1:    "
+
+answer-key: Symb 5.029 Ex29
+node: exists z:There is exactly one instructor and exactly one course, and that instructor teaches that course.
+node: "exists w:    "
+node: "&:    "
+node: "&:    "
+node: "forall y:    "
+node: "<->:    "
+node: "*Fy{}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+node: "forall x:    "
+node: "<->:    "
+node: "*Gx{}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*w{}1:    "
+node: "*H(zw){}0:    "
+
+answer-key: Symb 5.030 Ex30
+node: exists z:There is exactly one instructor who teaches exactly one course.
+node: "forall y:    "
+node: "<->:    "
+node: "&:    "
+node: "*Fy{}0:    "
+node: "exists w:    "
+node: "forall x:    "
+node: "<->:    "
+node: "&:    "
+node: "*Gx{}0:    "
+node: "*H(yx){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*w{}1:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*z{}1:    "
+
+answer-key: Symb 5.031 Ex31
+english: Alfred has exactly one half-brother.
+node: exists x:Alfred has exactly one half-brother.
+node: "exists y:    "
+node: "&:    "
+node: &:<x> and <y> are distinct and Alfred is a son of each of them
+node: ~:<x> and <y> are distinct
+node: =:<x> is <y>
+node: *x{}1:<x>
+node: *y{}1:<y>
+node: &:Alfred is a son of both <x> and <y>
+node: *F(ax){}0:Alfred is a son <x>
+node: *F(ay){}0:Alfred is a son <y>
+node: exists w:exactly one thing is a son of one of <x> and <y> but not a son of both of them
+node: "forall z:    "
+node: "<->:    "
+node: &:<z> is a son of one of <x> and <y> but not a son of both of them
+node: |:<z> is a son of one of <x> and <y>
+node: *F(zx){}0:<z> is a son of <x>
+node: *F(zy){}0:<z> is a son of <y>
+node: ~:<z> is not a son of both of <x> and <y>
+node: &:<z> is a son of both of <x> and <y>
+node: *F(zx){}0:<z> is a son of <x>
+node: *F(zy){}0:<z> is a son of <y>
+node: =:<z> is <w>
+node: *z{}1:<z>
+node: *w{}1:<w>
+
+answer-key: Symb 5.031 Ex31b
+english: Alfred has exactly one half-brother.
+node: exists x:Alfred has exactly one half-brother.
+node: forall y:<x> and only <x> is a half-brother of Alfred
+node: "<->:    "
+node: exists w:<y> is a half-brother of Alfred
+node: forall z:<w> and only <w> is such that both <y> and Alfred are sons of <w>
+node: "<->:    "
+node: &:both <y> and Alfred are sons of <z>
+node: *F(yz){}0:<y> is a son of <w>
+node: *F(az){}0:Alfred is a son of <z>
+node: =:<z> is <w>
+node: *z{}1:<z>
+node: *w{}1:<w>
+node: =:<y> is <x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+
+answer-key: ANS_5040
+english: Emily envies those that Emily envies
+node: forall x:Emily envies those that Emily envies
+node: "->:    "
+node: *V(ex){}0:Emily envies <x>
+node: *V(ex){}0:Emily envies <x>
+
+answer-key: ANS_5041a
+english: Emily envies those that only Emily envies
+node: forall x:Emily envies those that only Emily envies
+node: "->:    "
+node: forall y:only Emily envies <x>
+node: "<->:    "
+node: *V(yx){}0:<y> envies <x>
+node: =:<y> is Emily
+node: *y{}1:<y>
+node: *e{}1:Emily
+node: *V(ex){}0:Emily envies <x>
+
+answer-key: ANS_5041b
+english: Emily envies those that only Emily envies
+node: forall x:Emily envies those that only Emily envies
+node: "->:    "
+node: &:only Emily envies <x>
+node: *V(ex){}0:Emily envies <x>
+node: forall y:nothing other than Emily envies <x>
+node: "->:    "
+node: *V(yx){}0:<y> envies <x>
+node: =:<y> is Emily
+node: *y{}1:<y>
+node: *e{}1:Emily
+node: *V(ex){}0:Emily envies <x>
+
+answer-key: ANS_5042
+english: Emily envies only those that Emily envies
+node: forall x:Emily envies only those that Emily envies
+node: "->:    "
+node: *V(ex){}0:Emily envies <x>
+node: *V(ex){}0:Emily envies <x>
+
+answer-key: ANS_5043a
+english: Only Emily envies those that Emily envies
+node: forall x:Only Emily envies those that Emily envies
+node: "->:    "
+node: *V(ex){}0:Emily envies <x>
+node: forall y:only Emily envies <x>
+node: "<->:    "
+node: *V(yx){}0:<y> envies <x>
+node: =:<y> is Emily
+node: *y{}1:<y>
+node: *e{}1:Emily
+
+answer-key: ANS_5043b
+english: Only Emily envies those that Emily envies
+node: forall x:Only Emily envies those that Emily envies
+node: "->:    "
+node: "*V(ex){}0:    "
+node: "&:    "
+node: "*V(ex){}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5043c
+english: Only Emily envies those that Emily envies
+node: forall x:Only Emily envies those that Emily envies
+node: "->:    "
+node: "*V(ex){}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5044a
+english: Emily envies only those that only Emily envies
+node: forall x:Emily envies only those that only Emily envies
+node: "->:    "
+node: *V(ex){}0:Emily envies <x>
+node: forall y:only Emily envies <x>
+node: "<->:    "
+node: *V(yx){}0:<y> envies <x>
+node: =:<y> is Emily
+node: *y{}1:<y>
+node: *e{}1:Emily
+
+answer-key: ANS_5044b
+english: Emily envies only those that only Emily envies
+node: forall x:Emily envies only those that only Emily envies
+node: "->:    "
+node: "*V(ex){}0:    "
+node: "&:    "
+node: "*V(ex){}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5044c
+english: Emily envies only those that only Emily envies
+node: forall x:Emily envies only those that only Emily envies
+node: "->:    "
+node: "*V(ex){}0:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(yx){}0:    "
+node: "=:    "
+node: "*y{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5045a
+english: Only Emily envies only those that Emily envies
+node: forall x:Only Emily envies only those that Emily envies
+node: "<->:    "
+node: forall y:<x> envies only those that Emily envies
+node: "->:    "
+node: *V(xy){}0:<x> envies <y>
+node: *V(ey){}0:Emily envies <y>
+node: =:<x> is Emily
+node: *x{}1:<x>
+node: *e{}1:Emily
+
+answer-key: ANS_5045b
+english: Only Emily envies only those that Emily envies
+node: &:Only Emily envies only those that Emily envies
+node: "forall y:    "
+node: "->:    "
+node: "*V(ey){}0:    "
+node: "*V(ey){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(xy){}0:    "
+node: "*V(ey){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5045c
+english: Only Emily envies only those that Emily envies
+node: forall x:Only Emily envies only those that Emily envies
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(xy){}0:    "
+node: "*V(ey){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5046a
+english: Only Emily envies those that only Emily envies
+node: forall x:Only Emily envies those that only Emily envies
+node: "<->:    "
+node: forall y:<x> envies those that only Emily envies
+node: "->:    "
+node: forall z:only emily envies <y>
+node: "<->:    "
+node: *V(zy){}0:<z> envies <y>
+node: =:<z> is Emily
+node: *z{}1:<z>
+node: *e{}1:Emily
+node: *V(xy){}0:<x> envies <y>
+node: =:<x> is Emily
+node: *x{}1:<x>
+node: *e{}1:Emily
+
+answer-key: ANS_5046b
+english: Only Emily envies those that only Emily envies
+node: &:Only Emily envies those that only Emily envies
+node: "forall y:    "
+node: "->:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "*V(ey){}0:    "
+node: "forall x:    "
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "*V(xy){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5046c
+english: Only Emily envies those that only Emily envies
+node: forall x:Only Emily envies those that only Emily envies
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "*V(xy){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5046d
+english: Only Emily envies those that only Emily envies
+node: forall x:Only Emily envies those that only Emily envies
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "&:    "
+node: "*V(ey){}0:    "
+node: "forall z:    "
+node: "->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "*V(xy){}0:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5047a
+english: Only Emily envies only those that only Emily envies
+node: forall x:Only Emily envies only those that only Emily envies
+node: "<->:    "
+node: forall y:<x> envies only those that only Emily envies
+node: "->:    "
+node: *V(xy){}0:<x> envies <y>
+node: forall z:only Emily envies <y>
+node: "<->:    "
+node: *V(zy){}0:<z> envies <y>
+node: =:<z> is Emily
+node: *z{}1:<z>
+node: *e{}1:Emily
+node: =:<x> is Emily
+node: *x{}1:<x>
+node: *e{}1:Emily
+
+answer-key: ANS_5047b
+english: Only Emily envies only those that only Emily envies
+node: &:Only Emily envies only those that only Emily envies
+node: "forall y:    "
+node: "->:    "
+node: "*V(ey){}0:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "forall x:    "
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(xy){}0:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_5047c
+english: Only Emily envies only those that only Emily envies
+node: &:Only Emily envies only those that only Emily envies
+node: "forall y:    "
+node: "->:    "
+node: "*V(ey){}0:    "
+node: "forall z:    "
+node: "->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "forall x:    "
+node: "->:    "
+node: "forall y:    "
+node: "->:    "
+node: "*V(xy){}0:    "
+node: "forall z:    "
+node: "<->:    "
+node: "*V(zy){}0:    "
+node: "=:    "
+node: "*z{}1:    "
+node: "*e{}1:    "
+node: "=:    "
+node: "*x{}1:    "
+node: "*e{}1:    "
+
+answer-key: ANS_6008
+english: The positive square root of 2 is a positive even prime.
+node: &:The positive square root of 2 is a positive even prime.
+node: "&:    "
+node: "*O%x(Ox&R(xa)){}0:    "
+node: "*N%x(Ox&R(xa)){}0:    "
+node: "*M%x(Ox&R(xa)){}0:    "
+
+answer-key: ANS_6009
+english: Mary loves the person who loves Mary.
+node: *L(a%x(Fx&L(xa))){}0:Mary loves the person who loves Mary.
+
+answer-key: ANS_6010
+english: If the person who murdered Desdemona was murdered by Desdemona's murderer, then that person committed suicide.
+node: ->:If the person who murdered Desdemona was murdered by Desdemona's murderer, then he committed suicide.
+node: "*M(%x(Fx&M(xa))%x(Fx&M(xa))){}0:    "
+node: "*O%x(Fx&M(xa)){}0:    "
+
+answer-key: ANS_6011
+english: The hardest problem on the exam was solved by the youngest student in the class.
+node: *S(%x(Fx&forall y (Fy&y<>x->H(xy)))%x(Nx&forall y (Ny&y<>x->Y(xy)))){}0:The hardest problem on the exam was solved by the youngest student in the class.
+
+answer-key: ANS_6012
+english: If the author of Waverly is the author of Ivanhoe, then the author of Ivanhoe is an author of Waverly.
+node: ->:If the author of Waverly is the author of Ivanhoe, then the author of Ivanhoe is an author of Waverly.
+node: "=:    "
+node: "%x:    "
+node: "*U(xa){}0:    "
+node: "%x:    "
+node: "*U(xb){}0:    "
+node: "*U(%xU(xb)a){}0:    "
+
+answer-key: ANS_6013
+english: God is that than which nothing greater can be conceived.
+node: =:God is that than which nothing greater can be conceived.
+node: *a{}1:God
+node: %x:that than which nothing greater can be conceived
+node: ~:nothing greater than x can be conceived
+node: exists y:something greater than x can be conceived
+node: &:y is greater than x, and can be conceived
+node: *G(yx){}0:y is greater than x
+node: *V(y){}2:y can be conceived
+
+answer-key: ANS_6013b
+english: God is that than which nothing greater can be conceived.
+node: =:God is that than which nothing greater can be conceived.
+node: *a{}1:God
+node: %x:that than which nothing greater can be conceived
+node: ~:nothing greater than x can be conceived
+node: exists y:something greater than x can be conceived
+node: &:y is greater than x, and can be conceived
+node: *V(y){}2:y can be conceived
+node: *G(yx){}0:y is greater than x
+
+answer-key: ANS_6014
+english: The positive square root of the square of the even prime is irrational.
+node: *I%x(Ox&R(xa(%y(Ny&My)))){}0:The positive square root of the square of the even prime is irrational.
+
+answer-key: ANS_6015
+english: The smallest positive integer is the positive integer which when multiplied by itself equals itself.
+node: =:The smallest positive integer is the positive integer which when multiplied by itself equals itself.
+node: %x:The smallest positive integer
+node: &:<x> is a positive integer and <x> is less than all other positive integers
+node: &:<x> is positive and <x> is an integer
+node: *Ox{}0:<x> is positive
+node: *Nx{}0:<x> is an integer
+node: forall y:<x> is less than all other positive integers
+node: ->:if <y> is a positive integer and <y> is not <x>, then <x> is less than <y>
+node: &:<y> is a positive integer and <y> is not <x>
+node: &:<y> is a positive integer
+node: *Oy{}0:<y> is positive
+node: *Ny{}0:<y> is an integer
+node: ~:<y> is not <x>
+node: =:<y> is <x>
+node: *y{}1:<y>
+node: *x{}1:<x>
+node: *L(xy){}0:<x> is less than <y>
+node: %x:the positive integer which when multiplied by itself equals itself
+node: &:<x> is a positive integer and the product of <x> and <x> is <x>
+node: &:<x> is a positive integer
+node: *Ox{}0:<x> is positive
+node: *Nx{}0:<x> is an integer
+node: =:the product of <x> and <x> is <x>
+node: *d(xx){}1:the product of <x> and <x>
+node: *x{}1:<x>
+
+answer-key: ANS_6016
+english: There is no greatest positive integer.
+node: ~:There is no greatest positive integer.
+node: exists x:There is a greatest positive integer
+node: &:<x> is a positive integer and <x> is greater than all other positive integers
+node: &:<x> is a positive integer
+node: *Ox{}0:<x> is positive
+node: *Nx{}0:<x> is an integer
+node: forall y:<x> is greater than all other positive integers
+node: ->:if <y> is a positive integer and <y> is not <x>, then <x> is greater than <y>
+node: &:<y> is a positive integer and <y> is not <x>
+node: &:<y> is a positive integer
+node: *Oy{}0:<y> is positive
+node: *Ny{}0:<y> is an integer
+node: ~:<y> is not <x>
+node: "=:    "
+node: *y{}1:<y>
+node: *x{}1:<x>
+node: *G(xy){}0:<x> is greater than <y>

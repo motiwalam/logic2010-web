@@ -1,0 +1,14 @@
+# Rule-recognition problems (local additions).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   argument:                the argument
+#   answer:                  the student's answer (saved work)
+#   correct-rules:           rules that are accepted as correct answers, separated by '.'
+#   near-miss-rules:         rules that get a 'nearly right' response
+#   comment:                 comment shown after a correct answer

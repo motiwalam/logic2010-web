@@ -1,0 +1,21 @@
+# Derivation problems (local additions).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   show:                    a Show line; the first one (written as 'statement') is the argument to derive
+#   statement:               the first Show line: the argument to derive
+#   collapsed-show:          a Show line whose box is collapsed
+#   line:                    formula of an ordinary line
+#   reason:                  justification (annotation) of the preceding line
+#   cancel:                  cancels the current Show line with this justification and closes its box
+#   end-box:                 closes a box that was not canceled
+#   cached-justification:    the program's cached analysis of the preceding line's justification
+#   command:                 command that created the Show line
+#   message:                 saved message, 'line:text'
+#   flag:                    flag (not used by the program)
+#   proves:                  rule or theorem this problem proves

@@ -1,0 +1,20 @@
+# Options (local additions).
+# Format: see data/README.md. Fields:
+#   section:                 which part of the program the record configures: logic, derivation, parsing, ...
+#   set:                     turns an on/off option on
+#   unset:                   an on/off option that is left off
+#   option:                  'name:problem-selector', e.g. noErrMess:{"1.7","1.72"}
+#   login:                   program login for the course server, 'user:password'
+#   font-size:               font size
+#   backup-count:            number of server backups to keep
+#   backup-name:             name of the server backup set
+#   restore-name:            name of the backup set to restore from
+#   instance-port:           port used to allow only one running copy
+#   option-o:                (not used by the program)
+#   disable:                 rules disabled for the selected problems, 'RULES:selector'
+#   disable-all-forms:       like disable, applied to every form of compound rules
+#   manual:                  rules that must be applied without the program's help
+#   manual-all-forms:        like manual, applied to every form of compound rules
+#   assume-weakly:           rules/theorems that may be used without proof (weakly assumed)
+#   assume:                  rules/theorems that may be used without proof
+#   activate-rules:          rules offered for the selected problems

@@ -1,0 +1,107 @@
+# Messages.
+# Format: see data/README.md. Fields:
+#   sort:                    sort key (editorial, not used by the program)
+#   id:                      message id, used by the program
+#   error:                   title of an error message (shown in red)
+#   error-revised:           revised error title (not used by the program)
+#   info:                    title of an information message (shown in gold)
+#   info-revised:            revised info title (not used by the program)
+#   text:                    message text; \n is a line break, \l toggles symbol translation, <param> is replaced
+#   description:             when the message appears (for the programmer)
+#   programmer-note:         comment to the programmer
+#   buttons:                 buttons: 'Label:action.Label:action;default-index'
+
+# Instructions for the creation of this file.  Copy the Excel material and paste into this file.  [The following resizing is unnecessary.]  Pull the borders of the table to make them appropriately wide.  Save as Text.
+# `s terminates the sort field, used to resort messages according to various criteria.
+# `n terminates the message name or message ID
+# `d terminates the description of the source for the error (explanation by the programmer)
+# `p terminates a comment to the programmer.
+# `e terminates the error message (displayed in red by the program)
+# `E terminates a revised version of the error message
+# `i terminates the information message (displayed in gold by the program)
+# `I terminates a revised version of the information message
+# `x terminates the explanation (explanation for the user)
+# Only one of `e or `i should appear for any message
+# Blanks at the start and end of strings are trimmed
+# \n forces a carriage return within the text.
+# \l toggles conversion of Maggie-talk.  Default is OFF.
+# Sort#  `s     Name or ID  `n     Present_Message  P_M_Term     New_Message  N_M_Term     Comment to Programmer  `p     Explanation  `x     Description  `d
+sort: 01
+id: TruErr001
+text: At least one of the trees has an error in it.\nA red button indicates an erroneous tree.
+
+sort: 02
+id: TruErr002
+text: At least one of the required trees is incomplete.\nA '?' button indicates an incomplete tree.
+
+sort: 03
+id: TruErr003
+text: You must answer 'yes' or 'no' to the question.
+
+sort: 04
+id: TruErr004
+text: To show an argument valid, none of the rows\nshould be checked.
+
+sort: 05
+id: TruErr005
+text: For an argument to be valid, none\nof its rows can have all premises\ntrue and the conclusion false.
+
+sort: 06
+id: TruErr006
+text: To show an argument invalid, you must check a row in \nwhich all premises are true, and the conclusion is false.
+
+sort: 07
+id: TruErr007
+text: The row you have checked is incomplete.  You \nmust complete any tree indicated by a '?' button.
+
+sort: 08
+id: TruErr008
+text: The row you have checked is not one in which \n all premises are true, and the conclusion false.
+
+sort: 09
+id: TruErr009
+text: The expression <expression> is not a well formed formula.
+
+sort: 10
+id: TruErr010
+text: That argument has no conclusion.
+
+sort: 11
+id: TruErr011
+text: Some of the boxes marked with a 'T' or 'F' are wrong.
+
+sort: 12
+id: TruErr012
+text: All of the boxes with a '?' need to be marked 'T' or 'F'.
+
+sort: 13
+id: TruErr013
+text: You need to choose the correct number of rows for the truth table.
+
+sort: 14
+id: TruErr014
+text: You need to press the OK button on the Setup panel to continue.
+
+sort: 15
+id: TruErr015
+text: The number of sentence letters is not correct.  \nRemember to separate Sentence Letters with a period.
+
+sort: 16
+id: TruErr016
+text: Could not parse <unparsed>.
+
+sort: 17
+id: TruErr017
+text: <sentence> is not a sentence letter \nrelevant to this problem.
+
+sort: 18
+id: TruErr018
+text: <sentence> has been used more than once.
+
+sort: 19
+id: TruErr019
+text: The number of rows is not correct.  \nThe correct number is 2 to the power n, \nwhere n is the number of distinct atomic \nformulas (here, sentence letters).
+
+sort: 20
+id: TruErr020
+text: The setup table needs to be completed.

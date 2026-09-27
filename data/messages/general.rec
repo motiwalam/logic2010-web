@@ -1,0 +1,436 @@
+# Messages.
+# Format: see data/README.md. Fields:
+#   sort:                    sort key (editorial, not used by the program)
+#   id:                      message id, used by the program
+#   error:                   title of an error message (shown in red)
+#   error-revised:           revised error title (not used by the program)
+#   info:                    title of an information message (shown in gold)
+#   info-revised:            revised info title (not used by the program)
+#   text:                    message text; \n is a line break, \l toggles symbol translation, <param> is replaced
+#   description:             when the message appears (for the programmer)
+#   programmer-note:         comment to the programmer
+#   buttons:                 buttons: 'Label:action.Label:action;default-index'
+
+# Instructions for the creation of this file.  Copy the Excel material and paste into this file.  [The following resizing is unnecessary.]  Pull the borders of the table to make them appropriately wide.  Save as Text.
+# `s terminates the sort field, used to resort messages according to various criteria.
+# `n terminates the message name or message ID
+# `d terminates the description of the source for the error (explanation by the programmer)
+# `p terminates a comment to the programmer.
+# `e terminates the error message (displayed in red by the program)
+# `E terminates a revised version of the error message
+# `i terminates the information message (displayed in gold by the program)
+# `I terminates a revised version of the information message
+# `x terminates the explanation (explanation for the user)
+# Only one of `e or `i should appear for any message
+# Blanks at the start and end of strings are trimmed
+# \n forces a carriage return within the text.
+# \l toggles conversion of Maggie-talk.  Default is OFF.
+# Sort#  `s     Name or ID  `n     Present_Message  P_M_Term     New_Message  N_M_Term     Comment to Programmer  `p     Explanation  `x     Description  `d
+sort: 1
+id: Not001
+text: File not found:\nCould not open <file name>.
+
+sort: 2
+id: Not002
+text: I/O error:\nCould not read <file name>.
+
+sort: 3
+id: Not003
+text: File corrupted: Could not use <file name>.\n\nThis message is generated when the information\nin <file name> does not match the User information.\n(User information says you are <user name>.)\n\nClick Quit to close the program completely.  Reboot\nyour computer, and try again.\n\nIf that does not work, the integrity of the file can\nprobably be restored by your instructor.\n
+
+sort: 4
+id: Not004
+text: Disk locked:\nCould not write to <file name>.
+
+sort: 5
+id: Not005
+text: You do not appear to be using this program\nfrom an authorized site.
+
+sort: 6
+id: Not006
+text: A problem must have a non empty name
+description: the user did not enter anything into the problem naming dialog
+
+sort: 7
+id: Not007
+text: You cannot use the name <problem name>
+description: the problem name is already in use
+
+sort: 8
+id: Not008
+text: There is a problem with the communication\nto the database server.\n\nIf this problem persists, please check your\nnetwork connection (and any firewalls).\n\nIf your network connection is fine, copy\nthe errors.txt and diagnostics.txt files\nfrom your work folder and contact your\ninstructor.
+
+sort: 9
+id: Not009
+text: <user dir> could not be found.\nThe program cannot continue without\na valid work folder.
+
+sort: 10
+id: Not010
+text: The user information does not appear to\nbe the same as that used to start the\nprogram.  The program cannot continue\nwithout the original user information.\n\nRemove the current work, and either\nrestore the original user information,\nor click Quit to close the program completely,\nand try again.
+
+sort: 11
+id: Not011
+text: That is not the correct <user> Password.
+
+sort: 12
+id: Not012
+text: Could not find the <user> Password.\n\nPlease contact a lab consultant and\nlet them know when this problem occurred.
+
+sort: 13
+id: Not013
+text: From time to time LOGIC 2010 samples submission data to provide\nstatistical measures of the relative difficulty of problems and\nassignments.  These statistics are not linked to individual users.
+
+sort: 14
+id: Not014
+text: Could not find a matching backup in the database.
+
+sort: 15
+id: Not015
+text: There was an error in creating the backup data.
+
+sort: 16
+id: Not016
+text: There was an error in decoding the backup data.
+
+sort: 17
+id: Not017
+text: All work was backed up successfully.
+
+sort: 18
+id: Not018
+text: All work was restored successfully.
+
+sort: 19
+id: Not019
+text: If you are a new user, click "Register".\n\nIf you are a registered user, and you wish\nto restore the work files from your latest \nbackup, click "Restore".
+buttons: Register.Restore.Quit;1
+
+sort: 20
+id: Not020
+text: Please wait while your work is backed up.
+
+sort: 21
+id: Not021
+text: Please wait while your work is restored.
+
+sort: 22
+id: Not022
+text: Welcome, <name>.\nInstitution: <site>\nTerm: <term>\nCourse: <course>\n\nIf this is not who you are, please press Delete.\n\nShould you wish to switch your work to another\ncourse, please press Switch.\n
+buttons: Continue.Delete.Switch.Quit;0
+
+sort: 23
+id: Not023
+text: User Information was restored successfully.
+
+sort: 24
+id: Not024
+text: All work was copied successfully.
+
+sort: 25
+id: Not025
+text: There was a problem copying the work\nfrom <source> to <dest>.
+
+sort: 26
+id: Not026
+text: Are you sure you want to copy the work\nfrom <source> to <dest>?
+buttons: Yes.No
+
+sort: 27
+id: Not027
+text: You have set no preferences.\nPlease choose the course you want.
+
+sort: 28
+id: Not028
+text: There is no registered user at <site>\nwith the Student ID <sid>.
+
+sort: 29
+id: Not029
+text: Do you wish to quit the program or delete the saved work?
+buttons: Quit.Delete
+
+sort: 30
+id: Not030
+text: Are you sure you wish to delete all the files in the work folder?
+buttons: Yes.No
+
+sort: 31
+id: Not031
+text: Your work has been saved since you last\nbacked up or copied it.  Before quitting,\nwould you like to back up your work to\nthe database and/or copy your work to a\nfloppy disk?\n\nClick Cancel to go back to the program.
+buttons: Back Up.Copy.Both.Quit.Cancel
+
+sort: 32
+id: Not032
+text: Some files were not deleted.
+
+sort: 33
+id: Not033
+text: An Update to the Core files is required.\nIn rare cases you may have to reinstall\nthe program from our Download page.
+buttons: Update:update.Quit
+
+sort: 34
+id: Not034
+text: You must update your copy of LOGIC 2010\nby downloading the NEW LOCAL VERSION.\n<text>
+buttons: Update:update.Quit
+
+sort: 35
+id: Not035
+text: Welcome, <name>.\nInstitution: <site>\nTerm: <term>\nCourse: <course>\n\nThis is an exam.  Do not back up non-exam\nwork at this time.\n\nIf you are not the person mentioned above,\nplease press Delete.\n\nIf you are not restarting this exam after\nhaving partially completed it, please press\nDelete.\n\nOtherwise, you are the person mentioned above\nand you are restarting the exam, so please\npress Continue.\n
+buttons: Delete.Continue.Quit;1
+
+sort: 36
+id: Not036
+text: You must update your copy of LOGIC 2010\nby downloading the NEW INSTRUCTOR VERSION.\n<text>
+buttons: Update:update.Quit
+
+sort: 37
+id: Not037
+text: Retry the operation?
+buttons: Retry.Abort
+
+sort: 38
+id: Not038
+text: If you are a new user, click "Register".
+buttons: Register.Quit;0
+
+sort: 39
+id: Not039
+text: You cannot submit from the Demo version.
+
+sort: 40
+id: Not040
+text: Restoration has been disabled.
+
+sort: 41
+id: Not041
+text: Backing up has been disabled.
+
+sort: 42
+id: Not042
+text: There were no courses found anywhere.
+
+sort: 43
+id: Not043
+text: There were no courses found at <site>.
+
+sort: 44
+id: Not044
+text: Please choose the course you want.
+
+sort: 45
+id: Not045
+text: The course in your preferences is not available.\nPlease choose one of the available courses.
+
+sort: 46
+id: Not046
+text: An Update to the Core files is required.\nIn rare cases you may have to reinstall\nthe program from our Download page.\n\nWe strongly recommend backing up your work\nto our server before Updating.  This allows us\nto restoreyour work even if a reinstallation is\nnecessary.
+buttons: Backup before Update:backup.Update Now:update.Quit
+
+sort: 47
+id: Not047
+text: You must update your copy of LOGIC 2010\nby downloading the PROPER LOCAL VERSION.\n<text>
+buttons: Update:update.Quit
+
+sort: 48
+id: Not048
+text: Please verify the course for your submission.
+
+sort: 49
+id: Not049
+text: You must update your copy of LOGIC 2010\nby downloading the PROPER INSTRUCTOR VERSION.\n<text>
+buttons: Update:update.Quit
+
+sort: 50
+id: Not050
+text: Please enter the <user> Password.
+
+sort: 51
+id: Not051
+text: That is not the logic password for\n<sid> at <site>.
+
+sort: 52
+id: Not052
+text: That is not the logic password for\n<sid> at <site>\n(<name>).
+
+sort: 53
+id: Not053
+text: You need to have <relation> privileges for this operation.
+
+sort: 54
+id: Not054
+text: Please Provide Some Information
+
+sort: 55
+id: Not055
+text: Please Enter <relation> Information
+
+sort: 56
+id: Not056
+text: Please check the Caps Lock and try again.
+
+sort: 57
+id: Not057
+text: You need a Logic Password to submit,\nbackup, restore, and view assignments.\nPlease enter and confirm your password.
+
+sort: 58
+id: Not058
+text: You are a fully registered Logic 2010\nuser.  You may backup, restore, submit,\nand view assignments.
+
+sort: 59
+id: Not059
+text: There was a problem in verifying or\nregistering you as a Logic 2010 user.
+
+sort: 60
+id: Not060
+text: As an instructor, you can install the\ninstructor version of Logic 2010.\nHowever, it is advisable that it not be\ninstalled on a public computer as that\nmight risk undesirable distribution.\n\nWhen would you like to install the\ninstructor version?
+buttons: Later.Now
+
+sort: 61
+id: Not061
+text: Could not download the automatic update program.
+
+sort: 62
+id: Not062
+text: Could not send information to the automatic update program.
+
+sort: 63
+id: Not063
+text: Could not start the automatic update program.
+
+sort: 64
+id: Not064
+
+sort: 65
+id: Not065
+text: If you are a registered user, and you\nknow your Logic Password, click Restore.\n\nOtherwise, speak to your instructor.
+buttons: Restore.Quit;0
+
+sort: 66
+id: Not066
+text: Please wait while your work is copied.
+
+sort: 67
+id: Not067
+text: Your work has been saved since you last\nbacked up.  Before quitting, would you\nlike to back up your work to the database?\n\nClick Cancel to go back to the program.
+buttons: Back Up.Quit.Cancel
+
+sort: 68
+id: Not068
+text: Your work has been saved since you last\ncopied it.  Before quitting, would you\nlike to copy your work to a floppy disk?\n\nClick Cancel to go back to the program.
+buttons: Copy.Quit.Cancel
+
+sort: 69
+id: Not069
+text: Submit all <module> problems?
+buttons: OK.Cancel
+
+sort: 70
+id: Not070
+text: Please wait while your work is submitted.
+
+sort: 71
+id: Not071
+text: Retrieving course list...
+
+sort: 72
+id: Not072
+text: The user information was incomplete or corrupted.
+
+sort: 73
+id: Not073
+text: Could not find the user information.
+
+sort: 74
+id: Not074
+text: If this is the very last computer on which you\nused Logic 2010, click "Continue" to use\nthe current work files.\n\nOtherwise, click "Delete" to delete the \ncurrent work files, and prepare to restore \nyour work files from the backup database.
+buttons: Delete.Continue.Quit;1
+
+sort: 75
+id: Not075
+text: There is already a registered logic user at <institution>\nwith the Student ID <studentID>.\n\nIf you are this person, click "Restore" to restore\nyour work from the backup database.\n\nOtherwise, Quit, restart the program, and enter\nthe proper Student ID.
+buttons: Restore.Quit
+
+sort: 76
+id: Not076
+text: Click "Register" to register as a logic user at <institution> with\nStudent ID <studentID>.\n\nIf your Student ID number is incorrect, click "Change".\n\nIf you are already registered, you have entered an\nerroneous Student ID number.  Click "Change".\n\nIf you do not wish to register, Quit, restart the \nprogram, and change your institution to Demo.
+buttons: Register.Change.Quit
+
+sort: 77
+id: Not077
+text: This is an exam and there were files in\nthe work folder.\n\nUnless you are restarting the exam to\ncontinue work already in progress, you\nshould press Delete to delete the work\nfiles.\n\nIf you are restarting the exam, press\nContinue to work on the exam.
+buttons: Delete.Continue.Quit
+
+sort: 78
+id: Not078
+text: If  you would like to delete all work\nfiles and start over, press Delete.
+buttons: Delete.Quit
+
+sort: 79
+id: Not079
+text: The course for this exam is not listed\nin the database.
+
+id: Not080
+text: The course you originally selected while starting the program is:\n\n<dbsite>, <dbcourse>, <dbterm>\n\nIf you wish to stay with this course, click "Continue".\n\n\nIf you wish to switch to another course, select it below\nand click "Switch".\n
+
+id: Not081
+text: You may submit as many problems as you wish at one time.\nUse Shift+Click to select a string of adjacent problems, Ctrl+Click to select (or deselect) non-adjacent problems.
+
+id: Not082
+text: Problem names cannot contain colons.
+
+id: Not083
+text: The program must now shutdown.\nPlease restart the program.
+
+id: Not084
+text: A different version of LOGIC 2010 is required for this course.\n\nIf your work is not currently backed up, please do so\nnow by clicking "Backup".\n\nNext, click "Update Instructions" to open your browser\nto a page that explains the update process.\n\nThen, quit the program and follow the instructions\non that page.
+buttons: Backup:backup.Update Instructions:update.Quit:quit
+
+id: Not085
+text: A different version of LOGIC 2010 is required for this course.\n\nFirst, click "Update Instructions" to open your browser\nto a page that explains the update process.\n\nThen, quit the program and follow the instructions\non that page.
+buttons: Update Instructions:update.Quit:quit
+
+id: Not086
+text: Network Error: The update was not downloaded.\nRetry the download?
+buttons: Retry:retry.Quit
+
+id: Not087
+text: There is more than one version installed.\nWhich would you like to start?
+
+id: Not088
+text: Please enter the Student ID, name, and email address\nunder which you have been given Instructor Privileges.
+buttons: Register.Quit;0
+
+id: Not089
+text: You may upload as many problems as you wish at one time.\nUse Shift+Click to select a string of adjacent problems, Ctrl+Click to select (or deselect) non-adjacent problems.
+
+id: Not090
+text: Are you sure you want to delete the selected problems?
+buttons: Delete.Cancel;0
+
+id: Not091
+text: Are you sure you want to delete the work on the selected problems?
+buttons: Delete.Cancel;0
+
+id: Not092
+text: Only User problems that have been saved\nwith correct work can be uploaded
+
+id: Not093
+text: User problems cannot contain line breaks
+
+id: Not094
+text: Review/Adjust your preferences:
+buttons: Continue.Quit;0
+
+id: Not095
+text: An exam is in progress.\nIf you are taking the exam, you must\nask your instructor to type in the\nspecial "Exam Restore" password.\n\nIf you are not taking the exam, Quit,\nand restart the program at a later time.\n
+
+id: Not096
+text: The Program is configured for Homework,\nbut exam files have been retained.\n\nTo continue with homework,\nclick Delete, and then Restore.\n\nIf you are taking the exam, please\nconsult with your instructor.
+buttons: Delete.Quit
+
+id: Not097
+text: An exam is in progress.\nTo continue with the exam,\nclick Delete, and then Restore.\n\nIf you are not taking the exam, Quit,\nand restart the program at a later time.
+buttons: Delete.Quit
+
+id: Not098
+text: An exam is in progress, but\nthe exam files on your computer\nare from a different exam.\n\nTo continue with the exam\ncurrently in progress, click\nDelete, and then Restore.\n\nTo continue with the exam\nalready on your computer,\nconsult with your instructor.\n\nIf you are not taking an exam, Quit,\nand restart the program at a later time.
+buttons: Delete.Quit

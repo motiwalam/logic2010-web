@@ -1,0 +1,284 @@
+# Theorems (notation 1). One per line: NAME, blanks, then the definition.
+# '## text' lines are headings shown in the program's lists.
+
+##  
+##                          THEOREMS
+##  CHAPTER I
+1    P->P
+2    Q->(P->Q)
+3    P->((P->Q)->Q)
+4    (P->Q)->((Q->R)->(P->R))
+5    (Q->R)->((P->Q)->(P->R))
+6    (P->(Q->R))->((P->Q)->(P->R))
+7    ((P->Q)->(P->R))->(P->(Q->R))
+8    (P->(Q->R))->(Q->(P->R))
+9    (P->(P->Q))->(P->Q)
+10   ((P->Q)->Q)->((Q->P)->P)
+11   ~~P->P
+12   P->~~P
+13   (P->Q)->(~Q->~P)
+14   (P->~Q)->(Q->~P)
+15   (~P->Q)->(~Q->P)
+16   (~P->~Q)->(Q->P)
+17   P->(~P->Q)
+18   ~P->(P->Q)
+19   (~P->P)->P
+20   (P->~P)->~P
+21   ~(P->Q)->P
+22   ~(P->Q)->~Q
+23   ((P->Q)->P)->P
+##  CHAPTER II
+24   P&Q<->Q&P
+25   P&(Q&R)<->(P&Q)&R
+26   (P->Q)&(Q->R)->(P->R)
+27   (P&Q->R)<->(P->(Q->R))
+28   (P&Q->R)<->(P&~R->~Q)
+29   (P->Q&R)<->(P->Q)&(P->R)
+30   (P->Q)->(R&P->R&Q)
+31   (P->Q)->(P&R->Q&R)
+32   (P->R)&(Q->S)->(P&Q->R&S)
+33   (P->Q)&(~P->Q)->Q
+34   (P->Q)&(P->~Q)->~P
+35   (~P->R)&(Q->R)<->((P->Q)->R)
+36   ~(P&~P)
+37   (P->Q)<->~(P&~Q)
+38   P&Q<->~(P->~Q)
+39   ~(P&Q)<->(P->~Q)
+40   ~(P->Q)<->P&~Q
+41   P<->P&P
+42   P&~Q->~(P->Q)
+43   ~P->~(P&Q)
+44   ~Q->~(P&Q)
+45   P|Q<->(~P->Q)
+46   (P->Q)<->~P|Q
+47   P<->P|P
+48   (P|Q)&(P->R)&(Q->S)->R|S
+49   (P|Q)&(P->R)&(Q->R)->R
+50   (P->R)&(Q->R)<->(P|Q->R)
+51   (P|Q)&(P->R)&(~P&Q->R)->R
+52   (P->R)&(~P&Q->R)<->(P|Q->R)
+53   P|Q<->Q|P
+54   P|(Q|R)<->(P|Q)|R
+55   (P->Q|R)<->(P->Q)|(P->R)
+56   (P->Q)->(R|P->R|Q)
+57   (P->Q)->(P|R->Q|R)
+58   (P->Q)|(Q->R)
+59   P|~P
+60   (P->R)|(Q->R)<->(P&Q->R)
+61   P&(Q|R)<->(P&Q)|(P&R)
+62   P|(Q&R)<->(P|Q)&(P|R)
+63   P&Q<->~(~P|~Q)
+64   P|Q<->~(~P&~Q)
+65   ~(P&Q)<->~P|~Q
+66   ~(P|Q)<->~P&~Q
+67   ~P&~Q->~(P|Q)
+68   P<->(P&Q)|(P&~Q)
+69   P<->(P|Q)&(P|~Q)
+70   Q->(P&Q<->P)
+71   ~Q->(P|Q<->P)
+72   (P->Q)<->(P&Q<->P)
+73   (P->Q)<->(P|Q<->Q)
+74   (P<->Q)&P->Q
+75   (P<->Q)&Q->P
+76   (P<->Q)&~P->~Q
+77   (P<->Q)&~Q->~P
+78   (P->(Q->R))->((P->Q)<->(P->R))
+79   (P->(Q->R))->(P&Q<->P&R)
+80   (P<->Q)|(P<->~Q)
+81   (P<->Q)<->(P->Q)&(Q->P)
+82   (P<->Q)<->~((P->Q)->~(Q->P))
+83   (P<->Q)<->(P&Q)|(~P&~Q)
+84   P&Q->(P<->Q)
+85   ~P&~Q->(P<->Q)
+86   ((P<->Q)->R)<->(P&Q->R)&(~P&~Q->R)
+87   ~(P<->Q)<->(P&~Q)|(~P&Q)
+88   P&~Q->~(P<->Q)
+89   ~P&Q->~(P<->Q)
+90   ~(P<->Q)<->(P<->~Q)
+91   P<->P
+92   (P<->Q)<->(Q<->P)
+93   (P<->Q)&(Q<->R)->(P<->R)
+94   (P<->(Q<->R))<->((P<->Q)<->R)
+95   (P<->Q)<->((P<->R)<->(Q<->R))
+96   (P<->Q)<->(~P<->~Q)
+97   (P<->R)&(Q<->S)->((P->Q)<->(R->S))
+98   (P<->R)&(Q<->S)->((P&Q)<->(R&S))
+99   (P<->R)&(Q<->S)->((P|Q)<->(R|S))
+100  (P<->R)&(Q<->S)->((P<->Q)<->(R<->S))
+101  (Q<->S)->((P->Q)<->(P->S))&((Q->P)<->(S->P))
+102  (Q<->S)->(P&Q<->P&S)
+103  (Q<->S)->(P|Q<->P|S)
+104  (Q<->S)->((P<->Q)<->(P<->S))
+105  P&(Q<->R)->(P&Q<->R)
+106  (P->(Q->R))<->((P->Q)->(P->R))
+107  (P->(Q->R))<->(Q->(P->R))
+108  (P->(P->Q))<->(P->Q)
+109  ((P->Q)->Q)<->((Q->P)->P)
+110  P<->~~P
+111  (P->Q)<->(~Q->~P)
+112  (P->~Q)<->(Q->~P)
+113  (~P->Q)<->(~Q->P)
+114  (~P->P)<->P
+115  (P->~P)<->~P
+116  (P&Q)|(R&S)<->(P|R)&(P|S)&(Q|R)&(Q|S)
+117  (P|Q)&(R|S)<->(P&R)|(P&S)|(Q&R)|(Q&S)
+118  (P->Q)&(R->S)<->(~P&~R)|(~P&S)|(Q&~R)|(Q&S)
+119  (P|~P)&Q<->Q
+120  (P&~P)|Q<->Q
+121  P|(~P&Q)<->P|Q
+122  P&(~P|Q)<->P&Q
+123  P<->P|(P&Q)
+124  P<->P&(P|Q)
+125  (P->Q&R)->(P&Q<->P&R)
+##  CHAPTER III
+##  LAWS OF DISTRIBUTION:
+201  forall x (Fx->Gx)->(forall x Fx->forall x Gx)
+202  forall x (Fx->Gx)->(exists x Fx->exists x Gx)
+##  MORE LAWS OF DISTRIBUTION:
+207  exists x (Fx|Gx)<->exists x Fx|exists x Gx
+208  forall x (Fx&Gx)<->forall x Fx&forall x Gx
+209  exists x (Fx&Gx)->exists x Fx&exists x Gx
+210  forall x Fx|forall x Gx->forall x (Fx|Gx)
+211  (exists x Fx->exists x Gx)->exists x (Fx->Gx)
+212  (forall x Fx->forall x Gx)->exists x (Fx->Gx)
+213  forall x (Fx<->Gx)->(forall x Fx<->forall x Gx)
+214  forall x (Fx<->Gx)->(exists x Fx<->exists x Gx)
+##  LAWS OF QUANTIFIER NEGATION:
+203  ~forall x Fx<->exists x ~Fx
+204  ~exists x Fx<->forall x ~Fx
+205  forall x Fx<->~exists x ~Fx
+206  exists x Fx<->~forall x ~Fx
+##  LAWS OF CONFINEMENT:
+215  forall x (P&Fx)<->P&forall x Fx
+216  exists x (P&Fx)<->P&exists x Fx
+217  forall x (P|Fx)<->P|forall x Fx
+218  exists x (P|Fx)<->P|exists x Fx
+219  forall x (P->Fx)<->(P->forall x Fx)
+220  exists x (P->Fx)<->(P->exists x Fx)
+221  forall x (Fx->P)<->(exists x Fx->P)
+222  exists x (Fx->P)<->(forall x Fx->P)
+223  forall x (Fx<->P)->(forall x Fx<->P)
+224  forall x (Fx<->P)->(exists x Fx<->P)
+225  (exists x Fx<->P)->exists x (Fx<->P)
+226  (forall x Fx<->P)->exists x (Fx<->P)
+##  LAWS OF VACUOUS QUANTIFICATION:
+227  forall x P<->P
+228  exists x P<->P
+229  exists x (exists x Fx->Fx)
+230  exists x (Fx->forall x Fx)
+##  LAWS OF ALPHABETIC VARIANCE:
+231  forall x Fx<->forall y Fy
+232  exists x Fx<->exists y Fy
+##  MISCELLANEOUS THEOREMS
+233  (Fx->Gx)&(Gx->Hx)->(Fx->Hx)
+234  forall x ((Fx->Gx)&(Gx->Hx)->(Fx->Hx))
+235  forall x (Fx->Gx)&forall x (Gx->Hx)->forall x (Fx->Hx)
+236  forall x (Fx<->Gx)&forall x (Gx<->Hx)->forall x (Fx<->Hx)
+237  forall x (Fx->Gx)&forall x (Fx->Hx)<->forall x (Fx->Gx&Hx)
+238  forall x Fx->exists x Fx
+239  forall x Fx&exists x Gx->exists x (Fx&Gx)
+240  forall x (Fx->Gx)&exists x (Fx&Hx)->exists x (Gx&Hx)
+241  forall x (Fx->Gx|Hx)->forall x (Fx->Gx)|exists x (Fx&Hx)
+242  ~forall x (Fx->Gx)<->exists x (Fx&~Gx)
+243  ~exists x (Fx&Gx)<->forall x (Fx->~Gx)
+244  ~exists x Fx->forall x (Fx->Gx)
+245  ~exists x Fx<->forall x (Fx->Gx)&forall x (Fx->~Gx)
+246  ~exists x Fx&~exists x Gx->forall x (Fx<->Gx)
+247  exists x (Fx->Gx)<->exists x ~Fx|exists x Gx
+248  exists x Fx&exists x ~Fx<->forall x exists y (Fx<->~Fy)
+##  CHAPTER IV
+249  forall x forall y F(xy)->exists x exists y F(xy)
+250  forall x forall y forall z F(xyz)<->~exists x exists y exists z ~F(xyz)
+251  forall x forall y F(xy)<->forall y forall x F(xy)
+252  exists x exists y F(xy)<->exists y exists x F(xy)
+253  exists x forall y F(xy)->forall y exists x F(xy)
+254  exists x exists y F(xy)<->exists x exists y (F(xy)|F(yx))
+255  forall x forall y F(xy)->forall y forall x F(yx)
+256  forall x exists y (F(xy)&Gy)->exists x exists y (F(xy)&Gx)
+257  forall x FA(x)->exists x (Fx&FA(x))
+258  F(xA(x))<->exists y (forall z (F(zy)->F(zA(x)))&F(xy))
+259  forall x exists z (Fx->exists y (Gy->Hz))<->(exists x Fx&forall x Gx->exists x Hx)
+260  forall x (Fx->exists y (Gy&(Hy|Hx)))<->exists x (Gx&Hx)|~exists x Fx|(exists x Gx&forall x (Fx->Hx))
+261  forall x (exists y F(xy)->exists y G(xy))<->forall x forall y exists z (F(xy)->G(xz))
+262  exists y (exists x F(xy)<->Gy)<->exists y forall x exists z ((F(xy)->Gy)&(Gy->F(zy)))
+263  forall x exists y (Fx->Gy)<->exists y forall x (Fx->Gy)
+264  forall x exists y (Fx&Gy)<->exists y forall x (Fx&Gy)
+265  forall x exists y (Fx|Gy)<->exists y forall x (Fx|Gy)
+266  forall x forall y exists z (Fx&Gy->Hz)<->forall y exists z forall x (Fx&Gy->Hz)
+267  forall x (Fx<->~FA(x))->exists x (Fx&~FA(x))
+268  forall x (F(Ax)|forall y F(xy))->exists x forall y F(xy)
+269  ~exists y forall x (F(xy)<->~F(xx))
+270  forall z exists y forall x (F(xy)<->F(xz)&~F(xx))->~exists z forall x F(xz)
+271  ~exists y forall x (F(xy)<->~exists z (F(xz)&F(zx)))
+272  exists y forall x (F(xy)<->F(xx))->~forall x exists y forall z (F(zy)<->~F(zx))
+##  CHAPTER V
+301  x=x
+302  x=y<->y=x
+303  x=y&y=z->x=z
+304  x=y->(Fx<->Fy)
+305  x=y->A(x)=A(y)
+306  Fx<->forall y (y=x->Fy)
+307  Fx<->exists y (y=x&Fy)
+308  x=y<->forall z (z=x->z=y)
+309  x=y<->exists z (z=x&z=y)
+310  F(xy)<->forall z forall w (z=x&w=y->F(zw))
+311  F(xy)<->exists z exists w (z=x&w=y&F(zw))
+# 312a	~x=y<->~y=x
+312  x<>y<->y<>x
+313  Fx&x=y<->Fy&x=y
+# 314a	Fx|~x=y<->Fy|~x=y			
+314  Fx|x<>y<->Fy|x<>y
+315  forall x (exists y (Fy&x=A(y))->Fx)<->forall x (Fx->FA(x))
+316  exists x Fx&forall x forall y (Fx&Fy->x=y)<->exists x (Fx&forall y (Fy->x=y))
+317  exists x Fx&forall x forall y (Fx&Fy->x=y)<->exists y forall x (Fx<->x=y)
+# 318a	!x!y(Fx&Fy&~x=y)&@x@y@z(Fx&Fy&Fz->x=y|x=z|y=z)<->!x!y(Fx&Fy&~x=y&@z(Fz->x=z|y=z))
+318  exists x exists y (Fx&Fy&x<>y)&forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)<->exists x exists y (Fx&Fy&x<>y&forall z (Fz->x=z|y=z))
+# 319a	!x!y(Fx&Fy&~x=y)&@x@y@z(Fx&Fy&Fz->x=y|x=z|y=z)<->!x!y(~x=y&@z(Fz<->x=z|y=z))	
+319  exists x exists y (Fx&Fy&x<>y)&forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)<->exists x exists y (x<>y&forall z (Fz<->x=z|y=z))
+# 320a	~!y@x(Fx<->x=y)<->~!xFx|!x!y(~x=y&Fx&Fy)			
+320  ~exists y forall x (Fx<->x=y)<->~exists x Fx|exists x exists y (x<>y&Fx&Fy)
+# 321a	~!x!y(~x=y&@z(Fz<->z=x|z=y))<->@x@y(Fx&Fy->x=y)|!x!y!z(Fx&Fy&Fz&~x=y&~x=z&~y=z)	
+321  ~exists x exists y (x<>y&forall z (Fz<->z=x|z=y))<->forall x forall y (Fx&Fy->x=y)|exists x exists y exists z (Fx&Fy&Fz&x<>y&x<>z&y<>z)
+322  exists x forall y y=x<->forall x forall y y=x
+# 323a	!x!y~x=y<->@x!y~x=y			
+323  exists x exists y x<>y<->forall x exists y x<>y
+# 324a	~!x!y~x=y->(!xFx<->@xFx)			
+324  ~exists x exists y x<>y->(exists x Fx<->forall x Fx)
+# 325a	!x!y@z(z=x|z=y)<->!x@yy=x|!x!y(~x=y&@z(z=x|z=y))			
+325  exists x exists y forall z (z=x|z=y)<->exists x forall y y=x|exists x exists y (x<>y&forall z (z=x|z=y))
+# 326a	!x!y@z(~x=y&(z=x|z=y))<->!x!y@z(~x=y<->(z=x|z=y))			
+326  exists x exists y forall z (x<>y&(z=x|z=y))<->exists x exists y forall z (x<>y<->(z=x|z=y))
+# 327a	@x!y(Fx<->x=y)<->!x!y~x=y|@xFx			
+327  forall x exists y (Fx<->x=y)<->exists x exists y x<>y|forall x Fx
+328  forall x forall y (Fx&Fy<->x=y)<->exists x (forall y y=x&Fx)
+329  exists x x=y
+330  exists z forall x (x=y<->x=z)
+331  exists y (forall x (Fx<->x=y)&Gy)<->exists y forall x (Fx<->x=y)&forall x (Fx->Gx)
+332  ~exists y (forall x (Fx<->x=y)&Gy)<->~exists y forall x (Fx<->x=y)|exists y (forall x (Fx<->x=y)&~Gy)
+333  exists y forall x (Fx<->x=y)->(forall x (Fx->Gx)<->exists x (Fx&Gx))
+# 334a	~!y@x(~x=x<->x=y)
+334  ~exists y forall x (x<>x<->x=y)
+335  exists y y=x&P<->P
+336  ~exists y y=x|P<->P
+##  CHAPTER VI
+401  forall x (Fx<->x=y)->%xFx=y
+402  exists y forall x (Fx<->x=y)->F%xFx
+# 403a	~!y@x(Fx<->x=y)->%xFx=%x~x=x
+403  ~exists y forall x (Fx<->x=y)->%xFx=%xx<>x
+404  forall x (Fx<->Gx)->%xFx=%xGx
+405  %xFx=%yFy
+406  exists y forall x (Fx<->x=y)->forall x (Fx<->x=%xFx)
+407  forall x (Fx<->x=%xFx)->exists y forall x (Fx<->x=y)
+408  exists y forall x (Fx<->x=y)&exists y forall x (Gx<->x=y)->(%xFx=%xGx->forall x (Fx<->Gx))
+# 409a	F%xFx<->!y@x(Fx<->x=y)|F%x~x=x
+409  F%xFx<->exists y forall x (Fx<->x=y)|F%xx<>x
+410  exists y forall x (Fx<->x=y)->(%xFx=y->forall x (Fx<->x=y))
+411  ~exists y forall x (Fx<->x=y)&~exists y forall x (Gx<->x=y)->%xFx=%xGx
+# 412a	G%xFx<->!y(@x(Fx<->x=y)&Gy)|(~!y@x(Fx<->x=y)&G%x~x=x)
+412  G%xFx<->exists y (forall x (Fx<->x=y)&Gy)|(~exists y forall x (Fx<->x=y)&G%xx<>x)
+413  %xx=y=y
+# 414a	%xx=x=%x~x=x
+414  %xx=x=%xx<>x
+# 415a	%xP=%x~x=x
+415  %xP=%xx<>x
+416  F%xFx|~F%x~Fx

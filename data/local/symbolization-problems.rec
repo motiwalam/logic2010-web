@@ -1,0 +1,15 @@
+# Symbolization problems (local additions).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   english:                 the English sentence
+#   node:                    a node of the symbolization tree, 'code:English', in pre-order
+#   scheme:                  scheme of abbreviation, 'symbol:English' items separated by '.'
+#   answer-keys:             answer-key names (see symbolization-answers.rec), separated by '.'
+#   answer-group:            problems in the same group share their answers
+#   hints:                   hint count (saved work)

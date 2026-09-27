@@ -1,0 +1,13 @@
+# Parsing problems (local additions).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   formula:                 the formula to parse
+#   notation:                chosen notation: O official, I informal, N not well formed
+#   expansion:               which parse-tree nodes are expanded
+#   main-connective-answer:  answer in main-connective-only mode

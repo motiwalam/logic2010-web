@@ -1,0 +1,169 @@
+# Options.
+# Format: see data/README.md. Fields:
+#   section:                 which part of the program the record configures: logic, derivation, parsing, ...
+#   set:                     turns an on/off option on
+#   unset:                   an on/off option that is left off
+#   option:                  'name:problem-selector', e.g. noErrMess:{"1.7","1.72"}
+#   login:                   program login for the course server, 'user:password'
+#   font-size:               font size
+#   backup-count:            number of server backups to keep
+#   backup-name:             name of the server backup set
+#   restore-name:            name of the backup set to restore from
+#   instance-port:           port used to allow only one running copy
+#   option-o:                (not used by the program)
+#   disable:                 rules disabled for the selected problems, 'RULES:selector'
+#   disable-all-forms:       like disable, applied to every form of compound rules
+#   manual:                  rules that must be applied without the program's help
+#   manual-all-forms:        like manual, applied to every form of compound rules
+#   assume-weakly:           rules/theorems that may be used without proof (weakly assumed)
+#   assume:                  rules/theorems that may be used without proof
+#   activate-rules:          rules offered for the selected problems
+
+# options.txt
+section: logic
+unset: altsymbols
+set: debug
+set: remote
+backup-name: work
+backup-count: 3
+instance-port: 1462
+login: logic:WDRcSy1kNm81I0g=
+
+# Derivation
+# Options
+section: derivation
+option: noCommand:{}
+option: noQueue:{}
+option: noCheck:{}
+option: monoProbs:{}
+option: logShowCmd:~{}
+option: noErrMess:{}
+
+section: derviation
+option: logSubmit:~{}
+
+section: derivation
+option: "prefix:Deriv "
+# assumptions and restrictions for core blue book practice exams
+option: noErrMess:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noCommand:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+# assumptions and restrictions for core practice exams
+option: noErrMess:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+# assign chapters
+option: chap1:{"1.0","1.6","1.7","1.72","1.8","1.82"}
+option: chap2:{"2.0","2.6","2.7","2.72","2.8","2.82"}
+# Core-problem-specific alterations
+# assume QN for some homework problems
+assume-weakly: QN:{"3.001","3.019"}
+# disable QN for problems whose comments specify it
+disable-all-forms: QN:{"3.411","3.412","3.419","3.420","4.001","4.014"}
+# disable CD and ID for problems whose comments specify it
+disable-all-forms: CD.ID.DD/C.DD/I:{"4.280","4.288"}
+# disable CD, ID, and DD for problems whose comments specify it
+disable-all-forms: CD.ID.DD:{"4.290","4.298"}
+# disable IE and CIE for problems whose comments specify it
+disable-all-forms: IE.CIE:{"3.213","3.215","6.404","6.405"}
+# disable ASS ID for problems whose comments specify it
+disable-all-forms: ID/I.CD/I.DD/I:{"1.0001","1.0005"}
+# disable command mode for problems whose comments specify it
+option: noCommand:{"4.290","4.298"}
+# Assumption of derived rules and theorems
+# assume the derived rules of Chapter II
+assume-weakly: MC.NCJ.SC.CDJ.TRANS.CJB.NC.NB.DM.DIST.COM.ASSOC.EXP.BP.SSimp.BEX:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume the derived rules of Chapter III
+assume-weakly: QDIST.QN.CONF.AV1.AV2.VAC:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume the derived rules of Chapter IV
+assume-weakly: QCOM:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume the derived rules of Chapter V
+assume-weakly: LL2.LL3.LL4.LL5.Sm.EL.QElim:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume the derived rules of Chapter VI
+assume-weakly: AV3:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter I
+assume-weakly: {1,24}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter II
+assume-weakly: {24,200}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter III
+assume-weakly: {201,249}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter IV
+assume-weakly: {249,300}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter V
+assume-weakly: {301,400}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# assume theorems from Chapter VI
+assume-weakly: {401,449}:u{"1.7","1.72","1.8","1.82","2.7","2.72","2.8","2.82","3.7","3.72","3.8","3.82","4.7","4.72","4.8","4.82","5.7","5.72","5.8","5.82","6.7","6.72","6.8","6.82"}
+# Assume  NC SC DM NB and QN
+assume-weakly: NC.SC.DM.NB.QN
+
+# Options
+section: parsing
+option: "prefix:Pars "
+option: logSubmit:~{}
+option: mainOnly:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+
+# Recognition
+# Options
+section: recognition
+option: "prefix:Recog "
+# activate the rules appropriate for each chapter
+activate-rules: R.DN.MP.MT:u{"1.0","1.6","2.0","2.6","3.0","3.6","4.0","4.6","5.0","5.6","6.0","6.6"}
+activate-rules: S.Adj.Add.MTP.BC.CB:u{"2.0","2.6","3.0","3.6","4.0","4.6","5.0","5.6","6.0","6.6"}
+activate-rules: UI.EI.EG.QN.AV1.AV2:u{"3.0","3.6","4.0","4.6","5.0","5.6","6.0","6.6"}
+activate-rules: SId.LL.SM.EL:u{"5.0","5.6","6.0","6.6"}
+activate-rules: PrD.ImD.AV3:u{"6.0","6.6"}
+
+# Symbolization
+# Options
+section: symbolization
+option: noDirect:{}
+option: equCounts:~{}
+option: logSubmit:~{}
+option: "prefix:Symb "
+# assumptions and restrictions for core blue book practice exams
+option: noErrMess:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noHints:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+# assumptions and restrictions for core practice exams
+option: noErrMess:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+option: noHints:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+# assign chapters
+option: chap1:{"1.0","1.6","1.7","1.72","1.8","1.82"}
+option: chap2:{"2.0","2.6","2.7","2.72","2.8","2.82"}
+option: chap3:{"3.0","3.6","3.7","3.72","3.8","3.82"}
+option: chap4:{"4.0","4.6","4.7","4.72","4.8","4.82"}
+option: chap5:{"5.0","5.6","5.7","5.72","5.8","5.82"}
+
+# Invalidation
+# Options
+section: invalidation
+option: logSubmit:~{}
+option: "prefix:Inval "
+# assumptions and restrictions for core blue book practice exams
+option: noExpand:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+
+# Truth Tables
+# Options
+section: truth
+option: doAllRows:{}
+option: doAllWffs:{}
+option: doAllNodes:{}
+option: logSubmit:~{}
+option: "prefix:TruTb "
+# assumptions and restrictions for core blue book practice exams
+option: doSetUp:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noTreeErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintTreeErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noTableErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintTableErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noSetupErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintSetupErr:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noCheckMess:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+option: noPrintCheck:{"1.7","1.72","2.7","2.72","3.7","3.72","4.7","4.72","5.7","5.72","6.7","6.72"}
+# assumptions and restrictions for core practice exams
+option: noTreeErr:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+option: noTableErr:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+option: noCheckMess:{"1.8","1.82","2.8","2.82","3.8","3.82","4.8","4.82","5.8","5.82","6.8","6.82"}
+# Core-problem-specific alterations
+option: doSetup:{"2.000","2.009"}
+option: noTreeErr:{"2.013","2.031"}
+option: noTableErr:{"2.025","2.031"}
+option: noCheckMess:{"2.028","2.031"}

@@ -1,0 +1,599 @@
+# Rule-recognition problems (notation 2).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   argument:                the argument
+#   answer:                  the student's answer (saved work)
+#   correct-rules:           rules that are accepted as correct answers, separated by '.'
+#   near-miss-rules:         rules that get a 'nearly right' response
+#   comment:                 comment shown after a correct answer
+
+# baserecprobs.txt: base homework problems; syntax 2
+
+##                          CHAPTER I
+## The primitive rules of this chapter are: 
+## MP, MT, R, and DN.
+## 
+
+problem: Recog 1.001
+argument: P->P . P  .: P
+comment: This is a perfectly correct application of MP.  The fact that the rule is stated using distinct antecedent and consequent allows the antecedent and consequent to be distinct, but does not require it.
+common-name: Recog 1.001
+
+problem: Recog 1.002
+argument: ~T->(T->U) . ~(T->U)  .: ~~T
+comment: Note that the conclusion must be as given, and cannot be "T", which is not the negation of the antecedent of the conditional.
+common-name: Recog 1.002
+
+problem: Recog 1.003
+argument: W->X . ~X  .: ~W
+common-name: Recog 1.003
+
+problem: Recog 1.004
+argument: ~(~P->W)  .: P->W
+comment: The premise is the negation of a conditional, not the negation of a negation.  If the premise had been \l"~~(P->W)"\l the conclusion could have been obtained by DN.
+common-name: Recog 1.004
+
+problem: Recog 1.005
+argument: ~Q->~R . R  .: Q
+comment: The second premise is not the negation of the consequent of the conditional (as is required), and the conclusion is not the negation of the antecedent of the conditional (as is also required).  The result can be obtained from those two premises, but not directly by a single application of MT.  Rather, one must first apply DN to the second premise, then apply MT to obtain \l"~~Q"\l, then apply a second DN to that result.
+common-name: Recog 1.005
+
+problem: Recog 1.006
+argument: ~~~Z  .: ~Z
+common-name: Recog 1.006
+
+problem: Recog 1.007
+argument: (~Q->S)->P . ~Q->S  .: P
+comment: Note that the "official" outermost parentheses have been dropped in the second premise, but cannot be dropped in the first premise.
+common-name: Recog 1.007
+
+problem: Recog 1.008
+argument: ~~P  .: ~~P
+common-name: Recog 1.008
+
+problem: Recog 1.009
+argument: ~~P->~Q . ~~Q  .: ~P
+comment: This case is rather like 1.005.  Although MT can be applied directly to these premises, it yields \l"~~~P"\l rather than \l"~P"\l.  The latter requires an application of DN.
+common-name: Recog 1.009
+
+problem: Recog 1.010
+argument: T->S  .: ~~(T->S)
+comment: As in 1.007, the "official" outermost parentheses have been dropped in the premise, but cannot be dropped in the conclusion.
+common-name: Recog 1.010
+
+problem: Recog 1.011
+argument: P->Y . ~P  .: ~Y
+comment: A wrong way around attempt to apply MT.  To apply MT, the second premise must be the negation of the consequent of the conditional rather than being the negation of the antecedent.
+common-name: Recog 1.011
+
+problem: Recog 1.012
+argument: ~(R->T)->U . ~~U  .: ~~(R->T)
+comment: One too many negations in the second premise.
+common-name: Recog 1.012
+
+problem: Recog 1.013
+argument: T . T->~Q  .: ~Q
+comment: Note that the order in which the premises appear does not matter.
+common-name: Recog 1.013
+
+problem: Recog 1.014
+argument: ~~~P->Q  .: ~P->Q
+comment: If we restore the dropped parentheses, we will see that the premise is \l"(~~~P->Q)"\l, not \l"~~~(P->Q)"\l, and thus a conditional, not a negation.  Perhaps this is an attempt to apply the rule of DN to just the antecedent of the conditional, the \l"~~~P"\l part.  But rules may never be applied to the interior of a formula.  (Only when the derived rule of Interchange of Equivalents is established will any rules become applicable to the interior of formulas.)
+common-name: Recog 1.014
+
+problem: Recog 1.015
+argument: ~(R->~S)->(~P->~T) . ~(~P->~T)  .: ~~(R->~S)
+common-name: Recog 1.015
+
+problem: Recog 1.016
+argument: P->Y  .: P->Y
+comment: One may wonder about the utility of the rule R.  Its most common use is to bring a line required for boxing and canceling down below the Show line that is to be canceled.  In theory, this rule is dispensable, in the sense that any derivation that uses it can be transformed into a derivation that does not use it.
+common-name: Recog 1.016
+
+problem: Recog 1.017
+argument: (P->Q)->~~S  .: (P->Q)->S
+comment: This failed attempt to apply DN violates the Prime Directive:  Rules may never be applied to the interior of a formula.
+common-name: Recog 1.017
+
+problem: Recog 1.018
+argument: ~W . W->X  .: ~X
+comment: Another cock-eyed attempt at MT.  Like 1.011, except for the (irrelevant) order of the premises.  If the first premise and the conclusion traded places, it would be a correct application of MT.
+common-name: Recog 1.018
+
+problem: Recog 1.019
+argument: R->Q  .: ~~R->Q
+comment: Compare 1.014.  The premise, in official notation, is \l"(R->Q)"\l; the conclusion is \l"(~~R->Q)"\l.  This is not a correct application of DN.
+common-name: Recog 1.019
+
+problem: Recog 1.020
+argument: (P->T)->(R->(S->P)) . (P->T) . R  .: S->P
+comment: The conclusion can be obtained by two applications of MP, the first to premises 1 and 2, the second to the result and premise 3, but it cannot be obtained by a single application of MP.  Using queuing, a correct justification for the conclusion would read, "PR1 PR2 MP PR3 MP".
+common-name: Recog 1.020
+
+## 
+##                         CHAPTER II
+## The primitive rules for this chapter are: 
+## MP, MT, R, and DN, plus
+## S, Adj, MTP, ADD, BC, and CB.
+## 
+
+problem: Recog 2.001
+argument: ~(P&Q)  .: ~Q
+comment: This appears to be another attempt to apply an inference rule, here, Simplification, to the interior of a formula (see explanations of answers to problems 1.014 and 1.017 of Chapter I).\nRULES MAY NEVER BE APPLIED TO THE INTERIOR OF A FORMULA.\n(Only when the derived rule of Interchange of Equivalents is established will any rules become applicable to the interior of formulas.)
+common-name: Recog 2.001
+
+problem: Recog 2.002
+argument: ~(P|Q)&((R->~P)<->S)  .: ~(P|Q)
+comment: In Command Mode, one can avoid a query by directly citing the form of the rule, here, Simplification on the left, or SL.
+common-name: Recog 2.002
+
+problem: Recog 2.003
+argument: ~P&Q->R  .: ~P
+comment: The attempt to Simplify reflect an incorrect parsing of the premise, which is correctly parsed as a conditional \l"((~P&Q)->R)"\l not a conjunction.
+common-name: Recog 2.003
+
+problem: Recog 2.004
+argument: ~S|R . P->Q  .: (P->Q)&(~S|R)
+comment: Note that both pairs of parentheses are required in the conclusion; the first by the fact that \l"->"\l is a major connective, the second by the fact that \l"&"\l and \l"|"\l are both minor connectives.
+common-name: Recog 2.004
+
+problem: Recog 2.005
+argument: ((P->~(Q|~S))|T)&S  .: S
+comment: Good parsing!
+common-name: Recog 2.005
+
+problem: Recog 2.006
+argument: (R|S) . Q<->P  .: (R|S)&Q<->P
+comment: This attempt to apply ADJ fails because the conclusion is a biconditional (the major connective as between \l"&"\l and \l"<->"\l).  If the conclusion had been written \l"(R|S)&(Q<->P)"\l, it would have been a correct application of ADJ.
+common-name: Recog 2.006
+
+problem: Recog 2.007
+argument: ~P . ~(Q<->R)  .: ~(P&(Q<->R))
+comment: Perhaps the perpetrator of this argument thought to hold the negations in abeyance while adjoining the negated formulas, then carry down the negation.
+common-name: Recog 2.007
+
+problem: Recog 2.008
+argument: P->Q  .: P->Q|R
+comment: Like 1.006, this attempt at Addition miscarries because of the lack of parentheses in the conclusion.  A correct application of ADD (more precisely ADDR) would yield \l"(P->Q)|R"\l.
+common-name: Recog 2.008
+
+problem: Recog 2.009
+argument: R&S  .: Q|(R&S)
+comment: For this correct application of Addition on the Left using the parameter "Q" for the formula to be added, one could simply enter "PR1 ADDL/Q".  In Command Mode, no queries would result.
+common-name: Recog 2.009
+
+problem: Recog 2.010
+argument: R->S  .: (R->S)|(S->Q)
+comment: As in 2.009, a Command Mode command of \l"PR1 ADDR/(S->Q)"\l would generate the line without queries.  Note that when using parameters, even \l "PR1 ADDR/S->Q"\l will generate the correct line.
+common-name: Recog 2.010
+
+problem: Recog 2.011
+argument: P&~Q  .: (P|Q)&(~Q|R)
+comment: This doesn't begin to be derivable by the application of a single primitive rule.  However, the following single command, queued and with parameters, will generate the line: "PR1 SL ADDR/Q PR1 SR ADDR/R ADJ".
+common-name: Recog 2.011
+
+problem: Recog 2.012
+argument: P|Q  .: P|Q|R
+comment: Note that the conclusion is associated to the left.  Thus, in official notation, \l"((P|Q)|R)"\l.
+common-name: Recog 2.012
+
+problem: Recog 2.013
+argument: P|Q  .: R|P|Q
+comment: As in 2.012, our conventions for dropping parentheses allows them to be dropped for a series of disjuncts only if the disjuncts are associated to the left.  Hence, the conclusion, in official notation, is \l"((R|P)|Q)"\l.  This formula is not directly derivable from \l"(P|Q)"\l by Addition.  Only \l"(R|(P|Q))"\l follows directly by ADD.  In order to get the conclusion as it appears, one must then use the Derived Rule of Assoc (or derive the appropriate instance of T54).
+common-name: Recog 2.013
+
+problem: Recog 2.014
+argument: ~(R|S)|(P->S) . ~(P->S)  .: ~(R|S)
+common-name: Recog 2.014
+
+problem: Recog 2.015
+argument: P|~(Q&R) . ~P  .:Q&R
+comment: What happened to the negation? This failed attempt at MTP should have had as its conclusion \l"~(Q&R)"\l.
+common-name: Recog 2.015
+
+problem: Recog 2.016
+argument: P|~(S->(T|R)) . ~P  .: ~(S->(T|R))
+comment: Note that MTP applies equally to either the left disjunct or the right disjunct (compare 2.014).
+common-name: Recog 2.016
+
+problem: Recog 2.017
+argument: (P|Q)->R . ~P  .: Q
+comment: One can't just ignore the \l"->R"\l.
+common-name: Recog 2.017
+
+problem: Recog 2.018
+argument: ~(P<->Q)  .: ~(P->Q)
+comment: Shame shame! Again, an attempt to apply BC to the interior of a formula (see 2.001).
+common-name: Recog 2.018
+
+problem: Recog 2.019
+argument: P|~R<->Q&~S  .: Q&~S->P|~R
+comment: Bingo!  This is a correct application of BC in the Right to Left direction.  Either "PR1 BC", which will generate a query about which direction is desired, or "PR1 BCR", which will not generate a query, can be used as justification.
+common-name: Recog 2.019
+
+problem: Recog 2.020
+argument: P<->Q&R  .: Q->P
+comment: That old devil parsing has blinded the perpetrator.  The premise is indeed a biconditional, \l"(P<->(Q&R))"\l, but the BCR would yield \l"Q&R->P"\l, not \l"Q->P"\l.
+common-name: Recog 2.020
+
+problem: Recog 2.021
+argument: P&Q->R . R->P&Q  .: R<->P&Q
+comment: The biconditional in either direction can be derived from these two premises.
+common-name: Recog 2.021
+
+problem: Recog 2.022
+argument: (P->Q)->R . R->(Q->P)  .: R<->(P<->Q)
+comment: This is a sly one.  The \l"(P->Q)"\l gets reversed in the second premise.  The second premise needed to be \l"R->(P->Q)"\l to validly yield any conclusion by CB, and even then it wouldn't yield this conclusion.  (What would it yield?)
+common-name: Recog 2.022
+
+problem: Recog 2.023
+argument: (S|~R)->R . R->(S|~R)  .: (S|~R)<->R
+common-name: Recog 2.023
+
+## 
+##                        CHAPTER III
+## The primitive rules for this chapter are: 
+## MP, MT, R, and DN, plus
+## S, Adj, MTP, ADD, BC, and CB, plus
+## UI, EI, and EG. 
+## Also accepted are the derived rules: 
+## QN, and AV. 
+## 
+
+problem: Recog 3.001
+argument: forall x (Fx->Gy)  .: Fx->Gy
+comment: The instantial term is the variable "x" itself.  In the conclusion, the outermost parentheses were dropped in accordance with the conventions.
+common-name: Recog 3.001
+
+problem: Recog 3.002
+argument: exists x Fx  .: Fi
+comment: EI, but only on the assumption that that the external constraint is satisfied, namely that the instantial variable "i" has no prior occurrence anywhere in the derivation.
+common-name: Recog 3.002
+
+problem: Recog 3.003
+argument: Gx  .: forall x Gx
+comment: There is no inference rule, UG, for universally generalizing a formula.  Instead, we have Universal Derivation (UD) as a new form for boxing & canceling.
+common-name: Recog 3.003
+
+problem: Recog 3.004
+argument: exists y Gy  .: Ga
+comment: In EI, the instantial term must be a variable; "a" is a name letter, not a variable.
+common-name: Recog 3.004
+
+problem: Recog 3.005
+argument: forall x Gy  .: Gy
+comment: The quantifier phrase is vacuous; it binds nothing.  You may wonder what the instantial term is.  Let it be any term, say "a". If we replace all the occurrences of "x" that are bound by the vacuous quantifier, then since there are no such occurrences, we change nothing.
+common-name: Recog 3.005
+
+problem: Recog 3.006
+argument: exists x Gy  .: Gi
+comment: As in 3.005, the quantifier phrase is vacuous.  Therefore any application of EI would yield "Gy", not "Gi".
+common-name: Recog 3.006
+
+problem: Recog 3.007
+argument: forall x exists y (Fx->Gy|Hx)  .: exists y (Fa->Gy|Ha)
+comment: The instantial term is "a".
+common-name: Recog 3.007
+
+problem: Recog 3.008
+argument: exists x forall y (Fy->Gx)  .: forall y (Fy->Gj)
+comment: EI, but only on the assumption that that the external constraint is satisfied, namely that the instantial variable "j" has no prior occurrence anywhere in the derivation.
+common-name: Recog 3.008
+
+problem: Recog 3.009
+argument: Fa->Ga  .: exists y (Fa->Gy)
+comment: The instantial term is "a".  Only the second occurrence was generalized on.  In the premise, the outermost parentheses were dropped, but they were restored, as is required, in the conclusion.
+common-name: Recog 3.009
+
+problem: Recog 3.010
+argument: exists x Gy  .: Gy
+comment: The quantifier phrase is vacuous; so we may assume that the instantial variable is the first variable not occurring in the derivation.  It is always correct to EI or UI vacuous quantifier phrases.
+common-name: Recog 3.010
+
+problem: Recog 3.011
+argument: Fa->Ga  .: exists y (Fy->Gy)
+comment: As in 3.009, the instantial term is "a".  Here all occurrences were generalized on.  In the premise, the outermost parentheses were dropped, but they were restored, as is required, in the conclusion.
+common-name: Recog 3.011
+
+problem: Recog 3.012
+argument: ~forall x exists y (Fz<->Gy)  .: exists z ~exists y (Fz<->Gy)
+comment: This appears to be an attempt to apply QN, but the rewriting of the variable "x" to "z" prevents this from being a correct application of QN.
+common-name: Recog 3.012
+
+problem: Recog 3.013
+argument: forall x exists y (Fx->Gy)  .: exists y (Fy->Gy)
+comment: This appears to be an attempt to apply UI, with "y" as the instantial term.  but the occurrence of "y" in "Fy" got picked up by the preexisting quantifier phrase \l"!y"\l.  To put it in more formal terms, not all occurrences of "x" that were bound by the initial universal quantifier were replaced by free occurrences of "y".
+common-name: Recog 3.013
+
+problem: Recog 3.014
+argument: forall x (exists z (Fx&Gy)->exists x Hx|Gx)  .: exists z (Fa&Gy)->exists x Hx|Gx
+comment: This appears to be an attempt to apply UI, with "a" as the instantial term, but the final occurrence of "x", which is bound by the relevant universal quantifier, was not replaced.
+common-name: Recog 3.014
+
+problem: Recog 3.015
+argument: exists x (Fx&Gy)  .: Fi&Gy
+comment: EI, but only on the assumption that that the external constraint is satisfied, namely that the instantial variable "i" has no prior occurrence anywhere in the derivation.
+common-name: Recog 3.015
+
+problem: Recog 3.016
+argument: Fa&exists x (Gx|Ga)  .: exists x (Fx&exists x (Gx|Gx))
+comment: This appears to be an attempt to apply EG to both occurrences of "a" (as the instantial term), and with "x" as the generalized variable, but the final occurrence of "x" in the conclusion got picked up by the preexisting internal quantifier phrase \l"!x"\l.
+common-name: Recog 3.016
+
+problem: Recog 3.017
+argument: Fa&exists x (Gx|Ga)  .: exists y (Fy&exists x (Gx|Gy))
+comment: Compare 3.016.  EG is applied to both occurrences of "a" (as the instantial term), and with "y" as the generalized variable.
+common-name: Recog 3.017
+
+problem: Recog 3.018
+argument: (forall x Fx->exists y (Hy|Hx))  .: Fb->exists y (Hy|Hb)
+comment: This appears to be an attempt to apply UI, with "b" as the instantial term, but the quantifier phrase \l"@x"\l is not the main connective in the premise, the conditional is, so UI is not applicable. In addition, the universal quantifier phrase does not even bind the final occurrence of "x", which was replaced by "b".
+common-name: Recog 3.018
+
+problem: Recog 3.019
+argument: forall x (Fx->exists y (Fb&Gy))  .: exists z (forall x Fx->exists y (Fz&Gy))
+comment: If the first left parenthesis in the premise had been to the left of the initial quantifier, this would have been a correct application of EG, with "b" as the instantial term and "z" as the generalized variable, but as it is, it is nothing.
+common-name: Recog 3.019
+
+problem: Recog 3.020
+argument: exists z (Fa&Gz)->exists x Hx|Ga  .:  exists x (exists z (Fa&Gz)->exists x Hx|Gx)
+comment: Only the second occurrence of "a" (as the instantial term) is generalized on, and with "x" as the generalized variable.  Note that the final occurrence of "x" in the conclusion is bound by the initial quantifier phrase since it (the final "x") does not lie within the scope of the inner existential quantifier on "x".
+common-name: Recog 3.020
+
+problem: Recog 3.021
+argument: exists z (Fa&Gy)->exists x Hx|Ga  .: exists x (exists z (Fx&Gy)->exists x Hx|Gx)
+comment: Exactly like 3.020 except that both occurrences of "a" were generalized on.
+common-name: Recog 3.021
+
+problem: Recog 3.022
+argument: ~~exists x Fx  .: ~forall x ~Fx
+comment: This appears to be an attempt to apply QN to the interior of a formula, which is never correct.
+common-name: Recog 3.022
+
+problem: Recog 3.023
+argument: ~exists x ~Ga  .: forall x Ga
+comment: This is one of the less used forms (QN6, in fact). Also, as it happens, the quantifier phrase is vacuous.
+common-name: Recog 3.023
+
+problem: Recog 3.024
+argument: ~forall x (Fx|Gx)  .: exists x (~Fx&~Gx)
+comment: This is a valid argument, but it cannot be achieved in a single step.  The argument, as given, appears to be a combination of first applying QN to the premise, and then applying one of the DeMorgan laws to the interior of the result.
+common-name: Recog 3.024
+
+problem: Recog 3.025
+argument: ~exists x ~Ga  .: forall x ~~Ga
+comment: Compare 3.023.  This uses a more familiar form of QN (QN3) than 3.023 does.
+common-name: Recog 3.025
+
+problem: Recog 3.026
+argument: forall x forall y (Fx&Gy<->Gy&Fx)  .: Fx&Gy<->Gy&Fx
+comment: None, although the result can be achieved by a sequence of two applications of UI, perhaps even queued on a single line.
+common-name: Recog 3.026
+
+problem: Recog 3.027
+argument: forall x ~Fx  .: ~exists x Fx
+common-name: Recog 3.027
+
+problem: Recog 3.028
+argument: exists x Fx->Fa|forall x Gx  .: exists x (exists x Fx->Fx|forall x Gx)
+comment: "\"a\" is the instantial term, and \"x\" is the generalized variable.  Note that the initial existential generalization in the conclusion does not bind any occurrence of \"x\" except the one that replaces \"a\"."
+common-name: Recog 3.028
+
+problem: Recog 3.029
+argument: exists y forall x (Fx|Gx)  .: forall y exists x (~Fx&~Gx)
+comment: The conclusion, in fact, is equivalent to the negation of the premise; it certainly is not a consequence of it.
+common-name: Recog 3.029
+
+problem: Recog 3.030
+argument: forall x (Fx->exists y (Fb&Gy))  .: forall x (Fx->exists z exists y (Fz&Gy))
+comment: This appears to be an attempt to apply EG to the interior of a formula, in fact, to just the consequent of the inner conditional (with "b" as the instantial term, and "z" as the generalized variable).
+common-name: Recog 3.030
+
+problem: Recog 3.031
+argument: forall x (exists z Fz->forall z Gz|Fx)  .: forall z (exists z Fz->forall z Gz|Fz)
+comment: The generalized variable "x" in the premise is rewritten to "z".  Note that the preexisting occurrences of "z" continue to be bound to the same occurrences of quantifiers.
+common-name: Recog 3.031
+
+problem: Recog 3.032
+argument: forall x (exists x Fx->forall z (Gz|Fx))  .: forall z (exists x Fx->forall z (Gz|Fz))
+comment: This appears to be an attempt to apply AV by rewriting the generalized variable "x" in the premise to "z".  but the final occurrence of a variable ("x" in the premise, "z" in the conclusion) is no longer bound to the initial quantifier phrase.
+common-name: Recog 3.032
+
+problem: Recog 3.033
+argument: exists x (Fz<->forall z Gz|Fx)  .: exists z (Fz<->forall z Gz|Fz)
+comment: This also appears to be an attempt to apply AV by rewriting the generalized variable "x" in the premise to "z".  But this time the first occurrence of the variable "z", which is free in the premise, gets picked up by the rewritten initial quantifier phrase.
+common-name: Recog 3.033
+
+## 
+##                         CHAPTER IV
+## The primitive rules for this chapter are: 
+## MP, MT, R, and DN, plus
+## S, Adj, MTP, ADD, BC, and CB, plus
+## UI, EI, and EG. 
+## Also accepted are the derived rules: 
+## QN, and AV. 
+## 
+
+problem: Recog 4.001
+argument: forall x exists z F(a(xyx)z)  .: exists z F(zz)
+comment: This looks like an attempt to use UI, but there is no way to replace "x" in "a(xyx)" and come out with just "z".
+common-name: Recog 4.001
+
+problem: Recog 4.002
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(xyx)z)
+common-name: Recog 4.002
+
+problem: Recog 4.003
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(yyy)z)
+common-name: Recog 4.003
+
+problem: Recog 4.004
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(xxx)z)
+comment: This looks like an attempt to use UI, but replacing the bound variable "x" by "x" would yield "a(xyx)" not "a(xxx)".
+common-name: Recog 4.004
+
+problem: Recog 4.005
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(cyb)z)
+comment: This looks like an attempt to use UI, but both "b" and "c" have been used to replace "x".  You cannot UI to two different terms at once.
+common-name: Recog 4.005
+
+problem: Recog 4.006
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(cyc)z)
+common-name: Recog 4.006
+
+problem: Recog 4.007
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(byb)z)
+common-name: Recog 4.007
+
+problem: Recog 4.008
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(a(xyx)ya(xyx))z)
+common-name: Recog 4.008
+
+problem: Recog 4.009
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(b(y)yb(y))z)
+common-name: Recog 4.009
+
+problem: Recog 4.010
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(b(c(z))yb(c(z)))z)
+comment: This looks like an attempt to use UI, but when the bound variable "x" is replaced by "b(c(z))", the free "z" in "b(c(z))" is captured by the "\l!z\l" quantifier.
+common-name: Recog 4.010
+
+problem: Recog 4.011
+argument: forall x exists z F(a(xyx)z)  .: exists z F(a(c(b(w))yc(b(w)))z)
+common-name: Recog 4.011
+
+problem: Recog 4.012
+argument: forall x Fa(xb(y))|G(cy)  .: exists w (forall x Fa(xb(y))|G(wy))
+common-name: Recog 4.012
+
+problem: Recog 4.013
+argument: forall x Fa(xb(y))|G(cy)  .: exists w (forall x Fw|G(cy))
+comment: This looks like an attempt to use EG by generalizing on the term "a(xb(y))", but this term is bound in the original formula because it contains a bound occurrence of a variable (the "x" is bound by the universal quantifier).  You cannot existentially generalize on a bound term.
+common-name: Recog 4.013
+
+problem: Recog 4.014
+argument: forall x Fa(xb(y))|G(cy)  .: exists w (forall x Fa(xb(w))|G(cw))
+common-name: Recog 4.014
+
+problem: Recog 4.015
+argument: forall x Fa(xb(y))|G(cy)  .: exists w (forall x Fa(xw)|G(cy))
+common-name: Recog 4.015
+
+problem: Recog 4.016
+argument: forall x Fa(xb(y))|G(cy)  .: exists x (forall x Fa(xb(y))|G(xy))
+comment: Congratulations!  Note that the new initial quantifier, "\l!x\l", does not bind anything in the left disjunct.
+common-name: Recog 4.016
+
+problem: Recog 4.017
+argument: forall x Fa(xb(y))|G(cy)  .: exists x (forall x Fa(xb(x))|G(cx))
+comment: "This looks like an attempt to use EG by generalizing on the free \"y\"s, but note that when the first \"y\" is replaced by \"x\", the new occurrence of \"x\" gets captured by the wrong quantifier.  It is bound by the original universal quantifier rather than the newly introduced existential quantifier.  The new occurrences of the variable introduced by an EG must all be bound to the new existential quantifier.  "
+common-name: Recog 4.017
+
+problem: Recog 4.018
+argument: forall x Fa(xb(y))|G(cy)  .: exists y (forall x Fa(xb(y))|G(cy))
+common-name: Recog 4.018
+
+problem: Recog 4.019
+argument: forall x Fa(xb(y))|G(cy)  .: exists y (forall x Fa(xb(y))|G(yy))
+comment: "This looks like an attempt to use EG on \"c\", but in the course of it, the two free occurrences of \"y\" have been picked up. "
+common-name: Recog 4.019
+
+problem: Recog 4.020
+argument: forall x Fa(xb(y))|G(cy)  .: exists x (forall x Fa(xb(y))|G(cy))
+comment: "\"\\l!x\\l\" does not bind anything, but that is okay.  It is a \"vacuous\" quantifier."
+common-name: Recog 4.020
+
+problem: Recog 4.021
+argument: forall x Fa(xb(y))|G(cy)  .: exists w (forall x Fa(xb(y))|Gw)
+comment: "This looks like an attempt to use EG, but \"G(cy)\" cannot be obtained from \"Gw\" by proper substitution.  In the former, \"G\" is a two-place predicate; in the latter it is monadic. "
+common-name: Recog 4.021
+
+## 
+##                         CHAPTER V
+## The primitive rules for this chapter add: 
+## LL, SID, EL, and SM,
+## to the prior primitive rules: 
+## MP, MT, R, and DN, plus
+## S, Adj, MTP, ADD, BC, and CB, plus
+## UI, EI, and EG. 
+## Also accepted are the derived rules: 
+## QN, and AV. 
+## 
+
+problem: Recog 5.001
+argument: ~exists z G(xzx) . exists z G(yzx) .: x <> y
+correct-rules: LL.LL3
+comment: This is a correct application of LL, in particular of LL3.
+common-name: Recog 5.001
+
+problem: Recog 5.002
+argument: a(x)=b(y) .: b(y)=a(x)
+correct-rules: SM.SM1
+comment: This is a correct application of SM, in particular of SM1.
+common-name: Recog 5.002
+
+problem: Recog 5.003
+argument: exists z G(xzx) . y=x .: exists z G(yzy)
+correct-rules: LL.LL2
+comment: This is a correct application of LL, in particular of LL2.  In Command Mode, there would be a query as to which of the (free) occurrences of "x" you wish to replace by "y".  The answer here was "both of them".
+common-name: Recog 5.003
+
+problem: Recog 5.004
+argument: a(x)<>b(y) .: b(y)<>a(x)
+correct-rules: SM.SM2
+comment: This is a correct application of SM, in particular of SM2.
+common-name: Recog 5.004
+
+problem: Recog 5.005
+argument: exists x F(xy) . y=x .: exists x F(xx)
+correct-rules: none
+comment: This looks like an attempt to use LL to replace the free "y" by "x", but the fact that the replacement gets captured by the quantifier makes it incorrect.
+common-name: Recog 5.005
+
+problem: Recog 5.006
+argument: a(x)=b(y) .: a(a(x))=a(b(y))
+correct-rules: EL
+comment: This is a correct application of EL.  The fact that the identity in the premise is between already complex terms only means that you must examine the conclusion more carefully.
+common-name: Recog 5.006
+
+problem: Recog 5.007
+argument: exists x F(xy) . x=y .: exists x F(yy)
+correct-rules: none
+comment: Like 5.005, this looks like an attempt to use LL to replace "x" by "y", but here the occurrence of the term being replaced, "x", was not free.  This makes the replacement incorrect.
+common-name: Recog 5.007
+
+problem: Recog 5.008
+argument: a(x)<>b(x) .: c(a(x))<>c(b(x))
+correct-rules: none
+comment: This looks like an attempt to use EL.  But EL doesn't occur in the form "~d=e .: ~c(d)=c(e)", and would not be valid if it did.  Remember that although ~2=-2 (two is not negative two) the square of 2 is the same number as the square of -2.
+common-name: Recog 5.008
+
+problem: Recog 5.009
+argument: exists z F(zb(a(x))) . ~exists z F(zb(b(y))) .: a(x)<>b(y)
+correct-rules: LL.LL4
+comment: This is a correct, though complex, application of LL, in particular of LL4.
+common-name: Recog 5.009
+
+problem: Recog 5.010
+argument: exists x a(x)=b(x) .: c(a(x)) = c(b(x))
+correct-rules: none
+comment: This looks like an attempt to use EL.  But EL doesn't allow its premise to occur only as a subformula of another formula.  From the given premise, you could EI to "a(i)=b(i)", and then you could legitimately apply EL to obtain "c(a(i)) = c(b(i))".
+common-name: Recog 5.010
+
+problem: Recog 5.011
+argument: exists y F(yb(a(x))) . a(x)=b(y) .: exists y F(yb(b(y)))
+correct-rules: none
+comment: Like 5.005, this looks like an attempt to use LL to replace the free "a(x)" by "b(y)", but the fact that this replacement also gets captured by the quantifier makes the inference incorrect.  Remember, a term is bound if it contains a bound occurrence of any variable.
+common-name: Recog 5.011
+
+problem: Recog 5.012
+argument: a(x)=b(x) .: c(a(x)b(x))=c(b(x)b(x))
+correct-rules: EL
+comment: This is a correct application of EL.  Here the complex term into which the replacement is being made is "c( __ b(x))", with "c" a 2-place operation symbol, and "b" a 1-place operation symbol.  If you prove T305 to derive EL from LL and SID, you may see more clearly why EL, like LL1, allows you to replace any number of the (free) occurrences of the premise's left-hand term by (free) occurrences of the premise's right-hand term.
+common-name: Recog 5.012

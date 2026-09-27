@@ -1,0 +1,55 @@
+# Messages.
+# Format: see data/README.md. Fields:
+#   sort:                    sort key (editorial, not used by the program)
+#   id:                      message id, used by the program
+#   error:                   title of an error message (shown in red)
+#   error-revised:           revised error title (not used by the program)
+#   info:                    title of an information message (shown in gold)
+#   info-revised:            revised info title (not used by the program)
+#   text:                    message text; \n is a line break, \l toggles symbol translation, <param> is replaced
+#   description:             when the message appears (for the programmer)
+#   programmer-note:         comment to the programmer
+#   buttons:                 buttons: 'Label:action.Label:action;default-index'
+
+# Instructions for the creation of this file.  Copy the Excel material and paste into this file.  [The following resizing is unnecessary.]  Pull the borders of the table to make them appropriately wide.  Save as Text.
+# `s terminates the sort field, used to resort messages according to various criteria.
+# `n terminates the message name or message ID
+# `d terminates the description of the source for the error (explanation by the programmer)
+# `p terminates a comment to the programmer.
+# `e terminates the error message (displayed in red by the program)
+# `E terminates a revised version of the error message
+# `i terminates the information message (displayed in gold by the program)
+# `I terminates a revised version of the information message
+# `x terminates the explanation (explanation for the user)
+# Only one of `e or `i should appear for any message
+# Blanks at the start and end of strings are trimmed
+# \n forces a carriage return within the text.
+# \l toggles conversion of Maggie-talk.  Default is OFF.
+# Sort#  `s     Name or ID  `n     Present_Message  P_M_Term     New_Message  N_M_Term     Comment to Programmer  `p     Explanation  `x     Description  `d
+sort: 01
+id: InvErr001
+text: The expression "\l<expression>\l" is not a well formed formula.
+
+sort: 02
+id: InvErr002
+text: That argument has no conclusion.
+
+sort: 03
+id: InvErr003
+text: The formula you highlighted, "\l<expression>\l",\nis neither a universal nor an existential\ngeneralization.  Only universal and existential\ngeneralizations can be expanded.
+
+sort: 04
+id: InvNot001
+text: Please select a problem before switching to a Derivation.
+
+sort: 05
+id: InvNot002
+text: Please select the size of the universe before expanding.
+
+sort: 06
+id: InvNot003
+text: Please select a problem and the size of the universe\nbefore switching to a Truth Table.
+
+sort: 07
+id: InvNot004
+text: Expansion has been disabled for this problem.

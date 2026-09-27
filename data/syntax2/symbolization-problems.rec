@@ -1,0 +1,2354 @@
+# Symbolization problems (notation 2).
+# Format: see data/README.md. Fields:
+#   problem:                 problem name, as shown in the problem list
+#   options:                 per-problem options, e.g. eg (a worked example)
+#   note:                    note shown under the problem title
+#   common-name:             common name of the problem (course database)
+#   original-name:           name the problem was copied from
+#   errors:                  error count (saved work)
+#   seconds:                 time worked, in seconds (saved work)
+#   english:                 the English sentence
+#   node:                    a node of the symbolization tree, 'code:English', in pre-order
+#   scheme:                  scheme of abbreviation, 'symbol:English' items separated by '.'
+#   answer-keys:             answer-key names (see symbolization-answers.rec), separated by '.'
+#   answer-group:            problems in the same group share their answers
+#   hints:                   hint count (saved work)
+
+# basesymprobs.txt: base homework problems; syntax 2
+
+## 
+##                          CHAPTER I
+##                   SENTENTIAL LOGIC
+## 
+
+problem: Symb 1.001
+node: ?:The Bruins fail to win
+scheme: W:  the Bruins win.
+answer-keys: 1\.001
+common-name: Symb 1.001
+
+problem: Symb 1.001EG
+english: The Bruins fail to win
+original-name: Symb 1.001
+node: ~:The Bruins fail to win
+node: *W{}0:the Bruins win
+options: eg
+common-name: Symb 1.001EG
+
+problem: Symb 1.002
+node: ?:Ina will not fail to be chosen as campaign manager
+scheme: P:  Ina will be chosen as campaign manager.
+answer-keys: 1\.002
+common-name: Symb 1.002
+
+problem: Symb 1.003
+node: ?:Given that the Bruins win, they go to the Rose Bowl
+scheme: W:  the Bruins win.     R:  the Bruins go to the Rose Bowl.
+answer-keys: 1\.003
+common-name: Symb 1.003
+
+problem: Symb 1.003EG
+english: Given that the Bruins win, they go to the Rose Bowl
+original-name: Symb 1.003
+node: ->:Given that the Bruins win, they go to the Rose Bowl
+node: *W{}0:the Bruins win
+node: *R{}0:the Bruins go to the Rose Bowl
+options: eg
+common-name: Symb 1.003EG
+
+problem: Symb 1.004
+node: ?:The Bruins go to the Rose Bowl provided that the Trojans don't win
+scheme: U:  the Bruins go to the Rose Bowl.     T:  the Trojans win.
+answer-keys: 1\.004
+common-name: Symb 1.004
+
+problem: Symb 1.005
+node: ?:Rudolf will lose the Ukrainian vote only if the interview is canceled
+scheme: U:  Rudolf will lose the Ukrainian vote.     T:  the interview is canceled.
+answer-keys: 1\.005
+common-name: Symb 1.005
+
+problem: Symb 1.005EG
+english: Rudolf will lose the Ukrainian vote only if the interview is canceled
+original-name: Symb 1.005
+node: ->:Rudolf will lose the Ukrainian vote only if the interview is canceled
+node: *U{}0:Rudolf will lose the Ukrainian vote
+node: *T{}0:the interview is canceled
+options: eg
+common-name: Symb 1.005EG
+
+problem: Symb 1.006
+node: ?:Terry will only if Kit can't
+scheme: T:  Terry will.     X:  Kit can.
+answer-keys: 1\.006
+common-name: Symb 1.006
+
+problem: Symb 1.007
+node: ?:Rudolf will lose the Ukrainian vote only provided that Ina is chosen as campaign manager
+scheme: U:  Rudolf will lose the Ukrainian vote.     P:   Ina is chosen as campaign manager.
+answer-keys: 1\.007
+common-name: Symb 1.007
+
+problem: Symb 1.007EG
+english: Rudolf will lose the Ukrainian vote only provided that Ina is chosen as campaign manager
+original-name: Symb 1.007
+node: ->:Rudolf will lose the Ukrainian vote only provided that Ina is chosen as campaign manager
+node: *U{}0:Rudolf will lose the Ukrainian vote
+node: *P{}0:Ina is chosen as campaign manager
+options: eg
+common-name: Symb 1.007EG
+
+problem: Symb 1.008
+node: ?:Only if Rudolf doesn't lose the Ukrainian vote will he be elected
+scheme: Q:  Rudolf loses the Ukrainian vote.     P:  Rudolf will be elected.
+answer-keys: 1\.008
+common-name: Symb 1.008
+
+problem: Symb 1.009
+node: ?:Only if it is not the case that the interview is cancelled will Rudolf not lose the Ukrainian vote
+scheme: U:  Rudolf will lose the Ukrainian vote.     T:  the interview is canceled.
+answer-keys: 1\.009
+common-name: Symb 1.009
+
+problem: Symb 1.010
+node: ?:Only if Kit can't will Terry
+scheme: X:  Kit can.     T:  Terry will.
+answer-keys: 1\.010
+common-name: Symb 1.010
+
+problem: Symb 1.011
+node: ?:If Alfred will pass if he concentrates, then logic is enjoyable
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.
+answer-keys: 1\.011
+common-name: Symb 1.011
+
+problem: Symb 1.011EG
+english: If Alfred will pass if he concentrates, then logic is enjoyable
+original-name: Symb 1.011
+node: ->:If Alfred will pass if he concentrates, then logic is enjoyable
+node: ->:Alfred will pass if he concentrates
+node: *Q{}0:Alfred concentrates
+node: *P{}0:Alfred will pass
+node: *R{}0:logic is enjoyable
+options: eg
+common-name: " Symb 1.011EG"
+
+problem: Symb 1.012
+node: ?:If Ina is chosen as campaign manager, then Rudolf will be elected if he doesn't lose the Ukrainian vote
+scheme: R:  Ina is chosen as campaign manager.     P:  Rudolf will be elected.     Q:  Rudolf loses the Ukrainian vote.
+answer-keys: 1\.012
+common-name: Symb 1.012
+
+problem: Symb 1.012Err
+english: If Ina is chosen as campaign manager, then Rudolf will be elected if he doesn't lose the Ukrainian vote
+original-name: Symb 1.012
+node: ->:If Ina is chosen as campaign manager, then Rudolf will be elected if he doesn't lose the Ukrainian vote
+node: *Q{}0:Rudolf doesn't lose the Ukrainian vote
+node: ->:If Ina is chosen as campaign manager, then Rudolf will be elected
+node: *R{}0:Ina is chosen as campaign manager
+node: *P{}0:Rudolf will be elected
+options: eg
+common-name: Symb 1.012Err
+
+problem: Symb 1.013
+node: ?:Richard won't, if Terry will assuming that Kit can't
+scheme: R:  Richard will.     T:  Terry will.     X:  Kit can.
+answer-keys: 1\.013
+common-name: Symb 1.013
+
+problem: Symb 1.014
+node: ?:Only if Alfred concentrates will he pass, provided that the lectures are exciting.
+scheme: T:  Alfred concentrates.     P:  Alfred will pass.     X:  the lectures are exciting.
+answer-keys: 1\.014
+common-name: Symb 1.014
+
+problem: Symb 1.014EG
+english: Only if Alfred concentrates will he pass, provided that the lectures are exciting.
+original-name: Symb 1.014
+node: ->:Only if Alfred concentrates will he pass, provided that the lectures are exciting.
+node: *X{}0:the lectures are exciting
+node: ->:only if Alfred concentrates will Alfred pass
+node: *P{}0:Alfred will pass
+node: *T{}0:Alfred concentrates
+options: eg
+common-name: Symb 1.014EG
+
+problem: Symb 1.015
+node: ?:Only on the condition that the test is too long will Alfred fail, provided that the instructor is not perverse.
+scheme: P:  the instructor is perverse.     T:  the test is too long.      R:  Alfred will fail.
+answer-keys: 1\.015
+common-name: Symb 1.015
+
+problem: Symb 1.016
+node: ?:If Saul passes only if Noa doesn't study, then she graduates only if he doesn't.
+scheme: P:  Saul passes.      R:  Saul graduates.      U:  Noa graduates.      V:  Noa studies.
+answer-keys: 1\.016
+common-name: Symb 1.016
+
+problem: Symb 1.017
+node: ?:Provided that Saul passes only if he studies, he graduates only if he studies.
+scheme: P:  Saul passes.     R:  Saul graduates.     S:  Saul studies.
+answer-keys: 1\.017
+common-name: Symb 1.017
+
+problem: Symb 1.018
+node: ?:If Alfred will pass only on the condition that he concentrates, then logic is enjoyable provided that the lectures are exciting.
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     X:  the lectures are exciting.
+answer-keys: 1\.018
+common-name: Symb 1.018
+
+problem: Symb 1.018EG
+english: If Alfred will pass only on the condition that he concentrates, then logic is enjoyable provided that the lectures are exciting.
+original-name: Symb 1.018
+node: ->:If Alfred will pass only on the condition that he concentrates, \nthen logic is enjoyable provided that the lectures are exciting.
+node: ->:Alfred will pass \nonly on the condition that he concentrates
+node: *P{}0:Alfred will pass
+node: *Q{}0:Alfred concentrates
+node: ->:logic is enjoyable \nprovided that the lectures are exciting
+node: *X{}0:the lectures are exciting
+node: *R{}0:logic is enjoyable
+options: eg
+common-name: Symb 1.018EG
+
+problem: Symb 1.019
+node: ?:If, on condition that the interview is cancelled Rudolf will lose the Ukrainian vote, then if Ina is not chosen as campaign manager Rudolf will not be elected.
+scheme: R:  Ina is chosen as campaign manager.     P:  Rudolf will be elected.     Q:  Rudolf will lose the Ukrainian vote.     T:   the interview is canceled.
+answer-keys: 1\.019
+common-name: Symb 1.019
+
+problem: Symb 1.020
+node: ?:Alfred will pass on the condition that if he will pass only if he concentrates then he will pass.
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.
+answer-keys: 1\.020
+common-name: Symb 1.020
+
+problem: Symb 1.021
+node: ?:It is not the case that if the interview is cancelled Rudolf will not be elected.
+scheme: P:  Rudolf will be elected.     T:   the interview is canceled.
+answer-keys: 1\.021
+common-name: Symb 1.021
+
+problem: Symb 1.022
+node: ?:It is not the case that if Saul graduates if Noa studies, Noa studies.
+scheme: R:  Saul graduates.     V:  Noa studies.
+answer-keys: 1\.022
+common-name: Symb 1.022
+
+problem: Symb 1.023
+node: ?:It's not the case that if Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting.
+scheme: P:  Alfred passes.     X:  the lectures are exciting.
+answer-keys: 1\.023
+common-name: Symb 1.023
+
+problem: Symb 1.023EG
+english: It's not the case that if Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting.
+original-name: Symb 1.023
+node: ~:It's not the case that \nif Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting.
+node: ->:if Alfred passes only if the lectures are exciting, then he passes if the lectures are exciting
+node: ->:Alfred passes only if the lectures are exciting
+node: *P{}0:Alfred passes
+node: *X{}0:the lectures are exciting
+node: ->:Alfred passes if the lectures are exciting
+node: *X{}0:the lectures are exciting
+node: *P{}0:Alfred passes
+options: eg
+common-name: Symb 1.023EG
+
+problem: Symb 1.024
+node: ?:It is not the case that if Alfred will secure employment provided that logic is enjoyable, then the lectures are exciting only if he concentrates.
+scheme: Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     X:  the lectures are exciting.
+answer-keys: 1\.024
+common-name: Symb 1.024
+
+problem: Symb 1.025
+node: ?:If Rudolf will not be elected if he does not lose the Ukrainian vote, then only if Ina is chosen as campaign manager will Rudolf be elected.
+scheme: "R:  Ina is chosen as campaign manager.     P:  Rudolf will be elected.     Q:  Rudolf loses the Ukrainian vote. "
+answer-keys: 1\.025
+common-name: Symb 1.025
+
+problem: Symb 1.026
+node: ?:Given that it is not the case that if Richard won't Terry will, Kit won't.
+scheme: T:  Terry will.     X:  Kit will.     R:  Richard will.
+answer-keys: 1\.026
+common-name: Symb 1.026
+
+problem: Symb 1.027
+node: ?:Only if if only if Noa studies does she pass Noa graduates does Saul graduate.
+scheme: R:  Saul graduates.     T:  Noa passes.     U:  Noa graduates.     V:  Noa studies.
+answer-keys: 1\.027
+common-name: Symb 1.027
+
+problem: Symb 1.028a
+node: ?:Alfred will pass only if he concentrates provided that the text is not readable [Ambiguous].
+scheme: "P:  Alfred will pass.     Q:  Alfred concentrates.     T:  the text is readable. "
+answer-keys: 1\.028a
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.028a-b.
+answer-group: 1.028
+common-name: Symb 1.028a
+
+problem: Symb 1.028b
+node: ?:Alfred will pass only if he concentrates provided that the text is not readable [Ambiguous].
+scheme: "P:  Alfred will pass.     Q:  Alfred concentrates.     T:  the text is readable. "
+answer-keys: 1\.028b
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.028a-b.
+answer-group: 1.028
+common-name: Symb 1.028b
+
+problem: Symb 1.029a
+node: ?:It is not the case that Alfred concentrates if the lectures are not exciting [Ambiguous].
+scheme: Q:  Alfred concentrates.     X:  the lectures are exciting
+answer-keys: 1\.029a
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.029a-b.
+answer-group: 1.029
+common-name: Symb 1.029a
+
+problem: Symb 1.029b
+node: ?:It is not the case that Alfred concentrates if the lectures are not exciting [Ambiguous].
+scheme: Q:  Alfred concentrates.     X:  the lectures are exciting
+answer-keys: 1\.029b
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.029a-b.
+answer-group: 1.029
+common-name: Symb 1.029b
+
+problem: Symb 1.030a
+node: ?:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 1\.030a
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.030a-e.
+answer-group: 1.030
+common-name: Symb 1.030a
+
+problem: Symb 1.030b
+node: ?:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 1\.030b
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.030a-e.
+answer-group: 1.030
+common-name: Symb 1.030b
+
+problem: Symb 1.030c
+node: ?:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 1\.030c
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.030a-e.
+answer-group: 1.030
+common-name: Symb 1.030c
+
+problem: Symb 1.030d
+node: ?:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 1\.030d
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.030a-e.
+answer-group: 1.030
+common-name: Symb 1.030d
+
+problem: Symb 1.030e
+node: ?:It is not the case that Alfred will secure employment if he fails to concentrate provided that the lectures are not exciting [Ambiguous].
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is enjoyable.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 1\.030e
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 1.030a-e.
+answer-group: 1.030
+common-name: Symb 1.030e
+
+## 
+## The following problems are in Blue Book mode.
+## They may be used to practice for a Blue Book exam.
+## 
+
+problem: Symb 1.701
+english: Quincy doesn't quaff quinine, assuming that Valery fails to vaporize vegetables.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1801
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.701
+
+problem: Symb 1.702
+english: Only if Skyler savors scones does William not wangle watermelons, if Valery vaporizes vegetables.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1802
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.702
+
+problem: Symb 1.703
+english: Valery will not vaporize vegetables if Una does other than uproot urchins, only on the condition that Patsy prepares pizza.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1803
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.703
+
+problem: Symb 1.704
+english: If Skyler savors scones if Quincy quaffs quinine, then given that William doesn't wangle watermelons, Skyler savors scones only if Quincy quaffs quinine.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1804
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.704
+
+## 
+## The following problems are in Computer Exam mode.
+## They may be used to practice for a Computer exam.
+## 
+
+problem: Symb 1.801
+english: Quincy doesn't quaff quinine, assuming that Valery fails to vaporize vegetables.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1801
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.801
+
+problem: Symb 1.802
+english: Only if Skyler savors scones does William not wangle watermelons, if Valery vaporizes vegetables.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1802
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.802
+
+problem: Symb 1.803
+english: Valery will not vaporize vegetables if Una does other than uproot urchins, only on the condition that Patsy prepares pizza.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1803
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.803
+
+problem: Symb 1.804
+english: If Skyler savors scones if Quincy quaffs quinine, then given that William doesn't wangle watermelons, Skyler savors scones only if Quincy quaffs quinine.
+scheme: P:Patsy prepares pizza.Q:Quincy quaffs quinine.R:Ronald relishes radishes.S:Skyler savors scones.T:Teddy tastes tequila.U:Una uproots urchins.V:Valery vaporizes vegetables.W:William wangles watermelons
+answer-keys: 1804
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 1.804
+
+## 
+##                          CHAPTER II
+## 
+
+problem: Symb 2.031
+node: ?:Ruth is tired, but she'll pass.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.031
+common-name: Symb 2.031
+
+problem: Symb 2.031EG1
+english: Ruth is tired, but she'll pass.
+original-name: Symb 2.031
+node: &:Ruth is tired, but she'll pass.
+node: *T{}0:Ruth is tired
+node: *P{}0:Ruth will pass
+options: eg
+common-name: Symb 2.031EG1
+
+problem: Symb 2.032
+node: ?:Either Ruth studies or she doesn't pass.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.032
+common-name: Symb 2.032
+
+problem: Symb 2.032EG1
+english: Either Ruth studies or she doesn't pass.
+original-name: Symb 2.032
+node: |:Either Ruth studies or she doesn't pass.
+node: *S{}0:Ruth studies
+node: ~:Ruth doesn't pass
+node: *P{}0:Ruth will pass
+options: eg
+common-name: Symb 2.032EG1
+
+problem: Symb 2.033
+node: ?:Alfred does not study logic.
+scheme: S:  Alfred studies logic
+answer-keys: 2\.033
+common-name: Symb 2.033
+
+problem: Symb 2.034
+node: ?:Although she's tired, Ruth will pass anyway.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.034.2\.034b
+common-name: Symb 2.034
+
+problem: Symb 2.034EG1
+english: Although she's tired, Ruth will pass anyway.
+original-name: Symb 2.034
+node: &:Although she's tired, Ruth will pass anyway.
+node: *P{}0:Ruth will pass
+node: *T{}0:Ruth is tired
+options: eg
+common-name: Symb 2.034EG1
+
+problem: Symb 2.035
+node: ?:Ruth will pass if, but only if, she studies.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.035.2\.035a
+common-name: Symb 2.035
+
+problem: Symb 2.036
+node: ?:Ruth is tired; nevertheless she'll pass.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.036
+common-name: Symb 2.036
+
+problem: Symb 2.037
+node: ?:Ruth will pass just in case she studies.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.037
+common-name: Symb 2.037
+
+problem: Symb 2.038
+node: ?:Ruth studies only if she's not tired.
+scheme: P:  Ruth will pass.     S:  Ruth studies.     T:  Ruth is tired
+answer-keys: 2\.038
+common-name: Symb 2.038
+
+problem: Symb 2.039
+node: ?:Either Alfred or Alonzo orders champagne.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.039
+common-name: Symb 2.039
+
+problem: Symb 2.040
+node: ?:Both Alfred and Alonzo order champagne.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.040
+common-name: Symb 2.040
+
+problem: Symb 2.041
+node: ?:Alfred is a lover of logic who organizes his time.
+scheme: R:  Alfred is a lover of logic.     T:  Alfred organizes his time
+answer-keys: 2\.041
+common-name: Symb 2.041
+
+problem: Symb 2.041EG1
+english: Alfred is a lover of logic who organizes his time.
+original-name: Symb 2.041
+node: &:Alfred is a lover of logic who organizes his time.
+node: *R{}0:Alfred is a lover of logic
+node: *T{}0:Alfred organizes his time
+options: eg
+common-name: Symb 2.041EG1
+
+problem: Symb 2.042
+node: ?:Ruth is either a logician who enjoys chocolate or a mathematician who craves peanut butter.
+scheme: P:  Ruth is a logician.     Q:   Ruth enjoys chocolate.     R:   Ruth is a mathematician.     S:  Ruth craves peanut butter
+answer-keys: 2\.042
+common-name: Symb 2.042
+
+problem: Symb 2.043
+node: ?:If Alfred orders champagne, then so does Alonzo; and if Kurt orders champagne, then so does Alfred.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.043
+common-name: Symb 2.043
+
+problem: Symb 2.044
+node: ?:Ruth won't pass unless she studies hard.
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.044
+note: Hint: Remember, from the Examples file, that we have made a stipulation that "unless" is always to be represented as inclusive "or".
+common-name: Symb 2.044
+
+problem: Symb 2.045
+node: ?:Mary will arrive at 10:30 a.m. unless the plane is late.
+scheme: R:  Mary will arrive at 10:30 a\.m\..     T:  the plane is late
+answer-keys: 2\.045
+note: Hint: Remember, from the Examples file, that we have made a stipulation that "unless" is always to be represented as inclusive "or".
+common-name: Symb 2.045
+
+problem: Symb 2.046
+node: ?:Neither Alfred nor Alonzo orders champagne.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.046
+note: Hint: Remember, from the Examples file, that we regard the standard symbolization of "neither P nor Q" to be "~(PvQ)".
+common-name: Symb 2.046
+
+problem: Symb 2.047
+node: ?:Alfred neither does well in the course nor loses track of the argument.
+scheme: W:  Alfred does well in the course.     T:  Alfred loses track of the argument
+answer-keys: 2\.047
+note: Hint: Remember, from the Examples file, that we regard the standard symbolization of "neither P nor Q" to be "~(PvQ)".
+common-name: Symb 2.047
+
+problem: Symb 2.048
+node: ?:Ruth will pass if, but only if, she either studies hard or isn't tired.
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.048.2\.048b
+common-name: Symb 2.048
+
+problem: Symb 2.049
+node: ?:If Ruth studies hard, then she'll pass provided that she isn't tired.
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.049
+note: Hint: Remember, from the Examples file, that "explicit indications of grouping, including comas and semicolons ... are followed scrupulously".
+common-name: Symb 2.049
+
+problem: Symb 2.050
+node: ?:Either Ruth studies hard and will pass or she doesn't (and won't).
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.050
+common-name: Symb 2.050
+
+problem: Symb 2.051
+node: ?:Either Alfred or Kurt, but not both Alonzo and Kurt, orders champagne.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.051
+common-name: Symb 2.051
+
+problem: Symb 2.052
+node: ?:Both Alfred and Alonzo, but not Kurt, order champagne.
+scheme: R:  Alfred orders champagne.     Z:  Alonzo orders champagne.     T:  Kurt orders champagne
+answer-keys: 2\.052
+common-name: Symb 2.052
+
+problem: Symb 2.053
+node: ?:If UCLA and USC don't both win their first games, then USC and Cal both do win their first games.
+scheme: "U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game.     "
+answer-keys: 2\.053
+common-name: Symb 2.053
+
+problem: Symb 2.054
+node: ?:Ruth studies hard unless she's tired, in which case she doesn't.
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.054
+note: Hint: Remember, from the Examples file, our stipulation regarding "unless".
+common-name: Symb 2.054
+
+problem: Symb 2.055
+node: ?:Unless logic is difficult, Alfred will pass if he concentrates.
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is difficult.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 2\.055
+note: Hint: Remember, from the Examples file, our stipulations regarding "unless" and commas.
+common-name: Symb 2.055
+
+problem: Symb 2.056
+node: ?:If UCLA wins its first game, then USC and Cal won't both win their first games.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game
+answer-keys: 2\.056
+common-name: Symb 2.056
+
+problem: Symb 2.057
+node: ?:Assuming that either logic is difficult or the text is not readable, Alfred will pass only if he concentrates.
+scheme: P:  Alfred will pass.     Q:  Alfred concentrates.     R:  logic is difficult.     S:  Alfred will secure employment.     T:  the text is readable.     X:  the lectures are exciting
+answer-keys: 2\.057
+common-name: Symb 2.057
+
+problem: Symb 2.058
+node: ?:If neither Richard nor Tony will pass, Yiannis won't either.
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass
+answer-keys: 2\.058
+note: Hint: Remember, from the Examples file, that we regard the standard symbolization of "neither P nor Q" to be "~(PvQ)".
+common-name: Symb 2.058
+
+problem: Symb 2.059
+node: ?:If USC doesn't win its first game, then both Cal and UCLA won't win their first games.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game
+answer-keys: 2\.059
+common-name: Symb 2.059
+
+problem: Symb 2.060
+node: ?:If either Tony or Yiannis will pass, then so will Richard unless he is tired.
+scheme: "R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass.     U:  Richard is tired.     "
+answer-keys: 2\.060
+common-name: Symb 2.060
+
+problem: Symb 2.061
+node: ?:Either Cal wins its first game and UCLA does not win its first game or if UCLA wins its first game then USC does not win its first game.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game
+answer-keys: 2\.061
+common-name: Symb 2.061
+
+problem: Symb 2.062
+node: ?:Yiannis and Tony will definitely pass; Richard however, will fail if he doesn't study (and, for that matter, will fail even if he does).
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass.     V:  Richard will study.     X:  Richard will fail
+answer-keys: 2\.062
+common-name: Symb 2.062
+
+problem: Symb 2.063
+node: ?:If Ruth will pass so long as she isn't tired, then she'll surely pass if she studies hard.
+scheme: P:  Ruth will pass.     S:  Ruth studies hard.     T:  Ruth is tired
+answer-keys: 2\.063
+common-name: Symb 2.063
+
+problem: Symb 2.064
+node: ?:USC wins its first game provided that UCLA does not win its first game, but USC wins its first game only if Cal wins its first game.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game
+answer-keys: 2\.064
+common-name: Symb 2.064
+
+problem: Symb 2.065
+node: ?:Either it is not the case that Richard pays attention and does not lose track of the argument, or it is not the case that he does not take notes or fails to do well in the course.
+scheme: P:  Richard pays attention.     S:  Richard loses track of the argument.     T:  Richard takes notes.     W:  Richard does well in the course
+answer-keys: 2\.065
+common-name: Symb 2.065
+
+problem: Symb 2.066
+node: ?:Given that Cal wins its first game, USC does not win its first game provided that UCLA wins its first game.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game
+answer-keys: 2\.066
+common-name: Symb 2.066
+
+problem: Symb 2.067
+node: ?:If Rudolf's prayers are answered if he believes in God, then God exists.
+scheme: P:  Rudolf's prayers are answered.     V:  Rudolf believes in God.     X:  God exists.     W:  this is the best of all possible worlds.     T:  everything is permitted
+answer-keys: 2\.067
+common-name: Symb 2.067
+
+problem: Symb 2.068
+node: ?:Rudolf does not believe in God unless this is the best of all possible worlds.
+scheme: P:  Rudolf's prayers are answered.     V:  Rudolf believes in God.     X:  God exists.     W:  this is the best of all possible worlds.     T:  everything is permitted
+answer-keys: 2\.068
+common-name: Symb 2.068
+
+problem: Symb 2.069
+node: ?:This is not the best of all possible worlds.
+scheme: P:  Rudolf's prayers are answered.     V:  Rudolf believes in God.     X:  God exists.     W:  this is the best of all possible worlds.     T:  everything is permitted
+answer-keys: 2\.069
+common-name: Symb 2.069
+
+problem: Symb 2.070
+node: ?:If God does not exist, then everything is permitted.
+scheme: P:  Rudolf's prayers are answered.     V:  Rudolf believes in God.     X:  God exists.     W:  this is the best of all possible worlds.     T:  everything is permitted
+answer-keys: 2\.070
+note: Hint: With the correct symbolization, 2.070 should be derivable from 2.067-2.069
+common-name: Symb 2.070
+
+problem: Symb 2.071
+node: ?:Neither UCLA nor USC will win its first game unless both are willing to work harder.
+scheme: U:  UCLA wins its first game.     S:  USC wins its first game.     Y:  Cal wins its first game.     W:  UCLA is willing to work harder.     R:  USC willing to work harder
+answer-keys: 2\.071
+common-name: Symb 2.071
+
+problem: Symb 2.072
+node: ?:They (Richard, Tony, and Yiannis) won't all pass.
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass
+answer-keys: 2\.072
+note: Hint: Remember, from the Examples file, that we have adopted a convention whereby the standard symbolization of a series, such as "P and Q and R and S" is to be associated to the left.
+common-name: Symb 2.072
+
+problem: Symb 2.073
+node: ?:Richard won't pass, but at least one of the other two (Tony and Yiannis) will.
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass
+answer-keys: 2\.073
+common-name: Symb 2.073
+
+problem: Symb 2.076
+node: ?:Unless either neither Sy nor Nye neigh or Bob and Babs both bray, none of them will beat Whirlaway.
+scheme: P:  Sy neighs.     Q:  Nye neighs.     R:  Bob brays.     S:  Babs brays.     T:  Sy will beat Whirlaway.     U:  Nye will beat Whirlaway.     V:  Bob will beat Whirlaway.     W:  Babs will beat Whirlaway
+answer-keys: 2\.076.2\.076b
+common-name: Symb 2.076
+
+problem: Symb 2.077
+node: ?:Sherlock Holmes will neither play his violin nor ask Watson for the needle; nevertheless, neither he nor Watson will fail to be baffled by Moriarty.
+scheme: P:  Sherlock Holmes will play his violin.     Q:  Sherlock Holmes will ask Watson for the needle.     R:  Sherlock Holmes will be baffled by Moriarty.     S:  Watson will be baffled by Moriarty
+answer-keys: 2\.077
+common-name: Symb 2.077
+
+problem: Symb 2.078
+node: ?:Although Richard will be disappointed unless the critics approve, the concert will be worthwhile if and only if the music is played well.
+scheme: P:  Richard will be disappointed.     R:  the critics approve.     T:  the concert will be worthwhile.     W:  the music is played well
+answer-keys: 2\.078.2\.078b
+common-name: Symb 2.078
+
+problem: Symb 2.079
+node: ?:Neither Donald nor Richard is eager, but each is willing if the other is.
+scheme: R:  Donald is eager.     S:  Richard is eager.     W:  Donald is willing.     X:  Richard is willing
+answer-keys: 2\.079.2\.079b.2\.079c
+common-name: Symb 2.079
+
+problem: Symb 2.080
+node: ?:C.C. will pass unless the test is both too long and too hard, provided that the instructor is neither biased nor perverse.
+scheme: P:  C\.C\. will pass.     T:  the test is too long.     R:  the test is too hard.     U:  the instructor is biased.     V:  the instructor is perverse
+answer-keys: 2\.080
+common-name: Symb 2.080
+
+problem: Symb 2.081
+node: ?:If C.C. studies logic, then he does not do well in the course only if he does not take notes and pay attention.
+scheme: X:  C\.C\. studies logic.     P:  C\.C\. pays attention.     S:  C\.C\. loses track of the argument.     T:  C\.C\. takes notes.     W:  C\.C\. does well in the course
+answer-keys: 2\.081
+common-name: Symb 2.081
+
+problem: Symb 2.082
+node: ?:Donald is a lover of logic only if he does not organize his time.
+scheme: V:  Donald is a lover of logic.     R:  Donald organizes his time.     W:  Donald enjoys whiskey at night.     Z:  Donald enjoys Mozart in the morning
+answer-keys: 2\.082
+common-name: Symb 2.082
+
+problem: Symb 2.083
+node: ?:Donald enjoys whiskey at night provided that he both enjoys Mozart in the morning and organizes his time.
+scheme: V:  Donald is a lover of logic.     R:  Donald organizes his time.     W:  Donald enjoys whiskey at night.     Z:  Donald enjoys Mozart in the morning
+answer-keys: 2\.083
+common-name: Symb 2.083
+
+problem: Symb 2.084
+node: ?:If Donald is a lover of logic who organizes his time, then he enjoys Mozart in the morning or whiskey at night, but not both.
+scheme: V:  Donald is a lover of logic.     R:  Donald organizes his time.     W:  Donald enjoys whiskey at night.     Z:  Donald enjoys Mozart in the morning
+answer-keys: 2\.084
+common-name: Symb 2.084
+
+problem: Symb 2.085
+node: ?:If Donald enjoys whiskey at night, then either he enjoys Mozart in the morning and organizes his time, or he does not enjoy Mozart in the morning and does not organize his time, or else he is not a lover of logic.
+scheme: V:  Donald is a lover of logic.     R:  Donald organizes his time.     W:  Donald enjoys whiskey at night.     Z:  Donald enjoys Mozart in the morning
+answer-keys: 2\.085
+note: Hint: Remember, from the Examples file, that we have adopted a convention whereby the standard symbolization of a series, such as "P or Q or R or S" is to be associated to the left.
+common-name: Symb 2.085
+
+problem: Symb 2.086
+node: ?:Assuming that the professor is a Communist, he will sign the loyalty oath; but if he is an idealist, he will neither sign the loyalty oath nor speak to those who do.
+scheme: P:  the professor is a Communist.     S:  the professor will sign the loyalty oath.     T:  the professor is an idealist.     Y:  the professor will speak to those who do sign the loyalty oath
+answer-keys: 2\.086
+common-name: Symb 2.086
+
+problem: Symb 2.087
+node: ?:Errors will decrease in the subject's performance just in case neither motivation is absent nor learning has not occurred.
+scheme: R:  Errors will decrease in the subject's performance.     T:  motivation is absent.     U:  learning has occurred
+answer-keys: 2\.087
+common-name: Symb 2.087
+
+problem: Symb 2.088
+node: ?:If Bertie and Hans are playing dice together, it is the first throw of the game, and Bertie is throwing the dice, then he wins the game on the first throw if and only if he throws 7 or 11.
+scheme: P:  Bertie is playing dice.     Q:  Hans is playing dice.     R:  Bertie and Hans are playing dice together.     S:  it is the first throw of the game.     T:  Bertie is throwing the dice.     U:  Bertie wins the game on the first throw.     V:  Bertie throws 7.     W:  Bertie throws 11
+answer-keys: 2\.088
+note: Hint: Remember, from the Examples file, that we have adopted a convention whereby the standard symbolization of a series, such as "P and Q and R and S" is to be associated to the left.
+common-name: Symb 2.088
+
+problem: Symb 2.089
+node: ?:If the world is a progressively realized community of interpretation, then either quadruplicity drinks procrastination or, provided that the Nothing negates, boredom will ensue seldom more often than frequently.
+scheme: W:  the world is a progressively realized community of interpretation.     Q:  quadruplicity drinks procrastination.     X:  the Nothing negates.     R:  boredom will ensue seldom more often than frequently
+answer-keys: 2\.089
+common-name: Symb 2.089
+
+problem: Symb 2.090
+node: ?:Errors will occur in the subject's performance if and only if motivation is absent or learning has not taken place. [Ambiguous]
+scheme: R:  Errors will occur in the subject's perfornamce.     T:  motivation is absent.     U:  learning has occurred
+answer-keys: 2\.090
+common-name: Symb 2.090
+
+# Symb 2.091`$?:If either a war or a depression occurs then neither science nor music and literature will flourish unless the government supports research and provides patronage for artists. [Ambiguous]`+W:  a war occurs.     R:  a depression occurs.     S:  science will flourish.     U:  music will flourish.     T:  literature will flourish.     V:  the government supports research.     P:  the government provides patronage for artists`=2\.091`@This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 2.091 and 2.091b.`!2.091`g#Symb 2.091`C
+# Symb 2.091b`$?:If either a war or a depression occurs then neither science nor music and literature will flourish unless the government supports research and provides patronage for artists. [Ambiguous]`+W:  a war occurs.     R:  a depression occurs.     S:  science will flourish.     U:  music will flourish.     T:  literature will flourish.     V:  the government supports research.     P:  the government provides patronage for artists`=2\.091b`@This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 2.091 and 2.091b.`!2.091`g#Symb 2.091b`C
+problem: Symb 2.092
+node: ?:Neither Bertie nor Hans will listen except when the other is speaking.
+scheme: P:  Bertie will listen.     Q:  Hans will listen.     R:  Bertie is speaking.     S:  Hans is speaking
+answer-keys: 2\.092.2\.092b
+note: Hint: This is a difficult problem for which some of the conventions may be misleading.
+common-name: Symb 2.092
+
+problem: Symb 2.092EG1
+english: Neither Bertie nor Hans will listen except when the other is speaking.
+original-name: Symb 2.092
+node: &:Neither Bertie nor Hans will listen except when the other is speaking.
+node: |:Bertie will not listen except when Hans is speaking
+node: ~:Bertie will not listen
+node: *P{}0:Bertie will listen
+node: *S{}0:Hans is speaking
+node: |:Hans will not listen except when Bertie is speaking
+node: ~:Hans will not listen
+node: *Q{}0:Hans will listen
+node: *R{}0:Bertie is speaking
+options: eg
+common-name: Symb 2.092EG1
+
+problem: Symb 2.093
+node: ?:No more than one of then (Richard, Tony, and Yiannis, of course) will pass.
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass
+answer-keys: 2\.093.2\.093b.2\.093c
+note: Hint: Statements about quantity cannot be literally rendered into Sentential Logic.  Thus, almost any answer equivalent to the English original should count as correct.  The program contains only three such.
+common-name: Symb 2.093
+
+problem: Symb 2.094
+node: ?:Exactly two of then (among Richard, Tony, and Yiannis) will pass.
+scheme: R:  Richard will pass.     T:  Tony will pass.     Y:  Yiannis will pass
+answer-keys: 2\.094.2\.094b
+note: Hint: Statements about quantity cannot be literally rendered into Sentential Logic.  Thus, almost any answer equivalent to the English original should count as correct.  The program contains only two such.
+common-name: Symb 2.094
+
+problem: Symb 2.100
+node: ?:Paula, who studies hard, will pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2100
+common-name: Symb 2.100
+
+problem: Symb 2.101
+node: ?:Paula won't pass unless she studies hard.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2101
+common-name: Symb 2.101
+
+problem: Symb 2.102
+node: ?:Paula neither studies hard nor passes.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2102
+common-name: Symb 2.102
+
+problem: Symb 2.103
+node: ?:Paula will pass if, but only if, she either studies hard or isn't tired.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2103
+common-name: Symb 2.103
+
+problem: Symb 2.104
+node: ?:Either Paula studies hard and will pass or she doesn't (and won't).
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2104
+common-name: Symb 2.104
+
+problem: Symb 2.105
+node: ?:If Paula will pass unless she's tired, then she'll pass so long as she studies hard.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2105
+common-name: Symb 2.105
+
+problem: Symb 2.106
+node: ?:Although she's tired, Paula will pass anyway.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2106
+common-name: Symb 2.106
+
+problem: Symb 2.107
+node: ?:Provided that Paula studies hard, she'll pass just in case she isn't tired.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2107
+common-name: Symb 2.107
+
+problem: Symb 2.108
+node: ?:Paula studies hard unless she's tired, in which case (that is, if she's tired) she doesn't.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2108
+common-name: Symb 2.108
+
+problem: Symb 2.109
+node: ?:If either Quincy or Rachel will pass, then so will Paula unless she is tired.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2109
+common-name: Symb 2.109
+
+problem: Symb 2.110
+node: ?:Paula and Quincy study hard and will pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2110
+common-name: Symb 2.110
+
+problem: Symb 2.111
+node: ?:Unless neither Paula nor Quincy studies hard, both will pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2111
+common-name: Symb 2.111
+
+problem: Symb 2.112
+node: ?:Both Paula and Quincy won't pass, but Rachel and Sidney won't fail to pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2112
+common-name: Symb 2.112
+
+problem: Symb 2.113
+node: ?:Paula will pass just in case neither Quincy nor Rachel doesn't study hard.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2113
+common-name: Symb 2.113
+
+problem: Symb 2.114
+node: ?:If and only if Paula is not tired, will she and Rachel pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2114
+common-name: Symb 2.114
+
+problem: Symb 2.115
+node: ?:Unless she studies hard, Paula will study hard and pass just in case Quincy does the same.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2115
+common-name: Symb 2.115
+
+problem: Symb 2.116
+node: ?:Quincy studies hard, but Rachel studies hard and passes.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2116
+common-name: Symb 2.116
+
+problem: Symb 2.117
+node: ?:Either Sidney will pass without studying hard, or on the condition that Quincy both studies hard and passes, Sidney will fail to pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2117
+common-name: Symb 2.117
+
+problem: Symb 2.118
+node: ?:Quincy, who studies hard, also will pass, unless Sidney will fail to pass only on the condition that he fails to study hard.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2118.ANS_2118b
+common-name: Symb 2.118
+
+problem: Symb 2.119
+node: ?:Paula will neither study hard nor pass, but either Rachel or Quincy, but not Sidney, will pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2119
+common-name: Symb 2.119
+
+problem: Symb 2.120
+node: ?:Although Paula isn't tired, she neither studies hard nor passes; but Sidney won't study hard and won't pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2120
+common-name: Symb 2.120
+
+problem: Symb 2.121
+node: ?:Unless Rachel, who either failed to study hard or succeeded in passing, does pass, Sidney will neither study hard nor fail to study hard.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2121.ANS_2121b
+common-name: Symb 2.121
+
+problem: Symb 2.122
+node: ?:Quincy will either study hard or fail to pass, but not both; however, Rachel studies hard just in case it is not the case that she will pass if and only if it is the case that she will pass.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2122.ANS_2122b.ANS_2122c
+common-name: Symb 2.122
+
+problem: Symb 2.123
+node: ?:Paula neither studies hard, nor is tired, nor passes, but Quincy does all three.
+scheme: P:  Paula will pass.  Q:  Quincy will pass.  R:  Rachel will pass.  S:  Sidney will pass.  T:  Paula is tired.  U:  Quincy studies hard.  V:  Rachel studies hard.  W:  Paula studies hard.  X:  Sidney studies hard.  Y:  Quincy is tired
+answer-keys: ANS_2123
+common-name: Symb 2.123
+
+## 
+## The following problems are in Blue Book mode.
+## They may be used to practice for a Blue Book exam.
+## 
+
+problem: Symb 2.701
+english: The Dormouse doesn't doze, provided that Alice is cross.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2801
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.701
+
+problem: Symb 2.702
+english: Although Alice is cross, she doesn't frown; but the Hatter frowns if he is cross.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2802
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.702
+
+problem: Symb 2.703
+english: Assuming neither the Hatter nor Alice is mad, the Dormouse dozes but doesn't frown.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2803
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.703
+
+problem: Symb 2.704
+english: Provided that Alice but not the Hatter is cross unless mad, the Hatter, but not Alice, is mad unless he frowns.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2804
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.704
+
+problem: Symb 2.705
+node: ?:Archie authorizes action if he doesn't anger authorities, but Carol cavorts with carrots.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2805
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.705
+
+problem: Symb 2.706
+node: ?:If Archie authorizes action just in case he does anger authorities, then Judi judges jumping unless Carol neither craves calamari nor cavorts with carrots.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2806
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.706
+
+problem: Symb 2.707
+node: ?:Carol will not cavort with carrots, if Judi will not juggle jujubes; but given that Judi will not fail to juggle jujubes, Archie will anger authorities if he doesn't authorizes action.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2807
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.707
+
+problem: Symb 2.708
+node: ?:Unless either not both Archie and Judi authorize action or Carol controls calamity, both Archie and Judi will anger authorities.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2808
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.708
+
+## 
+## The following problems are in Computer Exam mode.
+## They may be used to practice for a Computer exam.
+## 
+
+problem: Symb 2.801
+english: The Dormouse doesn't doze, provided that Alice is cross.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2801
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.801
+
+problem: Symb 2.802
+english: Although Alice is cross, she doesn't frown; but the Hatter frowns if he is cross.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2802
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.802
+
+problem: Symb 2.803
+english: Assuming neither the Hatter nor Alice is mad, the Dormouse dozes but doesn't frown.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2803
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.803
+
+problem: Symb 2.804
+english: Provided that Alice but not the Hatter is cross unless mad, the Hatter, but not Alice, is mad unless frowning.
+scheme: P:Alice is cross.Q:Alice frowns.R:Alice is mad.S:The Hatter is cross.T:The Hatter frowns.U:The Hatter is mad.V:The Dormouse dozes.W:The Dormouse frowns.X:The Dormouse is mad
+answer-keys: ANS_2804
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.804
+
+problem: Symb 2.805
+node: ?:Archie authorizes action if he doesn't anger authorities, but Carol cavorts with carrots.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2805
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.805
+
+problem: Symb 2.806
+node: ?:If Archie authorizes action just in case he does anger authorities, then Judi judges jumping unless Carol neither craves calamari nor cavorts with carrots.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2806
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.806
+
+problem: Symb 2.807
+node: ?:Carol will not cavort with carrots, if Judi will not juggle jujubes; but given that Judi will not fail to juggle jujubes, Archie will anger authorities if he doesn't authorizes action.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2807
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.807
+
+problem: Symb 2.808
+node: ?:Unless either not both Archie and Judi authorize action or Carol controls calamity, both Archie and Judi will anger authorities.
+scheme: P:  Archie authorizes action.  Q:  Archie angers authorities.  R:  Carol craves calamari.  S:  Carol cavorts with carrots.  T:  Judi judges jumping.  U:  Judi juggles jujubes.  V:  Carol controls calamity.  W:  Judi authorizes action.  X:  Judi angers authorities
+answer-keys: ANS_2808
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 2.808
+
+## 
+##                          CHAPTER III
+##           MONADIC PREDICATE LOGIC
+## 
+
+problem: Symb 3.001
+node: ?:Everything is good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.001
+common-name: Symb 3.001
+
+problem: Symb 3.001EG1
+english: Everything is good.
+original-name: Symb 3.001
+node: forall x:Everything is good.
+node: *Fx{}0:x is good
+options: eg
+common-name: Symb 3.001EG1
+
+problem: Symb 3.002
+node: ?:Nothing is good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.002
+common-name: Symb 3.002
+
+problem: Symb 3.003
+node: ?:Something is good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.003
+common-name: Symb 3.003
+
+problem: Symb 3.004
+node: ?:Something is not good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.004
+common-name: Symb 3.004
+
+problem: Symb 3.005
+node: ?:All sweets are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.005
+common-name: Symb 3.005
+
+problem: Symb 3.006
+node: ?:No sweets are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.006
+common-name: Symb 3.006
+
+problem: Symb 3.007
+node: ?:Some sweets are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.007
+common-name: Symb 3.007
+
+problem: Symb 3.007EG1
+english: Some sweets are good.
+original-name: Symb 3.007
+node: exists x:Some sweets are good.
+node: "&:    "
+node: *Hx{}0:x is a sweet
+node: *Fx{}0:x is good
+options: eg
+common-name: Symb 3.007EG1
+
+problem: Symb 3.008
+node: ?:Some sweets are not good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.008
+common-name: Symb 3.008
+
+problem: Symb 3.009
+node: ?:Only chocolates are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.009
+common-name: Symb 3.009
+
+problem: Symb 3.010
+node: ?:All and only sweets are edible.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.010
+common-name: Symb 3.010
+
+problem: Symb 3.011
+node: ?:All sweet things and edible things are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.011.3011b
+common-name: Symb 3.011
+
+problem: Symb 3.012
+node: ?:Among sweets, only chocolates are healthy.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.012
+common-name: Symb 3.012
+
+problem: Symb 3.013
+node: ?:Chocolates that are good should be enjoyed.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.013
+common-name: Symb 3.013
+
+problem: Symb 3.013EG1
+english: Chocolates that are good should be enjoyed.
+original-name: Symb 3.013
+node: forall x:Chocolates that are good should be enjoyed.
+node: "->:    "
+node: &:x is a chocolate that is good
+node: *Ix{}0:X is chocolate
+node: *Fx{}0:x is good
+node: *Kx{}0:x should be enjoyed
+options: eg
+common-name: Symb 3.013EG1
+
+problem: Symb 3.014
+node: ?:Chocolates, which are good, should be enjoyed.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.014.3014b
+common-name: Symb 3.014
+
+problem: Symb 3.014EG1
+english: Chocolates, which are good, should be enjoyed.
+original-name: Symb 3.014
+node: &:Chocolates, which are good, should be enjoyed.
+node: forall x:chocolates should be enjoyed
+node: "->:    "
+node: *Ix{}0:x is a chocolate
+node: *Kx{}0:x should be enjoyed
+node: forall x:chocolates are good
+node: "->:    "
+node: *Ix{}0:x is a chocolate
+node: *Fx{}0:x is good
+options: eg
+common-name: Symb 3.014EG1
+
+problem: Symb 3.015
+node: ?:A chocolate should be enjoyed.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.015
+common-name: Symb 3.015
+
+problem: Symb 3.016
+node: ?:A chocolate poisoned my friend.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.016
+common-name: Symb 3.016
+
+problem: Symb 3.017
+node: ?:Nothing other than a chocolate is good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.017
+common-name: Symb 3.017
+
+problem: Symb 3.018
+node: ?:Only chocolates are good.
+scheme: F{1}:  {1} is good.     G{1}:  {1} is edible.     H{1}:  {1} is a sweet.     I{1}:  {1} is a chocolate.     J{1}:  {1} is healthy.     K{1}:  {1} should be enjoyed.     L{1}:  {1} poisoned my friend
+answer-keys: 3\.018
+common-name: Symb 3.018
+
+problem: Symb 3.030
+node: ?:Something is round and something is square, but it is not the case that something is a round square.
+scheme: F{1}:  {1} is round.     G{1}:  {1} is square
+answer-keys: 3\.030
+common-name: Symb 3.030
+
+problem: Symb 3.031
+node: ?:If everything is mental, then nothing is physical unless something is both mental and physical.
+scheme: F{1}:  {1} is mental.     G{1}:  {1} is physical
+answer-keys: 3\.031
+common-name: Symb 3.031
+
+problem: Symb 3.032
+node: ?:None but the brave deserve the fair.
+scheme: F{1}:  {1} is brave.     G{1}:  {1} deserves the fair
+answer-keys: 3\.032
+common-name: Symb 3.032
+
+problem: Symb 3.033
+node: ?:Kettles boil quickly only if not watched.
+scheme: F{1}:  {1} is a kettle.     G{1}:  {1} boils quickly.     H{1}:  {1} is watched
+answer-keys: 3\.033
+common-name: Symb 3.033
+
+problem: Symb 3.034
+node: ?:Kettles boil quickly if not watched.
+scheme: F{1}:  {1} is a kettle.     G{1}:  {1} boils quickly.     H{1}:  {1} is watched
+answer-keys: 3\.034
+common-name: Symb 3.034
+
+problem: Symb 3.035
+node: ?:Some soldiers love war, but not all who love war are soldiers.
+scheme: F{1}:  {1} is a soldier.     G{1}:  {1} loves war
+answer-keys: 3\.035
+common-name: Symb 3.035
+
+problem: Symb 3.040
+node: ?:Among equine mammals, all and only zebras have dark stripes on a white or buffy background.
+scheme: F{1}:  {1} is an equine mammal.     G{1}:  {1} a is a zebra.     H{1}:  {1} has dark stripes on a white or buffy background
+answer-keys: 3\.040
+common-name: Symb 3.040
+
+problem: Symb 3.041
+node: ?:Democrats and Republicans who put loyality above legality are detrimental to democracy.
+scheme: F{1}:  {1} is a Democrat.     G{1}:  {1} is a Republican.     H{1}:  {1} puts loyality above legality.     J{1}:  {1} is detrimental to democracy
+answer-keys: 3\.041.3041b
+common-name: Symb 3.041
+
+problem: Symb 3.042
+node: ?:Professors are good lecturers if and only if they are both witty and intellectually competent.
+scheme: F{1}:  {1} is a professor.     G{1}:  {1} is a good lecturer.     H{1}:  {1} is witty.     J{1}:  {1} is intellectually competent
+answer-keys: 3\.042
+common-name: Symb 3.042
+
+problem: Symb 3.043
+node: ?:If a registered voter has not declared a party and only those who have declared a party can vote in a primary election, then he or she cannot vote in a primary election.
+scheme: F{1}:  {1} is a registered voter.     G{1}:  {1} has declared a party.     H{1}:  {1} can vote in a primary election
+answer-keys: 3\.043
+common-name: Symb 3.043
+
+problem: Symb 3.044
+node: ?:If only Republicans support the incumbent and no Democrat supports the candidate, then if anyone is a Democrat, someone supports neither the incumbent nor the candidate.
+scheme: F{1}:  {1} is a Republican.     G{1}:  {1} supports the incumbent.     H{1}:  {1} is a Democrat.     J{1}:  {1} support the candidate
+answer-keys: 3\.044
+common-name: Symb 3.044
+
+problem: Symb 3.045
+node: ?:If those who believe in God have immortal souls, then, given that God exists, they will have eternal bliss.
+scheme: F{1}:  {1} believes in God.     G{1}:  {1} has an immortal soul.     H{1}:  {1} will have eternal bliss.     P:  God exists
+answer-keys: 3\.045
+common-name: Symb 3.045
+
+problem: Symb 3.050
+node: ?:Only policemen and firemen are both indispensable and underpaid.
+scheme: F{1}:  {1} is a policeman.     G{1}:  {1} is a fireman.     H{1}:  {1} is indispensable.     J{1}:  {1} is underpaid
+answer-keys: 3\.050
+common-name: Symb 3.050
+
+problem: Symb 3.051
+node: ?:All fruits and vegetables are wholesome and nourishing.
+scheme: F{1}:  {1} is a fruit.     G{1}:  {1} is a vegetable.     H{1}:  {1} is wholesome.     J{1}:  {1} is nourishing
+answer-keys: 3\.051.3051b
+common-name: Symb 3.051
+
+problem: Symb 3.052
+node: ?:Doctors and lawyers who are rich are admired only if they're also honest.
+scheme: F{1}:  {1} is a doctor.     G{1}:  {1} is a lawyer.     H{1}:  {1} is rich.     J{1}:  {1} is admired.     K{1}:  {1} is honest
+answer-keys: 3\.052.3052b
+common-name: Symb 3.052
+
+problem: Symb 3.053
+node: ?:Doctors and lawyers, who are rich, are admired only if they're also honest.
+scheme: F{1}:  {1} is a doctor.     G{1}:  {1} is a lawyer.     H{1}:  {1} is rich.     J{1}:  {1} is admired.     K{1}:  {1} is honest
+answer-keys: 3053a.3053b
+common-name: Symb 3.053
+
+problem: Symb 3.097
+node: ?:Those who read The Daily Bruin in class are inconsiderate, but none of them are illiterate.
+scheme: F{1}:  {1} reads The Daily Bruin in class.     G{1}:  {1} is inconsiderate.     H{1}:  {1} is illiterate
+answer-keys: 3\.097
+common-name: Symb 3.097
+
+problem: Symb 3.098
+node: ?:If there is no one who does not read The Daily Bruin in class, then only the inconsiderate are literate.
+scheme: F{1}:  {1} reads The Daily Bruin in class.     G{1}:  {1} is inconsiderate.     H{1}:  {1} is literate
+answer-keys: 3\.098
+common-name: Symb 3.098
+
+problem: Symb 3.099
+node: ?:If any woman studies, then no student passes unless she does.
+scheme: F{1}:  {1} is a woman.     G{1}:  {1} studies.     H{1}:  {1} is a student.     J{1}:  {1} passes
+answer-keys: 3\.099
+common-name: Symb 3.099
+
+problem: Symb 3.201
+node: ?:Dogs and dolphins jump if petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.201.3201b
+common-name: Symb 3.201
+
+problem: Symb 3.202
+node: ?:Only dogs and dolphins jump if petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.202
+common-name: Symb 3.202
+
+problem: Symb 3.203
+node: ?:Dogs and dolphins jump only if petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.203.3203b
+common-name: Symb 3.203
+
+problem: Symb 3.204
+node: ?:Dogs and dolphins jump only if Spot and Kiwi are petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.204.3204b
+common-name: Symb 3.204
+
+problem: Symb 3.205
+node: ?:No pet neither sings nor jumps.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.205
+common-name: Symb 3.205
+
+problem: Symb 3.206
+node: ?:Some dogs both sing and jump, but only long-haired dogs are petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.206
+common-name: Symb 3.206
+
+problem: Symb 3.207
+node: ?:If a pet is yellow, then it sings but doesn't jump.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.207.3\.207b
+common-name: Symb 3.207
+
+problem: Symb 3.208
+node: ?:If Feathers sings and all who sing jump, then Feathers will not fail to jump.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.208
+common-name: Symb 3.208
+
+problem: Symb 3.209
+node: ?:Given that all pets jump or sing and no canary jumps, no canary is a pet unless it sings.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.209
+common-name: Symb 3.209
+
+problem: Symb 3.210
+node: ?:No dolphin sings unless it jumps.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.210
+common-name: Symb 3.210
+
+problem: Symb 3.211
+node: ?:No dolphin sings unless Kiwi jumps.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet.     a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.211.2ANS_3211
+common-name: Symb 3.211
+
+problem: Symb 3.212
+node: ?:If a dolphin is petted, it will jump.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.212
+common-name: Symb 3.212
+
+problem: Symb 3.213
+node: ?:If all dolphins are petted, they will all jump.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.213
+common-name: Symb 3.213
+
+problem: Symb 3.214
+node: ?:A dolphin jumps.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.214
+common-name: Symb 3.214
+
+problem: Symb 3.215
+node: ?:Only a dog is long-haired.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.215
+common-name: Symb 3.215
+
+problem: Symb 3.216
+node: ?:Unless Spot is a canary, he neither sings nor is yellow.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.216
+common-name: Symb 3.216
+
+problem: Symb 3.217
+node: ?:Both Spot and Kiwi jump, but only if they are pets are they petted.
+scheme: " F{1}:  {1} jumps.     I{1}:  {1} is a dog.     L{1}:  {1} is yellow.     G{1}:  {1} sings.     J{1}:  {1} is a canary.     M{1}:  {1} is long-haired.     H{1}:  {1} is petted.     K{1}:  {1} is a dolphin.     N{1}:  {1} is a pet. a:  Spot.     b:  Kiwi.     c:  Feathers"
+answer-keys: 3\.217
+common-name: Symb 3.217
+
+## 
+## The following problems are in Blue Book mode.
+## They may be used to practice for a Blue Book exam.
+## 
+
+#  these problems use the keys from the old 3.800temp problems
+problem: Symb 3.701
+english: " If a cancer survivor wins the Tour de France, then he's a superb athlete or on drugs."
+scheme: F{1}:{1} is a cancer survivor.G{1}:{1} wins the Tour de France.H{1}:{1} is a superb athlete.I{1}:{1} is on drugs
+answer-keys: 3801
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.701
+
+problem: Symb 3.702
+english: " Men and women who enjoy martinis sleep well"
+scheme: M{1}:{1} is a man.O{1}:{1} is a woman.J{1}:{1} enjoys martinis.K{1}:{1} sleeps well
+answer-keys: 3802a.3802b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.702
+
+problem: Symb 3.703
+english: " Only logicians and mathematicians like quantifiers"
+scheme: F{1}:{1} likes quantifiers.G{1}:{1} is a logician.H{1}:{1} is a mathematician
+answer-keys: 3803
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.703
+
+problem: Symb 3.704
+english: " Among adults, only husbands and wives are excluded from singles clubs"
+scheme: F{1}:{1} is an adult.J{1}:{1} is excluded from singles clubs.H{1}:{1} is a husband.G{1}:{1} is a wife
+answer-keys: 3804
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.704
+
+problem: Symb 3.705
+english: " No smoker is in jeopardy unless he or she inhales"
+scheme: M{1}:{1} is a smoker.J{1}:{1} is in jeopardy.H{1}:{1} inhales
+answer-keys: 3805a.3805b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.705
+
+problem: Symb 3.706
+english: " If all elves are mean, no elf won't bite."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3806a.3806b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.706
+
+problem: Symb 3.707
+english: " All elves who are mean will bite."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3807a.3807b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.707
+
+problem: Symb 3.708
+english: " Although some mean elves will bite even though not provoked, neither Bruce nor Carrie will bite unless provoked."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3808
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.708
+
+problem: Symb 3.709
+english: " Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3809a.3809b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.709
+
+problem: Symb 3.710
+english: " No Republican is in the majority unless only Republicans are in the majority."
+scheme: F{1}:{1} is a Republican.G{1}:{1} is in the majority
+answer-keys: 3810a.3810b
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.710
+
+problem: Symb 3.711
+english: " Neither Republicans nor Democrats are honest except when it benefits them"
+scheme: F{1}:{1} is a Republican.G{1}:{1} is a Democrat.H{1}:{1} is honest.I{1}:Being honest benefits {1}
+answer-keys: 3811a.3811b.3808tempc.3811d
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.711
+
+## 
+## The following problems are in Computer Exam mode.
+## They may be used to practice for a Computer exam.
+## 
+
+problem: Symb 3.801
+english: " If a cancer survivor wins the Tour de France, then he's a superb athlete or on drugs."
+scheme: F{1}:{1} is a cancer survivor.G{1}:{1} wins the Tour de France.H{1}:{1} is a superb athlete.I{1}:{1} is on drugs
+answer-keys: 3801
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.801
+
+problem: Symb 3.802
+english: " Men and women who enjoy martinis sleep well"
+scheme: M{1}:{1} is a man.O{1}:{1} is a woman.J{1}:{1} enjoys martinis.K{1}:{1} sleeps well
+answer-keys: 3802a.3802b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.802
+
+problem: Symb 3.803
+english: " Only logicians and mathematicians like quantifiers"
+scheme: F{1}:{1} likes quantifiers.G{1}:{1} is a logician.H{1}:{1} is a mathematician
+answer-keys: 3803
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.803
+
+problem: Symb 3.804
+english: " Among adults, only husbands and wives are excluded from singles clubs"
+scheme: F{1}:{1} is an adult.J{1}:{1} is excluded from singles clubs.H{1}:{1} is a husband.G{1}:{1} is a wife
+answer-keys: 3804
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.804
+
+problem: Symb 3.805
+english: " No smoker is in jeopardy unless he or she inhales"
+scheme: M{1}:{1} is a smoker.J{1}:{1} is in jeopardy.H{1}:{1} inhales
+answer-keys: 3805a.3805b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.805
+
+problem: Symb 3.806
+english: " If all elves are mean, no elf won't bite."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3806a.3806b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.806
+
+problem: Symb 3.807
+english: " All elves who are mean will bite."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3807a.3807b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.807
+
+problem: Symb 3.808
+english: " Although some mean elves will bite even though not provoked, neither Bruce nor Carrie will bite unless provoked."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3808
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.808
+
+problem: Symb 3.809
+english: " Given that some mean elf will bite and some friendly one will too, the mean ones will bite whether or not provoked but the friendly ones will bite only if provoked."
+scheme: F{1}:{1} is friendly.G{1}:{1} is mean.H{1}:{1} is an elf.I{1}:{1} will bite.J{1}:{1} is provoked.b:Bruce.c:Carrie
+answer-keys: 3809a.3809b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.809
+
+problem: Symb 3.810
+english: " No Republican is in the majority unless only Republicans are in the majority."
+scheme: F{1}:{1} is a Republican.G{1}:{1} is in the majority
+answer-keys: 3810a.3810b
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.810
+
+problem: Symb 3.811
+english: " Neither Republicans nor Democrats are honest except when it benefits them"
+scheme: F{1}:{1} is a Republican.G{1}:{1} is a Democrat.H{1}:{1} is honest.I{1}:Being honest benefits {1}
+answer-keys: 3811a.3811b.3811c.3811d
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All error messages are disabled.  All hints are disabled.
+common-name: Symb 3.811
+
+## 
+## 
+##                          CHAPTER IV
+##                    PREDICATE LOGIC
+## 
+
+problem: Symb 4.001a
+node: ?:Everyone loves someone.
+scheme: F{1}:{1} is a person.G({1}{2}):{1} loves {2}
+answer-keys: Symb 4\.001 Ex14(1)
+note: This sentence is ambiguous as to the scope of the determiner phrases.  Give distinct, non-equivalent answers to problems 4.001a-b.
+answer-group: 4.001
+common-name: " Symb 4.001a"
+
+problem: Symb 4.001b
+node: ?:Everyone loves someone.
+scheme: F{1}:{1} is a person.G({1}{2}):{1} loves {2}
+answer-keys: 2ANS_4001
+note: This sentence is ambiguous as to the scope of the determiner phrases.  Give distinct, non-equivalent answers to problems 4.001a-b.
+answer-group: 4.001
+common-name: " Symb 4.001b"
+
+problem: Symb 4.002
+node: ?:Someone loves someone.
+scheme: F{1}:{1} is a person. G({1}{2}):{1} loves {2}
+answer-keys: Symb 4\.002 Ex14(2).2ANS_4002
+note: This sentence is ambiguous as to the scope of the determiner phrases.  However, the two correct answers are equivalent.
+common-name: Symb 4.002
+
+problem: Symb 4.003
+node: ?:If anything is a person, then someone loves him or her self.
+scheme: F{1}:{1} is a person. G({1}{2}):{1} loves {2}
+answer-keys: Symb 4\.003 Ex14(3)
+common-name: Symb 4.003
+
+problem: Symb 4.004a
+node: ?:Someone loves everyone.
+scheme: F{1}:{1} is a person. G({1}{2}):{1} loves {2}
+answer-keys: Symb 4\.004 Ex14(4)
+note: This sentence is ambiguous as to the scope of the determiner phrases.  Give distinct, non-equivalent answers to problems 4.004a-b.
+answer-group: 4.004
+common-name: " Symb 4.004a"
+
+problem: Symb 4.004b
+node: ?:Someone loves everyone.
+scheme: F{1}:{1} is a person. G({1}{2}):{1} loves {2}
+answer-keys: 2ANS_4004
+note: This sentence is ambiguous as to the scope of the determiner phrases.  Give distinct, non-equivalent answers to problems 4.004a-b.
+answer-group: 4.004
+common-name: " Symb 4.004b"
+
+problem: Symb 4.005
+node: ?:Everyone loves everyone.
+scheme: F{1}:{1} is a person. G({1}{2}):{1} loves {2}
+answer-keys: 1ANS_4005.2ANS_4005
+note: This sentence is ambiguous as to the scope of the determiner phrases.  However, the two correct answers are equivalent.
+common-name: Symb 4.005
+
+problem: Symb 4.006
+node: ?:Every student studies every subject with every teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4006
+common-name: Symb 4.006
+
+problem: Symb 4.007
+node: ?:Every student studies some subject with some teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4007
+common-name: Symb 4.007
+
+problem: Symb 4.008
+node: ?:No student studies every subject with a teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.008 Ex15(3)
+common-name: Symb 4.008
+
+problem: Symb 4.008x
+node: ?:No student studies every subject with the same teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4008x
+common-name: Symb 4.008x
+
+problem: Symb 4.009
+node: ?:Only students study every subject with a teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.009 Ex15(4).2ANS_4009
+common-name: Symb 4.009
+
+problem: Symb 4.010
+node: ?:No subject is such that every student studies it with every teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4010.TEMP_4010
+common-name: Symb 4.010
+
+problem: Symb 4.010x
+node: ?:No subject is such that every student studies it with the same teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4010x
+common-name: Symb 4.010x
+
+problem: Symb 4.011
+node: ?:Every teacher has some subject that some student studies with him or her.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4011.TEMP_4011
+common-name: Symb 4.011
+
+problem: Symb 4.012
+node: ?:Each subject has some student who studies it with some teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4012.TEMP_4012
+common-name: Symb 4.012
+
+problem: Symb 4.013
+node: ?:None but teachers are such that all students study all subjects with them.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: 1ANS_4013.2ANS_4013.TEMP_4013
+common-name: Symb 4.013
+
+problem: Symb 4.014
+node: ?:Anyone who studies any subject with any teacher is a student.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4014.TEMP_4014
+common-name: Symb 4.014
+
+problem: Symb 4.015
+node: ?:There is a teacher such that every student studies some subject with him or her.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.015 Ex15(10)
+common-name: Symb 4.015
+
+problem: Symb 4.016
+node: ?:There is a teacher such that some student studies every subject with him or her.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4016.TEMP_4016
+common-name: Symb 4.016
+
+problem: Symb 4.017
+node: ?:Teachers who study some subject with a teacher are students.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: ANS_4017.TEMP_4017
+common-name: Symb 4.017
+
+problem: Symb 4.018
+node: ?:No student who does not study every subject with a teacher is a teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.018 Ex15(13)
+common-name: Symb 4.018
+
+problem: Symb 4.019
+node: ?:Any student who studies any subject with himself or herself is a teacher.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.019 Ex15(14)
+common-name: Symb 4.019
+
+problem: Symb 4.020
+node: ?:Some teacher who studies every subject with himself or herself is a student.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.020 Ex15(15)
+common-name: Symb 4.020
+
+problem: Symb 4.021
+node: ?:There is no teacher with whom any student studies all subjects.
+scheme: F{1}:{1} is a student.G{1}:{1} is a teacher.H{1}:{1} is a subject.S({1}{2}{3}):{1} studies {2} with {3}
+answer-keys: Symb 4\.021 Ex15(16)
+common-name: Symb 4.021
+
+problem: Symb 4.022
+node: ?:Every husband and wife has a spouse.
+scheme: F{1}:{1} is a husband.G{1}:{1} is a wife.H({1}{2}):{1} is a spouse of {2}
+answer-keys: Symb 4\.022 Ex19.2ANS_4022
+common-name: Symb 4.022
+
+problem: Symb 4.023
+node: ?:No one lacks a father, but not everyone is a father.
+scheme: F{1}:{1} is a person.G({1}{2}):{1} is a father of {2}
+answer-keys: Symb 4\.023 Ex20
+common-name: Symb 4.023
+
+problem: Symb 4.024
+node: ?:Every number has some number as its successor.
+scheme: F{1}:{1} is a number.G({1}{2}):{1} is a successor of {2}
+answer-keys: Symb 4\.024 Ex21
+common-name: Symb 4.024
+
+problem: Symb 4.025
+node: ?:Some number is a successor of every number.
+scheme: F{1}:{1} is a number.G({1}{2}):{1} is a successor of {2}
+answer-keys: Symb 4\.025 Ex22
+common-name: Symb 4.025
+
+problem: Symb 4.026
+node: ?:A teacher has no scruples if he or she assigns a problem that has no solution.
+scheme: F{1}:{1} is a teacher.G{1}:{1} has scruples.H({1}{2}):{1} assigns {2}.J{1}:{1} is a problem.K({1}{2}):{1} is a solution of {2}
+answer-keys: 1ANS_4026.2ANS_4026
+common-name: Symb 4.026
+
+problem: Symb 4.027
+node: ?:The net force acting on a particle is equal to the product of its mass and its acceleration.
+scheme: F{1}:{1} is a particle.a({1}):the net force acting on {1}.G({1}{2}):{1} is equal to {2}.b({1}{2}):the product of {1} and {2}.c({1}):the mass of {1}.d({1}):the acceleration of {1}
+answer-keys: Symb 4\.027 Ex24
+common-name: Symb 4.027
+
+problem: Symb 4.028
+node: ?:No principle is innate unless everyone who hears it assents to it.
+scheme: F{1}:{1} is a principle.G{1}:{1} is inate.H{1}:{1} is a person.J({1}{2}):{1} hears {2}.K({1}{2}):{1} assents to {2}
+answer-keys: Symb 4\.028 Ex25.2ANS_4028
+common-name: Symb 4.028
+
+problem: Symb 4.029
+node: ?:The cube of the square of 2 is even.
+scheme: F{1}:{1} is even.a({1}):the cube of {1}.b({1}):the square of {1}.c:2
+answer-keys: Symb 4\.029 Ex26
+common-name: Symb 4.029
+
+problem: Symb 4.030
+node: ?:No monk likes every course he takes unless the only courses he takes are theological studies.
+scheme: F{1}:{1} is a monk.G{1}:{1} is a course.H{1}:{1} is a theological study.J({1}{2}):{1} takes {2}.K({1}{2}):{1} likes {2}
+answer-keys: Symb 4\.030 Ex27.2ANS_4030
+common-name: Symb 4.030
+
+problem: Symb 4.031
+node: ?:A man who loves himself more than he loves anyone else is not loved by anyone other than himself.
+scheme: F{1}:{1} is a man.G{1}:{1} is a person.H({1}{2}):{1} loves {2}.J({1}{2}):{1} is different from {2}.L({1}{2}{3}{4}):{1} loves {2} more than {3} loves {4}
+answer-keys: ANS_4031
+common-name: Symb 4.031
+
+problem: Symb 4.032
+node: ?:If a father has only male children, then he does not have to provide a dowry for any one of them.
+scheme: F{1}:{1} is a father.G{1}:{1} is a male.H({1}{2}):{1} is a child of {2}.J({1}{2}):{1} has to provide a dowry for {2}.L({1}{2}{3}{4}):{1} loves {2} more than {3} loves {4}
+answer-keys: Symb 4\.032 Ex29
+common-name: Symb 4.032
+
+problem: Symb 4.033
+node: ?:Alfred is a friend of those who have no friends.
+scheme: F({1}{2}):  {1} is a friend of {2}.     a:  Alfred
+answer-keys: 4\.033
+common-name: Symb 4.033
+
+problem: Symb 4.033x
+node: ?:The spouse of anyone who marries the child of the brother of his or her father marries the child of the brother of the spouse of his or her mother.
+scheme: F({1}{2}):{1} marries {2}.a({1}):the spouse of {1}.b({1}):the child of {1}.c({1}):the brother of {1}.d({1}):the father of {1}.E({1}):the mother of {1}
+note: Symbolize this sentence so as to make it true (for all those whose parents are married).
+answer-keys: ANS_4033x
+common-name: Symb 4.033x
+
+problem: Symb 4.034
+node: ?:Every husband and wife has a spouse.
+scheme: F({1}{2}):  {1} is a spouse of {2}.     G{1}:  {1} is a husband.     H{1}:  {1} is a wife
+answer-keys: 4\.034
+common-name: Symb 4.034
+
+problem: Symb 4.034x
+node: ?:If x is an integer greater than or equal to zero and every integer is divisible by x, then x is equal to 1.
+scheme: F{1}:{1} is an integer.G({1}{2}):{1} is greater then {2}.H({1}{2}):{1} is equal to {2}.I({1}{2}):{1} is divisible by {2}.a:zero.b:1
+answer-keys: Symb 4\.034x Ex31
+common-name: Symb 4.034x
+
+problem: Symb 4.035
+node: ?:No one lacks a father, but not everyone is a father.
+scheme: F({1}{2}):  {1} is a father of {2}.     G{1}:  {1} is a person
+answer-keys: 4\.035
+common-name: Symb 4.035
+
+problem: Symb 4.035x
+node: ?:The square of the length of the hypotenuse of a right triangle is equal to the sum of the squares of the lengths of the other two sides.
+scheme: F{1}:{1} is a right triangle.G({1}{2}):{1} is a side of {2}.H({1}{2}):{1} is equal to {2}.J({1}{2}):{1} is different from {2}.a({1}):the square of {1}.b({1}):the hypotenuse of {1}.c({1}{2}):the sum of {1} and {2}.d({1}):the length of {1}
+answer-keys: ANS_4035x
+common-name: Symb 4.035x
+
+problem: Symb 4.036a
+node: ?:Someone is hit by a car every day.
+scheme: F{1}:{1} is a person.G{1}:{1} is a car.H{1}:{1} is a day.J({1}{2}{3}):{1} is hit by {2} on {3}
+answer-keys: Symb 4\.036a Ex33a
+note: This sentence is highly ambiguous, but only four of the answers are non-equivalent.  Give distinct, non-equivalent answers to problems 4.036a-d.
+answer-group: 4.036
+common-name: " Symb 4.036a"
+
+problem: Symb 4.036b
+node: ?:Someone is hit by a car every day.
+scheme: F{1}:{1} is a person.G{1}:{1} is a car.H{1}:{1} is a day.J({1}{2}{3}):{1} is hit by {2} on {3}
+answer-keys: Symb 4\.036b Ex33b
+note: This sentence is highly ambiguous, but only four of the answers are non-equivalent.  Give distinct, non-equivalent answers to problems 4.036a-d.
+answer-group: 4.036
+common-name: " Symb 4.036b"
+
+problem: Symb 4.036c
+node: ?:Someone is hit by a car every day.
+scheme: F{1}:{1} is a person.G{1}:{1} is a car.H{1}:{1} is a day.J({1}{2}{3}):{1} is hit by {2} on {3}
+answer-keys: Symb 4\.036c Ex33c
+note: This sentence is highly ambiguous, but only four of the answers are non-equivalent.  Give distinct, non-equivalent answers to problems 4.036a-d.
+answer-group: 4.036
+common-name: " Symb 4.036c"
+
+problem: Symb 4.036d
+node: ?:Someone is hit by a car every day.
+scheme: F{1}:{1} is a person.G{1}:{1} is a car.H{1}:{1} is a day.J({1}{2}{3}):{1} is hit by {2} on {3}
+answer-keys: Symb 4\.036d Ex33d
+note: This sentence is highly ambiguous, but only four of the answers are non-equivalent.  Give distinct, non-equivalent answers to problems 4.036a-d.
+answer-group: 4.036
+common-name: " Symb 4.036d"
+
+problem: Symb 4.037a
+node: ?:You can fool some of the people all of the time.
+scheme: F({1}{2}):you can fool {1} at {2}.G{1}:{1} is a person.H{1}:{1} is a time.
+answer-keys: Symb 4\.037a Ex34(I)
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 4.037a-b.
+answer-group: 4.037
+common-name: " Symb 4.037a"
+
+problem: Symb 4.037b
+node: ?:You can fool some of the people all of the time.
+scheme: F({1}{2}):you can fool {1} at {2}.G{1}:{1} is a person.H{1}:{1} is a time.
+answer-keys: Symb 4\.037b Ex34(I)
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 4.037a-b.
+answer-group: 4.037
+common-name: " Symb 4.037b"
+
+problem: Symb 4.038
+node: ?:You cannot fool all of the people all of the time.
+scheme: F({1}{2}):you can fool {1} at {2}.G{1}:{1} is a person.H{1}:{1} is a time.
+answer-keys: ANS_4038
+common-name: Symb 4.038
+
+problem: Symb 4.039a
+node: ?:The product of 3 and the square of 6 plus 3 is even.
+scheme: a:3.b:6.d({1}{2}):the product of {1} and {2}.e({1}):the square of {1}.c({1}{2}):{1} plus {2}.F{1}:{1} is even.
+answer-keys: Symb 4\.039a Ex35
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 4.039a-c.
+answer-group: 4.039
+common-name: Symb 4.039a
+
+problem: Symb 4.039b
+node: ?:The product of 3 and the square of 6 plus 3 is even.
+scheme: a:3.b:6.d({1}{2}):the product of {1} and {2}.e({1}):the square of {1}.c({1}{2}):{1} plus {2}.F{1}:{1} is even.
+answer-keys: Symb 4\.039b Ex35
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 4.039a-c.
+answer-group: 4.039
+common-name: " Symb 4.039b"
+
+problem: Symb 4.039c
+node: ?:The product of 3 and the square of 6 plus 3 is even.
+scheme: a:3.b:6.d({1}{2}):the product of {1} and {2}.e({1}):the square of {1}.c({1}{2}):{1} plus {2}.F{1}:{1} is even.
+answer-keys: Symb 4\.039c Ex35
+note: This sentence is ambiguous.  Give distinct, non-equivalent answers to problems 4.039a-c.
+answer-group: 4.039
+common-name: " Symb 4.039c"
+
+## 
+##                          CHAPTER V
+##                            IDENTITY
+## 
+
+problem: Symb 5.001
+node: ?:Something differs from everything except itself.
+scheme:
+answer-keys: Symb 5\.001 Ex1(1)
+common-name: Symb 5.001
+
+problem: Symb 5.002
+node: ?:Everything is identical with something.
+scheme:
+answer-keys: Symb 5\.002 Ex1(2)
+common-name: Symb 5.002
+
+problem: Symb 5.003
+node: ?:Everything is distinct from something.
+scheme:
+answer-keys: Symb 5\.003 Ex1(3)
+common-name: Symb 5.003
+
+problem: Symb 5.004
+node: ?:Everything equal to a thing differs from everything not equal to that thing.
+scheme:
+answer-keys: Symb 5\.004 Ex1(4)
+common-name: Symb 5.004
+
+problem: Symb 5.005
+node: ?:Nothing differs from everything.
+scheme:
+answer-keys: Symb 5\.005 Ex1(5)
+common-name: Symb 5.005
+
+problem: Symb 5.006
+node: ?:Things equal to the same thing are equal to each other.
+scheme:
+answer-keys: Symb 5\.006 Ex1(6).ANS_5006a
+common-name: Symb 5.006
+
+problem: Symb 5.007
+node: ?:Nothing differs from itself.
+scheme:
+answer-keys: Symb 5\.007 Ex1(7)
+common-name: Symb 5.007
+
+problem: Symb 5.008
+node: ?:None but Alfred and his teacher are able to solve the problem.
+scheme: F({1}{2}):{1} is able to solve {2}.a:Alfred.b:the problem.c({1}):the teacher of {1}
+answer-keys: Symb 5\.008 Ex2.Symb 5\.008 Ex2b.Symb 5\.008 Ex2c
+common-name: Symb 5.008
+
+problem: Symb 5.009
+node: ?:Alfred attended the conference and arrived at it before everyone else who attended it except Mary.
+scheme: F({1}{2}):{1} attended {2}.G({1}{2}{3}):{1} arrived at {2} before {3}.a:Alfred.b:the conference.c:Mary
+answer-keys: Symb 5\.009 Ex3.Symb 5\.009 Ex3b
+common-name: Symb 5.009
+
+problem: Symb 5.010
+node: ?:Alfred is the only member of the class who can read Greek.
+scheme: F({1}{2}):{1} is a member of {2}.G({1}{2}):{1} can read {2}.a:Alfred.b:the class.c:Greek
+answer-keys: Symb 5\.010 Ex4.Symb 5\.010 Ex4b.Symb 5\.010 Ex4c
+common-name: Symb 5.010
+
+problem: Symb 5.011
+node: ?:Greensleeves can jump farther than any other frog in Calaveras County.
+scheme: F({1}{2}):{1} can jump farther than {2}.G{1}:{1} is a frog.H({1}{2}):{1} is in {2}.a:Greensleeves.b:Calaveras County
+answer-keys: Symb 5\.011 Ex5
+common-name: Symb 5.011
+
+problem: Symb 5.012
+node: ?:Pergolesi was the most promising composer of his time.
+scheme: F({1}{2}):{1} was more promising than {2}.G{1}:{1} was a composer.H({1}{2}):{1} was contemporary with {2}.a:Pergolesi
+answer-keys: Symb 5\.012 Ex6
+common-name: Symb 5.012
+
+problem: Symb 5.013
+node: ?:Anyone whose mother is the wife of a citizen, whose father is married to his or her mother, and whose father has no other children is the child of a citizen.
+scheme: F{1}:{1} is a citizen.G({1}{2}):{1} is married to {2}.H({1}{2}):{1} is a child of {2}.a({1}):the mother of {1}.b({1}):the wife of {1}.c({1}):the father of {1}.d({1}):the child of {1}
+answer-keys: Symb 5\.013 Ex7
+common-name: Symb 5.013
+
+problem: Symb 5.014
+node: ?:If the sister of Alfred is the wife of the brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of the sister of Alfred.
+scheme: a:Alfred.b({1}):the wife of {1}. c({1}):the sister of {1}.d({1}):the brother-in-law of {1}.e({1}):the father-in-law of {1}
+answer-keys: Symb 5\.014 Ex8
+common-name: Symb 5.014
+
+problem: Symb 5.015
+node: ?:If a sister of Alfred is the wife of a brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of a sister of Alfred.
+scheme: a:Alfred.b({1}):the wife of {1}.c({1}):the father-in-law of {1}.F({1}{2}):{1} is a sister of {2}.G({1}{2}):{1} is a brother-in-law of {2}
+answer-keys: Symb 5\.015 Ex9
+common-name: Symb 5.015
+
+problem: Symb 5.016
+node: ?:If a sister of Alfred is the wife of a brother-in-law of Alfred, then the father-in-law of Alfred is the father-in-law of that sister of Alfred.
+scheme: a:Alfred.b({1}):the wife of {1}.c({1}):the father-in-law of {1}.F({1}{2}):{1} is a sister of {2}.G({1}{2}):{1} is a brother-in-law of {2}
+answer-keys: Symb 5\.016 Ex10
+common-name: Symb 5.016
+
+problem: Symb 5.017
+node: ?:Brothers and sisters I have none, but that man's father is my father's son.
+scheme: a:the speaker.b:that man.c({1}):the father of {1}.d({1}):the son of {1}.F({1}{2}):{1} is a brother of {2}.G({1}{2}):{1} is a sister of {2}
+answer-keys: Symb 5\.017 Ex11
+common-name: Symb 5.017
+
+problem: Symb 5.018
+node: ?:The product of distinct positive integers is less than their sum if and only if one of them is equal to its square.
+scheme: a({1}{2}):the product of {1} and {2}.b({1}{2}):the sum of {1} and {2}.c({1}):the square of {1}.F{1}:{1} is a positive integer.G({1}{2}):{1} is less than {2}
+answer-keys: Symb 5\.018 Ex12
+common-name: Symb 5.018
+
+problem: Symb 5.020
+node: ?:There is exactly one even prime number.
+scheme: F{1}:{1} is even.G{1}:{1} is prime.H{1}:{1} is a number
+answer-keys: Symb 5\.020 Ex20
+common-name: Symb 5.020
+
+problem: Symb 5.021
+node: ?:There is exactly one even number, and it is prime.
+scheme: F{1}:{1} is even.G{1}:{1} is prime.H{1}:{1} is a number
+answer-keys: Symb 5\.021 Ex21
+common-name: Symb 5.021
+
+problem: Symb 5.022
+node: ?:No monogamous person has more than one spouse.
+scheme: F{1}:{1} is a monogamous person.G({1}{2}):{1} is a spouse of {2}
+answer-keys: Symb 5\.022 Ex22
+common-name: Symb 5.022
+
+problem: Symb 5.023
+node: ?:An opera is enjoyable if and only if it has exactly two acts.
+scheme: F{1}:{1} is an opera.G{1}:{1} is enjoyable.H({1}{2}):{1} is an act of {2}
+answer-keys: Symb 5\.023 Ex23
+common-name: Symb 5.023
+
+problem: Symb 5.024
+node: ?:At most one student missed at most one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024 Ex24
+common-name: Symb 5.024
+
+problem: Symb 5.024a
+node: ?:At least one student missed at most one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024a
+common-name: Symb 5.024a
+
+problem: Symb 5.024b
+node: ?:At most one student missed at least one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024b
+common-name: Symb 5.024b
+
+problem: Symb 5.024c
+node: ?:At least one student missed at least one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024c
+common-name: Symb 5.024c
+
+problem: Symb 5.024d
+node: ?:Exactly one student missed at most one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024d
+common-name: Symb 5.024d
+
+problem: Symb 5.024e
+node: ?:Exactly one student missed at least one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024e
+common-name: Symb 5.024e
+
+problem: Symb 5.024f
+node: ?:Exactly one student missed exactly one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024f
+common-name: Symb 5.024f
+
+problem: Symb 5.024g
+node: ?:At most one student missed exactly one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024g
+common-name: Symb 5.024g
+
+problem: Symb 5.024h
+node: ?:At least one student missed exactly one problem.
+scheme: F{1}:{1} is an student.G({1}{2}):{1} missed {2}.H{1}:{1} is a problem
+answer-keys: Symb 5\.024h
+common-name: Symb 5.024h
+
+problem: Symb 5.025
+node: ?:At least two soldiers shot at least one demonstrator.
+scheme: F{1}:{1} is a soldire.G({1}{2}):{1} shot {2}.H{1}:{1} is a demonstrator
+answer-keys: Symb 5\.025 Ex25
+common-name: Symb 5.025
+
+problem: Symb 5.026
+node: ?:For every class x, if every member of x has a member and no two members of x have any member in common, then there is a class y such that every member of x has exactly one member in common with y.
+scheme: F{1}:{1} is a class.G({1}{2}):{1} is a member of {2}
+answer-keys: Symb 5\.026 Ex26(ii)
+common-name: Symb 5.026
+
+problem: Symb 5.027
+node: ?:Some course is taught by exactly one instructor, and some instructor teaches exactly one course.
+scheme: F{1}:{1} is an instructor.G{1}:{1} is a course.H({1}{2}):{1} teaches {2}
+answer-keys: Symb 5\.027 Ex27
+common-name: Symb 5.027
+
+problem: Symb 5.028
+node: ?:Exactly one instructor teaches a course, and exactly one course is taught by an instructor.
+scheme: F{1}:{1} is an instructor.G{1}:{1} is a course.H({1}{2}):{1} teaches {2}
+answer-keys: Symb 5\.028 Ex28
+common-name: Symb 5.028
+
+problem: Symb 5.029
+node: ?:There is exactly one instructor and exactly one course, and that instructor teaches that course.
+scheme: F{1}:{1} is an instructor.G{1}:{1} is a course.H({1}{2}):{1} teaches {2}
+answer-keys: Symb 5\.029 Ex29
+common-name: Symb 5.029
+
+problem: Symb 5.030
+node: ?:There is exactly one instructor who teaches exactly one course.
+scheme: F{1}:{1} is an instructor.G{1}:{1} is a course.H({1}{2}):{1} teaches {2}
+answer-keys: Symb 5\.030 Ex30
+common-name: Symb 5.030
+
+problem: Symb 5.031
+node: ?:Alfred has exactly one half-brother.
+scheme: a:Alfred.F({1}{2}):{1} is a son of {2}
+answer-keys: Symb 5\.031 Ex31.Symb 5\.031 Ex31b
+common-name: Symb 5.031
+
+problem: Symb 5.032
+node: ?:Classes are identical if and only if they have the same members.
+scheme: F{1}:{1} is a class.G({1}{2}):{1} is a member of {2}
+answer-keys: Symb 5\.026 Ex26(i)
+common-name: Symb 5.032
+
+problem: Symb 5.040
+english: Emily envies those that Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5040
+common-name: Symb 5.040
+
+problem: Symb 5.041
+english: Emily envies those that only Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5041a.ANS_5041b
+common-name: Symb 5.041
+
+problem: Symb 5.042
+english: Emily envies only those that Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5042
+common-name: Symb 5.042
+
+problem: Symb 5.043
+english: Only Emily envies those that Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5043a.ANS_5043b.ANS_5043c
+common-name: Symb 5.043
+
+problem: Symb 5.044
+english: Emily envies only those that only Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5044a.ANS_5044b.ANS_5044c
+common-name: Symb 5.044
+
+problem: Symb 5.045
+english: Only Emily envies only those that Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5045a.ANS_5045b.ANS_5045c
+common-name: Symb 5.045
+
+problem: Symb 5.046
+english: Only Emily envies those that only Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5046a.ANS_5046b.ANS_5046c.ANS_5046d
+common-name: Symb 5.046
+
+problem: Symb 5.047
+english: Only Emily envies only those that only Emily envies
+scheme: e:Emily.V({1}{2}):{1} envies {2}
+answer-keys: ANS_5047a.ANS_5047b.ANS_5047c
+common-name: Symb 5.047
+
+## 
+##                          CHAPTER VI
+##                        DESCRIPTIONS
+## 
+
+problem: Symb 6.008
+english: The positive square root of 2 is a positive even prime.
+scheme: a:2.O{1}:{1} is positive.R({1}{2}):{1} is a square root of {2}.N{1}:{1} is even.M{1}:{1} is prime
+answer-keys: ANS_6008
+common-name: Symb 6.008
+
+problem: Symb 6.009
+english: Mary loves the person who loves Mary.
+scheme: a:Mary.F{1}:{1} is a person.L({1}{2}):{1} loves {2}
+answer-keys: ANS_6009
+common-name: Symb 6.009
+
+problem: Symb 6.010
+english: If the person who murdered Desdemona was murdered by Desdemona's murderer, then that person committed suicide.
+scheme: a:Desdemona.F{1}:{1} is a person.M({1}{2}):{1} murdered {2}.O{1}:{1} committed suicide
+answer-keys: ANS_6010
+common-name: Symb 6.010
+
+problem: Symb 6.011
+english: The hardest problem on the exam was solved by the youngest student in the class.
+scheme: F{1}:{1} is a problem on the exam.H({1}{2}):{1} is harder than {2}.S({1}{2}):{1} was solved by {2}.N{1}:{1} is a student in the class.Y({1}{2}):{1} is younger than {2}
+answer-keys: ANS_6011
+common-name: Symb 6.011
+
+problem: Symb 6.012
+english: If the author of Waverly is the author of Ivanhoe, then the author of Ivanhoe is an author of Waverly.
+scheme: a:Waverly.b:Ivanhoe.U({1}{2}):{1} is an author of {2}
+answer-keys: ANS_6012
+common-name: Symb 6.012
+
+problem: Symb 6.013
+english: God is that than which nothing greater can be conceived.
+scheme: a:God.G({1}{2}):{1} is greater than {2}.V({1}):{1} can be conceived
+answer-keys: ANS_6013.ANS_6013b
+common-name: Symb 6.013
+
+problem: Symb 6.014
+english: The positive square root of the square of the even prime is irrational.
+scheme: a({1}):the square of {1}.O{1}:{1} is positive.R({1}{2}):{1} is a square root of {2}.N{1}:{1} is even.M{1}:{1} is prime.I{1}:{1} is irrational
+answer-keys: ANS_6014
+common-name: Symb 6.014
+
+problem: Symb 6.015
+english: The smallest positive integer is the positive integer which when multiplied by itself equals itself.
+scheme: d({1}{2}):the product of {1} and {2}.L({1}{2}):{1} is less than {2}.O{1}:{1} is positive.N{1}:{1} is an integer
+answer-keys: ANS_6015
+common-name: Symb 6.015
+
+problem: Symb 6.016
+english: There is no greatest positive integer.
+scheme: G({1}{2}):{1} is greater than {2}.O{1}:{1} is positive.N{1}:{1} is an integer
+answer-keys: ANS_6016
+common-name: Symb 6.016
