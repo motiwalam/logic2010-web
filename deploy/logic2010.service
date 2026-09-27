@@ -1,0 +1,47 @@
+# Logic 2010 web app (https://motiwala.ca/logic2010/): static files + accounts/work API.
+# Installed by deploy/deploy.sh as /etc/systemd/system/logic2010.service.
+# Only directives supported by systemd 239 (CentOS Stream 8) are used.
+
+[Unit]
+Description=Logic 2010 web server
+After=network.target
+
+[Service]
+Type=simple
+User=logic2010
+Group=logic2010
+WorkingDirectory=/var/lib/logic2010
+ExecStart=/opt/logic2010/node/bin/node /opt/logic2010/app/current/server/server.mjs
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=8710
+Environment=BASE_PATH=/logic2010
+Environment=LOGIC2010_DB=/var/lib/logic2010/logic2010.db
+Environment=LOGIC2010_STATIC=/opt/logic2010/app/current/dist
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=20
+KillSignal=SIGTERM
+
+# Hardening
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/logic2010
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=yes
+RestrictRealtime=yes
+LockPersonality=yes
+SystemCallArchitectures=native
+CapabilityBoundingSet=
+AmbientCapabilities=
+UMask=0077
+LimitNOFILE=8192
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+# Daily SQLite backup of the Logic 2010 database into /var/lib/logic2010/backups (14 days kept).
+# Uses SQLite's online backup API, so it is safe while the server runs.
+# Installed by deploy/deploy.sh; triggered by logic2010-backup.timer.
+
+[Unit]
+Description=Back up the Logic 2010 database
+ConditionPathExists=/var/lib/logic2010/logic2010.db
+
+[Service]
+Type=oneshot
+User=logic2010
+Group=logic2010
+ExecStart=/opt/logic2010/node/bin/node /opt/logic2010/app/current/server/backup.mjs /var/lib/logic2010/logic2010.db /var/lib/logic2010/backups 14
+NoNewPrivileges=yes
+ProtectSystem=strict
+ReadWritePaths=/var/lib/logic2010
+ProtectHome=yes
+PrivateTmp=yes
+PrivateDevices=yes
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+UMask=0077

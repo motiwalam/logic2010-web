@@ -1,0 +1,12 @@
+# Runs logic2010-backup.service daily. Installed by deploy/deploy.sh.
+
+[Unit]
+Description=Daily backup of the Logic 2010 database
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+RandomizedDelaySec=15min
+Persistent=true
+
+[Install]
+WantedBy=timers.target
