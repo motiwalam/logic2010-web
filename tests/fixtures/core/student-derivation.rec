@@ -1,0 +1,6904 @@
+# Derivation work, saved by the program.
+# Format: see data/README.md; the fields are those of the course's derivation-problems.rec.
+# The digest on the last line must match the records, or the program refuses the file.
+
+problem: Deriv 1.0001
+statement: ~P.  Q->P  .:  ~Q
+  show: ~Q
+  command: "\"show conc\""
+  cancel: pr1 pr2 mt dd
+  line:
+  reason:
+end-box:
+seconds: 8
+
+problem: Deriv 1.0002
+statement: ~~(P->Q).  P  .:  Q
+  show: Q
+  command: "\"show conc\""
+  cancel: pr1 dne pr2 mp dd
+  line:
+  reason:
+end-box:
+seconds: 19
+
+problem: Deriv 1.0003
+statement: P.  R->~Q.  P->Q  .:  ~R
+  show: ~R
+  command: "\"show conc\""
+  cancel: pr1 pr3 mp dni pr2 mt dd
+  line:
+  reason:
+end-box:
+seconds: 25
+
+problem: Deriv 1.0004
+statement: P->(Q->R).  (Q->R)->S.  ~S  .:  ~P
+  show: ~P
+  command: "\"show conc\""
+  cancel: pr3 pr2 mt pr1 mt dd
+  line:
+  reason:
+end-box:
+seconds: 23
+
+problem: Deriv 1.001
+statement: " ~Q .: (P->Q)->~P"
+  show: (P->Q)->~P
+  command: "\"show conc\""
+  cancel: ass cd pr1 mt cd
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 46
+
+problem: Deriv 1.001EG1
+statement: " ~Q .: (P->Q)->~P"
+  show: (P->Q)->~P
+  command: "\"SHOW CONC\""
+    line: P->Q
+    reason: ASS CD
+    show: ~P
+    command: "\"SHOW CONS\""
+      line: P
+      reason: ASS ID
+      cached-justification: 3:-
+      line: Q
+      reason: 4 2 MP
+      line: ~Q
+      reason: PR
+    cancel: 6 5 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.001EG1
+
+problem: Deriv 1.001EG2
+statement: " ~Q .: (P->Q)->~P"
+  show: (P->Q)->~P
+  command: "\"SHOW CONC\""
+    line: P->Q
+    reason: ASS CD
+    line: ~Q
+    reason: PR
+    line: ~P
+    reason: 3 2 MT
+  cancel: 4 CD
+end-box:
+options: eg
+common-name: Deriv 1.001EG2
+
+problem: Deriv 1.002
+statement: " P->Q. Q->R .: P->R"
+  show: P->R
+  command: "\"show conc\""
+  cancel: ass cd pr1 mp pr2 mp cd
+  line:
+  reason:
+end-box:
+seconds: 20
+
+problem: Deriv 1.002EG1
+statement: " P->Q. Q->R .: P->R"
+  show: P->R
+  command: "\"SHOW CONC\""
+    line: P
+    reason: ASS CD
+    show: R
+    command: "\"SHOW CONS\""
+      line: ~R
+      reason: ASS ID
+      line: Q->R
+      reason: PR2
+      line: ~Q
+      reason: 5 4 MT
+      line: P->Q
+      reason: PR1
+      line: Q
+      reason: 7 2 MP
+    cancel: 8 6 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.002EG1
+
+problem: Deriv 1.002EG2
+statement: " P->Q. Q->R .: P->R"
+  show: P->R
+  command: "\"SHOW CONC\""
+    line: P
+    reason: ASS CD
+    line: P->Q
+    reason: PR1
+    line: Q
+    reason: 3 2 MP
+    line: Q->R
+    reason: PR2
+    line: R
+    reason: 5 4 MP
+  cancel: 6 CD
+end-box:
+options: eg
+common-name: Deriv 1.002EG2
+
+problem: Deriv 1.003
+statement: " R->Q. R->~Q .: ~R"
+  show: ~R
+  command: "\"show conc\""
+  cancel: ass id[R]  dup pr1 mp swap pr2 mp id
+  line:
+  reason:
+end-box:
+seconds: 269
+
+problem: Deriv 1.003Err
+statement: " R->Q. R->~Q .: ~R"
+  show: ~R
+  command: "\"Show Concl\""
+    line: ~R
+    reason: Ass ID
+    line: ~R->~Q
+    reason: PR2
+    line: Q
+    reason: 2 3 MP
+    line: ~~Q
+    reason: 4 DN
+    line: R
+    reason: 5 3 MT
+    line: R->~Q
+    reason: PR2
+  cancel: 3 7 ID
+end-box:
+note: Click "Check" to display errors, then click "?" for more detail.
+options: eg
+common-name: Deriv 1.003Err
+
+problem: Deriv 1.004
+statement: " P->~Q. R->Q .: P->~R"
+  show: P->~R
+  command: "\"show conc\""
+  cancel: ass cd pr1 mp pr2 mt cd
+  line:
+  reason:
+end-box:
+seconds: 46
+
+problem: Deriv 1.004EG1
+statement: " P->~Q. R->Q .: P->~R"
+  show: P->~R
+  command: "\"SHOW CONC\""
+    line: P
+    reason: ASS CD
+    show: ~R
+    command: "\"SHOW CONS\""
+      line: R
+      reason: ASS ID
+      cached-justification: 3:-
+      line: R->Q
+      reason: PR2
+      line: Q
+      reason: 5 4 MP
+      line: P->~Q
+      reason: PR1
+      line: ~Q
+      reason: 7 2 MP
+    cancel: 8 6 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.004EG1
+
+problem: Deriv 1.004EG2
+statement: " P->~Q. R->Q .: P->~R"
+  show: P->~R
+  command: "\"SHOW CONC\""
+    line: P
+    reason: ASS CD
+    line: P->~Q
+    reason: PR1
+    line: ~Q
+    reason: 3 2 MP
+    line: R->Q
+    reason: PR2
+    line: ~R
+    reason: 5 4 MT
+  cancel: 6 CD
+end-box:
+options: eg
+common-name: Deriv 1.004EG2
+
+problem: Deriv 1.005
+statement: " P->(Q->~R). Q .: P->~R"
+  show: P->~R
+  command: "\"show conc\""
+  cancel: ass cd pr1 mp pr2 mp cd
+  line:
+  reason:
+end-box:
+seconds: 31
+
+problem: Deriv 1.006
+statement: " P->~P .: ~P"
+  show: ~P
+  command: "\"show conc\""
+  cancel: ass id[P] dup pr1 mp id
+  line:
+  reason:
+end-box:
+seconds: 85
+
+problem: Deriv 1.007
+statement: " T->~P. ~T->~P .: ~P"
+  show: ~P
+  command: "\"show conc\""
+  cancel: ass id[~~P] dup pr1 mt pr2 mp id
+  line:
+  reason:
+end-box:
+seconds: 76
+
+problem: Deriv 1.007EG1
+statement: " T->~P. ~T->~P .: ~P"
+  show: ~P
+  command: "\"SHOW CONC\""
+    line: ~~P
+    reason: ASS ID
+    cached-justification: 3:+
+    line: ~T
+    reason: 2 PR1 MT
+    line: ~~T
+    reason: 2 PR2 MT
+  cancel: 4 3 ID
+end-box:
+options: eg
+common-name: Deriv 1.007EG1
+
+problem: Deriv 1.008
+statement: " T->(P->Q). ~(P->Q) .: ~T"
+  show: ~T
+  command: "\"show conc\""
+  cancel: ass id[T] pr1 mp pr2 id
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.008EG1
+statement: " T->(P->Q). ~(P->Q) .: ~T"
+  show: ~T
+  command: "\"SHOW CONC\""
+    line: T
+    reason: ASS ID
+    cached-justification: 3:-
+    line: P->Q
+    reason: 2 PR1 MP
+    line: ~(P->Q)
+    reason: PR2
+  cancel: 4 3 ID
+end-box:
+options: eg
+common-name: Deriv 1.008EG1
+
+problem: Deriv 1.009
+statement: " ~(P->Q)->Q .: P->Q"
+  show: P->Q
+  command: "\"show conc\""
+  cancel: ass id dup pr1 mp mc[P -> Q] id
+  line:
+  reason:
+end-box:
+seconds: 41
+
+problem: Deriv 1.010
+statement: " ~P->W .: (R->~W)->(R->P)"
+  show: (R->~W)->(R->P)
+  command: "\"show conc\""
+    line: R->~W
+    reason: ass cd
+    show: R->P
+    command: "\"show cons\""
+    cancel: ass cd 2 mp pr1 mt dne cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+errors: 5
+seconds: 188
+
+problem: Deriv 1.011
+statement: " .: (P->(Q->R))->(Q->(P->R))"
+  show: (P->(Q->R))->(Q->(P->R))
+  command: "\"show conc\""
+    line: P->(Q->R)
+    reason: ass cd
+    show: Q->(P->R)
+    command: "\"show cons\""
+      line: Q
+      reason: "ass cd "
+      show: P->R
+      command: "\"show cons\""
+      cancel: "ass cd 2 mp 4 mp cd "
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 91
+
+problem: Deriv 1.012
+statement: " P->(Q->R). P->(R->S) .: P->(Q->S)"
+  show: P->(Q->S)
+  command: "\"show conc\""
+    line: P
+    reason: ass cd
+    show: Q->S
+    command: "\"show cons\""
+    cancel: ass cd 2 pr1 mp mp 2 pr2 mp mp cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 64
+
+problem: Deriv 1.013
+statement: " ~P->Q. P->Q .: Q"
+  show: Q
+  command: "\"show conc\""
+  cancel: "ass id dup pr1 mt dne swap pr2 mt id "
+  line:
+  reason:
+end-box:
+seconds: 56
+
+problem: Deriv 1.014
+statement: " Q->~R. ~P->R .: ~P->~Q"
+  show: ~P->~Q
+  command: "\"show conc\""
+  cancel: ass cd pr2 mp dni pr1 mt cd
+  line:
+  reason:
+end-box:
+seconds: 43
+
+problem: Deriv 1.015
+statement: " (P->~R)->Q .: ~R->Q"
+  show: ~R->Q
+  command: "\"show conc\""
+  cancel: ass cd mc[P->~R] pr1 mp cd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.015EG1
+statement: " (P->~R)->Q .: ~R->Q"
+  show: ~R->Q
+  command: "\"SHOW CONC\""
+    line: ~R
+    reason: ASS CD
+    show: Q
+    command: "\"SHOW CONS\""
+      line: ~Q
+      reason: ASS ID
+      line: ~(P->~R)
+      reason: 4 PR1 MT
+      show: P->~R
+      command: "\"SHOW UNNEG 5\""
+        line: P
+        reason: ASS CD
+        line: ~R
+        reason: 2 R
+      cancel: 8 CD
+    cancel: 6 5 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.015EG1
+
+problem: Deriv 1.015EG2
+statement: " (P->~R)->Q .: ~R->Q"
+  show: ~R->Q
+  command: "\"SHOW CONC\""
+    line: ~R
+    reason: ASS CD
+    show: Q
+    command: "\"SHOW CONS\""
+      line: ~Q
+      reason: ASS ID
+      line: ~(P->~R)
+      reason: 4 PR1 MT
+      show: P->~R
+      command: "\"SHOW UNNEG 5\""
+        line: ~R
+        reason: 2 R
+      cancel: 7 CD
+    cancel: 6 5 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.015EG2
+
+problem: Deriv 1.016
+statement: " .: (P->Q)->((R->P)->(R->Q))"
+  show: (P->Q)->((R->P)->(R->Q))
+  command: "\"show conc\""
+    line: P->Q
+    reason: ass cd
+    show: (R->P)->(R->Q)
+    command: "\"show cons\""
+      line: R->P
+      reason: ass cd
+      show: R->Q
+      command: "\"show cons\""
+      cancel: ass cd 4 mp 2 mp cd
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 101
+
+problem: Deriv 1.017
+statement: " ~~P->~~Q .: ~Q->~P"
+  show: ~Q->~P
+  command: "\"show conc\""
+  cancel: "ass cd dni pr1 mt dne cd "
+  line:
+  reason:
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 56
+
+problem: Deriv 1.018
+statement: " X->(Y->Z). X->(Z->P) .: X->(~P->~Y)"
+  show: X->(~P->~Y)
+  command: "\"show conc\""
+    line: X
+    reason: ass cd
+    show: ~P->~Y
+    command: "\"show cons\""
+    cancel: "ass cd 2 pr2 mp mt 2 pr1 mp mt cd  "
+  cancel: "3 cd "
+  line:
+  reason:
+end-box:
+seconds: 97
+
+problem: Deriv 1.019
+statement: " (P->Q)->~R. U->R .: (P->Q)->~U"
+  show: (P->Q)->~U
+  command: "\"show conc\""
+  cancel: ass cd pr1 mp pr2 mt cd
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 34
+
+problem: Deriv 1.020
+statement: " ~(R->Q). Q .: P"
+  show: P
+  command: "\"show conc\""
+  cancel: "ass id drop pr2 mc[R->Q] pr1 id "
+  line:
+  reason:
+end-box:
+seconds: 34
+
+problem: Deriv 1.020EG1
+statement: " ~(R->Q). Q .: P"
+  show: P
+  command: "\"SHOW CONC\""
+    line: ~P
+    reason: ASS ID
+    show: R->Q
+    command: "\"SHOW UNNEG PR1\""
+      line: R
+      reason: ASS CD
+      line: Q
+      reason: PR2
+    cancel: 5 CD
+    line: ~(R->Q)
+    reason: PR1
+  cancel: 7 3 ID
+end-box:
+options: eg
+common-name: Deriv 1.020EG1
+
+problem: Deriv 1.020EG2
+statement: " ~(R->Q). Q .: P"
+  show: P
+  command: "\"SHOW CONC\""
+    show: R->Q
+    command: "\"SHOW UNNEG PR1\""
+      line: Q
+      reason: PR2
+    cancel: 3 CD
+    line: ~(R->Q)
+    reason: PR1
+  cancel: 5 2 ID
+end-box:
+options: eg
+common-name: Deriv 1.020EG2
+
+problem: Deriv 1.021
+statement: " (P->Q)->R. ~R .: ~Q"
+  show: ~Q
+  command: "\"show conc\""
+  cancel: ass id[Q] mc[P->Q] pr1 mp pr2 id
+  line:
+  reason:
+end-box:
+seconds: 37
+
+problem: Deriv 1.021EG1
+statement: " (P->Q)->R. ~R .: ~Q"
+  show: ~Q
+  command: "\"SHOW CONC\""
+    line: Q
+    reason: ASS ID
+    cached-justification: 3:-
+    line: ~(P->Q)
+    reason: PR1 PR2 MT
+    show: P->Q
+    command: "\"SHOW UNNEG 3\""
+      line: P
+      reason: ASS CD
+      line: Q
+      reason: 2 R
+    cancel: 6 CD
+  cancel: 4 3 ID
+end-box:
+options: eg
+common-name: Deriv 1.021EG1
+
+problem: Deriv 1.021EG2
+statement: " (P->Q)->R. ~R .: ~Q"
+  show: ~Q
+  command: "\"SHOW CONC\""
+    line: Q
+    reason: ASS ID
+    cached-justification: 3:-
+    show: P->Q
+    command: "\"SHOW ANT PR1\""
+      line: Q
+      reason: 2 R
+    cancel: 4 CD
+    line: R
+    reason: 3 PR1 MP
+    line: ~R
+    reason: PR2
+  cancel: 7 6 ID
+end-box:
+options: eg
+common-name: Deriv 1.021EG2
+
+problem: Deriv 1.022
+statement: " (P->~R)->Q. ~R .: Q"
+  show: Q
+  command: "\"show conc \""
+  cancel: pr2 mc[P->~R] pr1 mp dd
+  line:
+  reason:
+end-box:
+seconds: 35
+
+problem: Deriv 1.023
+statement: " (P->Q)->R. ~P .: R"
+  show: R
+  command: "\"show conc\""
+  cancel: "pr2 mc2[P -> Q] pr1 mp dd "
+  line:
+  reason:
+end-box:
+seconds: 18
+
+problem: Deriv 1.024
+statement: " ~(R->Q). Q .: P->S"
+  show: P->S
+  command: "\"show conc\""
+  cancel: "pr2 mc[R->Q] pr1 id "
+  line:
+  reason:
+end-box:
+seconds: 24
+
+problem: Deriv 1.025
+statement: " (R->S)->P. ~S->Q .: ~P->Q"
+  show: ~P->Q
+  command: "\"show conc\""
+    line: ~(R->S)
+    reason: "ass cd pr1 mt "
+    show: ~S
+    command: "\"show ant pr2\""
+    cancel: ass id[S] mc[R->S] 2 r id
+  cancel: 3 pr2 mp cd
+  line:
+  reason:
+end-box:
+errors: 16
+seconds: 292
+
+problem: Deriv 1.026
+statement: " (~Q->S)->P. ~R->Q. R->S .: P"
+  show: P
+  command: "\"show conc\""
+    show: ~Q->S
+    command: "\"show ant pr1 \""
+    cancel: ass cd pr2 mt dne pr3 mp cd
+  cancel: 2 pr1 mp dd
+  line:
+  reason:
+end-box:
+seconds: 84
+
+problem: Deriv 1.027
+statement: " ~(P->Q). ~(R->Q) .: ~(P->~R)"
+  show: ~(P->~R)
+  command: "\"show conc\""
+    line: P->~R
+    reason: ass id[P->~R]
+    show: P->Q
+    command: "\"show unneg pr1\""
+      line: ~R
+      reason: "ass cd 2 mp "
+      show: R->Q
+      command: "\"show unneg pr2 \""
+      cancel: "ass cd 4 r id "
+    cancel: 5 pr2 id
+  cancel: 3 pr1 id
+  line:
+  reason:
+end-box:
+seconds: 113
+
+problem: Deriv 1.027EG1
+statement: " ~(P->Q). ~(R->Q) .: ~(P->~R)"
+  show: ~(P->~R)
+  command: "\"Show conc\""
+    line: P->~R
+    reason: ass id
+    cached-justification: 3:-
+    show: P->Q
+    command: "\"show unneg pr1\""
+      line: P
+      reason: ass cd
+      show: Q
+      command: "\"show cons\""
+        line: ~Q
+        reason: ass id
+        line: ~R
+        reason: 2 4 mp
+        show: R->Q
+        command: "\"show unneg pr2\""
+          line: R
+          reason: ass cd
+          show: Q
+          command: "\"show cons\""
+            line: ~Q
+            reason: ass id
+            line: R
+            reason: 9 r
+            line: ~R
+            reason: 7 r
+          cancel: 13 12 id
+        cancel: 10 cd
+        line: ~(R->Q)
+        reason: pr2
+      cancel: 16 8 id
+    cancel: 5 cd
+    line: ~(P->Q)
+    reason: pr1
+  cancel: 19 3 id
+end-box:
+options: eg
+common-name: Deriv 1.027EG1
+
+problem: Deriv 1.028
+statement: " W. (P->W)->(R->T) .: ~T->(Q->~R)"
+  show: ~T->(Q->~R)
+  command: "\"show conc\""
+  cancel: ass cd pr1 mc[P->W] pr2 mp mt mc[Q->~R] cd
+  line:
+  reason:
+end-box:
+seconds: 50
+
+problem: Deriv 1.029
+statement: " P->Q . ~P->R . ~Q->~R .: Q"
+  show: Q
+  command: "\"show conc\""
+  cancel: ass id dup pr3 mp pr2 mt dne pr1 mp id
+  line:
+  reason:
+end-box:
+seconds: 43
+
+problem: Deriv 1.030
+statement: " (Q->~~S)->(~R->~S) .: S->R"
+  show: S->R
+  command: "\"show conc\""
+  cancel: ass cd dni dup mc[Q->~~S] pr1 mp mt dne cd
+  line:
+  reason:
+end-box:
+seconds: 56
+
+problem: Deriv 1.030EG1
+statement: " (Q->~~S)->(~R->~S) .: S->R"
+  show: S->R
+  command: "\"SHOW CONC\""
+    line: S
+    reason: ASS CD
+    show: R
+    command: "\"SHOW CONS\""
+      line: ~R
+      reason: ASS ID
+      show: Q->~~S
+      command: "\"SHOW ANT PR\""
+        line: Q
+        reason: ASS CD
+        show: ~~S
+        command: "\"SHOW CONS\""
+          line: ~S
+          reason: ASS ID
+          cached-justification: 3:-
+          line: S
+          reason: 2 R
+        cancel: 9 8 ID
+      cancel: 7 CD
+      line: ~R->~S
+      reason: 5 PR MP
+      line: ~S
+      reason: 12 4 MP
+      line: S
+      reason: 2 R
+    cancel: 14 13 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.030EG1
+
+problem: Deriv 1.030EG2
+statement: " (Q->~~S)->(~R->~S) .: S->R"
+  show: S->R
+  command: "\"SHOW CONC\""
+    line: S
+    reason: ASS CD
+    show: R
+    command: "\"SHOW CONS\""
+      line: ~R
+      reason: ASS ID
+      show: Q->~~S
+      command: "\"SHOW ANT PR\""
+        line: ~~S
+        reason: 2 DN
+      cancel: 6 CD
+      line: ~R->~S
+      reason: 5 PR MP
+      line: ~S
+      reason: 8 4 MP
+      line: S
+      reason: 2 R
+    cancel: 10 9 ID
+  cancel: 3 CD
+end-box:
+options: eg
+common-name: Deriv 1.030EG2
+
+problem: Deriv 1.031
+statement: " (P->Q)->~(Q->P) .: P->~Q"
+  show: P->~Q
+  command: "\"show conc\""
+  cancel: ass cd mc[Q->P] dni pr1 mt nc1 sr cd
+  line:
+  reason:
+end-box:
+seconds: 130
+
+problem: Deriv 1.032
+statement: " ~P->(~Q->~R). P->(R->Q) .: R->Q"
+  show: R->Q
+  command: "\"show conc\""
+    line: ~(R->Q)
+    reason: ass id
+  cancel: "2 pr2 mt pr1 mp 2 nc1 sr mp 2 nc1 sl id "
+  line:
+  reason:
+end-box:
+errors: 3
+seconds: 842
+
+problem: Deriv 1.032EG1
+statement: " ~P->(~Q->~R). P->(R->Q) .: R->Q"
+  show: R->Q
+  command: "\"show conc\""
+    line: R
+    reason: ass cd
+    show: Q
+    command: "\" show cons\""
+      line: ~Q
+      reason: ass id
+      show: ~P
+      command: "\"show ant pr1\""
+        line: P
+        reason: ass id
+        cached-justification: 3:-
+        line: R->Q
+        reason: 6 pr2 mp
+        line: Q
+        reason: 7 2 mp
+        line: ~Q
+        reason: 4 r
+      cancel: 9 8 id
+      line: ~Q->~R
+      reason: 5 pr1 mp
+      line: ~R
+      reason: 11 4 mp
+      line: R
+      reason: 2 r
+    cancel: 13 12 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 1.032EG1
+
+problem: Deriv 1.033
+statement: " Q->P . R->~S . P->R .: Q->~S"
+  show: Q->~S
+  command: "\"show conc\""
+  cancel: "ass cd pr1 mp pr3 mp pr2 mp cd "
+  line:
+  reason:
+end-box:
+seconds: 27
+
+problem: Deriv 1.034
+statement: " (S->P)->R. ~R. (P->Q)->(T->R) .: ~T"
+  show: ~T
+  command: "\"show conc\""
+  cancel: ass id[T] pr2 pr1 mt nc1 sr mc[P->Q] pr3 mp mp pr2 id
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 92
+
+problem: Deriv 1.034EG1
+statement: " (S->P)->R. ~R. (P->Q)->(T->R) .: ~T"
+  show: ~T
+  command: "\"show conc\""
+    line: T
+    reason: ass id
+    cached-justification: 3:-
+    line: ~(S->P)
+    reason: pr1 pr2 mt
+    show: S->P
+    command: "\"show unneg 3\""
+      line: S
+      reason: ass cd
+      show: P
+      command: "\"show cons\""
+        line: ~P
+        reason: ass id
+        collapsed-show: P->Q
+        command: "\"show ant pr3\""
+          line: P
+          reason: ass cd
+          show: Q
+          command: "\"show cons\""
+            line: ~Q
+            reason: ass id
+            line: ~P
+            reason: 7 r
+            line: P
+            reason: "9 r "
+          cancel: 13 12 id
+        cancel: 10 cd
+        line: T->R
+        reason: 8 pr3 mp
+        line: R
+        reason: 16 2 mp
+        line: ~R
+        reason: pr2
+      cancel: 18 17 id
+    cancel: 6 cd
+  cancel: 4 3 id
+end-box:
+options: eg
+common-name: Deriv 1.034EG1
+
+problem: Deriv 1.035
+statement: " (~Q->P)->R . ~R . ~P->Q .: S"
+  show: S
+  command: "\"show conc\""
+  cancel: "pr2 pr1 mt nc1 dup sr pr3 mp swap sl id "
+  line:
+  reason:
+end-box:
+seconds: 45
+
+problem: Deriv 1.036
+statement: " P->(Q->R). P->(~Q->R). ~P->(Q->R). ~P->(~Q->R) .: R"
+  show: R
+  command: "\"show conc\""
+  cancel: pr1 pr3 sc1 pr2 pr4 sc1 sc1 dd
+  line:
+  reason:
+end-box:
+seconds: 62
+
+problem: Deriv 1.037
+statement: " (P->~Q)->~(R->S). Q->~P. ~(R->U)->S .: U"
+  show: U
+  command: "\"show conc\""
+    show: P->~Q
+    command: "\"show ant pr1 \""
+    cancel: "ass cd dni pr2 mt cd "
+  cancel: 2 pr1 mp nc1 dup sr pr3 mt dne swap sl mp dd
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 150
+
+problem: Deriv 1.037EG1
+statement: " (P->~Q)->~(R->S). Q->~P. ~(R->U)->S .: U"
+  show: U
+  command: "\"show conc\""
+    line: ~U
+    reason: ass id
+    show: P->~Q
+    command: "\"show ant pr1\""
+      line: P
+      reason: ass cd
+      show: ~Q
+      command: "\"show cons\""
+        line: Q
+        reason: ass id
+        cached-justification: 3:-
+        line: ~P
+        reason: 6 pr2 mp
+        line: P
+        reason: 4 r
+      cancel: 8 7 id
+    cancel: 5 cd
+    line: ~(R->S)
+    reason: 3 pr1 mp
+    show: R->S
+    command: "\"show unneg 11\""
+      line: R
+      reason: ass cd
+      show: S
+      command: "\"show cons\""
+        line: ~S
+        reason: ass id
+        line: ~~(R->U)
+        reason: 15 pr3 mt
+        line: U
+        reason: 16 dn 13 mp
+        cached-justification: 1:DNE{0}P:R->U,
+        cached-justification:
+        line: ~U
+        reason: 2 r
+      cancel: 18 17 id
+    cancel: 14 cd
+  cancel: 12 11 id
+end-box:
+options: eg
+common-name: Deriv 1.037EG1
+
+problem: Deriv 1.038
+statement: " P->Q . P->R . P->S . T->(U->(~V->~S)) . Q->T . R->(W->U) . V->~W . W .: ~P"
+  show: ~P
+  command: "\"show conc\""
+    line: P
+    reason: ass id[P]
+  cancel: 2 pr1 mp pr5 mp 2 pr2 mp pr6 mp pr8 mp swap pr4 mp mp 2 pr3 mp dni mt dne pr7 mp pr8 id
+  line:
+  reason:
+end-box:
+seconds: 202
+
+problem: Deriv 1.039
+statement: " (P->Q)->(T->R). U->~R. ~(S->P) .: U->~T"
+  show: U->~T
+  command: "\"show conc\""
+  cancel: ass cd pr2 mp pr3 nc1 sr mc[P->Q] pr1 mp mt cd
+  line:
+  reason:
+end-box:
+seconds: 67
+
+problem: Deriv 1.039EG1
+statement: " (P->Q)->(T->R). U->~R. ~(S->P) .: U->~T"
+  show: U->~T
+  command: "\"show conc\""
+    line: U
+    reason: ass cd
+    show: ~T
+    command: "\"show cons\""
+      line: T
+      reason: ass id
+      cached-justification: 3:-
+      line: ~R
+      reason: 2 pr2 mp
+      show: P->Q
+      command: "\"show ant pr1\""
+        line: P
+        reason: ass cd
+        show: Q
+        command: "\" show cons\""
+          line: ~Q
+          reason: ass id
+          show: S->P
+          command: "\"show unneg pr3\""
+            line: S
+            reason: ass cd
+            show: P
+            command: "\"show cons\""
+              line: ~P
+              reason: ass id
+              line: P
+              reason: 7 r
+            cancel: 14 13 id
+          cancel: 12 cd
+        cancel: 10 pr3 id
+      cancel: 8 cd
+      line: T->R
+      reason: 6 pr1 mp
+      line: R
+      reason: 19 4 mp
+    cancel: 20 5 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 1.039EG1
+
+problem: Deriv 1.039EG2
+statement: " (P->Q)->(T->R). U->~R. ~(S->P) .: U->~T"
+  show: U->~T
+  command: "\"show conc\""
+    line: U
+    reason: ass cd
+    show: ~T
+    command: "\"show cons\""
+      line: T
+      reason: ass id
+      cached-justification: 3:-
+      line: ~R
+      reason: 2 pr2 mp
+      show: P->Q
+      command: "\"show ant pr1\""
+        line: P
+        reason: ass cd
+        show: Q
+        command: "\" show cons\""
+          line: ~Q
+          reason: ass id
+          show: S->P
+          command: "\"show unneg pr3\""
+            line: P
+            reason: 7 r
+          cancel: 11 cd
+        cancel: 10 pr3 id
+      cancel: 8 cd
+      line: T->R
+      reason: 6 pr1 mp
+      line: R
+      reason: 15 4 mp
+    cancel: 16 5 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 1.039EG2
+
+problem: Deriv 1.040
+statement: " ~(P->Q). ~(R->S). T->(P->S). ~U->(R->Q) .: ~(~T->~U)"
+  show: ~(~T->~U)
+  command: "\"show conc\""
+    line: ~T->~U
+    reason: "ass id[~T->~U] "
+    show: T
+    command: "\"show ant pr3\""
+    cancel: ass id 2 mp pr4 mp pr2 nc1 sl mp pr1 nc1 sr id
+  cancel: 3 pr3 mp pr1 nc1 sl mp pr2 nc1 sr id
+  line:
+  reason:
+end-box:
+seconds: 282
+
+problem: Deriv 1.040EG1
+statement: " ~(P->Q). ~(R->S). T->(P->S). ~U->(R->Q) .: ~(~T->~U)"
+  show: ~(~T->~U)
+  command: "\"show conc\""
+    line: ~T->~U
+    reason: ass id
+    cached-justification: 3:-
+    show: P->Q
+    command: "\"show unneg pr1\""
+      line: P
+      reason: ass cd
+      show: Q
+      command: "\"show cons\""
+        line: ~Q
+        reason: ass id
+        show: R->S
+        command: "\"show unneg pr2\""
+          line: R
+          reason: ass cd
+          show: S
+          command: "\" show cons\""
+            line: ~S
+            reason: ass id
+            show: T
+            command: "\"show ant pr3\""
+              line: ~T
+              reason: ass id
+              line: ~U
+              reason: 12 2 mp
+              line: R->Q
+              reason: 13 pr4 mp
+              line: Q
+              reason: 14 8 mp
+              line: ~Q
+              reason: 6 r
+            cancel: 16 15 id
+            line: P->S
+            reason: 11 pr3 mp
+            line: S
+            reason: 18 4 mp
+          cancel: 19 10 id
+        cancel: 9 cd
+      cancel: 7 pr2 id
+    cancel: 5 cd
+  cancel: 3 pr1 id
+end-box:
+options: eg
+common-name: Deriv 1.040EG1
+
+problem: Deriv 1.101 T1
+statement: " .:P->P"
+  show: P->P
+  command: "\"show conc\""
+  cancel: ass cd cd
+  line:
+  reason:
+end-box:
+seconds: 10
+
+problem: Deriv 1.102 T2
+statement: " .:Q->(P->Q)"
+  show: Q->(P->Q)
+  command: "\"show conc\""
+    line: Q
+    reason: ass cd
+    show: P->Q
+    command: "\"show cons\""
+    cancel: ass cd drop 2 r cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+errors: 5
+seconds: 121
+
+problem: Deriv 1.103 T3
+statement: " .:P->((P->Q)->Q)"
+  show: P->((P->Q)->Q)
+  command: "\"show conc\""
+    line: P
+    reason: ass cd
+    show: (P->Q)->Q
+    command: "\"show cons\""
+    cancel: ass cd 2 mp cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 34
+
+problem: Deriv 1.104 T4
+statement: " .:(P->Q)->((Q->R)->(P->R))"
+  show: (P->Q)->((Q->R)->(P->R))
+  command: "\"show conc\""
+    line: P->Q
+    reason: ass cd
+    show: (Q->R)->(P->R)
+    command: "\"show cons\""
+      line: Q->R
+      reason: ass cd
+      show: P->R
+      command: "\"show cons\""
+      cancel: "ass cd 2 mp 4 mp cd "
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 22
+
+problem: Deriv 1.105 T5
+statement: " .:(Q->R)->((P->Q)->(P->R))"
+  show: (Q->R)->((P->Q)->(P->R))
+  command: "\"show conc\""
+    line: Q->R
+    reason: ass cd
+    show: (P->Q)->(P->R)
+    command: "\"show cons\""
+      line: P->Q
+      reason: ass cd
+      show: P->R
+      command: "\"show cons\""
+      cancel: ass cd 4 mp 2 mp cd
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 22
+
+problem: Deriv 1.106 T6
+statement: " .:(P->(Q->R))->((P->Q)->(P->R))"
+  show: (P->(Q->R))->((P->Q)->(P->R))
+  command: "\"show conc\""
+    line: P->(Q->R)
+    reason: ass cd
+    show: (P->Q)->(P->R)
+    command: "\"show cons\""
+      line: P->Q
+      reason: ass cd
+      show: P->R
+      command: "\"show cons\""
+      cancel: "ass cd dup 4 mp swap 2 mp mp cd "
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 36
+
+problem: Deriv 1.107 T7
+statement: " .:((P->Q)->(P->R))->(P->(Q->R))"
+  show: ((P->Q)->(P->R))->(P->(Q->R))
+  command: "\"show conc\""
+    line: (P->Q)->(P->R)
+    reason: ass cd
+    show: P->(Q->R)
+    command: "\"show cons\""
+      line: P
+      reason: ass cd
+      show: Q->R
+      command: "\"show cons\""
+      cancel: ass cd mc[P->Q] 2 mp 4 mp cd
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 42
+
+problem: Deriv 1.108 T8
+statement: " .:(P->(Q->R))->(Q->(P->R))"
+  show: (P->(Q->R))->(Q->(P->R))
+  command: "\"show conc\""
+    line: P->(Q->R)
+    reason: ass cd
+    show: Q->(P->R)
+    command: "\"show cons\""
+      line: Q
+      reason: ass cd
+      show: P->R
+      command: "\"show cons \""
+      cancel: ass cd 2 mp 4 mp cd
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 20
+
+problem: Deriv 1.109 T9
+statement: " .:(P->(P->Q))->(P->Q)"
+  show: (P->(P->Q))->(P->Q)
+  command: "\"show conc\""
+    line: P->(P->Q)
+    reason: ass cd
+    show: P->Q
+    command: "\"show cons\""
+    cancel: ass cd dup 2 mp mp cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 32
+
+problem: Deriv 1.110 T10
+statement: " .:((P->Q)->Q)->((Q->P)->P)"
+  show: ((P->Q)->Q)->((Q->P)->P)
+  command: "\"show conc\""
+    line: (P->Q)->Q
+    reason: ass cd
+    show: (Q->P)->P
+    command: "\"show cons\""
+      line: Q->P
+      reason: ass cd
+      show: P
+      command: "\"show cons\""
+      cancel: ass id dup 4 mt 2 mt nc1 sl id
+    cancel: 5 cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 1048
+
+problem: Deriv 1.111 T11
+statement: " .:~~P->P"
+  show: ~~P->P
+  command: "\"show conc\""
+  cancel: ass cd dne cd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.112 T12
+statement: " .:P->~~P"
+  show: P->~~P
+  command: "\"show conc\""
+  cancel: ass cd dni cd
+  line:
+  reason:
+end-box:
+seconds: 9
+
+problem: Deriv 1.113 T13
+statement: " .:(P->Q)->(~Q->~P)"
+  show: (P->Q)->(~Q->~P)
+  command: "\"show conc\""
+    line: P->Q
+    reason: ass cd
+    show: ~Q->~P
+    command: "\"show cons\""
+    cancel: ass cd 2 mt cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 46
+
+problem: Deriv 1.114 T14
+statement: " .:(P->~Q)->(Q->~P)"
+  show: (P->~Q)->(Q->~P)
+  command: "\"show conc\""
+    line: P->~Q
+    reason: ass cd
+    show: Q->~P
+    command: "\"show cons\""
+    cancel: ass cd dni 2 mt cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 33
+
+problem: Deriv 1.115 T15
+statement: " .:(~P->Q)->(~Q->P)"
+  show: (~P->Q)->(~Q->P)
+  command: "\"show conc\""
+    line: ~P->Q
+    reason: ass cd
+    show: ~Q->P
+    command: "\"show cons\""
+    cancel: ass cd 2 mt dne cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.116 T16
+statement: " .:(~P->~Q)->(Q->P)"
+  show: (~P->~Q)->(Q->P)
+  command: "\"show conc\""
+    line: ~P->~Q
+    reason: ass cd
+    show: Q->P
+    command: "\"show cons\""
+    cancel: ass cd dni 2 mt dne cd
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.117 T17
+statement: " .:P->(~P->Q)"
+  show: P->(~P->Q)
+  command: "\"show conc\""
+    line: P
+    reason: ass cd
+    show: ~P->Q
+    command: "\"show cons\""
+    cancel: "ass cd 2 r id "
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.118 T18
+statement: " .:~P->(P->Q)"
+  show: ~P->(P->Q)
+  command: "\"show conc\""
+    line: ~P
+    reason: "ass cd "
+    show: P->Q
+    command: "\"show cons\""
+    cancel: ass cd 2 r id
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 75
+
+problem: Deriv 1.119 T19
+statement: " .:(~P->P)->P"
+  show: (~P->P)->P
+  command: "\"show conc\""
+    line: ~P->P
+    reason: ass cd
+    show: P
+    command: "\"show cons\""
+    cancel: ass id dup 2 mp id
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 23
+
+problem: Deriv 1.120 T20
+statement: " .:(P->~P)->~P"
+  show: (P->~P)->~P
+  command: "\"show conc\""
+    line: P->~P
+    reason: ass cd
+    show: ~P
+    command: "\"show cons\""
+    cancel: ass id[P] dup 2 mp id
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 22
+
+problem: Deriv 1.121 T21
+statement: " .:~(P->Q)->P"
+  show: ~(P->Q)->P
+  command: "\"show conc\""
+  cancel: ass cd nc1 sl cd
+  line:
+  reason:
+end-box:
+seconds: 12
+
+problem: Deriv 1.122 T22
+statement: " .:~(P->Q)->~Q"
+  show: ~(P->Q)->~Q
+  command: "\"show conc\""
+  cancel: ass cd nc1 sr cd
+  line:
+  reason:
+end-box:
+seconds: 11
+
+problem: Deriv 1.123 T23
+statement: " .:((P->Q)->P)->P"
+  show: ((P->Q)->P)->P
+  command: "\"show conc\""
+    line: ((P->Q)->P)&~P
+    reason: ass id nc1
+  cancel: 2 sr 2 sl mt nc1 sl 2 sr id
+  line:
+  reason:
+end-box:
+seconds: 8
+
+problem: Deriv 1.701
+statement: " P->R   .:   P->(Q->R)"
+end-box:
+
+problem: Deriv 1.702
+statement: " ~W.  Z.  (U->W)->W.  ~(U->W)->(~Y->~Z)   .:   Y"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.702
+
+problem: Deriv 1.703
+statement: " P->S.  R->S   .:   ((P->Q)->R)->S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.703
+
+problem: Deriv 1.704
+statement: "  .:   (P->Q)->(~(P->R)->~(Q->R))"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.704
+
+problem: Deriv 1.705
+statement: " ~(P->Q).  ~Q->R   .:   R"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.705
+
+problem: Deriv 1.706
+statement: "  .:   ~(P->~P)->(~P->P)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.706
+
+problem: Deriv 1.707
+statement: " (P->(Q->R))->S.  P->R   .:   Q->S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.707
+
+problem: Deriv 1.708
+statement: " Q->~R.  ~Q->Q   .:   ((P->Q)->R)->S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.708
+
+problem: Deriv 1.709
+statement: " (R->S)->~(P->R)   .:   R->~S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.709
+
+problem: Deriv 1.710
+statement: " Q->~R.  ~Q->Q   .:   ~((P->Q)->R)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.710
+
+problem: Deriv 1.711
+statement: " U->Q.  (P->Q)->((P->R)->~U).  ~(P->R)->(~(~T->~U)->~(P->Q))   .:   U->T"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.711
+
+problem: Deriv 1.712
+statement: " (~R->~(Q->S))->~(~(Q->S)->~R).  ~Q   .:   R->S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.712
+
+problem: Deriv 1.713
+statement: " ~((U->T)->~Q).  ~(P->(Q->R))->(Q->S).  (~(Q->R)->~P)->((~T->~U)->S)   .:   S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 1.713
+
+problem: Deriv 1.801
+statement: " P->R   .:   P->(Q->R)"
+  show: P->(Q->R)
+  command: "\"show conc\""
+  cancel: "ass cd pr1 mp mc[Q->R] cd "
+  line:
+  reason:
+end-box:
+seconds: 32
+
+problem: Deriv 1.802
+statement: " ~W.  Z.  (U->W)->W.  ~(U->W)->(~Y->~Z)   .:   Y"
+  show: Y
+  command: "\"show conc\""
+  cancel: pr1 pr3 mt pr4 mp pr2 dni mt dne dd
+  line:
+  reason:
+end-box:
+seconds: 35
+
+problem: Deriv 1.803
+statement: " P->S.  R->S   .:   ((P->Q)->R)->S"
+  show: ((P->Q)->R)->S
+  command: "\"show conc\""
+    line: (P->Q)->R
+    reason: ass cd
+    show: S
+    command: "\"show cons\""
+    cancel: ass id dup pr1 mt mc[P->Q] 2 mp pr2 mp id
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 128
+
+problem: Deriv 1.804
+statement: "  .:   (P->Q)->(~(P->R)->~(Q->R))"
+  show: (P->Q)->(~(P->R)->~(Q->R))
+  command: "\"show conc\""
+    line: P->Q
+    reason: ass cd
+    show: ~(P->R)->~(Q->R)
+    command: "\"show cons\""
+    cancel: "ass cd nc1 dup sr swap sl 2 mp adj[Q & ~R] nc2 cd "
+  cancel: 3 cd
+  line:
+  reason:
+end-box:
+seconds: 109
+
+problem: Deriv 1.805
+statement: " ~(P->Q).  ~Q->R   .:   R"
+  show: R
+  command: "\"show conc\""
+  cancel: pr1 nc1 sr pr2 mp dd
+  line:
+  reason:
+end-box:
+seconds: 15
+
+problem: Deriv 1.806
+statement: "  .:   ~(P->~P)->(~P->P)"
+  show: ~(P->~P)->(~P->P)
+  command: "\"show conc\""
+  cancel: ass cd nc1 sl mc[~P -> P] cd
+  line:
+  reason:
+end-box:
+seconds: 43
+
+problem: Deriv 1.807
+statement: " (P->(Q->R))->S.  P->R   .:   Q->S"
+  show: Q->S
+  command: "\"show conc\""
+  cancel: "ass id nc1 sr pr1 mt nc1 dup sr swap sl pr2 mp swap nc1 sr id "
+  line:
+  reason:
+end-box:
+seconds: 74
+
+problem: Deriv 1.808
+statement: " Q->~R.  ~Q->Q   .:   ((P->Q)->R)->S"
+  show: ((P->Q)->R)->S
+  command: "\"show conc\""
+  cancel: ass cd pr2 cdj1 pr1 pr1 sc2 mt nc1 sr dup pr2 cdj1 mtpl id
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification: 1:SC2{0,1,2}R:~R.Q:Q.P:Q,
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  line:
+  reason:
+end-box:
+seconds: 6
+
+problem: Deriv 1.809
+statement: " (R->S)->~(P->R)   .:   R->~S"
+  show: R->~S
+  command: "\"show conc\""
+  cancel: ass id nc1 dup sl swap sr dne mc[R->S] pr1 mp nc1 sr id
+  line:
+  reason:
+end-box:
+seconds: 58
+
+problem: Deriv 1.810
+statement: " Q->~R.  ~Q->Q   .:   ~((P->Q)->R)"
+  show: ~((P->Q)->R)
+  command: "\"show conc\""
+  cancel: ass id[(P -> Q) -> R] pr2 cdj1 pr1 pr1 sc2 mt nc1  sr dup pr2 mp id
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification: 1:SC2{0,1,2}R:~R.Q:Q.P:Q,
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  cached-justification:
+  line:
+  reason:
+end-box:
+seconds: 136
+
+problem: Deriv 1.811
+statement: " U->Q.  (P->Q)->((P->R)->~U).  ~(P->R)->(~(~T->~U)->~(P->Q))   .:   U->T"
+  show: U->T
+  command: "\"show conc\""
+    line: U
+    reason: "ass cd "
+  cancel: 2 pr1 mp mc[P->Q] dup pr2 mp 2 dni mt pr3 mp swap dni mt dne 2 dni mt dne cd
+  line:
+  reason:
+end-box:
+seconds: 188
+
+problem: Deriv 1.812
+statement: " (~R->~(Q->S))->~(~(Q->S)->~R).  ~Q   .:   R->S"
+  show: R->S
+  command: "\"show conc\""
+  cancel: "ass cd dni mc2[~R -> ~(Q->S)] pr1 mp nc1 sl nc1 sl pr2 id "
+  line:
+  reason:
+end-box:
+seconds: 86
+
+problem: Deriv 1.813
+statement: " ~((U->T)->~Q).  ~(P->(Q->R))->(Q->S).  (~(Q->R)->~P)->((~T->~U)->S)   .:   S"
+end-box:
+
+problem: Deriv 2.00a
+flag: c
+flag: q
+statement: " .: (P&Q->R)->(P->(Q->R))"
+end-box:
+common-name: Deriv 2.00a
+
+problem: Deriv 2.00b
+flag: c
+flag: q
+statement: " P|Q. ~P. T->P .: Q&~T"
+end-box:
+common-name: Deriv 2.00b
+
+problem: Deriv 2.00c
+flag: c
+flag: q
+statement: " P&~Q. T|Q. T|R->S .: S"
+end-box:
+common-name: Deriv 2.00c
+
+problem: Deriv 2.00cEG1
+statement: " P&~Q. T|Q. T|R->S .: S"
+  show: S
+  command: "\"show conc\""
+    line: ~S
+    reason: ass id
+    line: ~(T|R)
+    reason: 2 pr3 mt
+    line: ~Q
+    reason: pr1 sr
+    line: T
+    reason: 4 pr2 mtp
+    line: T|R
+    reason: 5 addr/R
+    cached-justification: 1:AddR{0}Q:R.P:T,
+  cancel: 6 3 id
+end-box:
+options: eg
+common-name: Deriv 2.00cEG1
+
+problem: Deriv 2.00cEG2
+statement: " P&~Q. T|Q. T|R->S .: S"
+  show: S
+  command: "\"show conc\""
+    line: ~S
+    reason: ass id
+    line: ~(T|R)
+    reason: 2 pr3 mt
+    show: T|R
+    command: "\"show unneg 3\""
+      show: ~T->R
+      command: "\"show corr\""
+        line: ~T
+        reason: ass cd
+        line: Q
+        reason: 6 pr2 mtp
+        line: ~Q
+        reason: "pr1 sr "
+      cancel: 8 7 id
+      line: T|R
+      reason: 5 cdj
+      cached-justification: 1:CDJ1{0}Q:R.P:T,
+    cancel: 10 dd
+  cancel: 4 3 id
+end-box:
+options: eg
+common-name: Deriv 2.00cEG2
+
+problem: Deriv 2.00cEG3
+statement: " P&~Q. T|Q. T|R->S .: S"
+  show: S
+  command: "\"show conc\""
+    line: ~S
+    reason: ass id
+    line: ~(T|R)
+    reason: 2 pr3 mt
+    show: T|R
+    command: "\"show unneg 3\""
+      show: ~T->R
+      command: "\"show corr\""
+        line: ~T
+        reason: ass cd
+        show: R
+        command: "\"show cons\""
+          line: ~R
+          reason: ass id
+          line: Q
+          reason: 6 pr2 mtp
+          line: ~Q
+          reason: "pr1 sr "
+        cancel: 10 9 id
+      cancel: 7 cd
+      line: T|R
+      reason: 5 cdj
+      cached-justification: 1:CDJ1{0}Q:R.P:T,
+    cancel: 13 dd
+  cancel: 4 3 id
+end-box:
+options: eg
+common-name: Deriv 2.00cEG3
+
+problem: Deriv 2.00d
+flag: c
+flag: q
+statement: " S&(Q|R). Q|R->(T->P) .: ~P->~T"
+end-box:
+common-name: Deriv 2.00d
+
+problem: Deriv 2.00dEG1
+statement: " S&(Q|R). Q|R->(T->P) .: ~P->~T"
+  show: ~P->~T
+  command: "\"show conc\""
+    line: ~P
+    reason: ass cd
+    show: ~T
+    command: "\"show cons\""
+      line: T
+      reason: ass id
+      cached-justification: 3:-
+      line: T->P
+      reason: pr1 sr pr2 mp
+      line: P
+      reason: 5 4 mp
+      line: ~P
+      reason: 2 r
+    cancel: 7 6 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.00dEG1
+
+problem: Deriv 2.00e
+flag: c
+flag: q
+statement: " P<->~Q&S. P&(~T->~S) .: ~Q&T"
+end-box:
+common-name: Deriv 2.00e
+
+problem: Deriv 2.00eEG1
+statement: " P<->~Q&S. P&(~T->~S) .: ~Q&T"
+  show: ~Q&T
+  command: "\"show conc\""
+    show: ~Q
+    command: "\"show conj\""
+      line: Q
+      reason: ass id
+      cached-justification: 3:-
+      line: P->~Q&S
+      reason: pr1 bcl
+      line: P
+      reason: pr2 sl
+      line: ~Q&S
+      reason: 5 4 mp
+      line: ~Q
+      reason: 6 sl
+    cancel: 7 3 id
+    show: T
+    command: "\"show conj\""
+      line: ~T
+      reason: ass id
+      line: ~T->~S
+      reason: pr2 sr
+      line: ~S
+      reason: 11 10 mp
+      line: P->~Q&S
+      reason: pr1 bcl
+      line: P
+      reason: pr2 sl
+      line: ~Q&S
+      reason: 14 13 mp
+      line: S
+      reason: 15 sr
+    cancel: 16 12 id
+    line: ~Q&T
+    reason: 9 2 adj
+    cached-justification: 1:Adj{1,0}Q:T.P:~Q,
+  cancel: 18 dd
+end-box:
+options: eg
+common-name: Deriv 2.00eEG1
+
+problem: Deriv 2.00eEG2
+statement: " P<->~Q&S. P&(~T->~S) .: ~Q&T"
+  show: ~Q&T
+  command: "\"show conc\""
+    line: P->~Q&S
+    reason: pr1 bcl
+    line: P
+    reason: pr2 sl
+    line: ~Q&S
+    reason: 3 2 mp
+    show: ~Q
+    command: "\"show conj\""
+      line: Q
+      reason: ass id
+      cached-justification: 3:-
+      line: ~Q
+      reason: 4 sl
+    cancel: 7 6 id
+    show: T
+    command: "\"show conj\""
+      line: ~T
+      reason: ass id
+      line: ~T->~S
+      reason: pr2 sr
+      line: ~S
+      reason: 11 10 mp
+      line: S
+      reason: 4 sr
+    cancel: 13 12 id
+    line: ~Q&T
+    reason: 9 5 adj
+    cached-justification: 1:Adj{1,0}Q:T.P:~Q,
+  cancel: 15 dd
+end-box:
+options: eg
+common-name: Deriv 2.00eEG2
+
+problem: Deriv 2.00eEG3
+statement: " P<->~Q&S. P&(~T->~S) .: ~Q&T"
+  show: ~Q&T
+  command: "\"show conc\""
+    line: P->~Q&S
+    reason: pr1 bcl
+    line: P
+    reason: pr2 sl
+    line: ~Q&S
+    reason: 3 2 mp
+    line: ~T->~S
+    reason: pr2 sr
+    line: S
+    reason: 4 sr
+    line: ~~S
+    reason: 6 dn
+    line: ~~T
+    reason: 7 5 mt
+    line: T
+    reason: 8 dn
+    cached-justification: 1:DNE{0}P:T,
+    line: ~Q
+    reason: 4 sl
+    line: ~Q&T
+    reason: 10 9 adj
+    cached-justification: 1:Adj{0,1}Q:T.P:~Q,
+  cancel: 11 dd
+end-box:
+options: eg
+common-name: Deriv 2.00eEG3
+
+problem: Deriv 2.00eEG4
+statement: " P<->~Q&S. P&(~T->~S) .: ~Q&T"
+  show: ~Q&T
+  command: "\"show conc\""
+    line: P
+    reason: pr2 SL
+    line: ~Q&S
+    reason: 2 pr1 BP
+    line: ~T->~S
+    reason: pr2 SR
+    line: T
+    reason: 3 SR DN 4 MT DN
+    cached-justification:
+    cached-justification:
+    cached-justification:
+    cached-justification: 1:DNE{0}P:T,
+    line: ~Q&T
+    reason: 3 SL 5 ADJ
+    cached-justification:
+    cached-justification: 1:Adj{0,1}Q:T.P:~Q,
+  cancel: 6 dd
+end-box:
+options: eg
+common-name: Deriv 2.00eEG4
+
+problem: Deriv 2.00f
+flag: c
+flag: q
+statement: " (Q->P)->R. ~Q|S. ~S .: ~R->T"
+end-box:
+common-name: Deriv 2.00f
+
+problem: Deriv 2.00g
+flag: c
+flag: q
+statement: " P|Q<->P&Q .: P<->Q"
+end-box:
+common-name: Deriv 2.00g
+
+problem: Deriv 2.00gEG1
+statement: " P|Q<->P&Q .: P<->Q"
+  show: P<->Q
+  command: "\"show conc\""
+    show: P->Q
+    command: "\"show cond\""
+      line: P
+      reason: ass cd
+      show: Q
+      command: "\"show cons\""
+        line: ~Q
+        reason: ass id
+        line: P|Q
+        reason: 3 ADDr/Q
+        cached-justification: 1:AddR{0}Q:Q.P:P,
+        line: P&Q
+        reason: 6 pr BP
+        line: Q
+        reason: 7 Sr
+      cancel: 8 5 id
+    cancel: 4 cd
+    show: Q->P
+    command: "\"show cond\""
+      line: Q
+      reason: ass cd
+      show: P
+      command: "\"show cons\""
+        line: ~P
+        reason: ass id
+        line: P|Q
+        reason: 12 ADDl/P
+        cached-justification: 1:AddL{0}Q:P.P:Q,
+        line: P&Q
+        reason: 15 pr BP
+        line: P
+        reason: 16 Sl
+      cancel: 17 14 id
+    cancel: 13 cd
+    line: P<->Q
+    reason: 11 2 CB
+    cached-justification: 1:CB{1,0}Q:Q.P:P,
+  cancel: 20 dd
+end-box:
+options: eg
+common-name: Deriv 2.00gEG1
+
+problem: Deriv 2.00gEG2
+statement: " P|Q<->P&Q .: P<->Q"
+  show: P<->Q
+  command: "\"show conc\""
+    show: P->Q
+    command: "\"show cond\""
+      line: P
+      reason: ass cd
+      line: P|Q
+      reason: 3 ADDr/Q
+      cached-justification: 1:AddR{0}Q:Q.P:P,
+      line: P&Q
+      reason: 4 pr BP
+      line: Q
+      reason: 5 Sr
+    cancel: 6 cd
+    show: Q->P
+    command: "\"show cond\""
+      line: Q
+      reason: ass cd
+      line: P|Q
+      reason: 9 ADDl/P
+      cached-justification: 1:AddL{0}Q:P.P:Q,
+      line: P&Q
+      reason: 10 pr BP
+      line: P
+      reason: 11 Sl
+    cancel: 12 cd
+    line: P<->Q
+    reason: 8 2 CB
+    cached-justification: 1:CB{1,0}Q:Q.P:P,
+  cancel: 14 dd
+end-box:
+options: eg
+common-name: Deriv 2.00gEG2
+
+problem: Deriv 2.00h
+flag: c
+flag: q
+statement: " Q<->~P. ~Q->R .: P<->(~Q&R)"
+end-box:
+common-name: Deriv 2.00h
+
+problem: Deriv 2.00i
+flag: c
+flag: q
+statement: " (P|R)->~~Q. (Q&R)->P. R .: P<->Q"
+end-box:
+common-name: Deriv 2.00i
+
+problem: Deriv 2.00j
+flag: c
+flag: q
+statement: " ~(P<->Q).: (P->Q)->~P"
+end-box:
+common-name: Deriv 2.00j
+
+problem: Deriv 2.001
+flag: c
+flag: q
+statement: " P|R. ~R&T. P|(Q&T)->S .: S"
+end-box:
+common-name: Deriv 2.001
+
+problem: Deriv 2.001EG1
+statement: " P|R. ~R&T. P|(Q&T)->S .: S"
+  show: S
+  command: "\"show conc\""
+    line: ~S
+    reason: ass id
+    line: ~(P|(Q&T))
+    reason: 2 pr3 mt
+    line: ~P&~(Q&T)
+    reason: 3 dm
+    line: R
+    reason: 4 sl pr1 mtp
+    line: ~R
+    reason: "pr2 sl "
+  cancel: 5 6 id
+end-box:
+options: eg
+common-name: Deriv 2.001EG1
+
+problem: Deriv 2.002
+flag: c
+flag: q
+statement: " (P|Q)&~R. ~R->(S&~P). Q->(P|T) .: ~T->U"
+end-box:
+common-name: Deriv 2.002
+
+problem: Deriv 2.003
+flag: c
+flag: q
+statement: " (P<->~Q)->R .: ~R&P->Q"
+end-box:
+common-name: Deriv 2.003
+
+problem: Deriv 2.003Err
+statement: " (P<->~Q)->R .: ~R&P->Q"
+  show: ~R&P->Q
+  command: "\"Show Concl\""
+    line: ~R&P
+    reason: Ass CD
+    show: Q
+    command: "\"Show Conseq\""
+      line: ~Q
+      reason: Ass DD
+      line: ~R
+      reason: 2 DN
+      line: (P<->~Q)->R
+      reason: PR
+      line: ~(P<->~Q)
+      reason: 6 5 MP
+      show: P<->~Q
+      command: "\"Show Unneg 7\""
+        show: P->~Q
+        command: "\"Show Cond\""
+          line: ~Q
+          reason: 4 R
+        cancel: 10 CD
+        show: ~Q->P
+        command: "\"Show Cond\""
+          line: P
+          reason: 2 S
+          cached-justification: 1:SR{0}Q:P.P:~R,
+        cancel: 13 CD
+        line: P<->~Q
+        reason: 12 9 BC
+      cancel: 15 DD
+    cancel: 8 7 ID
+    line:
+    reason:
+  end-box:
+end-box:
+note: Click "Check" to display errors, then click "?" for more detail.
+options: eg
+common-name: Deriv 2.003Err
+
+problem: Deriv 2.004
+flag: c
+flag: q
+statement: " ~(~R->(Q&T)). ~S|R .: ~S"
+end-box:
+common-name: Deriv 2.004
+
+problem: Deriv 2.005
+statement: " S|R->Q. ~(P|~S) .: ~(P<->Q)"
+end-box:
+note: Suggestion: use DM2, which you enabled in proving T66.
+common-name: Deriv 2.005
+
+problem: Deriv 2.005EG1
+statement: " S|R->Q. ~(P|~S) .: ~(P<->Q)"
+  show: ~(P<->Q)
+  command: "\"show conc\""
+    line: P<->Q
+    reason: ass id
+    cached-justification: 3:-
+    show: P|~S
+    command: "\"show unneg pr2\""
+      show: ~P->~S
+      command: "\"show corr\""
+        line: ~P
+        reason: ass cd
+        show: ~S
+        command: "\"show cons\""
+          line: S
+          reason: ass id
+          cached-justification: 3:-
+          line: S|R
+          reason: 7 addr/R
+          cached-justification: 1:AddR{0}Q:R.P:S,
+          line: Q
+          reason: 8 pr1 mp
+          line: P
+          reason: 2 bcr 9 mp
+          line: ~P
+          reason: 5 r
+        cancel: 11 10 id
+      cancel: 6 cd
+      line: P|~S
+      reason: 4 cdj
+      cached-justification: 1:CDJ1{0}Q:~S.P:P,
+    cancel: 14 dd
+  cancel: 3 pr2 id
+end-box:
+options: eg
+common-name: Deriv 2.005EG1
+
+problem: Deriv 2.005EG2
+statement: " S|R->Q. ~(P|~S) .: ~(P<->Q)"
+  show: ~(P<->Q)
+  command: "\"show conc\""
+    line: P<->Q
+    reason: ass id
+    cached-justification: 3:-
+    line: ~P&~~S
+    reason: pr2 dm
+    line: S
+    reason: 3 sr dn
+    cached-justification:
+    cached-justification: 1:DNE{0}P:S,
+    line: S|R
+    reason: 4 addr/R
+    cached-justification: 1:AddR{0}Q:R.P:S,
+    line: Q
+    reason: 5 pr1 mp
+    line: P
+    reason: 6 2 bp
+    line: ~P
+    reason: 3 sl
+  cancel: 8 7 id
+end-box:
+options: eg
+common-name: Deriv 2.005EG2
+
+problem: Deriv 2.005EG3
+statement: " S|R->Q. ~(P|~S) .: ~(P<->Q)"
+  show: ~(P<->Q)
+  command: "\"show conc\""
+    line: P<->Q
+    reason: ass id
+    cached-justification: 3:-
+    line: ~P&~~S
+    reason: pr2 dm
+    show: S|R
+    command: "\"show ant pr1\""
+      line: ~(S|R)
+      reason: ass id
+      line: ~S&~R
+      reason: 5 dm
+      line: ~S
+      reason: 6 sl
+      line: ~~S
+      reason: 3 sr
+    cancel: 8 7 id
+    line: Q
+    reason: 4 pr1 mp
+    line: P
+    reason: 10 2 bp
+    line: ~P
+    reason: 3 sl
+  cancel: 12 11 id
+end-box:
+options: eg
+common-name: Deriv 2.005EG3
+
+problem: Deriv 2.006
+flag: c
+flag: q
+statement: " (P->Q)&(R->P). (P|R)&~(Q&R) .: (P&Q)&~R"
+end-box:
+common-name: Deriv 2.006
+
+problem: Deriv 2.007
+flag: c
+flag: q
+statement: " ~P|~Q. ~P->Q. P&~Q->R. ~P&Q->R .: R"
+end-box:
+common-name: Deriv 2.007
+
+problem: Deriv 2.008
+flag: c
+flag: q
+statement: " (P->Q)->R. S->(~Q->T) .: R|~T->(S->R)"
+end-box:
+common-name: Deriv 2.008
+
+problem: Deriv 2.008EG1
+statement: " (P->Q)->R. S->(~Q->T) .: R|~T->(S->R)"
+  show: R|~T->(S->R)
+  command: "\"show conc\""
+    line: R|~T
+    reason: ass cd
+    show: S->R
+    command: "\" show cons\""
+      line: S
+      reason: ass cd
+      show: R
+      command: "\"show cons\""
+        line: ~R
+        reason: ass id
+        line: ~Q->T
+        reason: 4 pr2 mp
+        line: ~(P->Q)
+        reason: 6 pr1 mt
+        line: P&~Q
+        reason: 8 nc
+        line: T
+        reason: 9 sr 7 mp
+        line: ~T
+        reason: 2 6 mtp
+      cancel: 11 10 id
+    cancel: 5 cd
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.008EG1
+
+problem: Deriv 2.009
+flag: c
+flag: q
+statement: " .: (P<->(P->Q))->Q"
+end-box:
+common-name: Deriv 2.009
+
+problem: Deriv 2.009EG1
+statement: " .: (P<->(P->Q))->Q"
+  show: (P<->(P->Q))->Q
+  command: "\"show conc\""
+    line: P<->(P->Q)
+    reason: ass cd
+    show: Q
+    command: "\"show cons\""
+      line: ~Q
+      reason: ass id
+      line: P->(P->Q)
+      reason: 2 BC
+      cached-justification: 1:BCL{0}Q:P->Q.P:P,
+      show: P
+      command: "\"show ant 5\""
+        line: ~P
+        reason: ass id
+        line: (P->Q)->P
+        reason: 2 BC
+        cached-justification: 1:BCR{0}Q:P->Q.P:P,
+        line: ~(P->Q)
+        reason: 8 7 MT
+        line: P&~Q
+        reason: 9 NC
+        line: P
+        reason: 10 Sl
+      cancel: 11 7 id
+      line: P->Q
+      reason: 6 5 MP
+      line: Q
+      reason: 13 6 MP
+    cancel: 14 4 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.009EG1
+
+problem: Deriv 2.009EG2
+statement: " .: (P<->(P->Q))->Q"
+  show: (P<->(P->Q))->Q
+  command: "\"show conc\""
+    line: P<->(P->Q)
+    reason: ass cd
+    show: Q
+    command: "\"show cons\""
+      line: ~Q
+      reason: ass id
+      line: (P->Q)->P
+      reason: 2 BC
+      cached-justification: 1:BCR{0}Q:P->Q.P:P,
+      show: P->Q
+      command: "\"show ant 5\""
+        line: P
+        reason: ass cd
+        line: P->Q
+        reason: 7 2 BP
+      cancel: 8 dd
+      line: P
+      reason: 6 2 BP
+      line: Q
+      reason: 10 6 MP
+    cancel: 11 4 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.009EG2
+
+problem: Deriv 2.010
+statement: " P<->S. ~Q->~P. ~R->P .: R|(S&Q)"
+end-box:
+note: Suggestion: use "Show_Corr" and then CDJ.
+common-name: Deriv 2.010
+
+problem: Deriv 2.011
+statement: " P&Q->R|S .: (P->R)|(Q->S)"
+end-box:
+note: Suggestion: use DM2 and NC.
+common-name: Deriv 2.011
+
+problem: Deriv 2.012
+flag: c
+flag: q
+statement: " .: (P&R->Q|S)->(P->Q)|(R->S)"
+end-box:
+common-name: Deriv 2.012
+
+problem: Deriv 2.013
+statement: " R|S. S->~(Q->~P) .: P|R"
+end-box:
+note: Suggestion: use DM2 and NC.
+common-name: Deriv 2.013
+
+problem: Deriv 2.014
+flag: c
+flag: q
+statement: " .: ((P->Q)|R)<->(P->Q|R)"
+end-box:
+common-name: Deriv 2.014
+
+problem: Deriv 2.015
+flag: c
+flag: q
+statement: " S|P. (~Q|T)->~S .: (Q|R)|(P&~R)"
+end-box:
+common-name: Deriv 2.015
+
+problem: Deriv 2.016
+flag: c
+flag: q
+statement: " P<->Q. P<->R .: P<->Q|R"
+end-box:
+common-name: Deriv 2.016
+
+problem: Deriv 2.017
+flag: c
+flag: q
+statement: " P|~Q. P->(V&T). (~V|~Q)->T .: R|T"
+end-box:
+common-name: Deriv 2.017
+
+problem: Deriv 2.018
+statement: " R|T. ~P<->(~P->Q) .: (R|S)|(T&Q)"
+end-box:
+note: This is a difficult problem.  Suggestion: use BC, and then "Show_Ant".
+common-name: Deriv 2.018
+
+problem: Deriv 2.019
+flag: c
+flag: q
+statement: " (P->Q)|(R->S) .: (P->S)|(R->Q)"
+end-box:
+common-name: Deriv 2.019
+
+problem: Deriv 2.019EG1
+statement: " (P->Q)|(R->S) .: (P->S)|(R->Q)"
+  show: (P->S)|(R->Q)
+  command: "\"show conc\""
+    show: ~(P->S)->(R->Q)
+    command: "\"show corr\""
+      line: ~(P->S)
+      reason: ass cd
+      show: R->Q
+      command: "\"show cons\""
+        line: R
+        reason: ass cd
+        show: Q
+        command: "\" show cons\""
+          line: ~Q
+          reason: ass id
+          show: P->S
+          command: "\"show unneg 3\""
+            line: P
+            reason: ass cd
+            show: S
+            command: "\"show cons\""
+              line: ~S
+              reason: ass id
+              show: ~(P->Q)
+              command: "\"show NegDisj pr\""
+                line: P->Q
+                reason: ass id
+                cached-justification: 3:-
+                line: Q
+                reason: 9 13 MP
+                line: ~Q
+                reason: 7 R
+              cancel: 15 14 id
+              line: R->S
+              reason: 12 pr MTP
+              line: S
+              reason: 17 5 MP
+              line: ~S
+              reason: 11 R
+            cancel: 19 18 id
+          cancel: 10 cd
+          line: ~(P->S)
+          reason: 3 R
+        cancel: 22 8 id
+      cancel: 6 cd
+      line:
+      reason:
+    cancel: 4 cd
+    line: (P->S)|(R->Q)
+    reason: 2 CDJ
+    cached-justification: 1:CDJ1{0}Q:R->Q.P:P->S,
+  cancel: 27 dd
+end-box:
+options: eg
+common-name: Deriv 2.019EG1
+
+problem: Deriv 2.019EG2
+statement: " (P->Q)|(R->S) .: (P->S)|(R->Q)"
+  show: (P->S)|(R->Q)
+  command: "\"show conc\""
+    show: ~(P->S)->(R->Q)
+    command: "\"show corr\""
+      line: ~(P->S)
+      reason: ass cd
+      show: R->Q
+      command: "\"show cons\""
+        line: R
+        reason: ass cd
+        show: Q
+        command: "\" show cons\""
+          line: ~Q
+          reason: ass id
+          line: P&~S
+          reason: 3 NC
+          line: P&~Q
+          reason: 8 Sl 7 ADJ
+          cached-justification:
+          cached-justification: 1:Adj{0,1}Q:~Q.P:P,
+          line: ~(P->Q)
+          reason: 9 NC
+          line: R->S
+          reason: 10 pr MTP
+          line: S
+          reason: 11 5 MP
+          line: ~S
+          reason: 8 Sr
+        cancel: 13 12 id
+      cancel: 6 cd
+    cancel: 4 cd
+    line: (P->S)|(R->Q)
+    reason: 2 CDJ
+    cached-justification: 1:CDJ1{0}Q:R->Q.P:P->S,
+  cancel: 17 dd
+end-box:
+options: eg
+common-name: Deriv 2.019EG2
+
+problem: Deriv 2.020
+flag: c
+flag: q
+statement: " ~(R<->S)<->(P->Q) .: (R<->~S)<->~P|Q"
+end-box:
+common-name: Deriv 2.020
+
+problem: Deriv 2.021
+statement: " (~P&~Q)|(~~R&~S). ~(S|Q). T->(~S->~R&P) .: ~T"
+end-box:
+note: This is a difficult problem.  Suggestion: use "Show_NegDisj".
+common-name: Deriv 2.021
+
+problem: Deriv 2.022
+flag: c
+flag: q
+statement: " (P&Q)->((R|S)&~(R&S)). S->(R&Q)|(~R&~Q)|~P. R&Q->S .: P->~Q"
+end-box:
+common-name: Deriv 2.022
+
+problem: Deriv 2.022EG1
+statement: " (P&Q)->((R|S)&~(R&S)). S->(R&Q)|(~R&~Q)|~P. R&Q->S .: P->~Q"
+  show: P->~Q
+  command: "\"show conc\""
+    line: P
+    reason: ass cd
+    show: ~Q
+    command: "\"show cons\""
+      line: Q
+      reason: ass id
+      cached-justification: 3:-
+      line: (R|S)&~(R&S)
+      reason: 4 2 adj pr1 mp
+      cached-justification: 1:Adj{1,0}Q:Q.P:P,
+      cached-justification:
+      cached-justification:
+      line: ~(R&S)
+      reason: 5 sr
+      show: R&S
+      command: "\"show unneg 6\""
+        show: R
+        command: "\"show conj\""
+          line: ~R
+          reason: ass id
+          line: S
+          reason: 9 5 sl mtp
+          line: (R&Q)|(~R&~Q)|~P
+          reason: 10 pr2 mp
+          line: (R&Q)|(~R&~Q)
+          reason: 2 dn 11 mtp
+          show: ~(R&Q)
+          command: "\"show negdisj 12\""
+            line: R&Q
+            reason: ass id
+            cached-justification: 3:-
+          cancel: 14 sl 9 r id
+          line: ~R&~Q
+          reason: 13 12 mtp
+        cancel: 16 sr 4 r id
+        show: S
+        command: "\"show conj\""
+          line: ~S
+          reason: ass id
+          line: ~(R&Q)
+          reason: 19 pr3 mt
+          line: R&Q
+          reason: 8 4 adj
+          cached-justification: 1:Adj{0,1}Q:Q.P:R,
+        cancel: 21 20 id
+        line: R&S
+        reason: 18 8 adj
+        cached-justification: 1:Adj{1,0}Q:S.P:R,
+      cancel: 23 dd
+    cancel: 7 6 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.022EG1
+
+problem: Deriv 2.023
+flag: c
+flag: q
+statement: " .: ((Q<->R)<->(R<->T))->((Q<->~T)->R)"
+end-box:
+common-name: Deriv 2.023
+
+problem: Deriv 2.023EG1
+statement: " .: ((Q<->R)<->(R<->T))->((Q<->~T)->R)"
+  show: ((Q<->R)<->(R<->T))->((Q<->~T)->R)
+  command: "\"show conc\""
+    line: (Q<->R)<->(R<->T)
+    reason: ass cd
+    show: (Q<->~T)->R
+    command: "\" show cons\""
+      line: Q<->~T
+      reason: ass cd
+      show: R
+      command: "\"show cons\""
+        line: ~R
+        reason: ass id
+        line: Q->~T
+        reason: 4 bcl
+        show: Q
+        command: "\"show ant 7\""
+          line: ~Q
+          reason: ass id
+          line: ~Q&~R
+          reason: 9 6 adj
+          cached-justification: 1:Adj{0,1}Q:~R.P:~Q,
+          line: Q<->R
+          reason: 10 cjb
+          cached-justification: 1:CJB2{0}Q:R.P:Q,
+          line: R<->T
+          reason: 11 2 bp
+          line: ~T
+          reason: 12 6 bt
+          line: Q
+          reason: 13 4 bp
+        cancel: 14 9 id
+        line: ~T
+        reason: 8 7 mp
+        line: ~R&~T
+        reason: 16 6 adj
+        cached-justification: 1:Adj{1,0}Q:~T.P:~R,
+        line: R<->T
+        reason: 17 cjb
+        cached-justification: 1:CJB2{0}Q:T.P:R,
+        line: Q<->R
+        reason: 18 2 bp
+        line: R
+        reason: 19 8 bp
+      cancel: 20 dd
+    cancel: 5 cd
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 2.023EG1
+
+problem: Deriv 2.024 T24
+flag: c
+flag: q
+statement: " .:P&Q<->Q&P"
+end-box:
+proves: COM1.T24
+common-name: Deriv 2.024 T24
+
+problem: Deriv 2.025 T25
+flag: c
+flag: q
+statement: " .:P&(Q&R)<->(P&Q)&R"
+end-box:
+proves: ASSOC1.ASSOC2.T25
+common-name: Deriv 2.025 T25
+
+problem: Deriv 2.026 T26
+flag: c
+flag: q
+statement: " .:(P->Q)&(Q->R)->(P->R)"
+end-box:
+proves: T26
+common-name: Deriv 2.026 T26
+
+problem: Deriv 2.027 T27
+flag: c
+flag: q
+statement: " .:(P&Q->R)<->(P->(Q->R))"
+end-box:
+proves: EXP1.EXP2.T27
+common-name: Deriv 2.027 T27
+
+problem: Deriv 2.028 T28
+flag: c
+flag: q
+statement: " .:(P&Q->R)<->(P&~R->~Q)"
+end-box:
+proves: T28
+common-name: Deriv 2.028 T28
+
+problem: Deriv 2.029 T29
+flag: c
+flag: q
+statement: " .:(P->Q&R)<->(P->Q)&(P->R)"
+end-box:
+proves: T29
+common-name: Deriv 2.029 T29
+
+problem: Deriv 2.030 T30
+flag: c
+flag: q
+statement: " .:(P->Q)->(R&P->R&Q)"
+end-box:
+proves: T30
+common-name: Deriv 2.030 T30
+
+problem: Deriv 2.031 T31
+flag: c
+flag: q
+statement: " .:(P->Q)->(P&R->Q&R)"
+end-box:
+proves: T31
+common-name: Deriv 2.031 T31
+
+problem: Deriv 2.032 T32
+flag: c
+flag: q
+statement: " .:(P->R)&(Q->S)->(P&Q->R&S)"
+end-box:
+proves: T32
+common-name: Deriv 2.032 T32
+
+problem: Deriv 2.033 T33
+flag: c
+flag: q
+statement: " .:(P->Q)&(~P->Q)->Q"
+end-box:
+proves: SC1.T33
+common-name: Deriv 2.033 T33
+
+problem: Deriv 2.034 T34
+flag: c
+flag: q
+statement: " .:(P->Q)&(P->~Q)->~P"
+end-box:
+proves: T34
+common-name: Deriv 2.034 T34
+
+problem: Deriv 2.035 T35
+flag: c
+flag: q
+statement: " .:(~P->R)&(Q->R)<->((P->Q)->R)"
+end-box:
+proves: T35
+common-name: Deriv 2.035 T35
+
+problem: Deriv 2.036 T36
+flag: c
+flag: q
+statement: " .:~(P&~P)"
+end-box:
+proves: T36
+common-name: Deriv 2.036 T36
+
+problem: Deriv 2.037 T37
+flag: c
+flag: q
+statement: " .:(P->Q)<->~(P&~Q)"
+end-box:
+proves: T37
+common-name: Deriv 2.037 T37
+
+problem: Deriv 2.038 T38
+flag: c
+flag: q
+statement: " .:P&Q<->~(P->~Q)"
+end-box:
+proves: T38
+common-name: Deriv 2.038 T38
+
+problem: Deriv 2.039 T39
+flag: c
+flag: q
+statement: " .:~(P&Q)<->(P->~Q)"
+end-box:
+proves: T39
+common-name: Deriv 2.039 T39
+
+problem: Deriv 2.040 T40
+statement: " .:~(P->Q)<->P&~Q"
+end-box:
+proves: NC1.NC2.T40
+note: Suggestion: first enable, and then use, MC1 and MC2.  This theorem enables NC.
+common-name: Deriv 2.040 T40
+
+problem: Deriv 2.041 T41
+flag: c
+flag: q
+statement: " .:P<->P&P"
+end-box:
+proves: T41.SSimp17.SSimp18
+common-name: Deriv 2.041 T41
+
+problem: Deriv 2.042 T42
+flag: c
+flag: q
+statement: " .:P&~Q->~(P->Q)"
+end-box:
+proves: NC2.T42
+common-name: Deriv 2.042 T42
+
+problem: Deriv 2.043 T43
+flag: c
+flag: q
+statement: " .:~P->~(P&Q)"
+end-box:
+proves: NCJ1.T43
+common-name: Deriv 2.043 T43
+
+problem: Deriv 2.044 T44
+flag: c
+flag: q
+statement: " .:~Q->~(P&Q)"
+end-box:
+proves: NCJ2.T44
+common-name: Deriv 2.044 T44
+
+problem: Deriv 2.045 T45
+statement: " .:P|Q<->(~P->Q)"
+end-box:
+proves: CDJ1.CDJ3.T45
+note: Suggestion: use DM2 to prove this theorem, which enables CDJ.
+common-name: Deriv 2.045 T45
+
+problem: Deriv 2.046 T46
+flag: c
+flag: q
+statement: " .:(P->Q)<->~P|Q"
+end-box:
+proves: CDJ2.CDJ4.T46
+common-name: Deriv 2.046 T46
+
+problem: Deriv 2.047 T47
+flag: c
+flag: q
+statement: " .:P<->P|P"
+end-box:
+proves: T47.SSimp19.SSimp20
+common-name: Deriv 2.047 T47
+
+problem: Deriv 2.048 T48
+flag: c
+flag: q
+statement: " .:(P|Q)&(P->R)&(Q->S)->R|S"
+end-box:
+proves: T48
+common-name: Deriv 2.048 T48
+
+problem: Deriv 2.049 T49
+flag: c
+flag: q
+statement: " .:(P|Q)&(P->R)&(Q->R)->R"
+end-box:
+proves: SC2.T49
+common-name: Deriv 2.049 T49
+
+problem: Deriv 2.049a
+flag: c
+flag: q
+statement: " .:(P|Q|S)&(P->R)&(Q->R)&(S->R)->R"
+end-box:
+proves: SC2a
+common-name: Deriv 2.049a
+
+problem: Deriv 2.049b
+flag: c
+flag: q
+statement: " .:(P|Q|S|T)&(P->R)&(Q->R)&(S->R)&(T->R)->R"
+end-box:
+proves: SC2b
+common-name: Deriv 2.049b
+
+problem: Deriv 2.050 T50
+flag: c
+flag: q
+statement: " .:(P->R)&(Q->R)<->(P|Q->R)"
+end-box:
+proves: SC3.T50
+common-name: Deriv 2.050 T50
+
+problem: Deriv 2.051 T51
+flag: c
+flag: q
+statement: " .:(P|Q)&(P->R)&(~P&Q->R)->R"
+end-box:
+proves: T51
+common-name: Deriv 2.051 T51
+
+problem: Deriv 2.052 T52
+flag: c
+flag: q
+statement: " .:(P->R)&(~P&Q->R)<->(P|Q->R)"
+end-box:
+proves: T52
+common-name: Deriv 2.052 T52
+
+problem: Deriv 2.053 T53
+flag: c
+flag: q
+statement: " .:P|Q<->Q|P"
+end-box:
+proves: " COM2.T53"
+common-name: Deriv 2.053 T53
+
+problem: Deriv 2.054 T54
+flag: c
+flag: q
+statement: " .:P|(Q|R)<->(P|Q)|R"
+end-box:
+proves: ASSOC3.ASSOC4.T54
+common-name: Deriv 2.054 T54
+
+problem: Deriv 2.055 T55
+flag: c
+flag: q
+statement: " .:(P->Q|R)<->(P->Q)|(P->R)"
+end-box:
+proves: T55
+common-name: Deriv 2.055 T55
+
+problem: Deriv 2.056 T56
+flag: c
+flag: q
+statement: " .:(P->Q)->(R|P->R|Q)"
+end-box:
+proves: T56
+common-name: Deriv 2.056 T56
+
+problem: Deriv 2.057 T57
+flag: c
+flag: q
+statement: " .:(P->Q)->(P|R->Q|R)"
+end-box:
+proves: T57
+common-name: Deriv 2.057 T57
+
+problem: Deriv 2.058 T58
+flag: c
+flag: q
+statement: " .:(P->Q)|(Q->R)"
+end-box:
+proves: T58
+common-name: Deriv 2.058 T58
+
+problem: Deriv 2.059 T59
+flag: c
+flag: q
+statement: " .:P|~P"
+end-box:
+proves: T59
+common-name: Deriv 2.059 T59
+
+problem: Deriv 2.060 T60
+flag: c
+flag: q
+statement: " .:(P->R)|(Q->R)<->(P&Q->R)"
+end-box:
+proves: T60
+common-name: Deriv 2.060 T60
+
+problem: Deriv 2.061 T61
+flag: c
+flag: q
+statement: " .:P&(Q|R)<->(P&Q)|(P&R)"
+end-box:
+proves: DIST1.DIST2.DIST5.DIST6.T61
+common-name: Deriv 2.061 T61
+
+problem: Deriv 2.061a
+flag: c
+flag: q
+statement: " .:(Q|R)&P<->(Q&P)|(R&P)"
+end-box:
+proves: DIST5.DIST6
+common-name: Deriv 2.061a
+
+problem: Deriv 2.062 T62
+flag: c
+flag: q
+statement: " .:P|(Q&R)<->(P|Q)&(P|R)"
+end-box:
+proves: DIST3.DIST4.DIST7.DIST8.T62
+common-name: Deriv 2.062 T62
+
+problem: Deriv 2.062a
+flag: c
+flag: q
+statement: " .: (Q&R)|P<->(Q|P)&(R|P)"
+end-box:
+proves: DIST7.DIST8
+common-name: Deriv 2.062a
+
+problem: Deriv 2.063 T63
+statement: " .:P&Q<->~(~P|~Q)"
+  show: P&Q<->~(~P|~Q)
+  command: "\"show conc\""
+    show: ~(~P|~Q)->P&Q
+    command: "\"show cond\""
+    cancel: ass cd dm2 ie/dne[P&~~Q] ie/dne[P&Q] cd
+    cached-justification:
+    cached-justification:
+    cached-justification: 4:{0}>DNE{0}P:P,
+    cached-justification: 4:{1}>DNE{0}P:Q,
+    cached-justification:
+    show: P&Q->~(~P|~Q)
+    command: "\"show cond\""
+      line: P&Q
+      reason: ass cd
+      show: ~(~P|~Q)
+      command: "\"show cons\""
+      cancel: "ass id[~P|~Q] 5 sl dni mtpl 5 sr id "
+    cancel: 6 cd
+  cancel: "2 4 cb[P&Q <-> ~(~P | ~Q)] dd "
+  line:
+  reason:
+end-box:
+errors: 19
+seconds: 377
+
+problem: Deriv 2.064 T64
+statement: " .:P|Q<->~(~P&~Q)"
+  show: P|Q<->~(~P&~Q)
+  command: "\"show conc\""
+    show: P|Q->~(~P&~Q)
+    command: "\"show cond\""
+      line: P|Q
+      reason: ass cd
+      show: ~(~P&~Q)
+      command: "\"show cons\""
+      cancel: ass id[~P&~Q] dup sl 3 mtpl swap sr id
+    cancel: 4 cd
+    show: ~(~P&~Q)->P|Q
+    command: "\"show cond\""
+    cancel: "ass cd dm1 ie/dne[P|~~Q] ie/dne[P|Q] cd "
+    cached-justification:
+    cached-justification:
+    cached-justification: 4:{0}>DNE{0}P:P,
+    cached-justification: 4:{1}>DNE{0}P:Q,
+    cached-justification:
+  cancel: "2 7 cb[P|Q <-> ~(~P & ~Q)] dd "
+  line:
+  reason:
+end-box:
+errors: 1
+seconds: 148
+
+problem: Deriv 2.065 T65
+statement: " .:~(P&Q)<->~P|~Q"
+  show: ~(P&Q)<->~P|~Q
+  command: "\"show conc\""
+    show: ~(P&Q)->~P|~Q
+    command: "\"show cond\""
+      line: ~(P&Q)
+      reason: "ass cd "
+      show: ~P|~Q
+      command: "\"show cons\""
+      cancel: ass id dm2 ie/dne[P&~~Q] ie/dne[P&Q] 3 r id
+      cached-justification:
+      cached-justification:
+      cached-justification: 4:{0}>DNE{0}P:P,
+      cached-justification: 4:{1}>DNE{0}P:Q,
+      cached-justification:
+      cached-justification:
+    cancel: 4 cd
+    show: ~P|~Q->~(P&Q)
+    command: "\"show cond\""
+      line: ~P|~Q
+      reason: ass cd
+      show: ~(P&Q)
+      command: "\"show cons\""
+      cancel: ass id[P&Q] dm5 8 r id
+    cancel: 9 cd
+  cancel: 2 7 cb[~(P&Q) <-> ~P | ~Q] dd
+  line:
+  reason:
+end-box:
+seconds: 152
+
+problem: Deriv 2.066 T66
+statement: " .:~(P|Q)<->~P&~Q"
+  show: ~(P|Q)<->~P&~Q
+  command: "\"show conc\""
+    show: ~(P|Q)->~P&~Q
+    command: "\"show cond\""
+    cancel: "ass cd ie/dni[~(~~P | Q)] ie/dni[~(~~P | ~~Q)] dm6 cd "
+    cached-justification:
+    cached-justification: 4:{0,0}>DNI{0}P:P,
+    cached-justification: 4:{0,1}>DNI{0}P:Q,
+    cached-justification:
+    cached-justification:
+    show: ~P&~Q->~(P|Q)
+    command: "\"show cond\""
+      line: ~P&~Q
+      reason: ass cd
+      show: ~(P|Q)
+      command: "\"show cons\""
+      cancel: "ass id[P|Q] 5 sl mtpl 5 sr id "
+    cancel: 6 cd
+  cancel: 2 4 cb[~(P|Q) <-> ~P&~Q] dd
+  line:
+  reason:
+end-box:
+seconds: 125
+
+problem: Deriv 2.067 T67
+flag: c
+flag: q
+statement: " .:~P&~Q->~(P|Q)"
+end-box:
+proves: DM4.T67
+common-name: Deriv 2.067 T67
+
+problem: Deriv 2.068 T68
+flag: c
+flag: q
+statement: " .:P<->(P&Q)|(P&~Q)"
+end-box:
+proves: T68
+common-name: Deriv 2.068 T68
+
+problem: Deriv 2.069 T69
+flag: c
+flag: q
+statement: " .:P<->(P|Q)&(P|~Q)"
+end-box:
+proves: T69
+common-name: Deriv 2.069 T69
+
+problem: Deriv 2.070 T70
+flag: c
+flag: q
+statement: " .:Q->(P&Q<->P)"
+end-box:
+proves: T70.SSimp1.SSimp2
+common-name: Deriv 2.070 T70
+
+problem: Deriv 2.071 T71
+flag: c
+flag: q
+statement: " .:~Q->(P|Q<->P)"
+end-box:
+proves: T71.SSimp3.SSimp4
+common-name: Deriv 2.071 T71
+
+problem: Deriv 2.072 T72
+flag: c
+flag: q
+statement: " .:(P->Q)<->(P&Q<->P)"
+end-box:
+proves: T72.SSimp11.SSimp12
+common-name: Deriv 2.072 T72
+
+problem: Deriv 2.073 T73
+flag: c
+flag: q
+statement: " .:(P->Q)<->(P|Q<->Q)"
+end-box:
+proves: T73.SSimp13.SSimp14
+common-name: Deriv 2.073 T73
+
+problem: Deriv 2.074 T74
+flag: c
+flag: q
+statement: " .:(P<->Q)&P->Q"
+end-box:
+proves: BP1.T74
+common-name: Deriv 2.074 T74
+
+problem: Deriv 2.075 T75
+flag: c
+flag: q
+statement: " .:(P<->Q)&Q->P"
+end-box:
+proves: BP2.T75
+common-name: Deriv 2.075 T75
+
+problem: Deriv 2.076 T76
+flag: c
+flag: q
+statement: " .:(P<->Q)&~P->~Q"
+end-box:
+proves: BT1.T76
+common-name: Deriv 2.076 T76
+
+problem: Deriv 2.077 T77
+flag: c
+flag: q
+statement: " .:(P<->Q)&~Q->~P"
+end-box:
+proves: BT2.T77
+common-name: Deriv 2.077 T77
+
+problem: Deriv 2.078 T78
+flag: c
+flag: q
+statement: " .:(P->(Q<->R))<->((P->Q)<->(P->R))"
+end-box:
+proves: T78
+common-name: Deriv 2.078 T78
+
+problem: Deriv 2.079 T79
+flag: c
+flag: q
+statement: " .:(P->(Q<->R))<->(P&Q<->P&R)"
+end-box:
+proves: T79
+common-name: Deriv 2.079 T79
+
+problem: Deriv 2.080 T80
+flag: c
+flag: q
+statement: " .:(P<->Q)|(P<->~Q)"
+end-box:
+proves: T80
+common-name: Deriv 2.080 T80
+
+problem: Deriv 2.081 T81
+flag: c
+flag: q
+statement: " .:(P<->Q)<->(P->Q)&(Q->P)"
+end-box:
+proves: T81.SSimp15.SSimp16.BEX1.BEX2
+common-name: Deriv 2.081 T81
+
+problem: Deriv 2.081a
+flag: c
+flag: q
+statement: " .:(P<->Q)<->(~P|Q)&(~Q|P)"
+end-box:
+proves: BEX3.BEX4
+common-name: Deriv 2.081a
+
+problem: Deriv 2.082 T82
+flag: c
+flag: q
+statement: " .:(P<->Q)<->~((P->Q)->~(Q->P))"
+end-box:
+proves: T82
+common-name: Deriv 2.082 T82
+
+problem: Deriv 2.083 T83
+flag: c
+flag: q
+statement: " .:(P<->Q)<->(P&Q)|(~P&~Q)"
+end-box:
+proves: CJB3.CJB4.T83.BEX5.BEX6
+common-name: Deriv 2.083 T83
+
+problem: Deriv 2.084 T84
+flag: c
+flag: q
+statement: " .:P&Q->(P<->Q)"
+end-box:
+proves: CJB1.T84.SSimp7.SSimp8
+common-name: Deriv 2.084 T84
+
+problem: Deriv 2.085 T85
+flag: c
+flag: q
+statement: " .:~P&~Q->(P<->Q)"
+end-box:
+proves: CJB2.T85.SSimp9.SSimp10
+common-name: Deriv 2.085 T85
+
+problem: Deriv 2.086 T86
+flag: c
+flag: q
+statement: " .:((P<->Q)->R)<->(P&Q->R)&(~P&~Q->R)"
+end-box:
+proves: T86
+common-name: Deriv 2.086 T86
+
+problem: Deriv 2.087 T87
+flag: c
+flag: q
+statement: " .:~(P<->Q)<->(P&~Q)|(~P&Q)"
+end-box:
+proves: T87
+common-name: Deriv 2.087 T87
+
+problem: Deriv 2.088 T88
+flag: c
+flag: q
+statement: " .:P&~Q->~(P<->Q)"
+end-box:
+proves: T88
+common-name: Deriv 2.088 T88
+
+problem: Deriv 2.089 T89
+flag: c
+flag: q
+statement: " .:~P&Q->~(P<->Q)"
+end-box:
+proves: T89
+common-name: Deriv 2.089 T89
+
+problem: Deriv 2.090 T90
+flag: c
+flag: q
+statement: " .:~(P<->Q)<->(P<->~Q)"
+end-box:
+proves: NB.T90
+common-name: Deriv 2.090 T90
+
+problem: Deriv 2.091 T91
+flag: c
+flag: q
+statement: " .:P<->P"
+end-box:
+proves: T91
+common-name: Deriv 2.091 T91
+
+problem: Deriv 2.092 T92
+flag: c
+flag: q
+statement: " .:(P<->Q)<->(Q<->P)"
+end-box:
+proves: COM3.T92
+common-name: Deriv 2.092 T92
+
+problem: Deriv 2.093 T93
+flag: c
+flag: q
+statement: " .:(P<->Q)&(Q<->R)->(P<->R)"
+end-box:
+proves: T93
+common-name: Deriv 2.093 T93
+
+problem: Deriv 2.094 T94
+flag: c
+flag: q
+statement: " .:(P<->(Q<->R))<->((P<->Q)<->R)"
+end-box:
+proves: ASSOC5.ASSOC6.T94
+common-name: Deriv 2.094 T94
+
+problem: Deriv 2.095 T95
+flag: c
+flag: q
+statement: " .:(P<->Q)<->((P<->R)<->(Q<->R))"
+end-box:
+proves: T95
+common-name: Deriv 2.095 T95
+
+problem: Deriv 2.096 T96
+flag: c
+flag: q
+statement: " .:(P<->Q)<->(~P<->~Q)"
+end-box:
+proves: T96
+common-name: Deriv 2.096 T96
+
+problem: Deriv 2.097 T97
+flag: c
+flag: q
+statement: " .:(P<->R)&(Q<->S)->((P->Q)<->(R->S))"
+end-box:
+proves: T97
+common-name: Deriv 2.097 T97
+
+problem: Deriv 2.098 T98
+flag: c
+flag: q
+statement: " .:(P<->R)&(Q<->S)->((P&Q)<->(R&S))"
+end-box:
+proves: T98
+common-name: Deriv 2.098 T98
+
+problem: Deriv 2.099 T99
+flag: c
+flag: q
+statement: " .:(P<->R)&(Q<->S)->((P|Q)<->(R|S))"
+end-box:
+proves: T99
+common-name: Deriv 2.099 T99
+
+problem: Deriv 2.100 T100
+flag: c
+flag: q
+statement: " .:(P<->R)&(Q<->S)->((P<->Q)<->(R<->S))"
+end-box:
+proves: T100
+common-name: Deriv 2.100 T100
+
+problem: Deriv 2.101 T101
+flag: c
+flag: q
+statement: " .:(Q<->S)->((P->Q)<->(P->S))&((Q->P)<->(S->P))"
+end-box:
+proves: T101
+common-name: Deriv 2.101 T101
+
+problem: Deriv 2.102 T102
+flag: c
+flag: q
+statement: " .:(Q<->S)->(P&Q<->P&S)"
+end-box:
+proves: T102
+common-name: Deriv 2.102 T102
+
+problem: Deriv 2.103 T103
+flag: c
+flag: q
+statement: " .:(Q<->S)->(P|Q<->P|S)"
+end-box:
+proves: T103
+common-name: Deriv 2.103 T103
+
+problem: Deriv 2.104 T104
+flag: c
+flag: q
+statement: " .:(Q<->S)->((P<->Q)<->(P<->S))"
+end-box:
+proves: T104
+common-name: Deriv 2.104 T104
+
+problem: Deriv 2.105 T105
+flag: c
+flag: q
+statement: " .:P&(Q<->R)->(P&Q<->R)"
+end-box:
+proves: T105
+common-name: Deriv 2.105 T105
+
+problem: Deriv 2.106 T106
+flag: c
+flag: q
+statement: " .:(P->(Q->R))<->((P->Q)->(P->R))"
+end-box:
+proves: T106
+common-name: Deriv 2.106 T106
+
+problem: Deriv 2.107 T107
+flag: c
+flag: q
+statement: " .:(P->(Q->R))<->(Q->(P->R))"
+end-box:
+proves: T107
+common-name: Deriv 2.107 T107
+
+problem: Deriv 2.108 T108
+flag: c
+flag: q
+statement: " .:(P->(P->Q))<->(P->Q)"
+end-box:
+proves: T108
+common-name: Deriv 2.108 T108
+
+problem: Deriv 2.109 T109
+flag: c
+flag: q
+statement: " .:((P->Q)->Q)<->((Q->P)->P)"
+end-box:
+proves: T109
+common-name: Deriv 2.109 T109
+
+problem: Deriv 2.110 T110
+flag: c
+flag: q
+statement: " .:P<->~~P"
+end-box:
+proves: T110
+common-name: Deriv 2.110 T110
+
+problem: Deriv 2.111 T111
+flag: c
+flag: q
+statement: " .:(P->Q)<->(~Q->~P)"
+end-box:
+proves: TRANS1.TRANS2.T111
+common-name: Deriv 2.111 T111
+
+problem: Deriv 2.112 T112
+flag: c
+flag: q
+statement: " .:(P->~Q)<->(Q->~P)"
+end-box:
+proves: T112
+common-name: Deriv 2.112 T112
+
+problem: Deriv 2.113 T113
+flag: c
+flag: q
+statement: " .:(~P->Q)<->(~Q->P)"
+end-box:
+proves: T113
+common-name: Deriv 2.113 T113
+
+problem: Deriv 2.114 T114
+flag: c
+flag: q
+statement: " .:(~P->P)<->P"
+end-box:
+proves: T114
+common-name: Deriv 2.114 T114
+
+problem: Deriv 2.115 T115
+flag: c
+flag: q
+statement: " .:(P->~P)<->~P"
+end-box:
+proves: T115
+common-name: Deriv 2.115 T115
+
+problem: Deriv 2.116 T116
+flag: c
+flag: q
+statement: " .:(P&Q)|(R&S)<->(P|R)&(P|S)&(Q|R)&(Q|S)"
+end-box:
+proves: T116.DIST9.DIST10
+common-name: Deriv 2.116 T116
+
+problem: Deriv 2.117 T117
+flag: c
+flag: q
+statement: " .:(P|Q)&(R|S)<->(P&R)|(P&S)|(Q&R)|(Q&S)"
+end-box:
+proves: T117.DIST11.DIST12
+common-name: Deriv 2.117 T117
+
+problem: Deriv 2.118 T118
+flag: c
+flag: q
+statement: " .:(P->Q)&(R->S)<->(~P&~R)|(~P&S)|(Q&~R)|(Q&S)"
+end-box:
+proves: T118
+common-name: Deriv 2.118 T118
+
+problem: Deriv 2.119 T119
+flag: c
+flag: q
+statement: " .:(P|~P)&Q<->Q"
+end-box:
+proves: T119.SSimp21.SSimp22
+common-name: Deriv 2.119 T119
+
+problem: Deriv 2.120 T120
+flag: c
+flag: q
+statement: " .:(P&~P)|Q<->Q"
+end-box:
+proves: T120.SSimp23.SSimp24
+common-name: Deriv 2.120 T120
+
+problem: Deriv 2.121 T121
+flag: c
+flag: q
+statement: " .:P|(~P&Q)<->P|Q"
+end-box:
+proves: T121
+common-name: Deriv 2.121 T121
+
+problem: Deriv 2.122 T122
+flag: c
+flag: q
+statement: " .:P&(~P|Q)<->P&Q"
+end-box:
+proves: T122
+common-name: Deriv 2.122 T122
+
+problem: Deriv 2.123 T123
+flag: c
+flag: q
+statement: " .:P<->P|(P&Q)"
+end-box:
+proves: T123.SSimp25.SSimp26
+common-name: Deriv 2.123 T123
+
+problem: Deriv 2.124 T124
+flag: c
+flag: q
+statement: " .:P<->P&(P|Q)"
+end-box:
+proves: T124.SSimp27.SSimp28
+common-name: Deriv 2.124 T124
+
+problem: Deriv 2.125 T125
+flag: c
+flag: q
+statement: " .:(P->Q&R)->(P&Q<->P&R)"
+end-box:
+proves: T125
+common-name: Deriv 2.125 T125
+
+problem: Deriv 2.701
+statement: " Q->(R->T).  Q->~T.  Q  .:  ~R"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.701
+
+problem: Deriv 2.702
+statement: " T->(~R->S).  ~(T->R)  .:  T->S"
+end-box:
+note: " This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is \"Error\".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked \"Error\"."
+common-name: Deriv 2.702
+
+problem: Deriv 2.703
+statement: " R->Q.  ~S->(Q->P)  .:  R->(~S->P)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.703
+
+problem: Deriv 2.704
+statement: " (P->Q)->~(R->S)  .:  ~P->~S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.704
+
+problem: Deriv 2.705
+statement: " ~(P&~Q).  ~~(P->Q)->S  .:  S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.705
+
+problem: Deriv 2.706
+statement: " S->P.  ~Q->(~S->R)  .:  Q|(P|R)"
+tag-space:
+note: =This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.706
+
+problem: Deriv 2.707
+statement: " P|S.  ~P|~S.  P|~S.  ~P|S  .:  Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.707
+
+problem: Deriv 2.708
+statement: " ~Q&T->~S.  T  .:  ~S|Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.708
+
+problem: Deriv 2.709
+statement: " (~Q|S)->R  .:  S&~R->Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.709
+
+problem: Deriv 2.710
+statement: " ~(R->T)  .:  ~Q|T->R&~Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.710
+
+problem: Deriv 2.711
+statement: " Q&S->R.  Q|P.  ~P|Q.  S  .:  R"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.711
+
+problem: Deriv 2.712
+statement: "  .:   (P|Q)&(~~P|~Q)->P"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.712
+
+problem: Deriv 2.713
+statement: " ~Q->R.  Q<->~(Q&R)  .:  ~R<->Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.713
+
+problem: Deriv 2.714
+statement: " R|Q.  Q<->(Q->~R)  .:  ~R<->Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.714
+
+problem: Deriv 2.715
+statement: " ~R|(P<->~S).  ~(~R->P)->S  .:  P|S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.715
+
+problem: Deriv 2.716
+statement: " (~P&Q)|~(P->Q)  .:  ~P<->Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.716
+
+problem: Deriv 2.717
+statement: " (~P&Q)|~(P->Q)  .:  ~P<->Q"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled, but the only error message is "Error".  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The Toolboxes (right click) remain enabled.  The Toolbox or Ctrl+Shift+x must be used to Box/Unbox.  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.717
+
+problem: Deriv 2.801
+statement: " Q->(R->T).  Q->~T.  Q  .:  ~R"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.801
+
+problem: Deriv 2.802
+statement: " T->(~R->S).  ~(T->R)  .:  T->S"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.802
+
+problem: Deriv 2.803
+statement: " R->Q.  ~S->(Q->P)  .:  R->(~S->P)"
+tag-space:
+note: =This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.803
+
+problem: Deriv 2.804
+statement: " (P->Q)->~(R->S)  .:  ~P->~S"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.804
+
+problem: Deriv 2.805
+statement: " ~(P&~Q).  ~~(P->Q)->S  .:  S"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.805
+
+problem: Deriv 2.806
+statement: " S->P.  ~Q->(~S->R)  .:  Q|(P|R)"
+tag-space:
+note: =This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.806
+
+problem: Deriv 2.807
+statement: " P|S.  ~P|~S.  P|~S.  ~P|S  .:  Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.807
+
+problem: Deriv 2.808
+statement: " ~Q&T->~S.  T  .:  ~S|Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.808
+
+problem: Deriv 2.809
+statement: " (~Q|S)->R  .:  S&~R->Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.809
+
+problem: Deriv 2.810
+statement: " ~(R->T)  .:  ~Q|T->R&~Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.810
+
+problem: Deriv 2.811
+statement: " Q&S->R.  Q|P.  ~P|Q.  S  .:  R"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.811
+
+problem: Deriv 2.812
+statement: "  .:   (P|Q)&(~~P|~Q)->P"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.812
+
+problem: Deriv 2.813
+statement: " ~Q->R.  Q<->~(Q&R)  .:  ~R<->Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.813
+
+problem: Deriv 2.814
+statement: " R|Q.  Q<->(Q->~R)  .:  ~R<->Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.814
+
+problem: Deriv 2.815
+statement: " ~R|(P<->~S).  ~(~R->P)->S  .:  P|S"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.815
+
+problem: Deriv 2.816
+statement: " (~P&Q)|~(P->Q)  .:  ~P<->Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.816
+
+problem: Deriv 2.817
+statement: " (~P&Q)|~(P->Q)  .:  ~P<->Q"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 2.817
+
+problem: Deriv 3.001
+flag: c
+flag: q
+statement: " forall x (Fx&Gx) .: forall x Gx"
+end-box:
+common-name: Deriv 3.001
+
+problem: Deriv 3.002
+flag: c
+flag: q
+statement: " exists x Fx .: exists x (Gx->Fx)"
+end-box:
+common-name: Deriv 3.002
+
+problem: Deriv 3.003
+flag: c
+flag: q
+statement: " forall x (Fx->(~Gx->Hx))  .: forall x (Fx->Gx|Hx)"
+end-box:
+common-name: Deriv 3.003
+
+problem: Deriv 3.003EG1
+statement: " forall x (Fx->(~Gx->Hx))  .: forall x (Fx->Gx|Hx)"
+  show: forall x (Fx->Gx|Hx)
+  command: "\"show conc\""
+    line: ~forall x (Fx->Gx|Hx)
+    reason: ass id
+    line: exists x ~(Fx->Gx|Hx)
+    reason: 2 qn
+    line: ~(Fa->Ga|Ha)
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~(F{1}->G{1}|H{1}),x:x
+    line: forall x (Fx->(~Gx->Hx))
+    reason: pr
+    line: Fa->(~Ga->Ha)
+    reason: 5 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}->(~G{1}->H{1}),x:x
+    line: Fa&~(Ga|Ha)
+    reason: 4 nc
+    line: Fa
+    reason: 7 sl
+    line: ~Ga->Ha
+    reason: 8 6 mp
+    line: ~(Ga|Ha)
+    reason: 7 sr
+    line: ~Ga&~Ha
+    reason: 10 dm
+    line: ~Ga
+    reason: 11 sl
+    line: Ha
+    reason: 12 9 mp
+    line: ~Ha
+    reason: 11 sr
+  cancel: 14 13 id
+end-box:
+options: eg
+common-name: Deriv 3.003EG1
+
+problem: Deriv 3.003EG2
+statement: " forall x (Fx->(~Gx->Hx))  .: forall x (Fx->Gx|Hx)"
+  show: forall x (Fx->Gx|Hx)
+  command: "\"show conc\""
+    line: ~forall x (Fx->Gx|Hx)
+    reason: ass id
+    line: exists x ~(Fx->Gx|Hx)
+    reason: 2 qn
+    line: ~(Fa->Ga|Ha)
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~(F{1}->G{1}|H{1}),x:x
+    line: forall x (Fx->(~Gx->Hx))
+    reason: pr
+    line: Fa->(~Ga->Ha)
+    reason: 5 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}->(~G{1}->H{1}),x:x
+    line: Fa&~(Ga|Ha)
+    reason: 4 nc
+    line: ~Ga->Ha
+    reason: 7 sl 6 mp
+    line: ~(Ga|Ha)
+    reason: 7 sr
+    line: ~Ga&~Ha
+    reason: 9 dm
+    line: ~(~Ga->Ha)
+    reason: 10 nc
+  cancel: 8 11 id
+end-box:
+options: eg
+common-name: Deriv 3.003EG2
+
+problem: Deriv 3.004
+flag: c
+flag: q
+statement: " forall x (Fx->Gx). forall x (Gx->Hx) .: FA->exists x (Gx&Hx)"
+end-box:
+common-name: Deriv 3.004
+
+problem: Deriv 3.004EG1
+statement: " forall x (Fx->Gx). forall x (Gx->Hx) .: FA->exists x (Gx&Hx)"
+  show: FA->exists x (Gx&Hx)
+  command: "\"show conc\""
+    line: FA
+    reason: ass cd
+    show: exists x (Gx&Hx)
+    command: "\"show cons\""
+      line: ~exists x (Gx&Hx)
+      reason: ass id
+      line: forall x ~(Gx&Hx)
+      reason: 4 qn
+      line: ~(GA&HA)
+      reason: 5 ui/A
+      cached-justification: 1:UI{0}A:A.F{1}:~(G{1}&H{1}),x:x
+      line: forall x (Fx->Gx)
+      reason: pr1
+      line: FA->GA
+      reason: 7 ui/A
+      cached-justification: 1:UI{0}A:A.F{1}:F{1}->G{1},x:x
+      line: forall x (Gx->Hx)
+      reason: pr2
+      line: GA->HA
+      reason: 9 ui/A
+      cached-justification: 1:UI{0}A:A.F{1}:G{1}->H{1},x:x
+      line: GA
+      reason: 2 8 mp
+      line: HA
+      reason: 11 10 mp
+      line: GA&HA
+      reason: 11 12 adj
+      cached-justification: 1:Adj{0,1}Q:HA.P:GA,
+    cancel: 13 6 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 3.004EG1
+
+problem: Deriv 3.004EG2
+statement: " forall x (Fx->Gx). forall x (Gx->Hx) .: FA->exists x (Gx&Hx)"
+  show: FA->exists x (Gx&Hx)
+  command: "\"show conc\""
+    line: FA
+    reason: ass cd
+    show: exists x (Gx&Hx)
+    command: "\"show cons\""
+      line: ~exists x (Gx&Hx)
+      reason: ass id
+      line: forall x ~(Gx&Hx)
+      reason: 4 qn
+      line: ~(GA&HA)
+      reason: 5 ui/A
+      cached-justification: 1:UI{0}A:A.F{1}:~(G{1}&H{1}),x:x
+      line: FA->GA
+      reason: pr1 ui/A
+      cached-justification:
+      cached-justification: 1:UI{0}A:A.F{1}:F{1}->G{1},x:x
+      line: GA->HA
+      reason: pr2 ui/A
+      cached-justification:
+      cached-justification: 1:UI{0}A:A.F{1}:G{1}->H{1},x:x
+      line: GA
+      reason: 2 7 mp
+      line: HA
+      reason: 9 8 mp
+      line: GA&HA
+      reason: 9 10 adj
+      cached-justification: 1:Adj{0,1}Q:HA.P:GA,
+    cancel: 11 6 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 3.004EG2
+
+problem: Deriv 3.005
+flag: c
+flag: q
+statement: " forall x ~Fx->forall x Fx .: exists x Fx"
+end-box:
+common-name: Deriv 3.005
+
+problem: Deriv 3.006
+flag: c
+flag: q
+statement: " forall x Fx|forall x Gx. forall x (Fx->~Gx) .: exists x Fx->forall x Fx"
+end-box:
+common-name: Deriv 3.006
+
+problem: Deriv 3.006EG1
+statement: " forall x Fx|forall x Gx. forall x (Fx->~Gx) .: exists x Fx->forall x Fx"
+  show: exists x Fx->forall x Fx
+  command: "\"show conc\""
+    line: exists x Fx
+    reason: ass cd
+    show: forall x Fx
+    command: "\"show cons\""
+      line: ~forall x Fx
+      reason: ass id
+      line: exists x ~Fx
+      reason: 4 qn
+      line: Fa
+      reason: 2 ei/a
+      cached-justification: 1:EI{0}a:a.F{1}:F{1},x:x
+      line: ~Fb
+      reason: 5 ei/b
+      cached-justification: 1:EI{0}a:b.F{1}:~F{1},x:x
+      line: forall x Gx
+      reason: 4 pr1 mtp
+      line: Ga
+      reason: 8 ui/a
+      cached-justification: 1:UI{0}A:a.F{1}:G{1},x:x
+      line: Gb
+      reason: 8 ui/b
+      cached-justification: 1:UI{0}A:b.F{1}:G{1},x:x
+      line: forall x (Fx->~Gx)
+      reason: pr2
+      line: Fa->~Ga
+      reason: 11 ui/a
+      cached-justification: 1:UI{0}A:a.F{1}:F{1}->~G{1},x:x
+      line: Fb->~Gb
+      reason: 11 ui/b
+      cached-justification: 1:UI{0}A:b.F{1}:F{1}->~G{1},x:x
+      line: ~Ga
+      reason: 6 12 mp
+    cancel: 14 9 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 3.006EG1
+
+problem: Deriv 3.006EG2
+statement: " forall x Fx|forall x Gx. forall x (Fx->~Gx) .: exists x Fx->forall x Fx"
+  show: exists x Fx->forall x Fx
+  command: "\"show conc\""
+    line: exists x Fx
+    reason: ass cd
+    show: forall x Fx
+    command: "\"show cons\""
+      line: ~forall x Fx
+      reason: ass id
+      line: exists x ~Fx
+      reason: 4 qn
+      line: forall x Gx
+      reason: 4 pr1 mtp
+      line: forall x (Fx->~Gx)
+      reason: pr2
+      line: Fa
+      reason: 2 ei/a
+      cached-justification: 1:EI{0}a:a.F{1}:F{1},x:x
+      line: Fa->~Ga
+      reason: 7 ui/a
+      cached-justification: 1:UI{0}A:a.F{1}:F{1}->~G{1},x:x
+      line: Ga
+      reason: 6 ui/a
+      cached-justification: 1:UI{0}A:a.F{1}:G{1},x:x
+      line: ~Ga
+      reason: 8 9 mp
+    cancel: 11 10 id
+  cancel: 3 cd
+end-box:
+options: eg
+common-name: Deriv 3.006EG2
+
+problem: Deriv 3.007
+flag: c
+flag: q
+statement: " P->forall x (Fx->FA). forall x (Fx->Gx)&forall x (Gx->Hx) .: ~HA->~P|forall x ~Fx"
+end-box:
+common-name: Deriv 3.007
+
+problem: Deriv 3.008
+flag: c
+flag: q
+statement: " exists x (Fx|GA). forall x (Fx->Gx) .: exists x Gx"
+end-box:
+common-name: Deriv 3.008
+
+problem: Deriv 3.008EG1
+statement: " exists x (Fx|GA). forall x (Fx->Gx) .: exists x Gx"
+  show: exists x Gx
+  command: "\"show conc\""
+    line: ~exists x Gx
+    reason: ass id
+    line: forall x ~Gx
+    reason: 2 qn
+    line: exists x (Fx|GA)
+    reason: pr1
+    line: forall x (Fx->Gx)
+    reason: pr2
+    line: Fa|GA
+    reason: 4 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:F{1}|GA,x:x
+    line: ~GA
+    reason: 3 ui/A
+    cached-justification: 1:UI{0}A:A.F{1}:~G{1},x:x
+    line: ~Ga
+    reason: 3 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~G{1},x:x
+    line: FA->GA
+    reason: 5 ui/A
+    cached-justification: 1:UI{0}A:A.F{1}:F{1}->G{1},x:x
+    line: Fa->Ga
+    reason: 5 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}->G{1},x:x
+    line: Fa
+    reason: 6 7 mtp
+    line: Ga
+    reason: 11 10 mp
+  cancel: 8 12 id
+end-box:
+options: eg
+common-name: Deriv 3.008EG1
+
+problem: Deriv 3.008EG2
+statement: " exists x (Fx|GA). forall x (Fx->Gx) .: exists x Gx"
+  show: exists x Gx
+  command: "\"show conc\""
+    line: ~exists x Gx
+    reason: ass id
+    line: forall x ~Gx
+    reason: 2 qn
+    line: Fa|GA
+    reason: pr1 ei/a
+    cached-justification:
+    cached-justification: 1:EI{0}a:a.F{1}:F{1}|GA,x:x
+    line: Fa->Ga
+    reason: pr2 ui/a
+    cached-justification:
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}->G{1},x:x
+    line: ~GA
+    reason: 3 ui/A
+    cached-justification: 1:UI{0}A:A.F{1}:~G{1},x:x
+    line: ~Ga
+    reason: 3 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~G{1},x:x
+    line: Fa
+    reason: 4 6 mtp
+    line: Ga
+    reason: 8 5 mp
+  cancel: 7 9 id
+end-box:
+options: eg
+common-name: Deriv 3.008EG2
+
+problem: Deriv 3.009
+flag: c
+flag: q
+statement: " forall x (Fx->Gx) .: forall x (Fx&~exists y (Gy&Hy)->exists x ~Hx)"
+end-box:
+common-name: Deriv 3.009
+
+problem: Deriv 3.010
+flag: c
+flag: q
+statement: " forall x (Fx<->P). exists x Fx .: forall x Fx"
+end-box:
+common-name: Deriv 3.010
+
+problem: Deriv 3.010EG1
+statement: " forall x (Fx<->P). exists x Fx .: forall x Fx"
+  show: forall x Fx
+  command: "\"show conc\""
+    line: ~forall x Fx
+    reason: ass id
+    line: exists x ~Fx
+    reason: 2 qn
+    line: ~Fa
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~F{1},x:x
+    line: Fb
+    reason: pr2 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:F{1},x:x
+    line: Fa<->P
+    reason: pr1 ui/a
+    cached-justification:
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}<->P,x:x
+    line: Fb<->P
+    reason: pr1 ui/b
+    cached-justification:
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}<->P,x:x
+    line: P
+    reason: 7 5 bp
+    line: Fa
+    reason: 8 6 bp
+  cancel: 9 4 id
+end-box:
+options: eg
+common-name: Deriv 3.010EG1
+
+problem: Deriv 3.011
+flag: c
+flag: q
+statement: " exists y forall x (Fx<->Fy). exists x Fx .: forall x Fx"
+end-box:
+common-name: Deriv 3.011
+
+problem: Deriv 3.012
+flag: c
+flag: q
+statement: " forall x (Fx&(Gx|Hx)->Jx). forall x (Jx&Hx->Kx). forall x (Lx->Hx) .: forall x (Fx&Lx->Kx)"
+end-box:
+common-name: Deriv 3.012
+
+problem: Deriv 3.013
+flag: c
+flag: q
+statement: " forall x (Fx<->Gx|Hx). exists x Gx. forall x (Fx->forall x Hx) .: forall x Fx"
+end-box:
+common-name: Deriv 3.013
+
+problem: Deriv 3.013EG1
+statement: " forall x (Fx<->Gx|Hx). exists x Gx. forall x (Fx->forall x Hx) .: forall x Fx"
+  show: forall x Fx
+  command: "\"show conc\""
+    line: ~forall x Fx
+    reason: ass id
+    line: exists x ~Fx
+    reason: 2 qn
+    line: ~Fa
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~F{1},x:x
+    line: Gb
+    reason: pr2 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:G{1},x:x
+    line: Fa<->Ga|Ha
+    reason: pr1 ui/a
+    cached-justification:
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}<->G{1}|H{1},x:x
+    line: Fb<->Gb|Hb
+    reason: pr1 ui/b
+    cached-justification:
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}<->G{1}|H{1},x:x
+    line: Fa->forall x Hx
+    reason: pr3 ui/a
+    cached-justification:
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}->@xHx,x:x
+    line: Fb->forall x Hx
+    reason: pr3 ui/b
+    cached-justification:
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}->@xHx,x:x
+    line: Gb|Hb
+    reason: 5 addr/Hb
+    cached-justification: 1:AddR{0}Q:Hb.P:Gb,
+    line: Fb
+    reason: 10 7 bp
+    line: forall x Hx
+    reason: 11 9 mp
+    line: Ha
+    reason: 12 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:H{1},x:x
+    line: Hb
+    reason: 12 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:H{1},x:x
+    line: ~(Ga|Ha)
+    reason: 4 6 bt
+    line: ~Ga&~Ha
+    reason: 15 dm
+    line: ~Ha
+    reason: 16 sr
+  cancel: 17 13 id
+end-box:
+options: eg
+common-name: Deriv 3.013EG1
+
+problem: Deriv 3.013EG2
+statement: " forall x (Fx<->Gx|Hx). exists x Gx. forall x (Fx->forall x Hx) .: forall x Fx"
+  show: forall x Fx
+  command: "\"show conc\""
+    line: ~forall x Fx
+    reason: ass id
+    line: exists x ~Fx
+    reason: 2 qn
+    line: ~Fa
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~F{1},x:x
+    line: Gb
+    reason: pr2 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:G{1},x:x
+    line: Fa<->Ga|Ha
+    reason: pr1 ui/a
+    cached-justification:
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}<->G{1}|H{1},x:x
+    line: Fb<->Gb|Hb
+    reason: pr1 ui/b
+    cached-justification:
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}<->G{1}|H{1},x:x
+    line: Fb->forall x Hx
+    reason: pr3 ui/b
+    cached-justification:
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}->@xHx,x:x
+    line: Gb|Hb
+    reason: 5 addr/Hb
+    cached-justification: 1:AddR{0}Q:Hb.P:Gb,
+    line: Fb
+    reason: 9 7 bp
+    line: forall x Hx
+    reason: 10 8 mp
+    line: Ha
+    reason: 11 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:H{1},x:x
+    line: ~(Ga|Ha)
+    reason: 4 6 bt
+    line: ~Ga&~Ha
+    reason: 13 dm
+    line: ~Ha
+    reason: 14 sr
+  cancel: 15 12 id
+end-box:
+options: eg
+common-name: Deriv 3.013EG2
+
+problem: Deriv 3.014
+flag: c
+flag: q
+statement: " forall x (Fx->Gx). exists x ((Fx&Hx)|(Fx&Jx))->~forall x (Fx->Gx) .: forall x (Fx->~Jx)"
+end-box:
+common-name: Deriv 3.014
+
+problem: Deriv 3.014EG1
+statement: " forall x (Fx->Gx). exists x ((Fx&Hx)|(Fx&Jx))->~forall x (Fx->Gx) .: forall x (Fx->~Jx)"
+  show: forall x (Fx->~Jx)
+  command: "\"show conc\""
+    line: ~forall x (Fx->~Jx)
+    reason: ass id
+    line: exists x ~(Fx->~Jx)
+    reason: 2 qn
+    line: ~exists x ((Fx&Hx)|(Fx&Jx))
+    reason: pr1 dn pr2 mt
+    line: forall x ~((Fx&Hx)|(Fx&Jx))
+    reason: 4 qn
+    line: ~(Fa->~Ja)
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~(F{1}->~J{1}),x:x
+    line: ~((Fa&Ha)|(Fa&Ja))
+    reason: 5 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~((F{1}&H{1})|(F{1}&J{1})),x:x
+    line: Fa&~~Ja
+    reason: 6 nc
+    line: Ja
+    reason: 8 sr dn
+    cached-justification:
+    cached-justification: 1:DNE{0}P:Ja,
+    line: Fa
+    reason: 8 sl
+    line: Fa&Ja
+    reason: 10 9 adj
+    cached-justification: 1:Adj{0,1}Q:Ja.P:Fa,
+    line: (Fa&Ha)|(Fa&Ja)
+    reason: 11 addl/Fa\aHa
+    cached-justification: 1:AddL{0}Q:Fa&Ha.P:Fa&Ja,
+  cancel: 12 7 id
+end-box:
+options: eg
+common-name: Deriv 3.014EG1
+
+problem: Deriv 3.015
+flag: c
+flag: q
+statement: " exists x (Fx&~Gx)->forall x (Fx->Hx). exists x (Fx&Jx) .: forall x (Fx->~Hx)->exists x (Jx&Gx)"
+end-box:
+common-name: Deriv 3.015
+
+problem: Deriv 3.016
+flag: c
+flag: q
+statement: " ~exists x (Fx&(Gx|Hx)). exists x (Ix&Fx). forall x (~Hx->Jx) .: exists x (Ix&Jx)"
+end-box:
+common-name: Deriv 3.016
+
+problem: Deriv 3.017
+flag: c
+flag: q
+statement: " forall x (Fx->forall x Gx) .: forall x (Fx->forall x (Gx|Hx))"
+end-box:
+common-name: Deriv 3.017
+
+problem: Deriv 3.018
+flag: c
+flag: q
+statement: " exists x Fx->forall x Gx. forall x (Gx|Hx)->forall x Jx .: forall x (Fx->Jx)"
+end-box:
+common-name: Deriv 3.018
+
+problem: Deriv 3.019
+flag: c
+flag: q
+statement: " .: forall y (Fy&(~exists x Fx|forall x Gx)->forall x (Fx|Gx))"
+end-box:
+common-name: Deriv 3.019
+
+problem: Deriv 3.020
+flag: c
+flag: q
+statement: " forall x (Fx->~Gx). forall x (Hx->Jx). exists x (Jx&~Gx)->forall x (Hx|Fx->~Kx) .: exists x (Hx&Fx)->forall x (Hx->~Kx)"
+end-box:
+common-name: Deriv 3.020
+
+problem: Deriv 3.021
+flag: c
+flag: q
+statement: " forall x (Fx|Gx->~Hx). forall x ((Gx->~Jx)->Fx&Hx) .: forall x Jx"
+end-box:
+common-name: Deriv 3.021
+
+problem: Deriv 3.022
+flag: c
+flag: q
+statement: " exists x (Fx->P). exists x (P->Fx) .: exists x (Fx<->P)"
+end-box:
+common-name: Deriv 3.022
+
+problem: Deriv 3.022EG1
+statement: " exists x (Fx->P). exists x (P->Fx) .: exists x (Fx<->P)"
+  show: exists x (Fx<->P)
+  command: "\"show conc\""
+    line: ~exists x (Fx<->P)
+    reason: ass id
+    line: forall x ~(Fx<->P)
+    reason: 2 qn
+    line: Fa->P
+    reason: pr1 ei/a
+    cached-justification:
+    cached-justification: 1:EI{0}a:a.F{1}:F{1}->P,x:x
+    line: P->Fb
+    reason: pr2 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:P->F{1},x:x
+    line: ~(Fa<->P)
+    reason: 3 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~(F{1}<->P),x:x
+    line: ~(Fb<->P)
+    reason: 3 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:~(F{1}<->P),x:x
+    line:
+    reason:
+  end-box:
+end-box:
+note: This Example is incomplete, but the remainder of the problem is pure sentential logic, deriving a contradiction from lines 4-7.
+options: eg
+common-name: Deriv 3.022EG1
+
+problem: Deriv 3.023
+flag: c
+flag: q
+statement: " exists x Fx<->exists x Gx .: exists x exists y (Fx<->Gy)"
+end-box:
+common-name: Deriv 3.023
+
+problem: Deriv 3.024
+flag: c
+flag: q
+statement: " exists x (Fx<->P). exists x (Gx<->P). forall x (Fx<->~Gx) .: exists x exists y (Fx&~Gx<->Gy&~Fy)"
+end-box:
+common-name: Deriv 3.024
+
+problem: Deriv 3.024a
+statement: " exists x (Fx<->P). exists x (Gx<->P) .: exists x exists y (Fx&~Gx<->Gy&~Fy)"
+end-box:
+common-name: Deriv 3.024a
+
+problem: Deriv 3.024b
+statement: " forall x (Fx<->Gx) .: exists x exists y (Fx&~Gx<->Gy&~Fy)"
+end-box:
+common-name: Deriv 3.024b
+
+problem: Deriv 3.025
+flag: c
+flag: q
+statement: " exists x (Fx&Hx)|forall x (Jx->Gx). forall x (Fx->~Hx) .: exists x Jx->exists x (Gx&Jx)"
+end-box:
+common-name: Deriv 3.025
+
+problem: Deriv 3.026
+flag: c
+flag: q
+statement: " forall x (Fx->Gx)|exists x (Fx&Hx). forall x (Kx->~Jx|~Hx). forall x (Fx->Kx&Jx). exists x Fx .: exists x (Gx&Fx)"
+end-box:
+common-name: Deriv 3.026
+
+problem: Deriv 3.027
+flag: c
+flag: q
+statement: " FA .: forall x (Fx->Gx)<->forall x ((Fx&Gx)|(~Fx&GA))"
+end-box:
+common-name: Deriv 3.027
+
+problem: Deriv 3.028
+flag: c
+flag: q
+statement: " exists x (Fx&~Gx). forall x (Fx->Hx). forall x (Jx&Kx->Fx). exists x (Hx&~Gx)->forall x (Kx->~Hx) .: forall x (Jx->~Kx)"
+end-box:
+common-name: Deriv 3.028
+
+problem: Deriv 3.029
+flag: c
+flag: q
+statement: " forall x (Fx->Gx|Hx). forall x (Gx|Hx->Kx). ~exists x (Kx&Gx). ~exists x Fx->exists x Gx .: exists x (Fx&Hx)"
+end-box:
+common-name: Deriv 3.029
+
+problem: Deriv 3.030
+flag: c
+flag: q
+statement: " forall y (Fx&Gy) .: Fx&Gx"
+end-box:
+common-name: Deriv 3.030
+
+problem: Deriv 3.031
+flag: c
+flag: q
+statement: " Fx&Gx .: forall y (Fx&Gy)"
+end-box:
+common-name: Deriv 3.031
+
+problem: Deriv 3.032
+flag: c
+flag: q
+statement: " Fx&Gy .: forall z (Fz&Gz)"
+end-box:
+common-name: Deriv 3.032
+
+problem: Deriv 3.033
+flag: c
+flag: q
+statement: " exists x Gx .: exists y forall x (Fx->Gy)"
+end-box:
+common-name: Deriv 3.033
+
+problem: Deriv 3.034
+flag: c
+flag: q
+statement: " .: ~forall x exists y (Fy&~Fx)"
+end-box:
+common-name: Deriv 3.034
+
+problem: Deriv 3.035
+flag: c
+flag: q
+statement: " forall x exists y (Fy&Gx) .: exists x (Fx&Gx)"
+end-box:
+common-name: Deriv 3.035
+
+problem: Deriv 3.035EG1
+statement: " forall x exists y (Fy&Gx) .: exists x (Fx&Gx)"
+  show: exists x (Fx&Gx)
+  command: "\"show conc\""
+    line: ~exists x (Fx&Gx)
+    reason: ass id
+    line: forall x ~(Fx&Gx)
+    reason: 2 qn
+    line: forall x exists y (Fy&Gx)
+    reason: pr1
+    line: exists y (Fy&Ga)
+    reason: 4 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:!y(Fy&G{1}),x:x
+    line: Fb&Ga
+    reason: 5 ei/b
+    cached-justification: 1:EI{0}a:b.F{1}:F{1}&Ga,x:y
+    line: ~(Fa&Ga)
+    reason: 3 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~(F{1}&G{1}),x:x
+    line: ~(Fb&Gb)
+    reason: 3 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:~(F{1}&G{1}),x:x
+    line: exists y (Fy&Gb)
+    reason: 4 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:!y(Fy&G{1}),x:x
+    line: Fc&Gb
+    reason: 9 ei/c
+    cached-justification: 1:EI{0}a:c.F{1}:F{1}&Gb,x:y
+    line: Gb
+    reason: 10 sr
+    line: ~Fb|~Gb
+    reason: 8 dm
+    line: ~Fb
+    reason: 12 11 dn mtp
+    line: Fb
+    reason: 6 sl
+  cancel: 14 13 id
+end-box:
+note: Note that although the process of quantifier elimination never terminates, only one additional cycle is required for this problem.
+options: eg
+common-name: Deriv 3.035EG1
+
+problem: Deriv 3.036
+flag: c
+flag: q
+statement: " forall x exists y ~(Fy->~Gx) .: exists x ~(Fx->~Gx)"
+end-box:
+common-name: Deriv 3.036
+
+problem: Deriv 3.037
+statement: " exists y forall x (Fx<->Fy) . exists x Fx .: forall x Fx"
+end-box:
+common-name: Deriv 3.037
+
+problem: Deriv 3.038
+statement: " exists x Fx<->exists x Gx .: exists x exists y (Fx<->Gy)"
+end-box:
+common-name: Deriv 3.038
+
+problem: Deriv 3.039
+statement: " forall x exists y (Fx&Gy) .: exists y forall x (Fx&Gy)"
+end-box:
+common-name: Deriv 3.039
+
+problem: Deriv 3.040
+statement: " exists y forall x (Fx&Gy) .: forall x exists y (Fx&Gy)"
+end-box:
+note: Note that this problem, which is formed from 3.039 by exchanging premise and conclusion, is much easier than 3.039 because unlike 3.039 the quantifier elimination terminates.
+common-name: Deriv 3.040
+
+problem: Deriv 3.040EG1
+statement: " exists y forall x (Fx&Gy) .: forall x exists y (Fx&Gy)"
+  show: forall x exists y (Fx&Gy)
+  command: "\"show conc\""
+    line: ~forall x exists y (Fx&Gy)
+    reason: ass id
+    line: exists x ~exists y (Fx&Gy)
+    reason: 2 qn
+    line: ~exists y (Fa&Gy)
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~!y(F{1}&Gy),x:x
+    line: forall y ~(Fa&Gy)
+    reason: 4 qn
+    line: forall x (Fx&Gb)
+    reason: pr1 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:@x(Fx&G{1}),x:y
+    line: ~(Fa&Ga)
+    reason: 5 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:~(Fa&G{1}),x:y
+    line: ~(Fa&Gb)
+    reason: 5 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:~(Fa&G{1}),x:y
+    line: Fa&Gb
+    reason: 6 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}&Gb,x:x
+    line: Fb&Gb
+    reason: 6 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:F{1}&Gb,x:x
+  cancel: 9 8 id
+end-box:
+note: Note that this problem, which is formed from 3.039 by exchanging premise and conclusion, is much easier than 3.039 because unlike 3.039 the quantifier elimination terminates.
+options: eg
+common-name: Deriv 3.040EG1
+
+problem: Deriv 3.040EG2
+statement: " exists y forall x (Fx&Gy) .: forall x exists y (Fx&Gy)"
+  show: forall x exists y (Fx&Gy)
+  command: "\"show conc\""
+    line: ~forall x exists y (Fx&Gy)
+    reason: ass id
+    line: exists x ~exists y (Fx&Gy)
+    reason: 2 qn
+    line: ~exists y (Fa&Gy)
+    reason: 3 ei/a
+    cached-justification: 1:EI{0}a:a.F{1}:~!y(F{1}&Gy),x:x
+    line: forall y ~(Fa&Gy)
+    reason: 4 qn
+    line: forall x (Fx&Gb)
+    reason: pr1 ei/b
+    cached-justification:
+    cached-justification: 1:EI{0}a:b.F{1}:@x(Fx&G{1}),x:y
+    line: ~(Fa&Gb)
+    reason: 5 ui/b
+    cached-justification: 1:UI{0}A:b.F{1}:~(Fa&G{1}),x:y
+    line: Fa&Gb
+    reason: 6 ui/a
+    cached-justification: 1:UI{0}A:a.F{1}:F{1}&Gb,x:x
+  cancel: 8 7 id
+end-box:
+note: Note that this problem, which is formed from 3.039 by exchanging premise and conclusion, is much easier than 3.039 because unlike 3.039 the quantifier elimination terminates.
+options: eg
+common-name: Deriv 3.040EG2
+
+problem: Deriv 3.201 T201
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx)->(forall x Fx->forall x Gx)"
+end-box:
+proves: QDISTUC.T201
+common-name: Deriv 3.201 T201
+
+problem: Deriv 3.202 T202
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx)->(exists x Fx->exists x Gx)"
+end-box:
+proves: QDISTUEC.T202
+common-name: Deriv 3.202 T202
+
+problem: Deriv 3.203 T203
+flag: c
+flag: q
+statement: " .:~forall x Fx<->exists x ~Fx"
+end-box:
+proves: QN1.QN2.T203
+common-name: Deriv 3.203 T203
+
+problem: Deriv 3.204 T204
+flag: c
+flag: q
+statement: " .:~exists x Fx<->forall x ~Fx"
+end-box:
+proves: QN3.QN4.T204
+common-name: Deriv 3.204 T204
+
+problem: Deriv 3.205 T205
+flag: c
+flag: q
+statement: " .:forall x Fx<->~exists x ~Fx"
+end-box:
+proves: QN5.QN6.T205
+common-name: Deriv 3.205 T205
+
+problem: Deriv 3.205 T205EG1
+statement: " .:forall x Fx<->~exists x ~Fx"
+  show: forall x Fx<->~exists x ~Fx
+  command: "\"show conc\""
+    show: forall x Fx->~exists x ~Fx
+    command: "\"show cond\""
+      line: forall x Fx
+      reason: ass cd
+      show: ~exists x ~Fx
+      command: "\"show cons\""
+        line: exists x ~Fx
+        reason: ass id
+        cached-justification: 3:-
+        line: ~Fa
+        reason: 5 ei/a
+        cached-justification: 1:EI{0}a:a.F{1}:~F{1},x:x
+        line: Fa
+        reason: 3 ui/a
+        cached-justification: 1:UI{0}A:a.F{1}:F{1},x:x
+      cancel: 7 6 id
+    cancel: 4 cd
+    show: ~exists x ~Fx->forall x Fx
+    command: "\"show cond\""
+      line: ~exists x ~Fx
+      reason: ass cd
+      show: forall x Fx
+      command: "\"show cons\""
+        show: Fx
+        command: "\"show inst\""
+          line: ~Fx
+          reason: ass id
+          line: exists x ~Fx
+          reason: 14 eg/x
+          cached-justification: 1:EG{0}A:x.F{1}:~F{1},x:x
+          line: ~exists x ~Fx
+          reason: 11 r
+        cancel: 16 15 id
+      cancel: 13 ud
+    cancel: 12 cd
+    line: forall x Fx<->~exists x ~Fx
+    reason: 10 2 cb
+    cached-justification: 1:CB{1,0}Q:~!x~Fx.P:@xFx,
+  cancel: 20 dd
+end-box:
+options: eg
+common-name: Deriv 3.205 T205EG1
+
+problem: Deriv 3.206 T206
+flag: c
+flag: q
+statement: " .:exists x Fx<->~forall x ~Fx"
+end-box:
+proves: QN7.QN8.T206
+common-name: Deriv 3.206 T206
+
+problem: Deriv 3.206 T206EG1
+statement: " .:exists x Fx<->~forall x ~Fx"
+  show: exists x Fx<->~forall x ~Fx
+  command: "\"show conc\""
+    show: exists x Fx->~forall x ~Fx
+    command: "\"show cond\""
+      line: exists x Fx
+      reason: ass cd
+      show: ~forall x ~Fx
+      command: "\"show cons\""
+        line: forall x ~Fx
+        reason: ass id
+        cached-justification: 3:-
+        line: Fa
+        reason: 3 ei/a
+        cached-justification: 1:EI{0}a:a.F{1}:F{1},x:x
+        line: ~Fa
+        reason: 5 ui/a
+        cached-justification: 1:UI{0}A:a.F{1}:~F{1},x:x
+      cancel: 7 6 id
+    cancel: 4 cd
+    show: ~forall x ~Fx->exists x Fx
+    command: "\"show cond\""
+      line: ~forall x ~Fx
+      reason: ass cd
+      show: exists x Fx
+      command: "\"show cons\""
+        line: ~exists x Fx
+        reason: ass id
+        show: forall x ~Fx
+        command: "\"show unneg 11\""
+          show: ~Fx
+          command: "\"show inst\""
+            line: Fx
+            reason: ass id
+            cached-justification: 3:-
+            line: exists x Fx
+            reason: 16 eg/x
+            cached-justification: 1:EG{0}A:x.F{1}:F{1},x:x
+            line: ~exists x Fx
+            reason: 13 r
+          cancel: 18 17 id
+        cancel: 15 ud
+        line: ~forall x ~Fx
+        reason: 11 r
+      cancel: 21 14 id
+    cancel: 12 cd
+    line: exists x Fx<->~forall x ~Fx
+    reason: 2 10 cb
+    cached-justification: 1:CB{0,1}Q:~@x~Fx.P:!xFx,
+  cancel: 24 dd
+end-box:
+options: eg
+common-name: Deriv 3.206 T206EG1
+
+problem: Deriv 3.207 T207
+flag: c
+flag: q
+statement: " .:exists x (Fx|Gx)<->exists x Fx|exists x Gx"
+end-box:
+proves: QDISTEO1.QDISTEO2.QDISTEO1a.QDISTEO2a.QDISTEO1b.QDISTEO2b.T207
+common-name: Deriv 3.207 T207
+
+problem: Deriv 3.208 T208
+flag: c
+flag: q
+statement: " .:forall x (Fx&Gx)<->forall x Fx&forall x Gx"
+end-box:
+proves: QDISTUA1.QDISTUA2.QDISTUA1a.QDISTUA2a.QDISTUA1b.QDISTUA2b.T208
+common-name: Deriv 3.208 T208
+
+problem: Deriv 3.209 T209
+flag: c
+flag: q
+statement: " .:exists x (Fx&Gx)->exists x Fx&exists x Gx"
+end-box:
+proves: QDISTEA.T209
+common-name: Deriv 3.209 T209
+
+problem: Deriv 3.210 T210
+flag: c
+flag: q
+statement: " .:forall x Fx|forall x Gx->forall x (Fx|Gx)"
+end-box:
+proves: T210
+common-name: Deriv 3.210 T210
+
+problem: Deriv 3.211 T211
+flag: c
+flag: q
+statement: " .:(exists x Fx->exists x Gx)->exists x (Fx->Gx)"
+end-box:
+proves: T211
+common-name: Deriv 3.211 T211
+
+problem: Deriv 3.212 T212
+flag: c
+flag: q
+statement: " .:(forall x Fx->forall x Gx)->exists x (Fx->Gx)"
+end-box:
+proves: T212
+common-name: Deriv 3.212 T212
+
+problem: Deriv 3.213 T213
+flag: c
+flag: q
+statement: " .:forall x (Fx<->Gx)->(forall x Fx<->forall x Gx)"
+end-box:
+proves: QDISTUB.T213
+note: IE and CIE are disabled for this problem.
+common-name: Deriv 3.213 T213
+
+problem: Deriv 3.214 T214
+flag: c
+flag: q
+statement: " .:forall x (Fx<->Gx)->(exists x Fx<->exists x Gx)"
+end-box:
+proves: QDISTUEB.T214
+note: IE and CIE are disabled for this problem.
+common-name: Deriv 3.214 T214
+
+problem: Deriv 3.215 T215
+flag: c
+flag: q
+statement: " .:forall x (P&Fx)<->P&forall x Fx"
+end-box:
+proves: CONFUA1.CONFUA2.CONFUA3.CONFUA4.T215
+common-name: Deriv 3.215 T215
+
+problem: Deriv 3.215a
+flag: c
+flag: q
+statement: " .:forall x (Fx&P)<->forall x Fx&P"
+end-box:
+proves: CONFUA3.CONFUA4
+common-name: Deriv 3.215a
+
+problem: Deriv 3.216 T216
+flag: c
+flag: q
+statement: " .:exists x (P&Fx)<->P&exists x Fx"
+end-box:
+proves: CONFEA1.CONFEA2.CONFEA3.CONFEA4.T216
+common-name: Deriv 3.216 T216
+
+problem: Deriv 3.216a
+flag: c
+flag: q
+statement: " .:exists x (Fx&P)<->exists x Fx&P"
+end-box:
+proves: CONFEA3.CONFEA4
+common-name: Deriv 3.216a
+
+problem: Deriv 3.217 T217
+flag: c
+flag: q
+statement: " .:forall x (P|Fx)<->P|forall x Fx"
+end-box:
+proves: CONFUO1.CONFUO2.CONFUO3.CONFUO4.T217
+common-name: Deriv 3.217 T217
+
+problem: Deriv 3.217a
+flag: c
+flag: q
+statement: " .:forall x (Fx|P)<->forall x Fx|P"
+end-box:
+proves: CONFUO3.CONFUO4
+common-name: Deriv 3.217a
+
+problem: Deriv 3.218 T218
+flag: c
+flag: q
+statement: " .:exists x (P|Fx)<->P|exists x Fx"
+end-box:
+proves: CONFEO1.CONFEO2.CONFEO3.CONFEO4.T218
+common-name: Deriv 3.218 T218
+
+problem: Deriv 3.218a
+flag: c
+flag: q
+statement: " .:exists x (Fx|P)<->exists x Fx|P"
+end-box:
+proves: CONFEO3.CONFEO4
+common-name: Deriv 3.218a
+
+problem: Deriv 3.219 T219
+flag: c
+flag: q
+statement: " .:forall x (P->Fx)<->(P->forall x Fx)"
+end-box:
+proves: CONFUCC1.CONFUCC2.T219
+common-name: Deriv 3.219 T219
+
+problem: Deriv 3.220 T220
+flag: c
+flag: q
+statement: " .:exists x (P->Fx)<->(P->exists x Fx)"
+end-box:
+proves: CONFECC1.CONFECC2.T220
+common-name: Deriv 3.220 T220
+
+problem: Deriv 3.221 T221
+flag: c
+flag: q
+statement: " .:forall x (Fx->P)<->(exists x Fx->P)"
+end-box:
+proves: CONFUCA1. CONFUCA2.T221
+common-name: Deriv 3.221 T221
+
+problem: Deriv 3.222 T222
+flag: c
+flag: q
+statement: " .:exists x (Fx->P)<->(forall x Fx->P)"
+end-box:
+proves: CONFECA1. CONFECA2.T222
+common-name: Deriv 3.222 T222
+
+problem: Deriv 3.223 T223
+flag: c
+flag: q
+statement: " .:forall x (Fx<->P)->(forall x Fx<->P)"
+end-box:
+proves: T223
+common-name: Deriv 3.223 T223
+
+problem: Deriv 3.224 T224
+flag: c
+flag: q
+statement: " .:forall x (Fx<->P)->(exists x Fx<->P)"
+end-box:
+proves: T224
+common-name: Deriv 3.224 T224
+
+problem: Deriv 3.224a
+flag: c
+flag: q
+statement: " .:forall x (Fx<->P)<->(forall x Fx&P)|(~exists x Fx&~P)"
+end-box:
+proves: CONFUB1.CONFUB2.CONFUB3.CONFUB4
+common-name: Deriv 3.224a
+
+problem: Deriv 3.224b
+flag: c
+flag: q
+statement: " .:exists x (Fx<->P)<->(exists x Fx&P)|(~forall x Fx&~P)"
+end-box:
+proves: CONFEB1.CONFEB2.CONFEB3.CONFEB4
+common-name: Deriv 3.224b
+
+problem: Deriv 3.225 T225
+flag: c
+flag: q
+statement: " .:(exists x Fx<->P)->exists x (Fx<->P)"
+end-box:
+proves: T225
+common-name: Deriv 3.225 T225
+
+problem: Deriv 3.226 T226
+flag: c
+flag: q
+statement: " .:(forall x Fx<->P)->exists x (Fx<->P)"
+end-box:
+proves: T226
+common-name: Deriv 3.226 T226
+
+problem: Deriv 3.227 T227
+flag: c
+flag: q
+statement: " .:forall x P<->P"
+end-box:
+proves: T227.VAC1.VAC2
+common-name: Deriv 3.227 T227
+
+problem: Deriv 3.228 T228
+flag: c
+flag: q
+statement: " .:exists x P<->P"
+end-box:
+proves: T228.VAC3.VAC4
+common-name: Deriv 3.228 T228
+
+problem: Deriv 3.229 T229
+flag: c
+flag: q
+statement: " .:exists x (exists x Fx->Fx)"
+end-box:
+proves: T229
+common-name: Deriv 3.229 T229
+
+problem: Deriv 3.230 T230
+flag: c
+flag: q
+statement: " .:exists x (Fx->forall x Fx)"
+end-box:
+proves: T230
+common-name: Deriv 3.230 T230
+
+problem: Deriv 3.231 T231
+flag: c
+flag: q
+statement: " .:forall x Fx<->forall y Fy"
+end-box:
+proves: AV1.T231
+common-name: Deriv 3.231 T231
+
+problem: Deriv 3.232 T232
+flag: c
+flag: q
+statement: " .:exists x Fx<->exists y Fy"
+end-box:
+proves: AV2.T232
+common-name: Deriv 3.232 T232
+
+problem: Deriv 3.233 T233
+flag: c
+flag: q
+statement: " .:(Fx->Gx)&(Gx->Hx)->(Fx->Hx)"
+end-box:
+proves: T233
+common-name: Deriv 3.233 T233
+
+problem: Deriv 3.234 T234
+flag: c
+flag: q
+statement: " .:forall x ((Fx->Gx)&(Gx->Hx)->(Fx->Hx))"
+end-box:
+proves: T234
+common-name: Deriv 3.234 T234
+
+problem: Deriv 3.235 T235
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx)&forall x (Gx->Hx)->forall x (Fx->Hx)"
+end-box:
+proves: T235
+common-name: Deriv 3.235 T235
+
+problem: Deriv 3.236 T236
+flag: c
+flag: q
+statement: " .:forall x (Fx<->Gx)&forall x (Gx<->Hx)->forall x (Fx<->Hx)"
+end-box:
+proves: T236
+common-name: Deriv 3.236 T236
+
+problem: Deriv 3.237 T237
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx)&forall x (Fx->Hx)<->forall x (Fx->Gx&Hx)"
+end-box:
+proves: T237
+common-name: Deriv 3.237 T237
+
+problem: Deriv 3.238 T238
+flag: c
+flag: q
+statement: " .:forall x Fx->exists x Fx"
+end-box:
+proves: T238
+common-name: Deriv 3.238 T238
+
+problem: Deriv 3.239 T239
+flag: c
+flag: q
+statement: " .:forall x Fx&exists x Gx->exists x (Fx&Gx)"
+end-box:
+proves: T239
+common-name: Deriv 3.239 T239
+
+problem: Deriv 3.240 T240
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx)&exists x (Fx&Hx)->exists x (Gx&Hx)"
+end-box:
+proves: T240
+common-name: Deriv 3.240 T240
+
+problem: Deriv 3.241 T241
+flag: c
+flag: q
+statement: " .:forall x (Fx->Gx|Hx)->forall x (Fx->Gx)|exists x (Fx&Hx)"
+end-box:
+proves: T241
+common-name: Deriv 3.241 T241
+
+problem: Deriv 3.242 T242
+flag: c
+flag: q
+statement: " .:~forall x (Fx->Gx)<->exists x (Fx&~Gx)"
+end-box:
+proves: T242
+common-name: Deriv 3.242 T242
+
+problem: Deriv 3.243 T243
+flag: c
+flag: q
+statement: " .:~exists x (Fx&Gx)<->forall x (Fx->~Gx)"
+end-box:
+proves: T243
+common-name: Deriv 3.243 T243
+
+problem: Deriv 3.244 T244
+flag: c
+flag: q
+statement: " .:~exists x Fx->forall x (Fx->Gx)"
+end-box:
+proves: T244
+common-name: Deriv 3.244 T244
+
+problem: Deriv 3.245 T245
+flag: c
+flag: q
+statement: " .:~exists x Fx<->forall x (Fx->Gx)&forall x (Fx->~Gx)"
+end-box:
+proves: T245
+common-name: Deriv 3.245 T245
+
+problem: Deriv 3.246 T246
+flag: c
+flag: q
+statement: " .:~exists x Fx&~exists x Gx->forall x (Fx<->Gx)"
+end-box:
+proves: T246
+common-name: Deriv 3.246 T246
+
+problem: Deriv 3.247 T247
+flag: c
+flag: q
+statement: " .:exists x (Fx->Gx)<->exists x ~Fx|exists x Gx"
+end-box:
+proves: T247
+common-name: Deriv 3.247 T247
+
+problem: Deriv 3.248 T248
+flag: c
+flag: q
+statement: " .:exists x Fx&exists x ~Fx<->forall x exists y (Fx<->~Fy)"
+end-box:
+proves: T248
+common-name: Deriv 3.248 T248
+
+problem: Deriv 3.411
+statement: " exists y forall x (Fx<->Fy). exists x Fx .: forall x Fx"
+end-box:
+note: QN has been disabled for this problem, which corresponds to Deriv 3.011.
+common-name: Deriv 3.411
+
+problem: Deriv 3.419
+statement: " .: forall x (Fx&(~exists x Fx|forall x Gx)->forall x (Fx|Gx))"
+end-box:
+note: QN has been disabled for this problem, which corresponds to Deriv 3.019.  This is a very tricky problem, but it can be done using just the primitive rules.
+common-name: Deriv 3.419
+
+problem: Deriv 3.420
+statement: " Fx->forall x Fx .: exists x Fx->Fx"
+end-box:
+note: All derived rules of Chapter III have been disabled for this problem.  This is a very difficult problem unless an appropriate technique is used to deal with the free variable in the premise.
+common-name: Deriv 3.420
+
+problem: Deriv 3.421
+statement: " .: forall x (Fy&forall y Gx)->exists x (Fx&Gx)"
+end-box:
+note: All derived rules of Chapter III except for QN have been disabled for this problem.  This is a very difficult problem unless an appropriate technique is used to deal with the free variable in the conclusion.
+common-name: Deriv 3.421
+
+problem: Deriv 3.422
+statement: " Fx->P.  Fy&Gx .: P"
+end-box:
+note: All derived rules of Chapter III have been disabled for this problem.  This is a very difficult problem unless an appropriate technique is used to deal with the free variables in the premises.
+common-name: Deriv 3.422
+
+problem: Deriv 3.701
+statement: " ~(P->R).  Q  .:  ~(P->(Q->R))"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.701
+
+problem: Deriv 3.702
+statement: " (P->Q)->~(R->S)  .:  P|~S"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.702
+
+problem: Deriv 3.703
+statement: " (P->R)->~Q|~R  .:  P->~Q|(~R<->P)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.703
+
+problem: Deriv 3.704
+statement: " (T|(S->R))|(~S|Q)  .:  (P->Q)|((R|~S)|T)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.704
+
+problem: Deriv 3.705
+statement: " forall x (Fx&Hx->Gx).  forall x Hx  .:  exists x Fx->exists x Gx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.705
+
+problem: Deriv 3.706
+statement: " forall x ~Fx->forall x Fx  .:  exists x Fx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.706
+
+problem: Deriv 3.707
+statement: " exists x Gx->forall x (Gx->Hx).  forall x (Hx|Jx->Fx)  .:  GA->exists x Fx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.707
+
+problem: Deriv 3.708
+statement: " exists y Fy->exists x (~Fx&~Gx)  .:  ~GB->~forall x (Fx|Gx)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.708
+
+problem: Deriv 3.709
+statement: " exists y Gy->exists y (Fy&~Gy)  .:  forall x (~Gx->~Fx)->~FA"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.709
+
+problem: Deriv 3.710
+statement: " forall x (Fx<->~Gx|~Hx).  ~forall x (Gx&Hx)->exists x (Ix&~Gx)  .:  exists x Fx->exists x (Ix&Fx)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.710
+
+problem: Deriv 3.711
+statement: " exists x (Fx&Hx)|forall x (Gx->Jx).  forall x (Fx->~Hx).  forall x (Ix->Fx|Gx)  .:  forall x (Ix->Fx|Jx)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.711
+
+problem: Deriv 3.712
+statement: " forall x forall y (Fx->~(Gx&~Hy)).  forall x (~Fx->~exists x ~Hx)  .:  exists x Gx->forall x Hx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.712
+
+problem: Deriv 3.713
+statement: " exists x (Fx->forall x Gx)  .:  exists x exists y (~Fx|Gy)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.713
+
+problem: Deriv 3.714
+statement: "  .:  (~forall y exists x (Fy&Gx)|exists x (Gx&Fx))"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.714
+
+problem: Deriv 3.715
+statement: " forall x exists y (Fx|~Gy).  exists x forall y (Gy|Hx)  .:  ~exists x Hx->forall x Fx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.715
+
+problem: Deriv 3.716
+statement: "  .:  forall x Gx->~forall x exists y (Gx->Fy&~Fx)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.716
+
+problem: Deriv 3.717
+statement: "  .:  forall y exists x (Fy&Gx)->exists x (Gx&Fx)"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.717
+
+problem: Deriv 3.718
+statement: " Fx&exists x Gx.forall x (Fx&Gx->Hx)  .:  exists x Hx"
+end-box:
+note: This is a Practice Blue Book Exam problem.  Checking remains enabled.  All derived rules and theorems are enabled.  Command Mode is disabled.  Show Commands are disabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.718
+
+problem: Deriv 3.801
+statement: " ~(P->R).  Q  .:  ~(P->(Q->R))"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.801
+
+problem: Deriv 3.802
+statement: " (P->Q)->~(R->S)  .:  P|~S"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.802
+
+problem: Deriv 3.803
+statement: " (P->R)->~Q|~R  .:  P->~Q|(~R<->P)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.803
+
+problem: Deriv 3.804
+statement: " (T|(S->R))|(~S|Q)  .:  (P->Q)|((R|~S)|T)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.804
+
+problem: Deriv 3.805
+statement: " forall x (Fx&Hx->Gx).  forall x Hx  .:  exists x Fx->exists x Gx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.805
+
+problem: Deriv 3.806
+statement: " forall x ~Fx->forall x Fx  .:  exists x Fx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.806
+
+problem: Deriv 3.807
+statement: " exists x Gx->forall x (Gx->Hx).  forall x (Hx|Jx->Fx)  .:  GA->exists x Fx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.807
+
+problem: Deriv 3.808
+statement: " exists y Fy->exists x (~Fx&~Gx)  .:  ~GB->~forall x (Fx|Gx)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.808
+
+problem: Deriv 3.809
+statement: " exists y Gy->exists y (Fy&~Gy)  .:  forall x (~Gx->~Fx)->~FA"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.809
+
+problem: Deriv 3.810
+statement: " forall x (Fx<->~Gx|~Hx).  ~forall x (Gx&Hx)->exists x (Ix&~Gx)  .:  exists x Fx->exists x (Ix&Fx)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.810
+
+problem: Deriv 3.811
+statement: " exists x (Fx&Hx)|forall x (Gx->Jx).  forall x (Fx->~Hx).  forall x (Ix->Fx|Gx)  .:  forall x (Ix->Fx|Jx)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.811
+
+problem: Deriv 3.812
+statement: " forall x forall y (Fx->~(Gx&~Hy)).  forall x (~Fx->~exists x ~Hx)  .:  exists x Gx->forall x Hx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.812
+
+problem: Deriv 3.813
+statement: " exists x (Fx->forall x Gx)  .:  exists x exists y (~Fx|Gy)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.813
+
+problem: Deriv 3.814
+statement: " .:  (~forall y exists x (Fy&Gx)|exists x (Gx&Fx))"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.814
+
+problem: Deriv 3.815
+statement: " forall x exists y (Fx|~Gy).  exists x forall y (Gy|Hx)  .:  ~exists x Hx->forall x Fx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.815
+
+problem: Deriv 3.816
+statement: " .:  forall x Gx->~forall x exists y (Gx->Fy&~Fx)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.816
+
+problem: Deriv 3.817
+statement: " .:  forall y exists x (Fy&Gx)->exists x (Gx&Fx)"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.817
+
+problem: Deriv 3.818
+statement: " Fx&exists x Gx.forall x (Fx&Gx->Hx)  .:  exists x Hx"
+end-box:
+note: This is a Practice Computer Exam problem.  Checking remains enabled.  (It will be disabled on an actual exam.)  All derived rules and theorems are enabled.  Command Mode and Show Commands remain enabled.  The only error message is "Error".  Show lines that are not yet cancelled will be marked "Error".
+common-name: Deriv 3.818
+
+problem: Deriv 4.001
+flag: c
+flag: q
+statement: " FB(A) .: exists x FB(x)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.001
+
+problem: Deriv 4.002
+flag: c
+flag: q
+statement: " FA. GB(A) .: exists x (Fx&GB(x))"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.002
+
+problem: Deriv 4.003
+flag: c
+flag: q
+statement: " exists x FB(x) .: exists x Fx"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.003
+
+problem: Deriv 4.004
+flag: c
+flag: q
+statement: " forall x Fx .: exists x FB(x)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.004
+
+problem: Deriv 4.005
+flag: c
+flag: q
+statement: " exists y F(yy) .: exists x exists y F(xy)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.005
+
+problem: Deriv 4.006
+flag: c
+flag: q
+statement: " forall x (~F(xx)->F(Ax)) .: exists x F(xx)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.006
+
+problem: Deriv 4.007
+flag: c
+flag: q
+statement: " forall x FA(xB) .: exists x FA(xx)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.007
+
+problem: Deriv 4.008
+flag: c
+flag: q
+statement: " exists x FA(xx) .: exists x Fx"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.008
+
+problem: Deriv 4.009
+flag: c
+flag: q
+statement: " forall x forall y (F(xy)->F(yx)). exists x F(Ax) .: exists x (F(Ax)&exists y F(xy))"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.009
+
+problem: Deriv 4.010
+flag: c
+flag: q
+statement: " forall x (~exists y F(xy)->F(Ax)) .: exists x F(Ax)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.010
+
+problem: Deriv 4.011
+flag: c
+flag: q
+statement: " forall x (F(xA(x))->~F(xx)) .: ~exists x forall y F(A(x)y)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.011
+
+problem: Deriv 4.012
+flag: c
+flag: q
+statement: " forall x forall y FA(xB(y)C) .: exists x FA(B(x)B(C)x)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.012
+
+problem: Deriv 4.013
+flag: c
+flag: q
+statement: " forall x forall y FA(xB(y)C) .: exists x FA(B(x)xC)"
+end-box:
+note: QN is disabled.  Use UI, EI, and EG in your derivations.
+common-name: Deriv 4.013
+
+problem: Deriv 4.014
+flag: c
+flag: q
+statement: " forall x (F(xA)->(G(Bx)<->~G(xx))). F(BA) .: ~G(BB)"
+end-box:
+common-name: Deriv 4.014
+
+problem: Deriv 4.015
+flag: c
+flag: q
+statement: " forall x (F(xA)->(G(Bx)<->~G(xx))). F(BA) .: G(BB)"
+end-box:
+common-name: Deriv 4.015
+
+problem: Deriv 4.016
+flag: c
+flag: q
+statement: " forall x (Fx<->forall y G(xy)) .: exists x forall y (Fy->G(xy))"
+end-box:
+common-name: Deriv 4.016
+
+problem: Deriv 4.017
+flag: c
+flag: q
+statement: " exists x Fx. forall x (Fx->exists y (Gy&Fy&H(xy))) .: exists x (Gx&Fx&exists y (Fy&H(yx)))"
+end-box:
+common-name: Deriv 4.017
+
+problem: Deriv 4.018
+flag: c
+flag: q
+statement: " forall x (Fx->exists y (Gy&H(xy))&exists y (Gy&~H(xy))). exists x (Jx&forall y (Gy->H(xy))) .: exists x (Jx&~Fx)"
+end-box:
+common-name: Deriv 4.018
+
+problem: Deriv 4.019
+flag: c
+flag: q
+statement: " forall x (Fx&forall y (Gy&H(xy)->J(xy))->forall y (Gy&H(xy)->Ky)). exists x (Fx&forall y (H(xy)->Ly)&forall y (Gy&H(xy)->J(xy))). ~exists y (Ly&Ky) .: exists x (Fx&~exists y (Gy&H(xy)))"
+end-box:
+common-name: Deriv 4.019
+
+problem: Deriv 4.020
+flag: c
+flag: q
+statement: " forall x (Fx->Gx) .: forall x (exists y (H(xy)&Fy)->exists y (H(xy)&Gy))"
+end-box:
+common-name: Deriv 4.020
+
+problem: Deriv 4.021
+flag: c
+flag: q
+statement: " F(xy)->~F(yx) .: ~F(xx)"
+end-box:
+common-name: Deriv 4.021
+
+problem: Deriv 4.022
+flag: c
+flag: q
+statement: " F(xy)&F(yz)->F(xz). F(xy)->F(yx) .: exists y F(xy)->F(xx)"
+end-box:
+common-name: Deriv 4.022
+
+problem: Deriv 4.023
+flag: c
+flag: q
+statement: " forall x forall y exists z F(xyz). forall x forall y forall z (F(xyz)->F(yzx)) .: forall x forall y exists z F(zxy)"
+end-box:
+common-name: Deriv 4.023
+
+problem: Deriv 4.024
+flag: c
+flag: q
+statement: " forall x forall y (F(xy)|F(yx)) .: forall x exists y F(xy)"
+end-box:
+common-name: Deriv 4.024
+
+problem: Deriv 4.025
+flag: c
+flag: q
+statement: " .: exists x exists y (Fx<->~Fy)->forall x exists y (Fx<->~Fy)"
+end-box:
+common-name: Deriv 4.025
+
+problem: Deriv 4.026
+flag: c
+flag: q
+statement: " .: exists y forall x forall z (~F(zx)->F(yx))<->exists x forall y F(xy)"
+end-box:
+common-name: Deriv 4.026
+
+problem: Deriv 4.027
+flag: c
+flag: q
+statement: " forall x forall y (Fx&Fy->FA(xy)). exists x (Fx&forall y (Fy->GA(xy))) .: exists x (Fx&Gx)"
+end-box:
+common-name: Deriv 4.027
+
+problem: Deriv 4.028
+flag: c
+flag: q
+statement: " forall x forall y (F(xy)|G(xy)) .: exists x forall y F(xy)|forall x exists y G(xy)"
+end-box:
+common-name: Deriv 4.028
+
+problem: Deriv 4.029
+flag: c
+flag: q
+statement: " .: exists x (forall y F(xy)->forall y F(yx))"
+end-box:
+common-name: Deriv 4.029
+
+problem: Deriv 4.030
+flag: c
+flag: q
+statement: " .: exists x forall y (Fx<->Fy)<->~exists x Fx|forall x Fx"
+end-box:
+common-name: Deriv 4.030
+
+problem: Deriv 4.031
+flag: c
+flag: q
+statement: " forall x exists z (F(xz)&(Gz->Gx)) .: exists x exists z (F(xz)&(Gz->forall x Gx))"
+end-box:
+common-name: Deriv 4.031
+
+problem: Deriv 4.032
+flag: c
+flag: q
+statement: " G(A(C)C). exists x (Fx&~H(xA(C))). forall x (Fx&forall y (G(yB)->H(xy))->forall y (G(yC)->H(xy))) .: exists y (G(yB)&exists x (Fx&~H(xy)))"
+end-box:
+common-name: Deriv 4.032
+
+problem: Deriv 4.249 T249
+flag: c
+flag: q
+statement: " .: forall x forall y F(xy)->exists x exists y F(xy)"
+end-box:
+proves: T249
+common-name: Deriv 4.249 T249
+
+problem: Deriv 4.250 T250
+flag: c
+flag: q
+statement: " .: forall x forall y forall z F(xyz)<->~exists x exists y exists z ~F(xyz)"
+end-box:
+proves: T250
+common-name: Deriv 4.250 T250
+
+problem: Deriv 4.251 T251
+flag: c
+flag: q
+statement: " .: forall x forall y F(xy)<->forall y forall x F(xy)"
+end-box:
+proves: T251.QCOM1
+common-name: Deriv 4.251 T251
+
+problem: Deriv 4.252 T252
+flag: c
+flag: q
+statement: " .: exists x exists y F(xy)<->exists y exists x F(xy)"
+end-box:
+proves: T252.QCOM2
+common-name: Deriv 4.252 T252
+
+problem: Deriv 4.253 T253
+flag: c
+flag: q
+statement: " .: exists x forall y F(xy)->forall y exists x F(xy)"
+end-box:
+proves: T253
+common-name: Deriv 4.253 T253
+
+problem: Deriv 4.254 T254
+flag: c
+flag: q
+statement: " .: exists x exists y F(xy)<->exists x exists y (F(xy)|F(yx))"
+end-box:
+proves: T254
+common-name: Deriv 4.254 T254
+
+problem: Deriv 4.255 T255
+flag: c
+flag: q
+statement: " .: forall x forall y F(xy)->forall y forall x F(yx)"
+end-box:
+proves: T255
+common-name: Deriv 4.255 T255
+
+problem: Deriv 4.256 T256
+flag: c
+flag: q
+statement: " .: forall x exists y (F(xy)&Gy)->exists x exists y (F(xy)&Gx)"
+end-box:
+proves: T256
+common-name: Deriv 4.256 T256
+
+problem: Deriv 4.257 T257
+flag: c
+flag: q
+statement: " .: forall x FA(x)->exists x (Fx&FA(x))"
+end-box:
+proves: T257
+common-name: Deriv 4.257 T257
+
+problem: Deriv 4.258 T258
+flag: c
+flag: q
+statement: " .: F(xA(x))<->exists y (forall z (F(zy)->F(zA(x)))&F(xy))"
+end-box:
+proves: T258
+common-name: Deriv 4.258 T258
+
+problem: Deriv 4.259 T259
+flag: c
+flag: q
+statement: " .: forall x exists z (Fx->exists y (Gy->Hz))<->(exists x Fx&forall x Gx->exists x Hx)"
+end-box:
+proves: T259
+common-name: Deriv 4.259 T259
+
+problem: Deriv 4.260 T260
+flag: c
+flag: q
+statement: " .: forall x (Fx->exists y (Gy&(Hy|Hx)))<->exists x (Gx&Hx)|~exists x Fx|(exists x Gx&forall x (Fx->Hx))"
+end-box:
+proves: T260
+common-name: Deriv 4.260 T260
+
+problem: Deriv 4.261 T261
+flag: c
+flag: q
+statement: " .: forall x (exists y F(xy)->exists y G(xy))<->forall x forall y exists z (F(xy)->G(xz))"
+end-box:
+proves: T261
+common-name: Deriv 4.261 T261
+
+problem: Deriv 4.262 T262
+flag: c
+flag: q
+statement: " .: exists y (exists x F(xy)<->Gy)<->exists y forall x exists z ((F(xy)->Gy)&(Gy->F(zy)))"
+end-box:
+proves: T262
+common-name: Deriv 4.262 T262
+
+problem: Deriv 4.263 T263
+flag: c
+flag: q
+statement: " .: forall x exists y (Fx->Gy)<->exists y forall x (Fx->Gy)"
+end-box:
+proves: T263
+common-name: Deriv 4.263 T263
+
+problem: Deriv 4.264 T264
+flag: c
+flag: q
+statement: " .: forall x exists y (Fx&Gy)<->exists y forall x (Fx&Gy)"
+end-box:
+proves: T264
+common-name: Deriv 4.264 T264
+
+problem: Deriv 4.265 T265
+flag: c
+flag: q
+statement: " .: forall x exists y (Fx|Gy)<->exists y forall x (Fx|Gy)"
+end-box:
+proves: T265
+common-name: Deriv 4.265 T265
+
+problem: Deriv 4.266 T266
+flag: c
+flag: q
+statement: " .: forall x forall y exists z (Fx&Gy->Hz)<->forall y exists z forall x (Fx&Gy->Hz)"
+end-box:
+proves: T266
+common-name: Deriv 4.266 T266
+
+problem: Deriv 4.267 T267
+flag: c
+flag: q
+statement: " .: forall x (Fx<->~FA(x))->exists x (Fx&~FA(x))"
+end-box:
+proves: T267
+common-name: Deriv 4.267 T267
+
+problem: Deriv 4.268 T268
+flag: c
+flag: q
+statement: " .: forall x (F(Ax)|forall y F(xy))->exists x forall y F(xy)"
+end-box:
+proves: T268
+common-name: Deriv 4.268 T268
+
+problem: Deriv 4.269 T269
+flag: c
+flag: q
+statement: " .: ~exists y forall x (F(xy)<->~F(xx))"
+end-box:
+proves: T269
+common-name: Deriv 4.269 T269
+
+problem: Deriv 4.270 T270
+flag: c
+flag: q
+statement: " .: forall z exists y forall x (F(xy)<->F(xz)&~F(xx))->~exists z forall x F(xz)"
+end-box:
+proves: T270
+common-name: Deriv 4.270 T270
+
+problem: Deriv 4.271 T271
+flag: c
+flag: q
+statement: " .: ~exists y forall x (F(xy)<->~exists z (F(xz)&F(zx)))"
+end-box:
+proves: T271
+common-name: Deriv 4.271 T271
+
+problem: Deriv 4.272 T272
+flag: c
+flag: q
+statement: " .: exists y forall x (F(xy)<->F(xx))->~forall x exists y forall z (F(zy)<->~F(zx))"
+end-box:
+proves: T272
+common-name: Deriv 4.272 T272
+
+problem: Deriv 4.273
+statement: .:((P->Q&R)->(P&Q<->P&R))<->?DNF
+end-box:
+note: "\"?DNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no disjunctions in the IMMEDIATE scope of a conjunction."
+common-name: Deriv 4.273
+
+problem: Deriv 4.274
+statement: .:((P->Q&R)->(P&Q<->P&R))<->?CNF
+end-box:
+note: "\"?CNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no conjunctions in the IMMEDIATE scope of a disjunction."
+common-name: Deriv 4.274
+
+problem: Deriv 4.275
+statement: " .:(P&~(Q<->R)->(P&Q<->R))<->?DNF"
+end-box:
+note: "\"?DNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no disjunctions in the IMMEDIATE scope of a conjunction."
+common-name: Deriv 4.275
+
+problem: Deriv 4.276
+statement: " .:(P&~(Q<->R)->(P&Q<->R))<->?CNF"
+end-box:
+note: "\"?CNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no conjunctions in the IMMEDIATE scope of a disjunction."
+common-name: Deriv 4.276
+
+problem: Deriv 4.278
+statement: .:exists x (Fx&forall y (H(xy)->Ly)&forall y (Gy&H(xy)->J(xy)))<->?DNF
+end-box:
+note: "\"?DNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no disjunctions in the IMMEDIATE scope of a conjunction."
+common-name: Deriv 4.278
+
+problem: Deriv 4.279
+statement: .:exists x (Fx&forall y (H(xy)->Ly)&forall y (Gy&H(xy)->J(xy)))<->?CNF
+end-box:
+note: "\"?CNF\" matches any formula with no conditionals or biconditionals, with no negations, conjunctions, or disjunctions in the IMMEDIATE scope of a negation, and no conjunctions in the IMMEDIATE scope of a disjunction."
+common-name: Deriv 4.279
+
+problem: Deriv 4.280
+statement: " .:   ~forall x ~forall y (Gx|Hy->Fx)<->?NOV"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.280
+
+problem: Deriv 4.281
+statement: " .:   ~exists x ~exists y (Gx|Hy->Fx)<->?NOV"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.281
+
+problem: Deriv 4.282
+statement: " .:   ~forall x ~forall y (Gx|Hy<->Fx)<->?NOV"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.282
+
+problem: Deriv 4.283
+statement: " .:   ~exists x ~exists y (Gx|Hy<->Fx)<->?NOV"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.283
+
+problem: Deriv 4.283a
+statement: .: forall y exists x (Fx&(Gy<->Gx))<->?NOV
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.283a
+
+problem: Deriv 4.283b
+statement: .: forall y exists x (Fx&(Gy<->Gx|Fy))<->?NOV
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?NOV" matches any formula with no overlay of quantifiers.
+common-name: Deriv 4.283b
+
+problem: Deriv 4.284
+statement: " .:   (~forall x ~forall y R(xy)->forall x Fx)<->?PNX"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?PNX" matches any formula in prenex form.
+common-name: Deriv 4.284
+
+problem: Deriv 4.285
+statement: " .:   (~exists x ~forall y R(xy)->exists x Fx)<->?PNX"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?PNX" matches any formula in prenex form.
+common-name: Deriv 4.285
+
+problem: Deriv 4.286
+statement: " .:   (~forall x ~forall y R(xy)<->forall x Fx)<->?PNX"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?PNX" matches any formula in prenex form.
+common-name: Deriv 4.286
+
+problem: Deriv 4.287
+statement: " .:   (~exists x ~forall y R(xy)<->exists x Fx)<->?PNX"
+end-box:
+note: Only Direct Derivation and Biconditional Derivation are enabled for this problem.  Begin with either a Biconditional Derivation or with T91, and then use Interchange of Equivalents to complete the derivation.  "?PNX" matches any formula in prenex form.
+common-name: Deriv 4.287
+
+problem: Deriv 4.290
+statement: .: P&(Q<->R)<->?DNF
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.290
+
+problem: Deriv 4.291
+statement: .: P&(Q<->R|S)<->?DNF
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.291
+
+problem: Deriv 4.292
+statement: .: P|(Q<->R)<->?CNF
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.292
+
+problem: Deriv 4.293
+statement: .: P|(Q<->R&S)<->?CNF
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.293
+
+problem: Deriv 4.294
+statement: " .:   ~forall x ~forall y (Gx|Hy->Fy)<->?NOV"
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.294
+
+problem: Deriv 4.295
+statement: " .:   ~exists x ~exists y (Gy&(Hy->Fx))<->?NOV"
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.295
+
+problem: Deriv 4.296
+statement: .: (~exists x forall y R(xy)->~forall y exists x R(xy))<->?PNX
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.296
+
+problem: Deriv 4.297
+statement: .: (~forall x (Fx&exists y R(xyz))->~exists z (Fz|forall x R(xyz)))<->?PNX
+end-box:
+note: Command Mode is disabled for this problem.  Give a Biconditional Derivation.
+common-name: Deriv 4.297
+
+problem: Deriv 4.421
+statement: .: forall x (R(xz)<->exists z R(zx)) -> exists x (R(xx)<->exists z R(zx))
+end-box:
+
+problem: Deriv 5.001 Ex37iii
+flag: c
+flag: q
+statement: " .: forall x forall y (Fx<->x=y)<->exists x (forall y y=x&Fx)"
+end-box:
+common-name: Deriv 5.001
+
+problem: Deriv 5.002 Ex37iv
+flag: c
+flag: q
+statement: " .: exists x exists y (Fx<->x=y)<->exists x exists y x<>y|forall x Fx"
+end-box:
+common-name: Deriv 5.002
+
+problem: Deriv 5.003 Ex37v
+flag: c
+flag: q
+statement: " .: exists x forall y (Fx<->x=y)<->exists x (forall y y=x&Fx)"
+end-box:
+common-name: Deriv 5.003
+
+problem: "Deriv 5.004 Ex37vi "
+flag: c
+flag: q
+statement: " .: forall y exists x (Fx<->x=y)<->forall x Fx|exists x exists y (x<>y&~Fx&~Fy)"
+end-box:
+common-name: Deriv 5.004
+
+problem: Deriv 5.005 Ex38i
+flag: c
+flag: q
+statement: " .: forall x exists y forall z (z<>x->z=y)<->exists x exists y forall z (z=x|z=y)"
+end-box:
+common-name: Deriv 5.005
+
+problem: Deriv 5.006 Ex38ii
+flag: c
+flag: q
+statement: " .: exists y forall x forall z (z<>x->z=y)<->exists y forall x x=y"
+end-box:
+common-name: Deriv 5.006
+
+problem: Deriv 5.007 Ex39i
+flag: c
+flag: q
+statement: " .: exists x (Fx&exists y (Fy&forall z (Fz->x=z|y=z)))<->exists x Fx&forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)"
+end-box:
+common-name: Deriv 5.007
+
+problem: Deriv 5.008 Ex39ii
+flag: c
+flag: q
+statement: " .: forall x (Fx->exists z (Fz&forall y (Fy->(x<>y->y=z))))<->forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)"
+end-box:
+common-name: Deriv 5.008
+
+problem: Deriv 5.009 Ex39iii
+flag: c
+flag: q
+statement: " .: forall x (Fx->exists z (Fz&forall y (Fy->(x<>y<->y=z))))<->~exists x Fx|exists x exists y (x<>y&forall z (Fz<->z=x|z=y))"
+end-box:
+common-name: Deriv 5.009
+
+problem: Deriv 5.010 Ex40ii
+flag: c
+flag: q
+statement: " .: forall x forall y (L(xx)&(L(xy)->x=y)->(L(yx)->x=y))<->forall x (L(xx)->forall y (L(yx)->L(xy)))"
+end-box:
+common-name: Deriv 5.010
+
+problem: Deriv 5.011 Ex40iii
+flag: c
+flag: q
+statement: " .: forall x forall y ((L(xy)<->x=y)->(L(yx)<->x=y))<->forall x forall y (L(yx)->L(xy))"
+end-box:
+common-name: Deriv 5.011
+
+problem: Deriv 5.012 Ex41
+flag: c
+flag: q
+statement: " .: exists z forall x (exists y L(xy)<->x=z)&exists z forall y (exists x L(xy)<->y=z)<->exists z exists w forall x forall y (L(xy)<->x=z&y=w)"
+end-box:
+common-name: Deriv 5.012
+
+problem: Deriv 5.013 Ex42
+flag: c
+flag: q
+statement: " .: exists z exists w forall x forall y (L(xy)<->x=z&y=w)->exists z forall x (exists w forall y (L(xy)<->y=w)<->x=z)&exists w forall y (exists z forall x (L(xy)<->x=z)<->y=w)"
+end-box:
+common-name: Deriv 5.013
+
+problem: Deriv 5.014 Ex43
+flag: c
+flag: q
+statement: " .: exists x exists y (x<>y&forall z (z=x|z=y))->(exists z forall x (exists w forall y (L(xy)<->y=w)<->x=z)<->exists w forall y (exists z forall x (L(xy)<->x=z)<->y=w))"
+end-box:
+common-name: Deriv 5.014
+
+problem: Deriv 5.015 Ex44
+flag: c
+flag: q
+statement: " forall y exists z forall x (F(xz)<->x=y) .: ~exists w forall x (F(xw)<->forall u (F(xu)->exists y (F(yu)&~exists z (F(zu)&F(zy)))))"
+end-box:
+common-name: Deriv 5.015
+
+problem: Deriv 5.016 Ex73
+statement: exists x exists y (x<>y & forall z (z=x | z=y)).  forall x forall y (x<>y -> A(x)<>A(y))  .: forall x exists y  x=A(y)
+end-box:
+common-name: Deriv 5.016
+
+problem: Deriv 5.017 Ex75
+statement: exists x exists y forall z (z=x|z=y).  forall x forall y forall z (F(yx)&F(zx)->y=z).  forall x exists y F(xy)  .:  forall y exists x F(xy)
+end-box:
+common-name: Deriv 5.017
+
+problem: Deriv 5.018 Ex78
+statement: forall x A(x)=x  .:  forall x A(x)=A(A(A(x)))
+end-box:
+common-name: Deriv 5.018
+
+problem: Deriv 5.019 Ex79
+statement: forall x A(A(x))=A(x)  .:  forall x (exists y x=A(y)->x=A(x))
+end-box:
+common-name: Deriv 5.019
+
+problem: Deriv 5.020 Ex80
+statement: A(x A(yz))=A(A(xy)z)  .:  A(x A(yA(zw)))=A(A(A(xy)z)w)
+end-box:
+note: Hint: First derive the universal closure of the premise.
+common-name: Deriv 5.020
+
+problem: Deriv 5.021 Ex81a
+statement: A(A(xy)z)=A(x A(yz)).  A(Ex)=x.  exists y A(yx)=E  .:  A(xy)=A(xz)->y=z
+end-box:
+note: Hint: First derive the universal closure of the premises.
+common-name: Deriv 5.021
+
+problem: Deriv 5.022 Ex81b
+statement: A(A(xy)z)=A(x A(yz)).  A(Ex)=x.  exists y A(yx)=E  .:  A(yx)=E->A(xy)=E
+end-box:
+note: Hint: First derive the universal closures of the premises.
+common-name: Deriv 5.022
+
+problem: Deriv 5.023 Ex83
+statement: A(A(xy)z)=A(x A(yz)).  A(Ex)=x.  A(xx)=E  .:  A(xy)=A(yx)
+end-box:
+note: Hint: First derive the universal closures of the premises.
+common-name: Deriv 5.023
+
+problem: Deriv 5.050
+statement: forall z z=A  .: exists x Fx<->FA
+end-box:
+proves: QElim1U
+common-name: Deriv 5.050
+
+problem: Deriv 5.051
+statement: forall z z=A  .: forall x Fx<->FA
+end-box:
+proves: QElim1E
+common-name: Deriv 5.051
+
+problem: Deriv 5.052
+statement: forall z (Fz<->z=A)  .: exists x (Fx&Gx)<->GA
+end-box:
+proves: QElim1UR
+common-name: Deriv 5.052
+
+problem: Deriv 5.053
+statement: forall z (Fz<->z=A)  .: forall x (Fx->Gx)<->GA
+end-box:
+proves: QElim1ER
+common-name: Deriv 5.053
+
+problem: Deriv 5.054
+statement: forall z (z=A|z=B)  .: exists x Fx<->FA|FB
+end-box:
+proves: QElim2U
+common-name: Deriv 5.054
+
+problem: Deriv 5.055
+statement: forall z (z=A|z=B)  .: forall x Fx<->FA&FB
+end-box:
+proves: QElim2E
+common-name: Deriv 5.055
+
+problem: Deriv 5.056
+statement: forall z (Fz<->z=A|z=B)  .: exists x (Fx&Gx)<->GA|GB
+end-box:
+proves: QElim2UR
+common-name: Deriv 5.056
+
+problem: Deriv 5.057
+statement: forall z (Fz<->z=A|z=B)  .: forall x (Fx->Gx)<->GA&GB
+end-box:
+proves: QElim2ER
+common-name: Deriv 5.057
+
+problem: Deriv 5.058
+statement: forall z (z=A|z=B|z=C)  .: exists x Fx<->FA|FB|FC
+end-box:
+proves: QElim3U
+common-name: Deriv 5.058
+
+problem: Deriv 5.059
+statement: forall z (z=A|z=B|z=C)  .: forall x Fx<->FA&FB&FC
+end-box:
+proves: QElim3E
+common-name: Deriv 5.059
+
+problem: Deriv 5.060
+statement: forall z (Fz<->z=A|z=B|z=C)  .: exists x (Fx&Gx)<->GA|GB|GC
+end-box:
+proves: QElim3UR
+common-name: Deriv 5.060
+
+problem: Deriv 5.061
+statement: forall z (Fz<->z=A|z=B|z=C)  .: forall x (Fx->Gx)<->GA&GB&GC
+end-box:
+proves: QElim3ER
+common-name: Deriv 5.061
+
+problem: Deriv 5.062
+statement: forall z (z=A|z=B|z=C|z=D)  .: exists x Fx<->FA|FB|FC|FD
+end-box:
+proves: QElim4U
+common-name: Deriv 5.062
+
+problem: Deriv 5.063
+statement: forall z (z=A|z=B|z=C|z=D)  .: forall x Fx<->FA&FB&FC&FD
+end-box:
+proves: QElim4E
+common-name: Deriv 5.063
+
+problem: Deriv 5.064
+statement: forall z (Fz<->z=A|z=B|z=C|z=D)  .: exists x (Fx&Gx)<->GA|GB|GC|GD
+end-box:
+proves: QElim4UR
+common-name: Deriv 5.064
+
+problem: Deriv 5.065
+statement: forall z (Fz<->z=A|z=B|z=C|z=D)  .: forall x (Fx->Gx)<->GA&GB&GC&GD
+end-box:
+proves: QElim4ER
+common-name: Deriv 5.065
+
+problem: Deriv 5.301 T301
+flag: c
+flag: q
+statement: " .: x=x"
+end-box:
+proves: T301
+common-name: Deriv 5.301 T301
+
+problem: Deriv 5.302 T302
+flag: c
+flag: q
+statement: " .: x=y<->y=x"
+end-box:
+proves: T302
+common-name: Deriv 5.302 T302
+
+problem: Deriv 5.303 T303
+flag: c
+flag: q
+statement: " .: x=y&y=z->x=z"
+end-box:
+proves: T303
+common-name: Deriv 5.303 T303
+
+problem: Deriv 5.304 T304
+flag: c
+flag: q
+statement: " .: x=y->(Fx<->Fy)"
+end-box:
+proves: T304.LL5
+common-name: Deriv 5.304 T304
+
+problem: Deriv 5.305 T305
+flag: c
+flag: q
+statement: " .: x=y->A(x)=A(y)"
+end-box:
+proves: T305
+common-name: Deriv 5.305 T305
+
+problem: Deriv 5.306 T306
+flag: c
+flag: q
+statement: " .: Fx<->forall y (y=x->Fy)"
+end-box:
+proves: T306
+common-name: Deriv 5.306 T306
+
+problem: Deriv 5.307 T307
+flag: c
+flag: q
+statement: " .: Fx<->exists y (y=x&Fy)"
+end-box:
+proves: T307
+common-name: Deriv 5.307 T307
+
+problem: Deriv 5.308 T308
+flag: c
+flag: q
+statement: " .: x=y<->forall z (z=x->z=y)"
+end-box:
+proves: T308
+common-name: Deriv 5.308 T308
+
+problem: Deriv 5.309 T309
+flag: c
+flag: q
+statement: " .: x=y<->exists z (z=x&z=y)"
+end-box:
+proves: T309
+common-name: Deriv 5.309 T309
+
+problem: Deriv 5.310 T310
+flag: c
+flag: q
+statement: " .: F(xy)<->forall z forall w (z=x&w=y->F(zw))"
+end-box:
+proves: T310
+common-name: Deriv 5.310 T310
+
+problem: Deriv 5.311 T311
+flag: c
+flag: q
+statement: " .: F(xy)<->exists z exists w (z=x&w=y&F(zw))"
+end-box:
+proves: T311
+common-name: Deriv 5.311 T311
+
+problem: Deriv 5.312 T312
+flag: c
+flag: q
+statement: " .: x<>y<->y<>x"
+end-box:
+proves: T312
+common-name: Deriv 5.312 T312
+
+problem: Deriv 5.313 T313
+flag: c
+flag: q
+statement: " .: Fx&x=y<->Fy&x=y"
+end-box:
+proves: T313
+common-name: Deriv 5.313 T313
+
+problem: Deriv 5.314 T314
+flag: c
+flag: q
+statement: " .: Fx|x<>y<->Fy|x<>y"
+end-box:
+proves: T314
+common-name: Deriv 5.314 T314
+
+problem: Deriv 5.315 T315
+flag: c
+flag: q
+statement: " .: forall x (exists y (Fy&x=A(y))->Fx)<->forall x (Fx->FA(x))"
+end-box:
+proves: T315
+common-name: Deriv 5.315 T315
+
+problem: Deriv 5.316 T316
+flag: c
+flag: q
+statement: " .: exists x Fx&forall x forall y (Fx&Fy->x=y)<->exists x (Fx&forall y (Fy->x=y))"
+end-box:
+proves: T316
+common-name: Deriv 5.316 T316
+
+problem: Deriv 5.317 T317
+flag: c
+flag: q
+statement: " .: exists x Fx&forall x forall y (Fx&Fy->x=y)<->exists y forall x (Fx<->x=y)"
+end-box:
+proves: T317
+common-name: Deriv 5.317 T317
+
+problem: Deriv 5.318 T318
+flag: c
+flag: q
+statement: " .: exists x exists y (Fx&Fy&x<>y)&forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)<->exists x exists y (Fx&Fy&x<>y&forall z (Fz->x=z|y=z))"
+end-box:
+proves: T318
+common-name: Deriv 5.318 T318
+
+problem: Deriv 5.319 T319
+flag: c
+flag: q
+statement: " .: exists x exists y (Fx&Fy&x<>y)&forall x forall y forall z (Fx&Fy&Fz->x=y|x=z|y=z)<->exists x exists y (x<>y&forall z (Fz<->x=z|y=z))"
+end-box:
+proves: T319
+common-name: Deriv 5.319 T319
+
+problem: Deriv 5.320 T320
+flag: c
+flag: q
+statement: " .: ~exists y forall x (Fx<->x=y)<->~exists x Fx|exists x exists y (x<>y&Fx&Fy)"
+end-box:
+proves: T320
+common-name: Deriv 5.320 T320
+
+problem: Deriv 5.321 T321
+flag: c
+flag: q
+statement: " .: ~exists x exists y (x<>y&forall z (Fz<->z=x|z=y))<->forall x forall y (Fx&Fy->x=y)|exists x exists y exists z (Fx&Fy&Fz&x<>y&x<>z&y<>z)"
+end-box:
+proves: T321
+common-name: Deriv 5.321 T321
+
+problem: Deriv 5.322 T322
+flag: c
+flag: q
+statement: " .: exists x forall y y=x<->forall x forall y y=x"
+end-box:
+proves: T322
+common-name: Deriv 5.322 T322
+
+problem: Deriv 5.323 T323
+flag: c
+flag: q
+statement: " .: exists x exists y x<>y<->forall x exists y x<>y"
+end-box:
+proves: T323
+common-name: Deriv 5.323 T323
+
+problem: Deriv 5.324 T324
+flag: c
+flag: q
+statement: " .: ~exists x exists y x<>y->(exists x Fx<->forall x Fx)"
+end-box:
+proves: T324
+common-name: Deriv 5.324 T324
+
+problem: Deriv 5.325 T325
+flag: c
+flag: q
+statement: " .: exists x exists y forall z (z=x|z=y)<->exists x forall y y=x|exists x exists y (x<>y&forall z (z=x|z=y))"
+end-box:
+proves: T325
+common-name: Deriv 5.325 T325
+
+problem: Deriv 5.326 T326
+flag: c
+flag: q
+statement: " .: exists x exists y forall z (x<>y&(z=x|z=y))<->exists x exists y forall z (x<>y<->(z=x|z=y))"
+end-box:
+proves: T326
+common-name: Deriv 5.326 T326
+
+problem: Deriv 5.327 T327
+flag: c
+flag: q
+statement: " .: forall x exists y (Fx<->x=y)<->exists x exists y x<>y|forall x Fx"
+end-box:
+proves: T327
+common-name: Deriv 5.327 T327
+
+problem: Deriv 5.328 T328
+flag: c
+flag: q
+statement: " .: forall x forall y (Fx&Fy<->x=y)<->exists x (forall y y=x&Fx)"
+end-box:
+proves: T328
+common-name: Deriv 5.328 T328
+
+problem: Deriv 5.329 T329
+flag: c
+flag: q
+statement: " .: exists x x=y"
+end-box:
+proves: T329
+common-name: Deriv 5.329 T329
+
+problem: Deriv 5.330 T330
+flag: c
+flag: q
+statement: " .: exists z forall x (x=y<->x=z)"
+end-box:
+proves: T330
+common-name: Deriv 5.330 T330
+
+problem: Deriv 5.331 T331
+flag: c
+flag: q
+statement: " .: exists y (forall x (Fx<->x=y)&Gy)<->exists y forall x (Fx<->x=y)&forall x (Fx->Gx)"
+end-box:
+proves: T331
+common-name: Deriv 5.331 T331
+
+problem: Deriv 5.332 T332
+flag: c
+flag: q
+statement: " .: ~exists y (forall x (Fx<->x=y)&Gy)<->~exists y forall x (Fx<->x=y)|exists y (forall x (Fx<->x=y)&~Gy)"
+end-box:
+proves: T332
+common-name: Deriv 5.332 T332
+
+problem: Deriv 5.333 T333
+flag: c
+flag: q
+statement: " .: exists y forall x (Fx<->x=y)->(forall x (Fx->Gx)<->exists x (Fx&Gx))"
+end-box:
+proves: T333
+common-name: Deriv 5.333 T333
+
+problem: Deriv 5.334 T334
+flag: c
+flag: q
+statement: " .: ~exists y forall x (x<>x<->x=y)"
+end-box:
+proves: T334
+common-name: Deriv 5.334 T334
+
+problem: Deriv 5.335 T335
+flag: c
+flag: q
+statement: " .: exists y y=x&P<->P"
+end-box:
+proves: T335
+common-name: Deriv 5.335 T335
+
+problem: Deriv 5.336 T336
+flag: c
+flag: q
+statement: " .: ~exists y y=x|P<->P"
+end-box:
+proves: T336
+common-name: Deriv 5.336 T336
+
+problem: Deriv 6.401 T401
+flag: c
+flag: q
+statement: " .: forall x (Fx<->x=y)->%xFx=y"
+end-box:
+proves: T401
+common-name: Deriv 6.401 T401
+
+problem: Deriv 6.402 T402
+flag: c
+flag: q
+statement: " .: exists y forall x (Fx<->x=y)->F%xFx"
+end-box:
+proves: T402
+common-name: Deriv 6.402 T402
+
+problem: Deriv 6.403 T403
+flag: c
+flag: q
+statement: " .: ~exists y forall x (Fx<->x=y)->%xFx=%xx<>x"
+end-box:
+proves: T403
+common-name: Deriv 6.403 T403
+
+problem: Deriv 6.404 T404
+flag: c
+flag: q
+statement: " .: forall x (Fx<->Gx)->%xFx=%xGx"
+end-box:
+proves: T404
+note: IE and CIE are disabled for this problem.
+common-name: Deriv 6.404 T404
+
+problem: Deriv 6.405 T405
+flag: c
+flag: q
+statement: " .: %xFx=%yFy"
+end-box:
+proves: T405
+common-name: Deriv 6.405 T405
+
+problem: Deriv 6.406 T406
+flag: c
+flag: q
+statement: " .: exists y forall x (Fx<->x=y)->forall x (Fx<->x=%xFx)"
+end-box:
+proves: T406.SPRD1.SPRD2
+common-name: Deriv 6.406 T406
+
+problem: Deriv 6.407 T407
+flag: c
+flag: q
+statement: " .: forall x (Fx<->x=%xFx)->exists y forall x (Fx<->x=y)"
+end-box:
+proves: T407
+common-name: Deriv 6.407 T407
+
+problem: Deriv 6.408 T408
+flag: c
+flag: q
+statement: " .: exists y forall x (Fx<->x=y)&exists y forall x (Gx<->x=y)->(%xFx=%xGx->forall x (Fx<->Gx))"
+end-box:
+proves: T408
+common-name: Deriv 6.408 T408
+
+problem: Deriv 6.409 T409
+flag: c
+flag: q
+statement: " .: F%xFx<->exists y forall x (Fx<->x=y)|F%xx<>x"
+end-box:
+proves: T409
+common-name: Deriv 6.409 T409
+
+problem: Deriv 6.410 T410
+flag: c
+flag: q
+statement: " .: exists y forall x (Fx<->x=y)->(%xFx=y->forall x (Fx<->x=y))"
+end-box:
+proves: T410
+common-name: Deriv 6.410 T410
+
+problem: Deriv 6.411 T411
+flag: c
+flag: q
+statement: " .: ~exists y forall x (Fx<->x=y)&~exists y forall x (Gx<->x=y)->%xFx=%xGx"
+end-box:
+proves: T411
+common-name: Deriv 6.411 T411
+
+problem: Deriv 6.412 T412
+flag: c
+flag: q
+statement: " .: G%xFx<->exists y (forall x (Fx<->x=y)&Gy)|(~exists y forall x (Fx<->x=y)&G%xx<>x)"
+end-box:
+proves: T412
+common-name: Deriv 6.412 T412
+
+problem: Deriv 6.413 T413
+flag: c
+flag: q
+statement: " .: %xx=y=y"
+end-box:
+proves: T413
+common-name: Deriv 6.413 T413
+
+problem: Deriv 6.414 T414
+flag: c
+flag: q
+statement: " .: %xx=x=%xx<>x"
+end-box:
+proves: T414
+common-name: Deriv 6.414 T414
+
+problem: Deriv 6.415 T415
+flag: c
+flag: q
+statement: " .: %xP=%xx<>x"
+end-box:
+proves: T415
+common-name: Deriv 6.415 T415
+
+problem: Deriv 6.416 T416
+flag: c
+flag: q
+statement: " .: F%xFx|~F%x~Fx"
+end-box:
+proves: T416
+common-name: Deriv 6.416 T416
+
+problem: Deriv 6.417 Ex26
+flag: c
+flag: q
+statement: " exists y forall x (Fx&Gx<->x=y). A=%x(Fx&Gx). forall x (Gx->Hx) .: HA"
+end-box:
+common-name: Deriv 6.417
+
+problem: Deriv 6.418 Ex27
+flag: c
+flag: q
+statement: " exists y forall x (x<>A<->x=y) .: forall x (x=A|x=%xx<>A)"
+end-box:
+common-name: Deriv 6.418
+
+problem: Deriv 6.419 Ex28
+flag: c
+flag: q
+statement: " exists y forall x (F(Ax)<->x=y). F(A%xF(xA)) .: %xF(xA)=%xF(Ax)"
+end-box:
+common-name: Deriv 6.419
+
+problem: Deriv 6.420 Ex29
+flag: c
+flag: q
+statement: " forall x exists y forall z (F(zx)<->z=y). %xF(xA)=B. forall x forall y (F(xy)->F(yx)) .: %xF(xB)=A"
+end-box:
+common-name: Deriv 6.420
+
+problem: Deriv 6.421 Ex32
+flag: c
+flag: q
+statement: " %xGx<>%xx<>x. %xGx=%xFx .: exists y (forall x (Gx<->x=y)&Fy)"
+end-box:
+common-name: Deriv 6.421
+
+problem: Deriv 6.422 Ex36
+flag: c
+flag: q
+statement: " A=%x(Fx&G(xB)). FC. H(CDE). forall x (H(xDE)->G(xB)). exists y forall x (Fx&G(xB)<->x=y) .: A=C"
+end-box:
+common-name: Deriv 6.422
+
+problem: Deriv 6.423 Ex37
+flag: c
+flag: q
+statement: " exists y forall x (Fx&G(Ax)<->x=y). exists y forall x (Fx&G(xB)<->x=y). %x(Fx&G(Ax))=%x(Fx&G(Bx)). C=%x(Fx&G(Bx)). G(A%x(Fx&G(xB))) .: %x(Fx&G(xB))=C"
+end-box:
+common-name: Deriv 6.423
+
+problem: Deriv 6.424 Ex38
+flag: c
+flag: q
+statement: " A=%xFx. FC(B). exists y forall x (Fx<->x=y) .: A=C(B)"
+end-box:
+common-name: Deriv 6.424
+
+problem: Deriv 6.425 Ex39
+flag: c
+flag: q
+statement: " exists y (forall x (Fx&Gx<->x=y)&y=A). forall x (Fx&x<>A->H(Ax)). exists x (Fx&Gx&H(Bx)). forall x forall y (H(xy)->~H(yx)) .: ~FB"
+end-box:
+common-name: Deriv 6.425
+
+problem: Deriv 6.426 Ex40
+flag: c
+flag: q
+statement: " forall x forall y (Fx&Fy&H(yx)->G(xy)). forall x forall y (G(xy)->~G(yx)). forall x forall y (~H(xy)&~J(xy)->H(yx)). forall x forall y (H(xy)|J(xy)->~K(xy)) .: exists x (Fx&forall y (Fy&y<>x->K(xy)))->%x(Fx&forall y (Fy&y<>x->K(xy)))=%x(Fx&forall y (Fy&y<>x->G(xy)))"
+end-box:
+common-name: Deriv 6.426
+
+problem: Deriv 6.427 Ex41i
+flag: c
+flag: q
+statement: " ~exists x (Gx&Hx&forall y (Gy&Hy&y<>x->F(xy))). forall y forall x (y<>x->F(yx)|F(xy)) .: forall x (Gx&Hx->exists y (Gy&Hy&F(yx)))"
+end-box:
+common-name: Deriv 6.427
+
+problem: Deriv 6.428 Ex41ii
+flag: c
+flag: q
+statement: " forall x (Gx&Hx->exists y (Gy&Hy&F(yx))). forall y forall x (F(xy)->~F(yx)) .: ~exists x (Gx&Hx&forall y (Gy&Hy&y<>x->F(xy)))"
+end-box:
+common-name: Deriv 6.428
+
+problem: Deriv 6.430
+statement: G%xFx.  G%x~Fx  .: G%xGx
+end-box:
+
+# digest: YSUe0ZJIrCaVzC846MNbjQ==

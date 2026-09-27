@@ -127,6 +127,17 @@ export class JavaHashtable<K, V> {
     this.table = table;
   }
 
+  /** Hashtable.clone: a shallow copy with the same table layout, so the same iteration order. */
+  clone(): JavaHashtable<K, V> {
+    const copy = new JavaHashtable<K, V>({ initialCapacity: this.table.length, hash: this.hash, equals: this.equals });
+    const cloneChain = (e: Entry<K, V> | null): Entry<K, V> | null =>
+      e == null ? null : { hash: e.hash, key: e.key, value: e.value, next: cloneChain(e.next) };
+    copy.table = this.table.map(cloneChain);
+    copy.count = this.count;
+    copy.threshold = this.threshold;
+    return copy;
+  }
+
   /** Entries in Java's enumeration order: buckets from the last to the first, each chain in order. */
   *entries(): IterableIterator<[K, V]> {
     const table = this.table;
@@ -155,4 +166,55 @@ function defaultHash(k: unknown): number {
     return (k as { hashCode(): number }).hashCode();
   }
   throw new Error('JavaHashtable: no hash function for key ' + String(k));
+}
+
+// ---- String and number helpers with Java semantics ----
+
+/** java.lang.String.trim: removes leading and trailing characters <= ' '. */
+export function javaTrim(s: string): string {
+  let start = 0;
+  let end = s.length;
+  while (start < end && s.charCodeAt(start) <= 32) start++;
+  while (end > start && s.charCodeAt(end - 1) <= 32) end--;
+  return start === 0 && end === s.length ? s : s.substring(start, end);
+}
+
+/** String.equalsIgnoreCase (ASCII and simple case mappings). */
+export function equalsIgnoreCase(a: string | null | undefined, b: string | null | undefined): boolean {
+  if (a == null || b == null) return false;
+  return a.length === b.length && (a === b || a.toUpperCase() === b.toUpperCase() || a.toLowerCase() === b.toLowerCase());
+}
+
+/**
+ * Integer.valueOf / Integer.parseInt(s, 10), or null where Java throws NumberFormatException
+ * (LogicProgram.parseInteger). Accepts an optional sign and decimal digits (ASCII only).
+ */
+export function parseJavaInt(s: string | null | undefined): number | null {
+  if (s == null || !/^[+-]?[0-9]+$/.test(s)) return null;
+  const n = Number(s);
+  return n >= -2147483648 && n <= 2147483647 ? n : null;
+}
+
+/** Long.valueOf, or null. Values beyond 2^53 lose precision. */
+export function parseJavaLong(s: string | null | undefined): number | null {
+  if (s == null || !/^[+-]?[0-9]+$/.test(s)) return null;
+  const n = Number(s);
+  return Math.abs(n) <= 9223372036854775807 ? n : null;
+}
+
+const utf8Encoder = new TextEncoder();
+
+/** String.getBytes() with the UTF-8 default charset of current JDKs. */
+export function utf8Bytes(s: string): Uint8Array {
+  return utf8Encoder.encode(s);
+}
+
+/**
+ * The lines of a text as java.io.BufferedReader.readLine returns them: split at "\n", "\r"
+ * or "\r\n"; a final line terminator does not start another line.
+ */
+export function readerLines(text: string): string[] {
+  const lines = text.split(/\r\n|\r|\n/);
+  if (lines.length > 0 && lines[lines.length - 1] === '' ) lines.pop();
+  return lines;
 }
