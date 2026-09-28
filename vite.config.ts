@@ -16,7 +16,10 @@ function courseData(): Plugin {
         const url = decodeURIComponent((req.url ?? '').split('?')[0]);
         if (!url.startsWith(base + 'data/')) return next();
         const file = normalize(join(dataDir, url.slice((base + 'data/').length)));
-        if (!file.startsWith(dataDir) || !existsSync(file) || !statSync(file).isFile()) return next();
+        if (!file.startsWith(dataDir) || !existsSync(file) || !statSync(file).isFile()) {
+          res.statusCode = 404; // a missing data file must not fall through to index.html
+          return res.end('not found');
+        }
         res.setHeader('Content-Type', file.endsWith('.pdf') ? 'application/pdf' : 'text/plain; charset=utf-8');
         res.end(readFileSync(file));
       });

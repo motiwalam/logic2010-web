@@ -1,0 +1,6 @@
+M+ FONTS (mplus-1p, subset: Latin, Greek, arrows and mathematical operators), from the
+desktop Logic 2010 program's bundled fonts.
+
+M+ FONTS: These fonts are free software. Unlimited permission is granted to use, copy, and
+distribute them, with or without modification, either commercially or noncommercially.
+THESE FONTS ARE PROVIDED "AS IS" WITHOUT WARRANTY.
