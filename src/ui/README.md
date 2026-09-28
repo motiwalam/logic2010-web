@@ -129,3 +129,29 @@ uploaded work files (name, header, fields; legacy `derwork.txt` etc. are convert
 `transfer.ts` plans imports, exports (zip via `zip.ts`), forks and resets.
 
 `/dev/components` shows every shared component live.
+
+## Cross-module links
+
+A module opens a problem in another module (the desktop's Invalidity → Derivation and
+Invalidity → Truth Table buttons, which start the other module with a problem record) by
+navigating to
+
+```
+/<module id>?new=<encodeURIComponent(record)>
+```
+
+`record` is a problem record in the work-file line format (`TaggedRecord`), without a name,
+exactly as the desktop passes it to `LPxxx.startup`:
+
+- Truth Tables: `<statement>`=` — e.g. `Fa0->Ga0 . Fa0 .: Ga0`=` (maggie notation).
+- Derivation: `<argument>`-`=` — the statement under `-`, then an empty `=` field, e.g.
+  `@x(Fx->Gx) . Fa .: Ga`-`=`.
+
+A value without a backquote is a bare statement; the receiving screen puts it under its
+statement tag. The receiving screen loads it as a new, unsaved user problem (problemIndex -1,
+as `LPxxx.loadProblem(record)`), then removes the parameter with
+`openProblem(null, { replace: true })`. Build the URL with
+`href({ name: 'module', module, problem: null }) + '?new=' + encodeURIComponent(record)` and
+`navigate(url)` (see `newProblemUrl` in `modules/invalidity/InvalidityScreen.tsx`; the
+Truth Tables screen's handling is in `modules/truth/TruthScreen.tsx`, `useNewProblemParam`
+in `modules/truth/common.tsx`).

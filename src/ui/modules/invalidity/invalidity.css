@@ -1,0 +1,101 @@
+/* The Invalidity screen: universe, interpretations, workspace, interpretation editor. */
+@import '../truth/truth.css';
+
+.inv-work {
+  display: grid;
+  gap: 1rem;
+  padding: 0.25rem 0 2rem;
+  min-width: 0;
+}
+.inv-universe,
+.inv-symbols,
+.inv-workspace {
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.65rem 0.9rem 0.8rem;
+}
+.inv-universe {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+}
+.inv-size {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+}
+.inv-size select {
+  width: auto;
+  min-width: 5rem;
+}
+.inv-universe-label {
+  color: var(--ink-2);
+}
+.inv-h {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.inv-symbol-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+.inv-symbol {
+  display: grid;
+  grid-template-columns: minmax(9rem, max-content) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+.inv-symbol-btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  font-weight: 700;
+}
+.inv-kind {
+  font-family: var(--font);
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: var(--ink-3);
+}
+.inv-symbol-value {
+  overflow-wrap: anywhere;
+}
+.inv-workspace-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+}
+.inv-workspace p {
+  margin: 0 0 0.5rem;
+}
+.inv-editor {
+  display: grid;
+  gap: 0.6rem;
+}
+.inv-editor-single {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.inv-grid td input[type='checkbox'] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--accent);
+}
+.inv-grid select {
+  width: auto;
+}
+@media (max-width: 600px) {
+  .inv-symbol {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.2rem;
+  }
+}

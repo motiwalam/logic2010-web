@@ -133,8 +133,9 @@ export class TruthWorkspace {
    * getExercises + getProblems + mergeExercises + restateProblems: the course problems and
    * the student's work (null: none yet, start from the course problems).
    */
-  static async open(work: WorkFile | null, user: UserInfo | null = null): Promise<TruthWorkspace> {
+  static async open(work: WorkFile | null, user: UserInfo | null = null, persist?: (ws: TruthWorkspace) => boolean | Promise<boolean>): Promise<TruthWorkspace> {
     const ws = new TruthWorkspace();
+    if (persist) ws.persist = persist;
     await readExercises(ws.exercises, workFileName);
     await readWork(ws.problems, workFileName, work);
     ws.problems.exercises = ws.exercises;

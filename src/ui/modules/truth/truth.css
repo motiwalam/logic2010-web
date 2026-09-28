@@ -1,0 +1,329 @@
+/* The Truth Tables screen: question, table, cell editor (tree and inline forms), setup stage;
+   the Invalidity screen shares the question-style chips (.notation-option from parsing.css). */
+
+.tt-empty {
+  max-width: 40rem;
+  padding: 1rem 0;
+}
+.tt-work {
+  display: grid;
+  gap: 1rem;
+  padding: 0.25rem 0 2rem;
+  min-width: 0;
+}
+
+.tt-question {
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.55rem 0.9rem 0.65rem;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+.tt-question-text {
+  float: left;
+  padding: 0;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+.tt-answers {
+  display: inline-flex;
+  gap: 0.5rem;
+}
+.tt-answers .notation-option,
+.tt-question .notation-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border: var(--border-w) solid var(--line);
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--surface);
+}
+.tt-answers .notation-option.is-on {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* ---- the table ---- */
+.tt-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.tt-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--surface);
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  font-family: var(--font-logic);
+}
+.tt-table th,
+.tt-table td {
+  padding: 0.2rem 0.35rem;
+  text-align: center;
+  border-bottom: var(--border-w) solid var(--line);
+}
+.tt-table tbody tr:last-child th,
+.tt-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+.tt-table thead th {
+  background: var(--surface-2);
+  font-weight: 700;
+  vertical-align: bottom;
+  padding: 0.4rem 0.5rem;
+}
+.tt-table th.tt-letter {
+  min-width: 1.8rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+.tt-table .tt-last-letter {
+  border-right: 2px solid var(--line-strong);
+}
+.tt-formula-col {
+  min-width: 3.5rem;
+}
+.tt-col-formula {
+  display: block;
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--ink-3);
+  white-space: nowrap;
+  max-width: 14rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tt-ce-col {
+  font-size: 0.75rem;
+  font-family: var(--font);
+  color: var(--ink-2);
+  max-width: 6rem;
+  border-left: 2px solid var(--line-strong);
+}
+.tt-ce {
+  border-left: 2px solid var(--line-strong);
+}
+.tt-ce input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+}
+tr.is-counterexample th,
+tr.is-counterexample td {
+  background: var(--gold-soft);
+}
+
+.tt-cell {
+  min-width: 2.2rem;
+  height: 2rem;
+  font: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  border: var(--border-w) solid var(--line-strong);
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.tt-cell:hover {
+  border-color: var(--accent);
+}
+.tt-cell.is-empty {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+.tt-cell.is-selected {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+  background: var(--accent-soft);
+}
+.tt-cell.is-wrong {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+.tt-cell.is-wrong::after {
+  content: '!';
+  font-size: 0.7rem;
+  vertical-align: super;
+  margin-left: 1px;
+}
+.tt-cell:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.tt-cell:disabled {
+  cursor: default;
+}
+
+/* ---- the cell editor ---- */
+.tt-editor {
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 0.7rem 0.8rem;
+  display: grid;
+  gap: 0.75rem;
+  min-width: 16rem;
+  position: sticky;
+  top: calc(var(--topbar-h) + 0.5rem);
+}
+.tt-editor.is-empty {
+  min-width: 12rem;
+}
+.tt-editor-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+.tt-editor-head .btn {
+  margin-left: auto;
+}
+.tt-keys {
+  margin: 0;
+}
+
+.tv-tree {
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+.tv-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tv-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.tv-formula {
+  white-space: nowrap;
+  font-size: 0.9rem;
+}
+.tv-children {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--line-strong);
+}
+.tv-value {
+  min-width: 1.7rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: var(--border-w) solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink-3);
+  font: inherit;
+  font-weight: 700;
+  font-family: var(--font-logic);
+  cursor: pointer;
+  padding: 0 0.3rem;
+}
+.tv-value.is-set {
+  color: var(--ink);
+}
+.tv-value.is-locked {
+  background: var(--surface-3);
+  color: var(--ink-2);
+  border-style: dashed;
+  cursor: default;
+}
+.tv-value.is-readonly {
+  cursor: default;
+}
+.tv-value.is-wrong {
+  background: var(--bad-soft);
+  border-color: var(--bad);
+  color: var(--bad);
+}
+.tv-value:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.tv-mirror {
+  overflow-x: auto;
+  border-top: var(--border-w) solid var(--line);
+  padding-top: 0.6rem;
+}
+.tv-inline,
+.tv-group {
+  display: inline-flex;
+  align-items: flex-start;
+}
+.tv-col {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0 0.08rem;
+}
+.tv-col-text {
+  white-space: pre;
+  line-height: 1.6rem;
+}
+.tv-col.is-op .tv-col-text {
+  padding: 0 0.2rem;
+}
+.tv-col-value {
+  min-height: 1.6rem;
+}
+
+/* ---- setup stage ---- */
+.tt-setup {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+.tt-setup-prompt {
+  margin: 0;
+  font-weight: 700;
+}
+.tt-setup-fields {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: flex-end;
+}
+.tt-setup-fields label {
+  display: grid;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+
+.tt-user-form {
+  display: grid;
+  gap: 0.6rem;
+}
+.tt-only {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  .tt-editor {
+    position: static;
+    min-width: 0;
+  }
+}
+@media print {
+  .tt-editor {
+    display: none;
+  }
+}

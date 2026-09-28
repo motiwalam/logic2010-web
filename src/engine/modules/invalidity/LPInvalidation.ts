@@ -163,8 +163,9 @@ export class InvalidityWorkspace {
   digestCheck: DigestCheck | null = null;
   persist: (ws: InvalidityWorkspace) => boolean | Promise<boolean> = () => true;
 
-  static async open(work: WorkFile | null, user: UserInfo | null = null): Promise<InvalidityWorkspace> {
+  static async open(work: WorkFile | null, user: UserInfo | null = null, persist?: (ws: InvalidityWorkspace) => boolean | Promise<boolean>): Promise<InvalidityWorkspace> {
     const ws = new InvalidityWorkspace();
+    if (persist) ws.persist = persist;
     await readExercises(ws.exercises, workFileName);
     await readWork(ws.problems, workFileName, work);
     ws.problems.exercises = ws.exercises;
