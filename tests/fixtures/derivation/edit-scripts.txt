@@ -1,0 +1,227 @@
+# Editing scripts for the derivation oracle (OracleDerivation edit) and tests/derivation/edit.test.ts.
+# One op per line, fields separated by tabs; scripts separated by blank lines.
+# key <char code> <modifiers: 1 shift, 2 ctrl, 8 alt>; press <key code> <modifiers>.
+user	P->Q . P .: Q
+focus	0	f
+key	10	0
+focus	1	a
+text	pr1
+key	10	0
+focus	2	a
+text	pr2
+key	10	0
+focus	3	a
+text	1 2 mp
+key	10	0
+check
+save
+
+user	P .: Q->P
+focus	0	f
+key	10	0
+focus	1	a
+text	show conc
+key	10	0
+focus	2	a
+text	ass cd
+key	10	0
+focus	3	a
+text	pr
+key	10	0
+focus	4	a
+text	3 cd
+key	10	0
+check
+save
+
+load	Deriv 1.001EG1
+focus	6	a
+key	127	8
+blur
+focus	4	a
+key	10	0
+focus	5	a
+text	-1 r
+blur
+focus	5	f
+text	Q
+blur
+check
+save
+
+load	Deriv 1.001EG1
+focus	5	a
+key	19	3
+focus	5	f
+key	19	3
+focus	7	a
+key	24	3
+focus	6	a
+key	24	3
+focus	3	f
+press	38	8
+press	40	8
+press	38	8
+focus	9	a
+check
+save
+
+user	P&Q .: Q&P
+focus	0	f
+key	10	0
+focus	1	f
+text	Show Q&P
+key	10	0
+focus	2	a
+text	pr s
+key	10	0
+focus	3	a
+text	pr s
+key	10	0
+focus	4	a
+text	-2 -1 adj
+key	10	1
+focus	4	a
+key	10	2
+focus	4	a
+key	9	0
+key	10	0
+save
+
+load	Deriv 1.001EG2
+focus	4	a
+press	39	8
+focus	4	a
+press	37	8
+focus	5	a
+press	37	8
+focus	3	a
+press	39	8
+focus	2	a
+press	40	0
+press	38	0
+key	127	9
+save
+
+load	Deriv 1.001EG1
+focus	3	f
+key	127	9
+focus	1	f
+key	19	3
+focus	2	a
+text	5 4 mp[Q]
+key	10	0
+check
+save
+
+record	@xFx .: Fa`-@xFx`<pr`>`<1 ui`>`=
+answers	text:a
+checkline	2	i
+save
+
+record	@xFx .: Fa`-@xFx`<pr`>Fa`<1 ui`>`=
+answers	text:b
+checkline	2	i
+answers	
+checkline	2	i
+check
+save
+
+record	@xFx .: Fa`-@xFx`<pr`>Fa`<1 ui/a`>`=
+check
+save
+
+record	!xFx .: !xFx`-!xFx`<pr`>`<1 ei`>`=
+answers	text:a
+checkline	2	i
+save
+
+record	!xFx .: !xFx`-!xFx`<pr`>`<1 ei`>`=
+answers	text:Fa|text:a
+checkline	2	i
+save
+
+record	Fa .: !xFx`-Fa`<pr`>`<1 eg`>`=
+answers	place:1,2|text:x
+checkline	2	i
+save
+
+record	Fa .: !xFx`-Fa`<pr`>!xFx`<1 eg`>`=
+answers	place:0,1|place:1,2|text:y
+checkline	2	i
+save
+
+record	P .: P|Q`-P`<pr`>`<1 add`>`=
+answers	choice:0|text:Q
+checkline	2	i
+save
+
+record	P .: P|Q`-P`<pr`>`<1 add/Q`>`=
+checkline	2	i
+save
+
+record	~~P .: P`-~~P`<pr`>`<1 ie`>`=
+answers	select:0,3|text:DN|choice:0
+checkline	2	i
+save
+
+record	~~P .: P`-~~P`<pr`>`<1 ie`>`=
+answers	select:1,2|text:XX
+checkline	2	i
+save
+
+record	~~P .: P`-~~P`<pr`>P`<1 ie/DN`>`=
+checkline	2	i
+check
+save
+
+record	P<->Q .: P`-P<->Q`<pr`>P`-`<show ant 1`>`=`=
+answers	choice:0
+checkline	3	i
+save
+
+record	P<->Q .: P`-P<->Q`<pr`>P`-`<show negcons 1/R`>`=`=
+checkline	3	i
+save
+
+record	P . Q .: P&Q`-`<pr`>`=
+answers	choice:1
+checkline	1	i
+save
+
+record	P->Q . P .: Q`-P->Q`<pr1`>P`<pr2`>R`<1 2 mp`>`=
+answers	button:0
+checkline	3	n
+save
+
+record	P->Q . P .: Q`-P->Q`<pr1`>P`<pr2`>R`<1 2 mp`>`=
+checkline	3	n
+checkline	3	i
+save
+
+record	a=b . Fa .: Fb`-a=b`<pr1`>Fa`<pr2`>`<1 2 ll`>`=
+answers	place:1,2
+checkline	3	i
+save
+
+record	a=b . Fa .: Fb`-a=b`<pr1`>Fa`<pr2`>`<1 2 ll`>`=
+answers	place:1,2
+checkline	3	i
+save
+
+record	a=b . Fa .: Fb`-a=b`<pr1`>Fa`<pr2`>Fb`<1 2 ll`>`=
+checkline	3	i
+check
+save
+
+record	P&Q .: Q&P`-P&Q`<pr`>`<1 s`>`<1 s`>`<2 3 adj`>`=
+answers	choice:1|choice:0|choice:1
+checkline	2	i
+checkline	3	i
+checkline	4	i
+save
+
+record	P&Q .: Q`-P&Q`<pr`>`<1 s`>`=
+answers	choice:1
+checkline	2	n
+save

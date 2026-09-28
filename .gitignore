@@ -3,3 +3,4 @@ dist/
 tools/oracle/classes/
 server/data/
 *.log
+tools/oracle/derivation/classes/

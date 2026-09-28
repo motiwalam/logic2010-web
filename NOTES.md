@@ -123,3 +123,33 @@ Not reproduced (a bug of the desktop's recent "Delete Work sticks" change):
 - `TruthDialogs/InvalidityDialogs.saveDeletedWork` reloads the problem with `loadProblem`,
   which sets `problemIndex` to -1, so the next save of that problem asks for a new name and
   adds a copy. The port keeps the problem's index.
+
+## Derivation module: Java quirks reproduced, and deviations
+
+- `DerivationProblemSet.removeProblem` means to drop a user rule UR... from the user rules but
+  compares the whole name with "UR", so only a problem named exactly `UR` is dropped.
+- `Justification.decode` has no branch for type 5 (`ASS BD`, encoded `5:L`/`5:R`): the choice
+  is written but read back as null, so it is asked again.
+- `InterchangeJustification.identityInstantiation` maps only the first letter (loops with
+  `elementAt(0)`).
+- `DerivationLine.moveIntoPreviousBox` / `moveOutOfBox` call `focus.requestFocus()` without a
+  null check (a NullPointerException when no field has the focus); reproduced (TypeError).
+- `DerivationMessage.format` does not substitute parameters in a module without a window
+  (`doSubs`), so a hidden module's messages keep their `<param>`s (and `m` fields written from
+  one would too). The web modules substitute (`doSubs` true); hidden replays use false.
+- In a module without a window, rule queries after an incomplete instantiation (UI, EG, EI,
+  LL..., EL, other schemes) fail without a message (`matchRule`: `frame == null`); restating
+  relies on the cached justifications (`:` fields) instead.
+- Validation messages of the rule queries (dernot0xx) open message windows even while
+  checking in serial mode when the answers come from `RULE/answer`; so do they here.
+- `LPDerivation.listRules` on an empty item (e.g. "MP..DN") throws
+  StringIndexOutOfBoundsException; the port skips it (not in the course data).
+- `DerivationProblemEntry.computeState` runs a whole check synchronously in Java; checking is
+  asynchronous here, so an entry created with a state to compute starts `STATE_UNCHECKED` and
+  `DerivationWorkspace.updateState` (awaited by the problem operations) computes it.
+- `loadProblem`'s `boxAndCancel` for a `#` field may open a message window (dernot009/011 on
+  malformed work); the port shows it without waiting (loading is synchronous).
+- The oracle for this module (tools/oracle/derivation) shadows `BaseDialog` and `MessageDialog`
+  with panels that hand every dialog to `OracleDialogs` (recorded, answered from a script), and
+  gives the module a fake `ModuleFrame` (Unsafe.allocateInstance) so the rule queries run.
+  It runs with bytecode verification off (`-XX:-BytecodeVerificationRemote`).
