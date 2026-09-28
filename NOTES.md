@@ -33,3 +33,25 @@
 - `RuleProperties.addConverse` can add a converse twice (empty `if (!contains)` block).
 - `BoundVariableMap.matches` uses binder indexes of the instantiated pattern to index the
   instance's binders (an index out of range throws, as in Java).
+
+## Parsing and Recognition modules: Java quirks reproduced, and deviations
+
+- Parsing messages: `parerr004` (wrong main connective) is not in messages/parsing.rec, so its
+  message would be "bad error id"; the desktop never shows these messages (Check only sets the
+  status to the summary), so this is invisible.
+- `ParsingProblemPanel.resetWork` updates the tree's status label before clearing the root's
+  selection, so in main-connective mode with autoCheck the label can show the old verdict.
+- Loading a record fires the notation radio button's item event (as a click does): a saved
+  "N" collapses the tree, and with autoCheck the result label is set on load.
+- Loading a problem clears `lastUserProblem` (Parsing `clearProblem`, Recognition `reset`), and
+  the User Problem dialogs set it just before loading, so they never start with the last one.
+- "Delete the work on this problem" (the Java repository's `saveDeletedWork`) reloads the
+  problem with `loadProblem`, which sets `problemIndex` to -1: the window is detached from the
+  list, and the next Save asks for a new name.
+- Deviations (Java throws, the port does not): a `*` main-connective value that is empty
+  (`charAt(0)`) is read as not correct; an expansion string naming more children than a node
+  has stops restoring there; a null statement (the empty new problem) counts as "" for the
+  notation code (Java: NullPointerException when choosing a notation with autoCheck, or on Check).
+- Clicks: the desktop tests a click's pixel x against the pixel positions of the operator
+  ranges; the port takes the index of the character clicked (equivalent). The oracle replays
+  mousePressed this way, without the flash.
