@@ -55,3 +55,38 @@
 - Clicks: the desktop tests a click's pixel x against the pixel positions of the operator
   ranges; the port takes the index of the character clicked (equivalent). The oracle replays
   mousePressed this way, without the flash.
+
+## Symbolization (src/engine/modules/symbolization): Java behavior reproduced
+
+- `matchTree` lets the *student's* unanalysed (NONE) node match anything (the test is on
+  `this.connective`, the student tree), not the answer's as the notes say. Unfinished
+  branches therefore never get error buttons; the check reports "Incomplete" first anyway.
+- A binder never mismatches by its variable (only the connective is compared), so symerr002
+  appears only on the binder buttons `showError` adds for a captured variable.
+- Error buttons added by a hint (`showHint` when the node does not line up) are put on the
+  panel without setting its `errorButton`, so a later Check's `clearErrors` does not remove
+  them; they go when the node's connective changes or the problem is reloaded.
+  `ConnectivePanel.buttons` keeps them, `errorButton` is the one `clearError` removes.
+- Direct entry: after the "Badly Formed Expression" message the desktop goes on (the dialog
+  is modal), finds the closest answer and, since the student's formula is then null,
+  copies the answer's English into the unchanged tree (`copyTextFrom` also runs when either
+  formula is null). The oracle's headless dialog throws there, so the fixtures compare only
+  the tree after `buildFromText` for malformed input.
+- "Delete the work on this problem" (`saveDeletedWork`) reloads the problem with
+  `loadProblem`, which resets `problemIndex` to -1: the window forgets which problem of the
+  list it shows (the next Save asks for a name).
+- Answer Manager Delete/Replace joins the remaining answer keys with '.' without escaping
+  them again, so a key containing '.' (e.g. "Symb 1.004-1" after `copyAnswersToUserKey`)
+  is split into two keys on the next load.
+- `addAnswer` / `addUserAnswer` compare `answerKeys != ""` by identity; the port compares by
+  value (a Java substring of length 0 is the interned "" in current JDKs, so they agree).
+- An atomic node whose code carries argument types ("*F{11}0") gets no child nodes, and the
+  desktop then fails (NullPointerException) in isIncomplete, toString and the child
+  snapshot. The data never has such codes and the Atomic Expression dialog escapes '{', so
+  users cannot type one; the port treats the missing children as absent.
+- Edit ▸ Statement / Scheme / Answers exist on the desktop only for an administrator
+  install; the engine offers them (LPSymbolizer.editStatement/editScheme/openAnswerManager)
+  with the desktop's permission checks (SymNot012, SymNot005).
+- NodeMessage texts (and the Up action's replacement text) are kept with their \n, \l
+  escapes; the desktop expands them (LogicProgram.expandEscapes) before showing them.
+- The logPrint / logSubmit submission log (symdata.txt) is not kept.
