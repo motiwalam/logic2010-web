@@ -4,7 +4,7 @@
 // tables are program-wide.
 
 import { useSyncExternalStore } from 'react';
-import type { DataSource } from '../../engine/data/DataSource';
+import { HttpDataSource, type DataSource } from '../../engine/data/DataSource';
 import { getLink } from '../../engine/program/LogicProgram';
 import { loadProgram } from '../../engine/program/loadProgram';
 import { getSyntax } from '../../engine/program/symbols';
@@ -21,23 +21,6 @@ export interface EngineState {
   error: string | null;
   /** Increases with every successful load. */
   generation: number;
-}
-
-/**
- * Fetches data files over HTTP. Unlike the engine's HttpDataSource, an HTML answer also
- * counts as "no such file": the Vite dev server answers missing paths with index.html
- * (status 200), and the engine probes for optional files (coreinfo.txt, links.txt, ...).
- */
-export class WebDataSource implements DataSource {
-  constructor(private readonly baseUrl: string) {}
-
-  async readText(path: string): Promise<string | null> {
-    const response = await fetch(this.baseUrl + path.split('/').map(encodeURIComponent).join('/'));
-    if (response.status === 404) return null;
-    if (!response.ok) throw new Error(`could not read ${path}: HTTP ${response.status}`);
-    if ((response.headers.get('content-type') ?? '').includes('text/html')) return null;
-    return response.text();
-  }
 }
 
 let state: EngineState = { status: 'idle', notation: 1, defaultNotation: null, error: null, generation: 0 };
@@ -82,7 +65,7 @@ export function loadEngine(notation: Notation | null): Promise<void> {
     if (state.status === 'ready' && notation != null && state.notation === notation) return;
     set({ status: 'loading', error: null });
     try {
-      const source = new WebDataSource(DATA_URL);
+      const source = new HttpDataSource(DATA_URL);
       const defaultNotation = state.defaultNotation ?? (await readDefaultNotation(source));
       await loadProgram(source, { syntax: notation ?? undefined });
       set({ status: 'ready', notation: getSyntax(), defaultNotation, generation: state.generation + 1 });

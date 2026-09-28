@@ -57,13 +57,20 @@ export function ModuleLayout({ sidebar, sidebarLabel = 'Problems', header, toolb
             </div>
             {!collapsed || drawer ? sidebar : null}
           </aside>
-          <button type="button" className="btn drawer-toggle" aria-expanded={drawer} onClick={() => setDrawer(!drawer)}>
-            {sidebarLabel}
-          </button>
           {drawer && <div className="drawer-scrim" onClick={() => setDrawer(false)} />}
         </>
       )}
       <main className="module-main" id="main">
+        {sidebar && (
+          <div className="drawer-bar">
+            <button type="button" className="btn btn-small drawer-toggle" aria-expanded={drawer} onClick={() => setDrawer(!drawer)}>
+              <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                <path d="M2.5 4h11M2.5 8h11M2.5 12h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              </svg>
+              {sidebarLabel}
+            </button>
+          </div>
+        )}
         {header && <div className="module-header">{header}</div>}
         {toolbar && <div className="module-toolbar">{toolbar}</div>}
         {message && <div className="module-message">{message}</div>}

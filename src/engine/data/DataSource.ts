@@ -11,14 +11,19 @@ export interface DataSource {
   readText(path: string): Promise<string | null>;
 }
 
-/** Fetches data files over HTTP from baseUrl (e.g. "/logic2010/data/"). */
+/**
+ * Fetches data files over HTTP from baseUrl (e.g. "/logic2010/data/"). An HTML answer also
+ * counts as "no such file": a dev server or SPA fallback may answer a missing path with
+ * index.html (status 200), and the engine probes for optional files (coreinfo.txt, ...).
+ */
 export class HttpDataSource implements DataSource {
   constructor(private readonly baseUrl: string) {}
 
   async readText(path: string): Promise<string | null> {
-    const response = await fetch(this.baseUrl + path);
+    const response = await fetch(this.baseUrl + path.split('/').map(encodeURIComponent).join('/'));
     if (response.status === 404) return null;
     if (!response.ok) throw new Error(`could not read ${path}: HTTP ${response.status}`);
+    if ((response.headers.get('content-type') ?? '').includes('text/html')) return null;
     return response.text();
   }
 }
