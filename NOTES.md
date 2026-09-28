@@ -90,3 +90,36 @@
 - NodeMessage texts (and the Up action's replacement text) are kept with their \n, \l
   escapes; the desktop expands them (LogicProgram.expandEscapes) before showing them.
 - The logPrint / logSubmit submission log (symdata.txt) is not kept.
+
+## Truth Tables and Invalidity modules: Java quirks reproduced
+
+- Truth problem states (the problem list, submissions: `getProblemState`) are computed by a
+  scratch module whose options are those of an unnamed new problem (selectors match a null
+  name only through their `u` flag), so a problem's own doAllRows/doAllWffs/doSetUp/doAllNodes
+  settings affect only the Check button, not its listed state. `checkFull` trusts the `+`/`-`
+  signs of the saved cell codes (only sentence-letter cells are re-derived from the row).
+- A checked counterexample row that is out of range (hand-edited record) makes `checkFull`
+  throw (ArrayIndexOutOfBoundsException; RangeError in the port).
+- Each tree edit that leaves the edited node shown wrong adds 2 to the error count: the
+  desktop's two linked views of the tree (valueTree and mirrorTree) each count it.
+- The setup stage's OK-button stage (`TruthSetupButtons.stage`) persists across problems:
+  loading a problem whose saved setup is past the letters keeps the previous problem's stage.
+- `saveProblem` writes only `$ = @ # % * &` (and `e`, `t`): other `%` options, `!` and `u`
+  fields of a problem are dropped when its work is saved.
+- A user problem's text is offered again only when it was rejected (loading a problem clears
+  `lastUserProblem`).
+- Invalidity: quantifier expansion (Expand, the expanded Truth Table argument) names the
+  elements `variableLetter(0)` + index: `a0, a1` in notation 1 but `i0, i1` in notation 2,
+  where `i` is a variable letter.
+- Invalidity: Expand at universe size 1 fails (NullPointerException) when the selection has
+  no second part (e.g. `~P`), so nothing happens; the port returns without a change.
+- Invalidity: the interpretation editor's cell labels for arity >= 2 start with a comma and
+  do not separate the last element, e.g. `R(,01)` for R(0,1) (EditorCell.label keeps them).
+- Invalidity: `getPrintProblems`' printIncorrect test lets every problem through; the Truth
+  Table toolbar button sends the workspace selection, and `"null`="` when nothing is selected.
+- Interpretations are equal by name and arity whatever their kind (`SymbolInterpretation.equals`).
+
+Not reproduced (a bug of the desktop's recent "Delete Work sticks" change):
+- `TruthDialogs/InvalidityDialogs.saveDeletedWork` reloads the problem with `loadProblem`,
+  which sets `problemIndex` to -1, so the next save of that problem asks for a new name and
+  adds a copy. The port keeps the problem's index.
