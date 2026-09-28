@@ -1,0 +1,105 @@
+/* The Recognizing Rules screen: the argument and the answer. */
+
+.recognition-empty {
+  max-width: 40rem;
+  padding: 1rem 0;
+}
+.recognition-work {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0.25rem 0 2rem;
+  max-width: 48rem;
+}
+.argument {
+  margin: 0;
+  justify-self: start;
+  min-width: min(100%, 18rem);
+  padding: 0.9rem 1.4rem 1rem 1.1rem;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+.argument-premises {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.45rem 1.6rem;
+  border-bottom: 2px solid var(--ink-2);
+  display: grid;
+  gap: 0.2rem;
+}
+.argument-conclusion {
+  display: flex;
+  align-items: baseline;
+  padding-top: 0.45rem;
+}
+.argument-therefore {
+  width: 1.6rem;
+  color: var(--ink-2);
+  font-family: var(--font-logic);
+}
+.rule-answer {
+  display: grid;
+  gap: 0.5rem;
+}
+.rule-answer-label {
+  font-weight: 600;
+}
+.rule-answer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.rule-input {
+  width: 12rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.rule-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.rule-chip {
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: var(--border-w) solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+}
+.rule-chip:hover {
+  border-color: var(--accent);
+}
+.rule-chip.is-on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+.rule-chip:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 1px;
+}
+@media print {
+  .rule-chips,
+  .rule-answer button {
+    display: none;
+  }
+  .print-answer {
+    font-size: 0.9em;
+    padding-top: 0.15rem;
+  }
+}
+.rule-more summary {
+  cursor: pointer;
+  color: var(--ink-2);
+  font-size: 0.875rem;
+  margin-bottom: 0.4rem;
+}
