@@ -11,6 +11,7 @@ import { expandEscapes, maggie, symbols, translateSymbols } from '../program/sym
 import { javaTrim } from '../util/java';
 import { STATE_CORRECT } from './ProblemEntry';
 import { ProblemSet } from './ProblemSet';
+import { formulaTermMatches, indexStatement, parseSearchQuery, type ProblemFormulas, type SearchTerm } from './formulaSearch';
 
 export type ProblemListRow =
   | { kind: 'heading'; text: string }
@@ -46,6 +47,18 @@ export class ProblemListModel {
   rowToProblem: number[];
   /** The row initially selected, or -1. */
   selectedRow = -1;
+  /**
+   * Web addition: formula search (formulaSearch.ts) in setFilter. Off by default (the
+   * desktop's search).
+   */
+  formulaSearch = false;
+  /** Web addition: the problem statements are searched as text too (symbolization's English). */
+  statementSearch = false;
+  /** Why part of the last query was ignored (formula search), or null. */
+  searchHint: string | null = null;
+  private readonly set: ProblemSet;
+  private formulas: (ProblemFormulas | null)[] | null = null;
+  private statementTexts: (string | null)[] | null = null;
 
   /**
    * ProblemSet.createListView: the rows for the set's problems. exercises: the module's
@@ -68,6 +81,7 @@ export class ProblemListModel {
       symbolTable?: readonly string[];
     } = {},
   ) {
+    this.set = set;
     const headingsByName = exercises == null ? null : exercises.headingsByName;
     const symbolTable = opts.symbolTable ?? symbols;
     const n = set.size();
@@ -127,7 +141,15 @@ export class ProblemListModel {
    */
   setFilter(query: string): void {
     const q = javaTrim(query).toLowerCase();
-    const terms = q === '' ? [] : q.split(/[ \t\n\x0B\f\r]+/); // Java's \s+
+    let terms = q === '' ? [] : q.split(/[ \t\n\x0B\f\r]+/); // Java's \s+
+    let test = (k: number) => matches(this.searchTexts[k], terms);
+    this.searchHint = null;
+    if (this.formulaSearch || this.statementSearch) {
+      const parsed = this.formulaSearch ? parseSearchQuery(query) : { terms: terms.map((t): SearchTerm => ({ kind: 'text', text: t })), hint: null };
+      this.searchHint = parsed.hint;
+      terms = parsed.terms.map((t) => t.text ?? ''); // only the number of terms matters below
+      test = (k) => this.searchTexts[k] != null && parsed.terms.every((t) => this.termMatches(k, t));
+    }
     const selected = this.getSelectedProblem();
     const rows: ProblemListRow[] = [];
     const rowToProblem: number[] = [];
@@ -136,7 +158,7 @@ export class ProblemListModel {
       if (terms.length === 0) {
         rows.push(this.allRows[j]);
         rowToProblem.push(k);
-      } else if (k >= 0 && k < this.searchTexts.length && matches(this.searchTexts[k], terms)) {
+      } else if (k >= 0 && k < this.searchTexts.length && test(k)) {
         let l = j;
         while (l > 0 && this.allRowToProblem[l - 1] < 0) l--;
         for (; l < j; l++) {
@@ -160,6 +182,35 @@ export class ProblemListModel {
       if (p >= 0 && p === selected) m = r;
     }
     this.selectedRow = m === -1 ? first : m;
+  }
+
+  /** Whether problem k matches one term of a formula search. */
+  private termMatches(k: number, term: SearchTerm): boolean {
+    if (term.text != null) {
+      if (matchesTerm(this.searchTexts[k]!, term.text)) return true;
+      if (this.statementSearch && (this.statementText(k) ?? '').includes(term.text)) return true;
+    }
+    return term.kind === 'formula' && formulaTermMatches(term, this.problemFormulas(k));
+  }
+
+  /** Problem k's premises and conclusion, indexed once per list. */
+  private problemFormulas(k: number): ProblemFormulas {
+    if (this.formulas == null) this.formulas = new Array(this.set.size()).fill(null);
+    let f = this.formulas[k];
+    if (f == null) {
+      const record = this.set.getRecordAt(k);
+      f = this.formulas[k] = indexStatement(record == null ? null : this.set.getProblemStatement(new TaggedRecord(record)));
+    }
+    return f;
+  }
+
+  private statementText(k: number): string | null {
+    if (this.statementTexts == null) this.statementTexts = new Array(this.set.size()).fill(null);
+    if (this.statementTexts[k] == null) {
+      const record = this.set.getRecordAt(k);
+      this.statementTexts[k] = ((record == null ? null : this.set.getProblemStatement(new TaggedRecord(record))) ?? '').toLowerCase();
+    }
+    return this.statementTexts[k];
   }
 
   /** ProblemListView.moveSelection: moves by delta rows, skipping headings. */

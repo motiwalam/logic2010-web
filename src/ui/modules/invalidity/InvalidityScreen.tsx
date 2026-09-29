@@ -26,6 +26,7 @@ import { DialogButtons, dialogs } from '../../dialogs/dialogs';
 import { href, navigate } from '../../router';
 import { messageLike, pickProblems, PrintSheet, type PrintSheetItem } from '../parsing/shared';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { moduleUi, useModel, useModuleWorkspace } from '../truth/common';
 import './invalidity.css';
@@ -357,6 +358,9 @@ function InvalidityWork({ ws, saved, props }: { ws: InvalidityWorkspace; saved: 
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={m.problemIndex === -1 ? null : m.title}
           onOpen={(id) => void open(id)}
         />

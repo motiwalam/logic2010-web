@@ -27,16 +27,32 @@ function toRows(model: ProblemListModel, rows: ProblemListModel['rows'], set: Pr
   );
 }
 
+export interface ListSearchOptions {
+  /** Formula search (formulaSearch.ts): on by default; off for symbolization (English). */
+  formulas?: boolean;
+  /** Search the problem statements as text too (symbolization's English sentences). */
+  statements?: boolean;
+}
+
 /**
- * Rows, search filter and count line for a ProblemList, from the engine's model:
+ * Rows, search filter, count line and search hints for a ProblemList, from the engine's model:
  *   const list = listFromModel(new ProblemListModel(set, set.exercises, {...}), set);
- *   <ProblemList rows={list.rows} filter={list.filter} countLabel={list.countLabel} ... />
- * The filter is the desktop's (ProblemListView.setFilter: every word, whole names like T2).
+ *   <ProblemList {...searchProps(list)} rows={list.rows} ... />
+ * The filter is the desktop's (ProblemListView.setFilter: every word, whole names like T2),
+ * plus the web's formula search (P->Q, concl:Q, premise:~P) unless options.formulas is false.
  */
-export function listFromModel(model: ProblemListModel, set: ProblemSet) {
+export function listFromModel(model: ProblemListModel, set: ProblemSet, options: ListSearchOptions = {}) {
   const counts = new ProblemCounts(set, set.exercises, model);
   const rows = toRows(model, model.allRows, set, counts);
+  model.formulaSearch = options.formulas ?? true;
+  model.statementSearch = options.statements ?? false;
   return {
+    formulaSearch: model.formulaSearch,
+    searchPlaceholder: model.formulaSearch ? 'Search: name, rule, or formula (P->Q, concl:Q)' : 'Search: name or words of the problem',
+    hint: (query: string): string | null => {
+      model.setFilter(query);
+      return model.searchHint;
+    },
     rows,
     filter: (query: string): ProblemRow[] => {
       model.setFilter(query);

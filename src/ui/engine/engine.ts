@@ -4,6 +4,7 @@
 // tables are program-wide.
 
 import { useSyncExternalStore } from 'react';
+import { setExcludeBlueBookProblems } from '../../engine/problems/excludedProblems';
 import { HttpDataSource, type DataSource } from '../../engine/data/DataSource';
 import { getLink } from '../../engine/program/LogicProgram';
 import { loadProgram } from '../../engine/program/loadProgram';
@@ -67,6 +68,9 @@ export function loadEngine(notation: Notation | null): Promise<void> {
     try {
       const source = new HttpDataSource(DATA_URL);
       const defaultNotation = state.defaultNotation ?? (await readDefaultNotation(source));
+      // The web app leaves out the Practice Blue Book Exam problems (a deliberate deviation
+      // from the desktop; src/engine/problems/excludedProblems.ts).
+      setExcludeBlueBookProblems(true);
       await loadProgram(source, { syntax: notation ?? undefined });
       set({ status: 'ready', notation: getSyntax(), defaultNotation, generation: state.generation + 1 });
     } catch (err) {

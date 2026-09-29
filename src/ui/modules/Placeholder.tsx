@@ -13,6 +13,7 @@ import { MessageView } from '../components/MessageView';
 import { nextProblem, ProblemList, type ProblemListHandle } from '../components/ProblemList';
 import { Toolbar, ToolButton } from '../components/Toolbar';
 import { listFromModel } from './problemRows';
+import { FormulaSearchHelp } from '../components/FormulaSearchHelp';
 import type { ModuleInfo, ModuleProps } from './registry';
 
 class PreviewEntry extends ProblemEntry {
@@ -70,7 +71,7 @@ export function PlaceholderModule({ info, props }: { info: ModuleInfo; props: Mo
     };
   }, [info]);
 
-  const list = useMemo(() => (set ? listFromModel(new ProblemListModel(set, set, {}), set) : null), [set]);
+  const list = useMemo(() => (set ? listFromModel(new ProblemListModel(set, set, {}), set, { formulas: info.id !== 'symbolization', statements: info.id === 'symbolization' }) : null), [set, info.id]);
   const index = set && props.problem ? set.indexOfName(props.problem) : -1;
   const record = set && index >= 0 ? new TaggedRecord(set.getRecordAt(index)) : null;
   const statement = record ? set!.getProblemStatement(record) : null;
@@ -85,7 +86,10 @@ export function PlaceholderModule({ info, props }: { info: ModuleInfo; props: Mo
     <ModuleLayout
       sidebar={
         list ? (
-          <ProblemList ref={listRef} rows={list.rows} filter={list.filter} countLabel={list.countLabel} selected={props.problem} onOpen={(id) => props.openProblem(id)} />
+          <ProblemList ref={listRef} rows={list.rows} filter={list.filter} countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined} selected={props.problem} onOpen={(id) => props.openProblem(id)} />
         ) : (
           <p className="muted pad">{error ?? 'Loading problems…'}</p>
         )

@@ -28,6 +28,7 @@ import { nextProblem, ProblemList, type ProblemListHandle } from '../../componen
 import { Menu, Toolbar, ToolButton, ToolbarSeparator } from '../../components/Toolbar';
 import { dialogs } from '../../dialogs/dialogs';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { showAnswerManager, showNodeMessage, showSchemeDialog } from './SymbolizationDialogs';
 import { locate, StaticTree, SymbolizationTree, type TreeHandle } from './SymbolizationTree';
@@ -157,6 +158,7 @@ function SymbolizationWork({ module, props }: { module: SymbolizationModule; pro
       listFromModel(
         new ProblemListModel(module.problems!, module.exercises, { problemIndex: session.problemIndex, restrict: module.selector('monoProbs') }),
         module.problems!,
+        { formulas: false, statements: true }, // English sentences: search their words
       ),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [module, listVersion, session.problemIndex],
@@ -527,6 +529,9 @@ function SymbolizationWork({ module, props }: { module: SymbolizationModule; pro
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={session.problemIndex === -1 ? null : p.problemName}
           onOpen={(id) => void open(id)}
         />

@@ -76,8 +76,12 @@ coloured as the desktop (correct green, incorrect/incomplete red, restricted ora
 glyph for colour-blind users. Up/Down/PageUp/PageDown/Home/End move, Enter opens, Escape
 clears the search. `defaultFilter` matches every word; for the desktop's exact list, search
 and counts use `listFromModel(new ProblemListModel(set, set.exercises, {...}), set)` from
-`modules/problemRows.ts`, which returns `{ rows, filter, countLabel }` (the derivation search
-semantics of the Java README come with it). `nextProblem(rows, current, delta)` for Next.
+`modules/problemRows.ts`, which returns `{ rows, filter, countLabel, hint, searchPlaceholder, formulaSearch }`
+(the derivation search semantics of the Java README come with it, plus the web's formula
+search: `P->Q`, `concl:Q`, `premise:~P`, `concl:"forall x Fx"`; see
+`engine/problems/formulaSearch.ts`). Pass `hint`, `searchPlaceholder` and
+`searchHelp={<FormulaSearchHelp />}` (the "?" tip) to `ProblemList`; symbolization uses
+`listFromModel(model, set, { formulas: false, statements: true })`. `nextProblem(rows, current, delta)` for Next.
 
 **`MessageView`** `{ message, onAction?, onDismiss?, explain? }` — a catalogue message in place:
 `message` is `{ title, text?, isError?, buttons?, expanded? }` (an engine `Message` fits:

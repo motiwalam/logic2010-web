@@ -153,3 +153,16 @@ Not reproduced (a bug of the desktop's recent "Delete Work sticks" change):
   with panels that hand every dialog to `OracleDialogs` (recorded, answered from a script), and
   gives the module a fake `ModuleFrame` (Unsafe.allocateInstance) so the rule queries run.
   It runs with bytecode verification off (`-XX:-BytecodeVerificationRemote`).
+
+## Deliberate deviation: no Practice Blue Book Exam problems
+
+The web app leaves out the Practice Blue Book Exam problems (every course problem whose note
+contains "This is a Practice Blue Book Exam problem": the N.7xx problems, 85 per notation:
+derivation 48, symbolization 23, truth tables 9, invalidity 5) and their "Blue Book mode"
+headings. The owner: they are not meant to be done on a computer and duplicate other
+problems. `data/` is unchanged. The rule is `isExcludedProblem` in
+`src/engine/problems/excludedProblems.ts`, applied in `LogicModule.readProblems` to course
+and work files; the app turns it on (`src/ui/engine/engine.ts`), and it is off by default so
+the differential tests run the desktop's behaviour. Blue Book records in an imported work
+file are kept aside (`ProblemSet.excludedRecords`): the digest still verifies and saving
+writes them back, so the file still loads in the desktop program with that work.

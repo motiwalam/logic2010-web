@@ -31,6 +31,12 @@ export abstract class ProblemSet {
   plainColors = false;
   /** The module's course exercises (LPxxx.exercises), for mergeExercises and the problem list. */
   exercises: ProblemSet | null = null;
+  /**
+   * Records of a work file that the web program leaves out (excludedProblems.ts), each with
+   * the name of the problem it followed (null: at the start). They count in the file's
+   * digest and are written back where they were (allRecords).
+   */
+  excludedRecords: { record: string; after: string | null }[] = [];
 
   abstract getProblemStatement(record: TaggedRecord): string | null;
   abstract hasWork(record: TaggedRecord): boolean;
@@ -239,12 +245,44 @@ export abstract class ProblemSet {
 
   /** The digest of the records for the user (with the user's digest version for this module). */
   computeDigest(user: UserInfo): string {
-    return user.computeDigest(this.records(), user.get(this.getDigestVersKey()));
+    return user.computeDigest(this.allRecords(), user.get(this.getDigestVersKey()));
   }
 
   /** The record lines in order (ProblemRecordEnumeration). */
   records(): string[] {
     return this.entries.map((e) => e.name);
+  }
+
+  /** Keeps aside a record that is left out of the set (see excludedRecords). */
+  excludeRecord(record: string): void {
+    const last = this.entries.length === 0 ? null : TaggedRecord.nameOf(this.entries[this.entries.length - 1].name);
+    this.excludedRecords.push({ record, after: last });
+  }
+
+  /**
+   * The records as saved: records() with the excluded ones back after the problem they
+   * followed (at the end if it is gone). Without excluded records, records().
+   */
+  allRecords(): string[] {
+    if (this.excludedRecords.length === 0) return this.records();
+    const byAnchor = new Map<string | null, string[]>();
+    for (const { record, after } of this.excludedRecords) {
+      const key = after == null ? null : javaTrim(after).toUpperCase();
+      byAnchor.set(key, [...(byAnchor.get(key) ?? []), record]);
+    }
+    const out = [...(byAnchor.get(null) ?? [])];
+    byAnchor.delete(null);
+    for (const e of this.entries) {
+      out.push(e.name);
+      const name = TaggedRecord.nameOf(e.name);
+      const key = name == null ? undefined : javaTrim(name).toUpperCase();
+      if (key !== undefined && byAnchor.has(key)) {
+        out.push(...byAnchor.get(key)!);
+        byAnchor.delete(key);
+      }
+    }
+    for (const rest of byAnchor.values()) out.push(...rest);
+    return out;
   }
 
   getRecordAt(i: number): string | null {

@@ -18,6 +18,7 @@ import { Menu, Toolbar, ToolButton, ToolbarSeparator } from '../../components/To
 import { dialogs } from '../../dialogs/dialogs';
 import { messageLike, moduleDialogs, pickProblems, PrintSheet, type PrintSheetItem, useModel, useModuleWork } from '../parsing/shared';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { recModule } from '../../../engine/program/ModuleConstants';
 import './recognition.css';
@@ -331,6 +332,9 @@ function RecognitionWork({ module, props }: { module: RecognitionModule; props: 
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={session.problemIndex === -1 ? null : p.problemName}
           onOpen={(id) => void open(id)}
         />

@@ -12,6 +12,7 @@ import type { UserInfo } from '../program/UserInfo';
 import { javaTrim } from '../util/java';
 import { ProblemEntry, type ProblemNameSet } from './ProblemEntry';
 import type { ProblemSet } from './ProblemSet';
+import { isExcludedProblem, withoutBlueBookHeadings } from './excludedProblems';
 
 /**
  * LogicModule.readProblems: reads the lines of a problem or work file into the set.
@@ -19,6 +20,9 @@ import type { ProblemSet } from './ProblemSet';
  * Any other `#` line (and, when not exercises, a `#-` line too) sets the stored digest, so
  * the last one wins. sorted (a local file merged into the course's): problems are inserted
  * in name order, duplicates rejected.
+ *
+ * Problems excluded by the web program (excludedProblems.ts) are left out and kept aside
+ * in set.excludedRecords.
  *
  * (With the `debug` option the desktop also prints the argument errors of each exercise;
  * that diagnostic output is left out.)
@@ -35,6 +39,10 @@ export function readProblems(reader: ScrambledReader, set: ProblemSet, exercises
       } else if (s.indexOf('#') === 0) {
         set.storedDigest = javaTrim(s.substring(1));
       }
+    } else if (isExcludedProblem(s)) {
+      // left out by the web program (excludedProblems.ts), with its Blue Book headings
+      set.excludeRecord(s);
+      headings = withoutBlueBookHeadings(headings);
     } else if (set.addProblem(s, headings, sorted) !== -1) {
       headings = null;
     }
@@ -59,7 +67,7 @@ export function writeProblems(set: ProblemSet, workFileName: string, user: UserI
   const key = set.getDigestVersKey();
   if (user.getField(key, '') !== '1') user.put(key, '1');
   // the digest covers the records as they will be read back from the saved file
-  const records = DataFiles.canonicalRecords(set.records(), DataFiles.schemaForKey(workFileName));
+  const records = DataFiles.canonicalRecords(set.allRecords(), DataFiles.schemaForKey(workFileName));
   const digest = user.computeDigest(records, user.get(key));
   return {
     fileName: DataFiles.workFileName(workFileName) ?? workFileName,
@@ -106,6 +114,7 @@ export async function readExercises(set: ProblemSet, key: string, opts: ReadExer
     const local = await openLocalFile(key, opts.edit ?? false);
     if (local != null) readProblems(local, set, true, !noCore);
   }
+  set.excludedRecords = [];
   return true;
 }
 
@@ -133,6 +142,7 @@ export async function readWork(set: ProblemSet, key: string, work: WorkFile | nu
   }
   const local = await openLocalFile(key);
   if (local != null) readProblems(local, set, false, true);
+  set.excludedRecords = []; // course problems, not the student's work: nothing to keep
   return true;
 }
 

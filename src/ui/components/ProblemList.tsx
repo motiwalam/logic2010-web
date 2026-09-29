@@ -111,6 +111,10 @@ export interface ProblemListProps {
   /** The line under the list (default: defaultCountLabel); null hides it. */
   countLabel?: ((query: string, all: readonly ProblemRow[], shown: readonly ProblemRow[]) => ReactNode) | null;
   searchPlaceholder?: string;
+  /** A note under the search field for a query (e.g. a formula that does not parse), or null. */
+  hint?: (query: string) => ReactNode | null;
+  /** Search syntax, shown by a "?" button next to the search field. */
+  searchHelp?: ReactNode;
   /** Accessible name of the list. */
   label?: string;
   className?: string;
@@ -213,6 +217,8 @@ export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(funct
     e.preventDefault();
   };
 
+  const hint = props.hint && query.trim() !== '' ? props.hint(query) : null;
+  const [helpOpen, setHelpOpen] = useState(false);
   const count = props.countLabel === null ? null : (props.countLabel ?? defaultCountLabel)(query, rows, shown);
 
   return (
@@ -233,8 +239,32 @@ export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(funct
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyDown={onKeyDown}
+          aria-describedby={hint ? baseId + '-hint' : undefined}
         />
+        {props.searchHelp != null && (
+          <button
+            type="button"
+            className="search-help-button"
+            aria-label="Search syntax"
+            aria-expanded={helpOpen}
+            aria-controls={baseId + '-help'}
+            title="Search syntax"
+            onClick={() => setHelpOpen((o) => !o)}
+          >
+            ?
+          </button>
+        )}
       </div>
+      {props.searchHelp != null && helpOpen && (
+        <div id={baseId + '-help'} className="search-help" role="note">
+          {props.searchHelp}
+        </div>
+      )}
+      {hint != null && (
+        <p id={baseId + '-hint'} className="search-hint" role="status">
+          {hint}
+        </p>
+      )}
       <ul
         ref={list}
         id={baseId + '-list'}

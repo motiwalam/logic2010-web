@@ -1355,6 +1355,62 @@ ul {
   padding-left: 2rem;
   background: var(--surface);
 }
+.problem-search:has(.search-help-button) .input {
+  padding-right: 2.2rem;
+}
+.search-help-button {
+  position: absolute;
+  right: 1.2rem;
+  top: 50%;
+  transform: translateY(-62%);
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  border: var(--border-w) solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.search-help-button:hover,
+.search-help-button[aria-expanded='true'] {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.search-help {
+  margin: 0 0.75rem 0.5rem;
+  padding: 0.5rem 0.65rem;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+}
+.search-help dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.2rem 0.75rem;
+  margin: 0;
+}
+.search-help dt {
+  font-family: var(--font-logic);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.search-help dd {
+  margin: 0;
+}
+.search-help p {
+  margin: 0.4rem 0 0;
+}
+.search-hint {
+  margin: 0 0.75rem 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--warn);
+}
 .search-icon {
   position: absolute;
   left: 1.4rem;

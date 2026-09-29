@@ -24,6 +24,7 @@ import { FormulaInput } from '../../components/FormulaInput';
 import { maggie, symbols, translateSymbols } from '../../../engine/program/symbols';
 import { messageLike, pickProblems, PrintSheet, type PrintSheetItem } from '../parsing/shared';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { moduleUi, useModel, useModuleWorkspace, useNewProblemParam } from './common';
 import { CellEditor, SetupView, TruthTableView } from './TruthTableView';
@@ -289,6 +290,9 @@ function TruthWork({ ws, saved, props }: { ws: TruthWorkspace; saved: number; pr
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={m.problemIndex === -1 ? null : p.problemName}
           onOpen={(id) => void open(id)}
         />

@@ -18,6 +18,7 @@ import { nextProblem, ProblemList, type ProblemListHandle } from '../../componen
 import { Menu, Toolbar, ToolButton, ToolbarSeparator } from '../../components/Toolbar';
 import { dialogs } from '../../dialogs/dialogs';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { parModule } from '../../../engine/program/ModuleConstants';
 import { ParseTreeView } from './ParseTreeView';
@@ -305,6 +306,9 @@ function ParsingWork({ module, props }: { module: ParsingModule; props: ModulePr
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={session.problemIndex === -1 ? null : session.problem.problemName}
           onOpen={(id) => void open(id)}
         />
