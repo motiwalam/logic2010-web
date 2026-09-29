@@ -34,6 +34,7 @@ import { useShortcuts } from '../../components/shortcuts';
 import { dialogs } from '../../dialogs/dialogs';
 import { pickProblems, PrintSheet, type PrintSheetItem, workUser } from '../parsing/shared';
 import { listFromModel } from '../problemRows';
+import { FormulaSearchHelp } from '../../components/FormulaSearchHelp';
 import type { ModuleProps } from '../registry';
 import { useModel, useNewProblemParam } from '../truth/common';
 import { DerivationEditor, type DerivationEditorHandle } from './DerivationEditor';
@@ -129,7 +130,9 @@ function loadPanels(): { stack: boolean; rules: boolean } {
   } catch {
     // defaults
   }
-  return { stack: false, rules: false };
+  // open by default where they fit beside the derivation; on narrow screens they would push it down
+  const wide = typeof matchMedia === 'undefined' || matchMedia('(min-width: 70rem)').matches;
+  return { stack: wide, rules: wide };
 }
 
 function toneOf(s: string): 'good' | 'bad' | 'warn' | 'neutral' {
@@ -584,9 +587,11 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
           rows={list.rows}
           filter={list.filter}
           countLabel={list.countLabel}
+          hint={list.hint}
+          searchPlaceholder={list.searchPlaceholder}
+          searchHelp={list.formulaSearch ? <FormulaSearchHelp /> : undefined}
           selected={m.problemIndex === -1 ? null : title}
           onOpen={(id) => void open(id)}
-          searchPlaceholder="Search: name, or a rule it proves"
         />
       }
       header={header}

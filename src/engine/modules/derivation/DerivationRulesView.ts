@@ -542,3 +542,36 @@ export async function rulesViewData(line: DerivationLine | null, text: string | 
 
 export const UNKNOWNS_NOTE =
   'Unknowns are parts the program would ask for: ?P a formula, ?t a term, ?x a variable. Hover over a rule for details. Theorems (Tn) are not listed.';
+
+/**
+ * Web-only (not in the desktop's rules view): the theorems a line may use as its next step,
+ * each as a row that pushes its formula (the letters it leaves open shown as unknowns; typing
+ * Tn asks for them). A theorem is listed only if the checker would accept it here: not
+ * disabled (nor manual, in command mode) for the problem, and proven (its proof problems
+ * solved in the workspace), as ruleLock decides for the rules.
+ */
+export function availableTheorems(line: DerivationLine): Applicable[] {
+  const module = line.box.module;
+  const theorems = ruleTable?.theorems;
+  if (theorems == null) return [];
+  const checker = new DerivationLineChecker(line, false, '');
+  const out: Applicable[] = [];
+  for (const n of theorems.numbers()) {
+    const theorem = theorems.getTheorem(n);
+    if (theorem == null || theorem.conclusion == null) continue;
+    if (ruleLock(module, theorem) != null) continue;
+    const inst = new SchemeInstantiation();
+    theorem.conclusion.match(null, inst);
+    const a = describe(checker, new RuleApplicationClass(theorem, [], inst, new BoundVariableMap()), inst);
+    if (a == null) continue;
+    a.rule = theorem.name;
+    a.group = 2;
+    a.command = theorem.name;
+    a.form = 'Theorem ' + n + ': ' + translateSymbols(theorem.conclusion.toString());
+    a.notes = a.unknowns > 0 ? ['Typed as ' + theorem.name + ', the program asks for the unknowns.'] : [];
+    const lineFormula = line.getFormula();
+    a.matchesLine = lineFormula != null && a.unknowns === 0 && a.value != null && a.value.isIdentical(lineFormula);
+    out.push(a);
+  }
+  return out;
+}

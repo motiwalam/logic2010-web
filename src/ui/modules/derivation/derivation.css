@@ -453,26 +453,28 @@
 .rule-desc {
   font-size: 0.85em;
 }
-.rule-details summary {
-  list-style: none;
-  cursor: pointer;
-  width: 1.2rem;
-  height: 1.2rem;
-  margin: 0.3rem;
+.rule-info {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  width: 1.3rem;
+  height: 1.3rem;
+  margin: 0.3rem 0.35rem;
+  padding: 0;
   border-radius: 50%;
   border: 1px solid var(--line-strong);
-  text-align: center;
-  font-size: 0.72rem;
-  line-height: 1.1rem;
+  background: var(--surface);
   color: var(--ink-3);
+  font: 700 0.72rem/1 var(--font);
+  cursor: pointer;
 }
-.rule-details summary::-webkit-details-marker {
-  display: none;
-}
-.rule-details[open] {
-  grid-column: 1 / -1;
+.rule-info:hover,
+.rule-info.is-open {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 .rule-details-body {
+  grid-column: 1 / -1;
   padding: 0 0.5rem 0.4rem;
   font-size: 0.8em;
   color: var(--ink-2);
@@ -783,4 +785,45 @@ mark.hl {
   .dl-narrow-only {
     display: contents;
   }
+}
+
+/* the rules panel's sections */
+.rules-section {
+  margin-top: 0.5rem;
+}
+.rules-section-head {
+  margin: 0;
+  font-size: 0.85rem;
+}
+.rules-section-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.3rem 0.2rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  font: 600 0.85rem var(--font);
+  text-align: left;
+  cursor: pointer;
+}
+.rules-section-toggle:hover {
+  color: var(--accent);
+}
+.rules-section-caret {
+  width: 0.8rem;
+  color: var(--ink-3);
+}
+.rules-section-count {
+  margin-left: auto;
+  min-width: 1.5rem;
+  padding: 0 0.4rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
 }

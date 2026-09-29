@@ -5,7 +5,7 @@
 
 import { useEffect, useState } from 'react';
 import type { DerivationLine } from '../../../engine/modules/derivation/DerivationLine';
-import { type Applicable, rulesViewData, type RulesViewData, UNKNOWNS_NOTE } from '../../../engine/modules/derivation/DerivationRulesView';
+import { type Applicable, availableTheorems, rulesViewData, type RulesViewData, UNKNOWNS_NOTE } from '../../../engine/modules/derivation/DerivationRulesView';
 import { stackViewData, type StackViewData } from '../../../engine/modules/derivation/DerivationStackView';
 import type { LPDerivation } from '../../../engine/modules/derivation/LPDerivation';
 import { HeadlessDialogs } from '../../../engine/modules/derivation/QueryDialog';
@@ -98,6 +98,7 @@ function Result({ a }: { a: Applicable }) {
 }
 
 function RuleRow({ a, onUse, readOnly }: { a: Applicable; onUse(a: Applicable): void; readOnly: boolean }) {
+  const [open, setOpen] = useState(false);
   const tip = a.details().replace(/<br>/g, '\n').replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
   return (
     <li className={'rule-row' + (a.lock != null ? ' is-locked' : '') + (a.matchesLine ? ' matches-line' : '')}>
@@ -106,60 +107,126 @@ function RuleRow({ a, onUse, readOnly }: { a: Applicable; onUse(a: Applicable): 
         <Result a={a} />
         {a.matchesLine && <span className="rule-match">= line</span>}
       </button>
+      <button
+        type="button"
+        className={'rule-info' + (open ? ' is-open' : '')}
+        aria-expanded={open}
+        aria-label={`Details of ${a.rule}`}
+        title={open ? 'Hide the details' : 'Details'}
+        onMouseDown={(e) => e.preventDefault()}
+        onClick={() => setOpen(!open)}
+      >
+        i
+      </button>
       {a.lock && <span className="rule-lock">{a.lock}</span>}
-      <details className="rule-details">
-        <summary aria-label={`Details of ${a.rule}`}>i</summary>
+      {open && (
         <div className="rule-details-body">
           {tip.split('\n').map((t, i) => (
             <p key={i}>{t}</p>
           ))}
         </div>
-      </details>
+      )}
     </li>
   );
 }
 
+const SECTIONS_KEY = 'logic2010:derivation-sections';
+type SectionId = 'available' | 'locked' | 'theorems' | 'stack';
+const SECTION_DEFAULTS: Record<SectionId, boolean> = { available: true, locked: false, theorems: false, stack: true };
+
+function loadSections(): Record<SectionId, boolean> {
+  try {
+    const raw = localStorage.getItem(SECTIONS_KEY);
+    if (raw) return { ...SECTION_DEFAULTS, ...(JSON.parse(raw) as object) };
+  } catch {
+    // defaults
+  }
+  return SECTION_DEFAULTS;
+}
+
+/** A collapsible section of the rules panel, its state kept per browser. */
+function Section({ id, title, count, open, onToggle, children }: { id: SectionId; title: string; count: number; open: boolean; onToggle(id: SectionId): void; children: React.ReactNode }) {
+  const bodyId = 'rules-sec-' + id;
+  return (
+    <div className={'rules-section' + (open ? ' is-open' : '')}>
+      <h3 className="rules-section-head">
+        <button type="button" className="rules-section-toggle" aria-expanded={open} aria-controls={bodyId} onMouseDown={(e) => e.preventDefault()} onClick={() => onToggle(id)}>
+          <span className="rules-section-caret" aria-hidden="true">
+            {open ? '▾' : '▸'}
+          </span>
+          {title}
+          <span className="rules-section-count">{count}</span>
+        </button>
+      </h3>
+      {open && (
+        <ul className="rule-rows" id={bodyId}>
+          {children}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+interface RulesData {
+  view: RulesViewData;
+  theorems: Applicable[];
+}
+
 export function RulesPanel({ m, stateKey, busy, onUse, readOnly }: { m: LPDerivation; stateKey: string; busy: () => boolean; onUse(a: Applicable, line: DerivationLine, caret: number): void; readOnly: boolean }) {
   const cur = cursorLine(m);
-  const data = useComputed<RulesViewData>(m, stateKey, busy, () => rulesViewData(cur?.line ?? null, null, cur?.caret ?? null));
+  const data = useComputed<RulesData>(m, stateKey, busy, async () => {
+    const view = await rulesViewData(cur?.line ?? null, null, cur?.caret ?? null);
+    const usable = view.line != null && view.result != null && view.result.error == null && view.result.closed == null;
+    return { view, theorems: usable && cur ? availableTheorems(cur.line) : [] };
+  });
+  const [sections, setSections] = useState<Record<SectionId, boolean>>(loadSections);
+  const toggle = (id: SectionId) => {
+    const next = { ...sections, [id]: !sections[id] };
+    setSections(next);
+    try {
+      localStorage.setItem(SECTIONS_KEY, JSON.stringify(next));
+    } catch {
+      // not kept
+    }
+  };
   const use = (a: Applicable) => cur && onUse(a, cur.line, cur.caret);
+  const row = (a: Applicable) => <RuleRow key={a.rule + '\u0001' + a.result + '\u0001' + a.command} a={a} onUse={use} readOnly={readOnly} />;
+  const view = data?.view;
+  const usable = view != null && view.line != null && view.result != null && view.result.error == null && view.result.closed == null;
   return (
     <section className="side-panel rules-panel" aria-label="Rules at the cursor">
       <h2 className="side-title">Rules at the cursor</h2>
-      {data == null ? null : (
+      {view == null ? null : (
         <>
-          <p className="side-note">{data.heading}</p>
-          {data.notes.map((n, i) => (
-            <p key={i} className={data.result?.error ? 'side-error' : 'side-note muted'}>
+          <p className="side-note">{view.heading}</p>
+          {view.notes.map((n, i) => (
+            <p key={i} className={view.result?.error ? 'side-error' : 'side-note muted'}>
               {n}
             </p>
           ))}
-          <ul className="rule-rows">
-            {data.available.map((a, i) => (
-              <RuleRow key={i} a={a} onUse={use} readOnly={readOnly} />
-            ))}
-          </ul>
-          {data.locked.length > 0 && (
+          {usable && (
             <>
-              <h3 className="side-sub">Not allowed here</h3>
-              <ul className="rule-rows">
-                {data.locked.map((a, i) => (
-                  <RuleRow key={i} a={a} onUse={use} readOnly={readOnly} />
-                ))}
-              </ul>
+              <Section id="available" title="Applicable" count={view.available.length} open={sections.available} onToggle={toggle}>
+                {view.available.map(row)}
+              </Section>
+              {view.locked.length > 0 && (
+                <Section id="locked" title="Not allowed here" count={view.locked.length} open={sections.locked} onToggle={toggle}>
+                  {view.locked.map(row)}
+                </Section>
+              )}
+              {data!.theorems.length > 0 && (
+                <Section id="theorems" title="Theorems" count={data!.theorems.length} open={sections.theorems} onToggle={toggle}>
+                  {data!.theorems.map(row)}
+                </Section>
+              )}
+              {view.stackOperations.length > 0 && (
+                <Section id="stack" title="Stack operations" count={view.stackOperations.length} open={sections.stack} onToggle={toggle}>
+                  {view.stackOperations.map(row)}
+                </Section>
+              )}
+              <p className="side-note muted small">{UNKNOWNS_NOTE.replace(' Theorems (Tn) are not listed.', ' Theorems are listed when this problem allows them.')}</p>
             </>
           )}
-          {data.stackOperations.length > 0 && (
-            <>
-              <h3 className="side-sub">Stack operations</h3>
-              <ul className="rule-rows">
-                {data.stackOperations.map((a, i) => (
-                  <RuleRow key={i} a={a} onUse={use} readOnly={readOnly} />
-                ))}
-              </ul>
-            </>
-          )}
-          {data.line != null && data.result != null && data.result.error == null && data.result.closed == null && <p className="side-note muted small">{UNKNOWNS_NOTE}</p>}
         </>
       )}
     </section>
