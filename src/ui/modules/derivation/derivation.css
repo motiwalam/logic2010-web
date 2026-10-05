@@ -837,3 +837,65 @@ mark.hl {
   color: var(--ink-2);
   font-size: 0.9rem;
 }
+
+/* Tidy */
+.dl-tidy {
+  display: grid;
+  gap: 0.75rem;
+}
+.dl-tidy fieldset {
+  margin: 0;
+  padding: 0.5rem 0.75rem 0.6rem;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  display: grid;
+  gap: 0.45rem;
+}
+.dl-tidy legend {
+  padding: 0 0.3rem;
+  font-weight: 700;
+}
+.dl-tidy-option {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  cursor: pointer;
+}
+.dl-tidy-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.dl-tidy-tools .input {
+  flex: 1 1 12rem;
+}
+.dl-tidy-rows,
+.dl-tidy-list {
+  max-height: min(40vh, 22rem);
+  overflow: auto;
+  border: var(--border-w) solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.25rem 0;
+  margin: 0;
+}
+.dl-tidy-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: baseline;
+  padding: 0.2rem 0.75rem;
+  cursor: pointer;
+}
+.dl-tidy-row:hover {
+  background: var(--surface-2);
+}
+.dl-tidy-list {
+  list-style: none;
+}
+.dl-tidy-list li {
+  display: grid;
+  padding: 0.3rem 0.75rem;
+}
+.dl-tidy progress {
+  width: 100%;
+}

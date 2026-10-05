@@ -179,3 +179,17 @@ recorded, and the result is checked again before it is shown (it must be correct
 original was); a derivation with an error in a line is not expanded. Pressing Expand again
 returns to the derivation. `src/engine/modules/derivation/expandDerivation.ts`,
 tested over every correct worked example and the student work in `tests/derivation/expand.test.ts`.
+
+## Web-only feature: Tidy (derivations)
+
+The Tidy button in the Derivations module bar cleans up many derivations at once. A dialog
+asks which clean-ups (blank lines, unused lines, repeated lines, notation; all by default)
+and which derivations with work (all by default; worked examples are left out), then shows
+what would change for confirmation before the work is saved. Queued justifications stay as
+they are (that is Expand's job); normalized notation keeps asserted results `[...]` (with their
+formulas normalized), answers after `/` and comments. Unused and repeated lines are only
+removed from derivations without line errors, and each tidied derivation is checked again: it
+must keep its verdict, or it is left as it was. `src/engine/modules/derivation/tidyDerivation.ts`
+(sharing Expand's step recording), `src/ui/modules/derivation/TidyDialog.tsx`; tested over the
+worked examples and the student work in `tests/derivation/tidy.test.ts`. Modules can put
+module-wide actions in the module bar through `ModuleProps.barSlot`.

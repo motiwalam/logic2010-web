@@ -27,6 +27,8 @@ export interface ModuleProps {
   openProblem(name: string | null, opts?: { replace?: boolean }): void;
   /** Dialogs (messages, questions, choices) — the same object as `dialogs` from dialogs.ts. */
   dialogs: DialogApi;
+  /** A place in the module bar (before Help and Work file) for module-wide actions; render into it with a portal. */
+  barSlot?: HTMLElement | null;
 }
 
 export interface ModuleDefinition {

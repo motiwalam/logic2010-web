@@ -975,6 +975,9 @@ ul {
   display: flex;
   gap: 0.25rem;
 }
+.module-bar-slot {
+  display: contents;
+}
 .module-layout {
   flex: 1;
   min-height: 0;

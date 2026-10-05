@@ -17,6 +17,8 @@ modules: Symbolization, Parsing, Truth Tables, Derivations, Invalidity and Recog
   unchanged), so queued
   justifications such as `2 3 mp 5 sl adj 4 mp` become a line per step, with repeated and
   unused lines removed.
+- **Tidy** (Derivations): cleans up your derivations in bulk (blank, unused and repeated
+  lines; notation), after showing what will change.
 
 The desktop program lives in the sibling repository `../logic2010`. This version reads the
 same course data files (`data/`, synced with `scripts/sync-data.sh`) and writes the same work

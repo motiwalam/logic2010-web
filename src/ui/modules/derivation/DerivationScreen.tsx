@@ -9,6 +9,7 @@
 // argument as a new user problem.
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { TaggedRecord } from '../../../engine/data/TaggedRecord';
 import { loadTips } from '../../../engine/program/loadProgram';
 import { DerivationConfig } from '../../../engine/modules/derivation/DerivationConfig';
@@ -17,6 +18,7 @@ import { ALT, CTRL, SHIFT, VK_DOWN, VK_LEFT, VK_RIGHT, VK_UP, type DerivationLin
 import { hasWork as recordHasWork, getProblemStatement } from '../../../engine/modules/derivation/DerivationProblemSet';
 import { DerivationWorkspace } from '../../../engine/modules/derivation/DerivationWorkspace';
 import { expandDerivation, ExpandError } from '../../../engine/modules/derivation/expandDerivation';
+import { tidyDerivation } from '../../../engine/modules/derivation/tidyDerivation';
 import { LPDerivation } from '../../../engine/modules/derivation/LPDerivation';
 import * as ops from '../../../engine/modules/derivation/problemOperations';
 import { HeadlessDialogs } from '../../../engine/modules/derivation/QueryDialog';
@@ -42,6 +44,7 @@ import { DerivationEditor, type DerivationEditorHandle } from './DerivationEdito
 import { explainLine, KEYS, PrintedDerivation, showAdvice, showInferenceRules, showKeys } from './extras';
 import { uiDerivationDialogs } from './QueryDialogView';
 import { RulesPanel, StackPanel } from './SidePanels';
+import { type TidyCandidate, tidyDialog } from './TidyDialog';
 import './derivation.css';
 
 // ---- loading the work ----
@@ -386,6 +389,37 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
     setExpansion({ vm, index: m.problemIndex, title: m.problemTitle, statement: m.problem.getFormulaText(false) ?? '', before: result.linesBefore, after: result.linesAfter });
   };
 
+  // ---- tidy: clean up the derivations of the work ----
+
+  const tidyAll = async () => {
+    await saveIfChanged();
+    const candidates: TidyCandidate[] = [];
+    ws.problems.elements().forEach((entry, i) => {
+      const record = ws.problems.getRecordAt(i);
+      if (record == null) return;
+      const t = new TaggedRecord(record);
+      const name = t.getName() ?? '';
+      if (!recordHasWork(t) || ws.isExample(name)) return;
+      candidates.push({ index: i, name, text: `${name}: ${translateSymbols(getProblemStatement(t) ?? '', maggie, symbols)}` });
+    });
+    if (candidates.length === 0) {
+      dialogs.notify('There are no derivations with work to tidy.');
+      return;
+    }
+    const outcomes = await tidyDialog(candidates, (c, options) => tidyDerivation(ws, ws.problems.getRecordAt(c.index)!, options));
+    if (outcomes == null) return;
+    await run(async () => {
+      for (const { candidate, result } of outcomes) {
+        ws.problems.replaceProblem(result.record, candidate.index);
+        await ws.updateState(ws.problems.getEntryAt(candidate.index)!);
+      }
+      if (outcomes.some((o) => o.candidate.index === m.problemIndex)) await ops.openProblem(m, m.problemIndex);
+    });
+    setExpansion(null);
+    persist();
+    dialogs.notify(`Tidied ${outcomes.length} derivation${outcomes.length === 1 ? '' : 's'}.`, { tone: 'success' });
+  };
+
   const deleteCurrent = async () => {
     if (ops.deleteKind(m) === 'work') {
       if (!ops.hasWork(m)) return;
@@ -709,6 +743,14 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
           )}
         </div>
       )}
+      {props.barSlot != null &&
+        !readOnly &&
+        createPortal(
+          <button type="button" className="btn btn-small btn-quiet" title="Clean up your derivations: blank, unused and repeated lines, notation" onClick={() => void tidyAll()}>
+            Tidy
+          </button>,
+          props.barSlot,
+        )}
       <PrintSheet title={printing?.title ?? ''} items={printing?.items ?? null} onDone={donePrinting} />
     </ModuleLayout>
   );

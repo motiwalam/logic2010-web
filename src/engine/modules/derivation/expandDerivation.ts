@@ -43,7 +43,7 @@ interface Arg {
 }
 
 /** One step of a line's justification as the check applied it. */
-interface Step {
+export interface Step {
   /** The rule name as the checker reads it (upper case: "MP", "ASS CD", "PR1", "T12"). */
   name: string;
   /** The rule as it is written in the expanded line ("Adj", "UI/a"). */
@@ -53,10 +53,12 @@ interface Step {
   result: Expression | null;
   /** The step's cached choices (a `:` field), or null. */
   cache: string | null;
+  /** DUP, DROP or SWAP (args and result are then empty). */
+  stackOp: boolean;
 }
 
 /** Records the steps of every line it checks (serial mode: one checker per line). */
-class RecordingChecker extends DerivationLineChecker {
+export class RecordingChecker extends DerivationLineChecker {
   readonly steps: Step[] = [];
   private presets: string[] = [];
   /** Parallel to the stack: whether each formula is the result of a premise step. */
@@ -99,6 +101,7 @@ class RecordingChecker extends DerivationLineChecker {
       else if (name === 'DROP') this.fromPremise.length = j - 1;
       else [this.fromPremise[j - 1], this.fromPremise[j - 2]] = [premises[j - 2], premises[j - 1]];
       this.lastWasPremise = false;
+      this.steps.push({ name, token: name + presets.map((p) => '/' + p).join(''), args: [], result: null, cache: null, stackOp: true });
       return ok;
     }
     const k = this.stack.length;
@@ -109,6 +112,7 @@ class RecordingChecker extends DerivationLineChecker {
       args: before.slice(k).map((formula, i) => ({ formula, fromPremise: premises[k + i] })),
       result: BOX_RULES.includes(name) ? null : this.result,
       cache: cached == null ? null : cached.encode(),
+      stackOp: false,
     });
     this.fromPremise.length = k;
     this.lastWasPremise = DerivationLineChecker.parsePremiseNumber(name) !== -1;
@@ -116,7 +120,7 @@ class RecordingChecker extends DerivationLineChecker {
   }
 
   /** The rule's name as the rule list writes it ("Adj"); box rules, assumptions, premises and theorems as read. */
-  private canonicalName(name: string): string {
+  canonicalName(name: string): string {
     if (BOX_RULES.includes(name) || name.startsWith('ASS ') || DerivationLineChecker.parsePremiseNumber(name) !== -1) return name;
     if (Theorem.parseTheoremNumber(name) != null) return name;
     const rule = this.module.getRule(name);
@@ -258,7 +262,7 @@ class Builder {
 
   /** The line's steps as lines of the box (the last one is the line itself). */
   private expandLine(source: DerivationLine, box: Box): void {
-    const steps = this.log.get(source) ?? [];
+    const steps = (this.log.get(source) ?? []).filter((step) => !step.stackOp);
     if (steps.length === 0) {
       // a blank line (an error-free line always has a step)
       return;
@@ -409,7 +413,7 @@ function countLines(m: LPDerivation): number {
 }
 
 /** The first line with an error that stops the expansion, or null. */
-function lineError(m: LPDerivation): ExpandError | null {
+export function lineError(m: LPDerivation): ExpandError | null {
   if (m.aborted()) return new ExpandError('The check of the derivation was interrupted.');
   if (!m.problem.showLine.syntaxOk) return new ExpandError('The problem line does not parse.', 0);
   for (const line of m.getLines().slice(1)) {
@@ -427,7 +431,7 @@ function lineError(m: LPDerivation): ExpandError | null {
 }
 
 /** A module that checks like Check, without a window's dialogs. */
-function checkingModule(ws: DerivationWorkspace): LPDerivation {
+export function checkingModule(ws: DerivationWorkspace): LPDerivation {
   return new LPDerivation(ws, { dialogs: new HeadlessDialogs(), hasFrame: true, doSubs: false });
 }
 

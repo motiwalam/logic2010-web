@@ -1,7 +1,7 @@
 // A module's page: the module bar (title, help, work-file actions) and the module's screen
 // (or its placeholder), for your own work or, read-only, someone else's.
 
-import { Component, Suspense, useEffect, type ErrorInfo, type ReactNode } from 'react';
+import { Component, Suspense, useEffect, useState, type ErrorInfo, type ReactNode } from 'react';
 import { workPath, type ModuleId } from '../../workspace/paths';
 import type { WorkSource } from '../../workspace/source';
 import { useServices, useWorkRevision } from '../app/context';
@@ -41,6 +41,7 @@ export function ModulePage({ moduleId, problem, source, owner }: { moduleId: str
   const work = source ?? services.own;
   const readOnly = work.readOnly;
   useWorkRevision(work);
+  const [barSlot, setBarSlot] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     if (!readOnly && info) rememberLast(info.id, problem);
@@ -76,6 +77,7 @@ export function ModulePage({ moduleId, problem, source, owner }: { moduleId: str
     problem,
     openProblem,
     dialogs,
+    barSlot,
   };
 
   let body: ReactNode;
@@ -116,6 +118,7 @@ export function ModulePage({ moduleId, problem, source, owner }: { moduleId: str
           {owner && <span className="muted">— {owner}</span>}
         </div>
         <div className="module-bar-actions">
+          <span className="module-bar-slot" ref={setBarSlot} />
           {(helpItems.length > 0 || chapters.length > 0) && (
             <Menu
               label="Help"
