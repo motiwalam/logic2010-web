@@ -19,6 +19,8 @@ modules: Symbolization, Parsing, Truth Tables, Derivations, Invalidity and Recog
   unused lines removed.
 - **Tidy** (Derivations): cleans up your derivations in bulk (blank, unused and repeated
   lines; notation), after showing what will change.
+- **Statistics** (Derivations): each completed derivation's length (lines entered, then a small expanded count)
+  in the problem list, and a sortable table of lengths, stack depth and Show lines.
 
 The desktop program lives in the sibling repository `../logic2010`. This version reads the
 same course data files (`data/`, synced with `scripts/sync-data.sh`) and writes the same work

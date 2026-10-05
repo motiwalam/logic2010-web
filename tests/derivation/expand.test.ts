@@ -5,7 +5,7 @@
  */
 import { describe, expect, test } from 'vitest';
 import { TaggedRecord } from '../../src/engine/data/TaggedRecord';
-import { expandDerivation, ExpandError } from '../../src/engine/modules/derivation/expandDerivation';
+import { expandDerivation, ExpandError, measureDerivation } from '../../src/engine/modules/derivation/expandDerivation';
 import { LPDerivation } from '../../src/engine/modules/derivation/LPDerivation';
 import { HeadlessDialogs } from '../../src/engine/modules/derivation/QueryDialog';
 import type { DerivationWorkspace } from '../../src/engine/modules/derivation/DerivationWorkspace';
@@ -141,5 +141,16 @@ describe('expand', () => {
     const ws = await loadDerivation(1, false);
     const record = userRecord('P->Q . P .: Q', '`Q`-Q`<pr1 mt`>2 dd`#');
     await expect(expandDerivation(ws, record)).rejects.toBeInstanceOf(ExpandError);
+  });
+});
+
+describe('measureDerivation', () => {
+  test('lines as entered and expanded, depth and Show lines', async () => {
+    const ws = await loadDerivation(1, false);
+    const record = userRecord(
+      'P->Q . P . R&S . (Q&R)->T .: T',
+      'T`-P`<PR2`>P->Q`<PR1`>(Q&R)->T`<PR4`>R&S`<PR3`>T`<2 3 mp 5 sl 4 drop adj[Q&R] 4 mp`>6 dd`#`<`>',
+    );
+    expect(await measureDerivation(ws, record)).toEqual({ lines: 7, expandedLines: 10, depth: 3, shows: 1, correct: true });
   });
 });

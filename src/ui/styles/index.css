@@ -1471,6 +1471,25 @@ ul {
   font-family: var(--font-logic);
   overflow-wrap: anywhere;
 }
+.problem-meta {
+  margin-left: auto;
+  flex: none;
+  align-self: flex-start;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.problem-meta-sub {
+  margin-left: 0.25em;
+  font-size: 0.68em;
+  opacity: 0.75;
+}
 .problem-row.state-correct {
   color: var(--good);
 }

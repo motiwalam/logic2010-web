@@ -193,3 +193,15 @@ must keep its verdict, or it is left as it was. `src/engine/modules/derivation/t
 (sharing Expand's step recording), `src/ui/modules/derivation/TidyDialog.tsx`; tested over the
 worked examples and the student work in `tests/derivation/tidy.test.ts`. Modules can put
 module-wide actions in the module bar through `ModuleProps.barSlot`.
+
+## Web-only feature: derivation statistics
+
+Completed derivations show their length in the problem list as the lines entered, followed
+by the expanded count in much smaller type (e.g. 2 then a small 5: two lines as entered, five with
+one rule per line; no slash, so it does not read as a fraction or progress). The Statistics button in the
+Derivations module bar shows a table of every derivation with work: lines as entered (not
+counting the problem line or blank lines), lines expanded (as Expand would show them; — with
+line errors), depth (the most formulas on the stack of any justification) and Show lines
+(not counting the problem line), sortable by any column, with averages. The figures come from
+`measureDerivation` (`src/engine/modules/derivation/expandDerivation.ts`), worked out in the
+background and cached per record (`src/ui/modules/derivation/derivationStats.ts`).

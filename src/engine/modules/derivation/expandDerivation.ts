@@ -55,6 +55,8 @@ export interface Step {
   cache: string | null;
   /** DUP, DROP or SWAP (args and result are then empty). */
   stackOp: boolean;
+  /** The most formulas on the stack during the step. */
+  stackSize: number;
 }
 
 /** Records the steps of every line it checks (serial mode: one checker per line). */
@@ -101,7 +103,15 @@ export class RecordingChecker extends DerivationLineChecker {
       else if (name === 'DROP') this.fromPremise.length = j - 1;
       else [this.fromPremise[j - 1], this.fromPremise[j - 2]] = [premises[j - 2], premises[j - 1]];
       this.lastWasPremise = false;
-      this.steps.push({ name, token: name + presets.map((p) => '/' + p).join(''), args: [], result: null, cache: null, stackOp: true });
+      this.steps.push({
+        name,
+        token: name + presets.map((p) => '/' + p).join(''),
+        args: [],
+        result: null,
+        cache: null,
+        stackOp: true,
+        stackSize: Math.max(before.length, this.stack.length),
+      });
       return ok;
     }
     const k = this.stack.length;
@@ -113,6 +123,7 @@ export class RecordingChecker extends DerivationLineChecker {
       result: BOX_RULES.includes(name) ? null : this.result,
       cache: cached == null ? null : cached.encode(),
       stackOp: false,
+      stackSize: before.length,
     });
     this.fromPremise.length = k;
     this.lastWasPremise = DerivationLineChecker.parsePremiseNumber(name) !== -1;
@@ -433,6 +444,48 @@ export function lineError(m: LPDerivation): ExpandError | null {
 /** A module that checks like Check, without a window's dialogs. */
 export function checkingModule(ws: DerivationWorkspace): LPDerivation {
   return new LPDerivation(ws, { dialogs: new HeadlessDialogs(), hasFrame: true, doSubs: false });
+}
+
+/** What the Statistics view shows of a derivation. */
+export interface DerivationStats {
+  /** Its lines as entered (not counting the problem line or blank lines). */
+  lines: number;
+  /** Its lines expanded (one rule per line), or null if it has errors in its lines. */
+  expandedLines: number | null;
+  /** The most formulas on the stack of any justification. */
+  depth: number;
+  /** Its Show lines (not counting the problem line). */
+  shows: number;
+  correct: boolean;
+}
+
+/** Measures the derivation of a work record (null if it has no problem). */
+export async function measureDerivation(ws: DerivationWorkspace, record: string): Promise<DerivationStats | null> {
+  const m = checkingModule(ws);
+  const log = new Map<DerivationLine, Step[]>();
+  m.createChecker = (line, interactive) => new RecordingChecker(line, interactive, log);
+  m.loadProblem(record);
+  if ((m.problem.getFormulaText(true) ?? '').trim() === '') return null;
+  const correct = await m.checkProblem();
+  let lines = 0;
+  let shows = 0;
+  for (const line of m.getLines().slice(1)) {
+    if (line.box.showLine === line) shows++;
+    else if (line.box.cancelLine !== line && (line.getFormulaText(false) ?? '').trim() === '' && (line.getAnnotationText(false) ?? '').trim() === '') continue;
+    lines++;
+  }
+  let depth = 0;
+  for (const steps of log.values()) for (const step of steps) depth = Math.max(depth, step.stackSize);
+  let expandedLines: number | null = null;
+  if (lineError(m) == null) {
+    try {
+      const root = new Builder(m, log).build();
+      expandedLines = encodeTree(root, neededNodes(root, m.conclusion, correct)).lines;
+    } catch (e) {
+      if (!(e instanceof ExpandError)) throw e;
+    }
+  }
+  return { lines, expandedLines, depth, shows, correct };
 }
 
 /**

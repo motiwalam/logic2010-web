@@ -45,6 +45,8 @@ import { explainLine, KEYS, PrintedDerivation, showAdvice, showInferenceRules, s
 import { uiDerivationDialogs } from './QueryDialogView';
 import { RulesPanel, StackPanel } from './SidePanels';
 import { type TidyCandidate, tidyDialog } from './TidyDialog';
+import { useDerivationStats } from './derivationStats';
+import { type StatsRow, StatsView } from './StatsView';
 import './derivation.css';
 
 // ---- loading the work ----
@@ -244,6 +246,52 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
     [ws, saved, m.problemIndex, version],
   );
 
+  // ---- statistics: line counts in the list, and the Statistics view ----
+
+  const stats = useDerivationStats(ws, saved);
+  const [showStats, setShowStats] = useState(false);
+  useEffect(() => setShowStats(false), [props.problem]);
+  const withLengths = (rows: typeof list.rows): typeof list.rows =>
+    rows.map((r) => {
+      if (r.kind !== 'problem' || r.state !== STATE_CORRECT) return r;
+      const st = stats.get(ws.problems.getRecord(r.id));
+      if (st == null) return r;
+      const expanded = st.expandedLines == null ? '–' : String(st.expandedLines);
+      return {
+        ...r,
+        // the expanded length much smaller, so the pair does not read as a fraction or progress
+        meta: (
+          <>
+            {st.lines}
+            <span className="problem-meta-sub">{expanded}</span>
+          </>
+        ),
+        metaTitle: `${st.lines} lines as entered, ${expanded} expanded (one rule per line)`,
+      };
+    });
+  const statsRows = (): StatsRow[] => {
+    // labelled as in the problem list
+    const labels = new Map<string, string>();
+    for (const r of list.rows) if (r.kind === 'problem' && typeof r.label === 'string') labels.set(r.id, r.label);
+    const out: StatsRow[] = [];
+    for (let i = 0; i < ws.problems.size(); i++) {
+      const record = ws.problems.getRecordAt(i);
+      if (record == null) continue;
+      const t = new TaggedRecord(record);
+      if (!recordHasWork(t)) continue;
+      const name = t.getName() ?? '';
+      out.push({
+        index: i,
+        name,
+        label: labels.get(TaggedRecord.nameOf(record) ?? '') ?? `${name}: ${translateSymbols(getProblemStatement(t) ?? '', maggie, symbols)}`,
+        example: ws.isExample(name),
+        correct: ws.problems.getEntryAt(i)?.state === STATE_CORRECT,
+        stats: stats.get(record),
+      });
+    }
+    return out;
+  };
+
   const statement = m.problem.getFormulaText(false) ?? '';
   const hasProblem = statement.trim() !== '';
   const isUserProblem = m.problemIndex === -1 && hasProblem;
@@ -364,6 +412,7 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
   }, [expandedView]);
 
   const toggleExpand = async () => {
+    setShowStats(false);
     if (expandedView != null) {
       setExpansion(null);
       requestAnimationFrame(() => editorRef.current?.focusCurrent());
@@ -656,7 +705,7 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
   );
 
   const aside =
-    hasProblem && expandedView == null && (showStack || showRules) ? (
+    hasProblem && !showStats && expandedView == null && (showStack || showRules) ? (
       <div className="dl-aside">
         {showStack && <StackPanel m={m} stateKey={stateKey} busy={busy} />}
         {showRules && <RulesPanel m={m} stateKey={stateKey} busy={busy} onUse={useRule} readOnly={readOnly} />}
@@ -668,8 +717,8 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
       sidebar={
         <ProblemList
           ref={listRef}
-          rows={list.rows}
-          filter={list.filter}
+          rows={withLengths(list.rows)}
+          filter={(q) => withLengths(list.filter(q))}
           countLabel={list.countLabel}
           hint={list.hint}
           searchPlaceholder={list.searchPlaceholder}
@@ -682,7 +731,17 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
       toolbar={toolbar}
       aside={aside}
     >
-      {!hasProblem ? (
+      {showStats ? (
+        <StatsView
+          rows={statsRows()}
+          pending={stats.pending}
+          onOpen={(name) => {
+            setShowStats(false);
+            void open(name);
+          }}
+          onClose={() => setShowStats(false)}
+        />
+      ) : !hasProblem ? (
         <div className="derivation-empty">
           <p className="lead">Choose a problem from the list{readOnly || m.config.noUser ? '' : ', or type your own argument with User problem'}.</p>
           {!readOnly && firstOpen && firstOpen.kind === 'problem' && (
@@ -744,11 +803,23 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
         </div>
       )}
       {props.barSlot != null &&
-        !readOnly &&
         createPortal(
-          <button type="button" className="btn btn-small btn-quiet" title="Clean up your derivations: blank, unused and repeated lines, notation" onClick={() => void tidyAll()}>
-            Tidy
-          </button>,
+          <>
+            <button
+              type="button"
+              className={'btn btn-small btn-quiet' + (showStats ? ' is-on' : '')}
+              aria-pressed={showStats}
+              title="Lengths, depths and Show lines of your derivations, sortable"
+              onClick={() => setShowStats(!showStats)}
+            >
+              Statistics
+            </button>
+            {!readOnly && (
+              <button type="button" className="btn btn-small btn-quiet" title="Clean up your derivations: blank, unused and repeated lines, notation" onClick={() => void tidyAll()}>
+                Tidy
+              </button>
+            )}
+          </>,
           props.barSlot,
         )}
       <PrintSheet title={printing?.title ?? ''} items={printing?.items ?? null} onDone={donePrinting} />

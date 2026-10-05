@@ -37,6 +37,9 @@ export type ProblemRow =
       restricted?: boolean;
       /** Counted in "Completed / Not completed" (not worked examples or your own problems). */
       counted?: boolean;
+      /** A short note at the row's end (e.g. a derivation's length), and its explanation. */
+      meta?: ReactNode;
+      metaTitle?: string;
     };
 
 /**
@@ -303,6 +306,11 @@ export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(funct
                 {glyph(stateName(r.state))}
               </span>
               <span className="problem-label">{r.label}</span>
+              {r.meta != null && (
+                <span className="problem-meta" title={r.metaTitle}>
+                  {r.meta}
+                </span>
+              )}
               <span className="visually-hidden">
                 {', ' + STATE_LABELS[stateName(r.state)]}
                 {r.restricted ? ', restricted' : ''}
