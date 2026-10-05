@@ -16,6 +16,7 @@ import { DerivationLine } from '../../../engine/modules/derivation/DerivationLin
 import { ALT, CTRL, SHIFT, VK_DOWN, VK_LEFT, VK_RIGHT, VK_UP, type DerivationLineEditor } from '../../../engine/modules/derivation/DerivationLineEditor';
 import { hasWork as recordHasWork, getProblemStatement } from '../../../engine/modules/derivation/DerivationProblemSet';
 import { DerivationWorkspace } from '../../../engine/modules/derivation/DerivationWorkspace';
+import { expandDerivation, ExpandError } from '../../../engine/modules/derivation/expandDerivation';
 import { LPDerivation } from '../../../engine/modules/derivation/LPDerivation';
 import * as ops from '../../../engine/modules/derivation/problemOperations';
 import { HeadlessDialogs } from '../../../engine/modules/derivation/QueryDialog';
@@ -316,6 +317,7 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
 
   const check = async () => {
     if (!hasProblem) return;
+    setExpansion(null);
     await run(() => m.check());
     await saveIfChanged();
     const s = m.titleState.status;
@@ -343,6 +345,45 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
     if (!ok) return;
     if (props.problem != null) openProblem(null);
     requestAnimationFrame(() => editorRef.current?.focusCurrent());
+  };
+
+  // ---- expand: a read-only view of the derivation with one rule per line ----
+
+  // the expanded view (its own module), of the problem it was made for; the work is not changed
+  const [expansion, setExpansion] = useState<{ vm: LPDerivation; index: number; title: string | null; statement: string; before: number; after: number } | null>(null);
+  const expandedView =
+    expansion != null && expansion.index === m.problemIndex && expansion.title === m.problemTitle && expansion.statement === (m.problem.getFormulaText(false) ?? '')
+      ? expansion
+      : null;
+  const viewVersion = useModel(expandedView?.vm ?? null);
+  const viewRun = useCallback(async (op: () => unknown) => {
+    if (expandedView != null) await expandedView.vm.run(op);
+  }, [expandedView]);
+
+  const toggleExpand = async () => {
+    if (expandedView != null) {
+      setExpansion(null);
+      requestAnimationFrame(() => editorRef.current?.focusCurrent());
+      return;
+    }
+    if (!hasProblem) return;
+    let result: Awaited<ReturnType<typeof expandDerivation>>;
+    try {
+      result = await expandDerivation(ws, m.saveProblem());
+    } catch (e) {
+      if (!(e instanceof ExpandError)) throw e;
+      dialogs.notify(e.message, { tone: 'error' });
+      return;
+    }
+    if (!result.changed) {
+      dialogs.notify('Nothing to expand: every line already applies a single rule.');
+      return;
+    }
+    const vm = new LPDerivation(ws, { dialogs: new HeadlessDialogs(), hasFrame: true, doSubs: true });
+    vm.loadProblem(result.record);
+    vm.problem.expandAll();
+    if (!m.checkDisabled) await vm.checkProblem();
+    setExpansion({ vm, index: m.problemIndex, title: m.problemTitle, statement: m.problem.getFormulaText(false) ?? '', before: result.linesBefore, after: result.linesAfter });
   };
 
   const deleteCurrent = async () => {
@@ -486,6 +527,15 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
     <Toolbar label="Derivation" className="dl-toolbar">
       <ToolButton label="‹ Prev" shortcut="Alt+ArrowUp" showShortcut={false} onClick={() => go(-1)} aria-label="Previous problem" />
       <ToolButton label="Next ›" shortcut="Alt+ArrowDown" altShortcuts={['Alt+N']} showShortcut={false} onClick={() => go(1)} aria-label="Next problem" />
+      <ToolbarSeparator />
+      <ToolButton
+        label="Expand"
+        aria-pressed={expandedView != null}
+        className={expandedView != null ? 'is-on' : ''}
+        title={expandedView != null ? 'Back to the derivation' : 'View the derivation with one rule per line (your work is not changed)'}
+        disabled={!hasProblem}
+        onClick={() => void toggleExpand()}
+      />
       {!readOnly && (
         <>
           <ToolbarSeparator />
@@ -498,7 +548,7 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
             items={LINE_OPS.map((o) => ({
               label: o.label,
               shortcut: o.keys,
-              disabled: !hasProblem || (o.needsShow === true && !focusedIsShow),
+              disabled: !hasProblem || expandedView != null || (o.needsShow === true && !focusedIsShow),
               onSelect: () => void lineOp(o.op),
             }))}
           />
@@ -572,7 +622,7 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
   );
 
   const aside =
-    hasProblem && (showStack || showRules) ? (
+    hasProblem && expandedView == null && (showStack || showRules) ? (
       <div className="dl-aside">
         {showStack && <StackPanel m={m} stateKey={stateKey} busy={busy} />}
         {showRules && <RulesPanel m={m} stateKey={stateKey} busy={busy} onUse={useRule} readOnly={readOnly} />}
@@ -631,8 +681,20 @@ function DerivationWork({ ws, saved, persist, props }: { ws: DerivationWorkspace
         </div>
       ) : (
         <div className="derivation-wrap">
-          <DerivationEditor ref={editorRef} m={m} version={version} readOnly={readOnly} run={run} busy={busy} onCursor={() => setCursor((n) => n + 1)} onExplain={(line) => void explainLine(line, run)} />
-          {!readOnly && (
+          {expandedView != null ? (
+            <>
+              <p className="dl-expand-banner" role="status">
+                <strong>Expanded view</strong>: one rule per line ({expandedView.before} → {expandedView.after} lines). It is read-only and your derivation is unchanged.{' '}
+                <button type="button" className="linklike" onClick={() => void toggleExpand()}>
+                  Back to the derivation
+                </button>
+              </p>
+              <DerivationEditor m={expandedView.vm} version={viewVersion} readOnly run={viewRun} busy={busy} onCursor={() => undefined} onExplain={(line) => void explainLine(line, viewRun)} />
+            </>
+          ) : (
+            <DerivationEditor ref={editorRef} m={m} version={version} readOnly={readOnly} run={run} busy={busy} onCursor={() => setCursor((n) => n + 1)} onExplain={(line) => void explainLine(line, run)} />
+          )}
+          {!readOnly && expandedView == null && (
             <div className="derivation-foot">
               <button type="button" className="btn btn-small btn-quiet" onClick={() => void lineOp({ typed: '\n', mods: ALT })} title="A new line after the current one (Alt+Enter)">
                 + Line

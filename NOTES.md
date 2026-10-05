@@ -166,3 +166,16 @@ and work files; the app turns it on (`src/ui/engine/engine.ts`), and it is off b
 the differential tests run the desktop's behaviour. Blue Book records in an imported work
 file are kept aside (`ProblemSet.excludedRecords`): the digest still verifies and saving
 writes them back, so the file still loads in the desktop program with that work.
+
+## Web-only feature: Expand (derivations)
+
+The Expand button of the Derivations screen toggles a read-only view of the derivation
+rewritten so that no line queues steps (the work itself is not changed): every line is a Show line, an assumption, or one rule applied to cited lines and
+premises (premises stay references, PRn; theorems get lines of their own; DUP, DROP and SWAP
+go). It also simplifies: citations go to the first line in reach with the formula, repeated
+formulas and blank lines are dropped, and closed boxes (and a finished derivation) keep only
+what their last line needs. The derivation is checked as Check does while its steps are
+recorded, and the result is checked again before it is shown (it must be correct if the
+original was); a derivation with an error in a line is not expanded. Pressing Expand again
+returns to the derivation. `src/engine/modules/derivation/expandDerivation.ts`,
+tested over every correct worked example and the student work in `tests/derivation/expand.test.ts`.

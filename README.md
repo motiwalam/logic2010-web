@@ -13,6 +13,10 @@ modules: Symbolization, Parsing, Truth Tables, Derivations, Invalidity and Recog
   older `derwork.txt`-style files), or export yours as `.rec` files (one module, or all as a
   zip). Exported files load in the desktop program's local mode (`./run.sh --local`).
 - **Both notations** of the course (notation 1 and 2), each with its own work.
+- **Expand** (Derivations): shows a derivation with one rule per line (a view; the work is
+  unchanged), so queued
+  justifications such as `2 3 mp 5 sl adj 4 mp` become a line per step, with repeated and
+  unused lines removed.
 
 The desktop program lives in the sibling repository `../logic2010`. This version reads the
 same course data files (`data/`, synced with `scripts/sync-data.sh`) and writes the same work
