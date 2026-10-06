@@ -205,3 +205,11 @@ line errors), depth (the most formulas on the stack of any justification) and Sh
 (not counting the problem line), sortable by any column, with averages. The figures come from
 `measureDerivation` (`src/engine/modules/derivation/expandDerivation.ts`), worked out in the
 background and cached per record (`src/ui/modules/derivation/derivationStats.ts`).
+
+## Web-only feature: Incomplete only (problem lists)
+
+Every module's problem list has an "Incomplete only" toggle under the search field. It hides the
+problems in the correct state, every worked example (`options: eg`, including the examples given
+with errors, such as Deriv 1.003Err) and the headings left with nothing under them, but keeps the
+open problem, so finishing one does not make it vanish. It combines with the search, and the
+setting is one for all modules, remembered in the browser (localStorage).

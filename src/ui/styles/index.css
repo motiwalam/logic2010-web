@@ -1383,6 +1383,43 @@ ul {
   background: var(--accent-soft);
   color: var(--accent);
 }
+.problem-filters {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem 0.5rem;
+}
+.problem-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.1rem 0.55rem 0.1rem 0.35rem;
+  border: var(--border-w) solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 0.8125rem;
+  cursor: pointer;
+}
+.problem-filter-toggle:hover {
+  color: var(--ink);
+}
+.problem-filter-toggle[aria-pressed='true'] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.problem-filter-box {
+  display: inline-grid;
+  place-items: center;
+  width: 0.9rem;
+  height: 0.9rem;
+  border: var(--border-w) solid currentColor;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  line-height: 1;
+}
 .search-help {
   margin: 0 0.75rem 0.5rem;
   padding: 0.5rem 0.65rem;

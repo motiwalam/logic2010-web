@@ -37,6 +37,8 @@ export type ProblemRow =
       restricted?: boolean;
       /** Counted in "Completed / Not completed" (not worked examples or your own problems). */
       counted?: boolean;
+      /** A worked example (hidden by "Incomplete only", whatever its state). */
+      example?: boolean;
       /** A short note at the row's end (e.g. a derivation's length), and its explanation. */
       meta?: ReactNode;
       metaTitle?: string;
@@ -68,6 +70,40 @@ export function defaultFilter(query: string, rows: readonly ProblemRow[]): Probl
     }
   }
   return out;
+}
+
+/**
+ * The rows without completed problems and worked examples (keeping `keep`, the open problem, so it
+ * does not vanish when it is finished); headings stay only above a problem that is left.
+ */
+export function onlyIncomplete(rows: readonly ProblemRow[], keep: string | null = null): ProblemRow[] {
+  const out: ProblemRow[] = [];
+  let headings: ProblemRow[] = [];
+  let lastWasProblem = true;
+  for (const r of rows) {
+    if (r.kind === 'heading') {
+      if (lastWasProblem) headings = [];
+      headings.push(r);
+      lastWasProblem = false;
+      continue;
+    }
+    lastWasProblem = true;
+    if ((r.example || stateName(r.state) === 'correct') && r.id !== keep) continue;
+    out.push(...headings);
+    headings = [];
+    out.push(r);
+  }
+  return out;
+}
+
+const INCOMPLETE_ONLY_KEY = 'logic2010.incompleteOnly';
+
+function loadIncompleteOnly(): boolean {
+  try {
+    return localStorage.getItem(INCOMPLETE_ONLY_KEY) === '1';
+  } catch {
+    return false;
+  }
 }
 
 /** "Completed: n    Not completed: m" (the desktop's count line), plus the matches while searching. */
@@ -146,8 +182,22 @@ function glyph(state: ProblemState): string {
 export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(function ProblemList(props, ref) {
   const { rows, selected, onOpen } = props;
   const [query, setQuery] = useState('');
+  // one setting for every module's list, remembered in this browser
+  const [incompleteOnly, setIncompleteOnly] = useState(loadIncompleteOnly);
+  const toggleIncompleteOnly = () => {
+    const next = !incompleteOnly;
+    setIncompleteOnly(next);
+    try {
+      localStorage.setItem(INCOMPLETE_ONLY_KEY, next ? '1' : '0');
+    } catch {
+      // not remembered
+    }
+  };
   const filter = props.filter ?? defaultFilter;
-  const shown = useMemo(() => filter(query, rows), [filter, query, rows]);
+  const shown = useMemo(() => {
+    const found = filter(query, rows);
+    return incompleteOnly ? onlyIncomplete(found, selected) : found;
+  }, [filter, query, rows, incompleteOnly, selected]);
   const [cursor, setCursor] = useState<string | null>(selected);
   const search = useRef<HTMLInputElement>(null);
   const list = useRef<HTMLUListElement>(null);
@@ -258,6 +308,20 @@ export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(funct
           </button>
         )}
       </div>
+      <div className="problem-filters">
+        <button
+          type="button"
+          className="problem-filter-toggle"
+          aria-pressed={incompleteOnly}
+          title={incompleteOnly ? 'Show every problem again' : 'Show only the problems not completed yet (no worked examples)'}
+          onClick={toggleIncompleteOnly}
+        >
+          <span aria-hidden="true" className="problem-filter-box">
+            {incompleteOnly ? '✓' : ''}
+          </span>
+          Incomplete only
+        </button>
+      </div>
       {props.searchHelp != null && helpOpen && (
         <div id={baseId + '-help'} className="search-help" role="note">
           {props.searchHelp}
@@ -320,7 +384,7 @@ export const ProblemList = forwardRef<ProblemListHandle, ProblemListProps>(funct
         )}
         {shown.length === 0 && (
           <li role="presentation" className="problem-empty">
-            {query ? 'No problem matches every word.' : 'No problems.'}
+            {query ? 'No problem matches every word.' : incompleteOnly ? 'Every problem is completed.' : 'No problems.'}
           </li>
         )}
       </ul>

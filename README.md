@@ -21,6 +21,8 @@ modules: Symbolization, Parsing, Truth Tables, Derivations, Invalidity and Recog
   lines; notation), after showing what will change.
 - **Statistics** (Derivations): each completed derivation's length (lines entered, then a small expanded count)
   in the problem list, and a sortable table of lengths, stack depth and Show lines.
+- **Incomplete only** (every module): a toggle under the problem search that shows only the
+  problems not completed yet, without worked examples (the open problem stays); remembered in the browser.
 
 The desktop program lives in the sibling repository `../logic2010`. This version reads the
 same course data files (`data/`, synced with `scripts/sync-data.sh`) and writes the same work

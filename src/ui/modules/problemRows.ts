@@ -3,7 +3,7 @@
 
 import { TaggedRecord } from '../../engine/data/TaggedRecord';
 import { ProblemCounts, ProblemListModel } from '../../engine/problems/ProblemList';
-import type { ProblemSet } from '../../engine/problems/ProblemSet';
+import { ProblemSet } from '../../engine/problems/ProblemSet';
 import type { ProblemRow } from '../components/ProblemList';
 
 /** The name (as in URLs and openProblem) of the set's problem at index. */
@@ -23,6 +23,7 @@ function toRows(model: ProblemListModel, rows: ProblemListModel['rows'], set: Pr
           state: r.state,
           restricted: r.restricted,
           counted: counts ? counts.counted[r.index] : true,
+          example: ProblemSet.isExample(new TaggedRecord(set.getRecordAt(r.index) ?? '')),
         },
   );
 }
